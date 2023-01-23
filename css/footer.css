@@ -1,0 +1,19 @@
+footer {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 2px;
+    margin-right: 2px;
+    border-top: 1px solid rgba(158, 158, 158, 0.308);
+}
+
+footer * img {
+    width: 2%;
+}
+
+.redes {
+    cursor: pointer;
+}
+
+.info {
+    cursor: pointer;
+}
