@@ -25,7 +25,8 @@
 
         if ($rows == 1) {
             $user = mysqli_fetch_assoc($result);
-            if (password_verify($password, $user['Contraseña'])) {
+            $hash = $user['Contraseña'];
+            if (password_verify($password, $hash)) {
                 $_SESSION['username'] = $username;
                 // Redirecciona al usuario a la página principal
                 header("Location: ../index.php");
@@ -48,8 +49,8 @@
             ?>
             <form action="" method="post" name="login">
                 <input type="text" name="username" value="<?php echo isset($_GET['username']) ? $_GET['username'] : '' ?>"
-                    placeholder="Correo" required /><input type="password" name="password" placeholder="Contraseña"
-                    required />
+                    placeholder="Correo" required />
+                <input type="password" name="password" placeholder="Contraseña" required />
                 <input name="submit" type="submit" value="Login" />
             </form>
             <p>Todavía sin una cuenta? <a href='registro.php'>Registrate aquí</a></p>
