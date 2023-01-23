@@ -8,14 +8,9 @@
 
 <body>
     <?php
-    /**
-     * Implementar clase db.php que contiene la conexión con la base de datos, y iniciamos la session
-     */
     require('db.php');
     session_start();
-    /**
-     * Comprobar si "username" tiene valor
-     */
+
     if (isset($_POST['username'])) {
         // Quita las slashes del usuario
         $username = stripslashes($_REQUEST['username']);
@@ -23,16 +18,21 @@
         $username = mysqli_real_escape_string($con, $username);
         $password = stripslashes($_REQUEST['password']);
         $password = mysqli_real_escape_string($con, $password);
-        
         //Comprueba si el usuario existe en la base de datos
-        $query = "SELECT usuarios.Correo, usuarios.Contraseña FROM `usuarios` WHERE Correo='$username'
-    and Contraseña='" . $password . "'";
+        $query = "SELECT usuarios.Correo, usuarios.Contraseña FROM `usuarios` WHERE Correo='$username'";
         $result = mysqli_query($con, $query) or die(mysql_error());
         $rows = mysqli_num_rows($result);
+
         if ($rows == 1) {
-            $_SESSION['username'] = $username;
-            // Redirecciona al usuario a la página principal
-            header("Location: ../index.php");
+            $user = mysqli_fetch_assoc($result);
+            if (password_verify($password, $user['Contraseña'])) {
+                $_SESSION['username'] = $username;
+                // Redirecciona al usuario a la página principal
+                header("Location: ../index.php");
+            } else {
+                // Recarga la página con el usuario introducido y muestra un mensaje de error
+                echo "<script> window.location.href = 'login.php?username=$username&error=1' </script>";
+            }
         } else {
             // Recarga la página con el usuario introducido y muestra un mensaje de error
             echo "<script> window.location.href = 'login.php?username=$username&error=1' </script>";
@@ -48,8 +48,8 @@
             ?>
             <form action="" method="post" name="login">
                 <input type="text" name="username" value="<?php echo isset($_GET['username']) ? $_GET['username'] : '' ?>"
-                    placeholder="Correo" required />
-                <input type="password" name="password" placeholder="Contraseña" required />
+                    placeholder="Correo" required /><input type="password" name="password" placeholder="Contraseña"
+                    required />
                 <input name="submit" type="submit" value="Login" />
             </form>
             <p>Todavía sin una cuenta? <a href='registro.php'>Registrate aquí</a></p>
