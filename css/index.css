@@ -1,0 +1,86 @@
+/*GENERAL*/
+
+
+
+
+/*CARROUSEL*/
+
+.banner {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.banner img {
+    max-width: 100%;
+}
+
+@media (max-width: 768px) {
+    .banner img {
+        width: 100%;
+    }
+}
+
+/*CATEGORIAS*/
+
+.categorias {
+    display: flex;
+    /* Habilita Flexbox */
+    flex-wrap: wrap;
+    /* Permite que los elementos se ajusten automáticamente a la pantalla */
+    justify-content: center;
+    /* Alinea los elementos en el centro del contenedor */
+    align-items: center;
+    /* Centra los elementos verticalmente */
+    border-top: 1px solid rgba(158, 158, 158, 0.308);
+    /* Agrega una línea de separación en la parte superior */
+    border-bottom: 1px solid rgba(158, 158, 158, 0.308);
+    /* Agrega una línea de separación en la parte inferior */
+}
+
+/* Estilos para los elementos dentro del contenedor */
+.item {
+    flex: 1;
+    /* Permite que los elementos ocupen el mismo espacio */
+    margin: 10px;
+    /* Agrega margen entre los elementos */
+    display: flex;
+    /* Establece que los elementos dentro del contenedor se dispongan en línea */
+    justify-content: center;
+    /* Centra los elementos en el eje horizontal */
+    flex-direction: column;
+    /* Establece que los elementos dentro del contenedor se dispongan en columnas */
+    align-items: center;
+    /* Centra los elementos en el eje vertical */
+    text-align: center;
+}
+
+.item img {
+    width: 40%;
+}
+
+.item:hover {
+    cursor: pointer;
+    background-color: rgba(158, 158, 158, 0.308);
+    }
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 600px) {
+    .categorias {
+        flex-direction: column;
+        /* Cambia la dirección de los elementos para que se vean debajo en dispositivos móviles */
+    }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+    .categorias {
+        flex-wrap: wrap;
+        /* Evita que los elementos se ajusten automáticamente */
+    }
+
+    .item {
+        flex: 0 0 30%;
+        /* Establece que cada elemento ocupe el 50% del ancho del contenedor */
+    }
+}
