@@ -19,6 +19,7 @@
 </head>
 
 <body>
+
     <header>
         <div class="container">
             <div class="logo"><img src="imagenes/Header/Logo/Logo.svg" />Mi Sitio</div>
@@ -31,7 +32,17 @@
                 <li><a href="#">Inicio</a></li>
                 <li><a href="#">Acerca de</a></li>
                 <li><a href="#">Contacto</a></li>
-                <li><a href="#">Mi Cuenta</a></li>
+                <li><a href="#" onmouseover="getcuentaInfo()">Mi Cuenta
+                        <?php
+                        // Connect to the database
+                        $conn = new mysqli("localhost", "root", "", "construccion");
+                        // Retrieve the account information from the database
+                        $result = $conn->query("SELECT * FROM usuarios ");
+                        $cuenta = $result->fetch_assoc();
+                        // Return the cuenta information as a JSON object
+                        echo json_encode($cuenta);
+                        ?>
+                    </a></li>
             </ul>
         </div>
     </header>

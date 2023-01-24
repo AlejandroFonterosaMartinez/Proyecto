@@ -22,3 +22,18 @@ function showMenu() {
         x[0].style.display = "block";
     }
 }
+
+function getcuentaInfo() {
+    // Use AJAX to send a request to a PHP file
+    // In the PHP file, retrieve the account information from the database
+    // and return it as a JSON object
+    $.ajax({
+        url: 'getAccountInfo.php',
+        type: 'GET',
+        success: function (data) { // Parse the returned JSON object
+            var account = JSON.parse(data);
+            // Display the account information in a dropdown menu
+            showAccountInfo(account);
+        }
+    });
+}
