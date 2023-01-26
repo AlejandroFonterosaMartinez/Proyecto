@@ -1,39 +1,36 @@
-var slideIndex = 0;
-showSlides();
-function showSlides() {
-    var i;
-    var slides = document.getElementsByClassName("slide");
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    slideIndex++;
-    if (slideIndex > slides.length) {
-        slideIndex = 1;
-    }
-    slides[slideIndex - 1].style.display = "block";
-    setTimeout(showSlides, 2000); // Change image every 2 seconds
-}
+function addDropdownMenu() {
+  var accountLink = document.getElementById("account-link");
+  var accountMenu = document.getElementById("account-menu");
+  var menuVisible = false;
 
-function showMenu() {
-    var x = document.getElementsByClassName("nav-links");
-    if (x[0].style.display === "block") {
-        x[0].style.display = "none";
-    } else {
-        x[0].style.display = "block";
-    }
-}
+  accountLink.addEventListener("mouseover", function () {
+    accountMenu.style.display = "block";
+    menuVisible = true;
+  });
 
-function getcuentaInfo() {
-    // Use AJAX to send a request to a PHP file
-    // In the PHP file, retrieve the account information from the database
-    // and return it as a JSON object
-    $.ajax({
-        url: 'getAccountInfo.php',
-        type: 'GET',
-        success: function (data) { // Parse the returned JSON object
-            var account = JSON.parse(data);
-            // Display the account information in a dropdown menu
-            showAccountInfo(account);
-        }
+  accountMenu.addEventListener("mouseover", function () {
+    menuVisible = true;
+  });
+
+  accountLink.addEventListener("mouseout", function () {
+    if (!menuVisible) {
+      accountMenu.style.display = "none";
+    }
+  });
+
+  accountMenu.addEventListener("mouseout", function () {
+    menuVisible = false;
+    accountMenu.style.display = "none";
+  });
+
+  var menuLinks = accountMenu.getElementsByTagName("a");
+  for (var i = 0; i < menuLinks.length; i++) {
+    menuLinks[i].addEventListener("mouseover", function () {
+      menuVisible = true;
     });
+    menuLinks[i].addEventListener("mouseout", function () {
+      menuVisible = false;
+      accountMenu.style.display = "none";
+    });
+  }
 }

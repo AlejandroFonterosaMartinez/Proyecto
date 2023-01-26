@@ -9,17 +9,47 @@
     <link href="css/header.css" rel="stylesheet" type="text/css">
     <link href="css/index.css" rel="stylesheet" type="text/css">
     <link href="css/footer.css" rel="stylesheet" type="text/css">
-    <script src="javascript/script.js"></script>
-
     <link rel="shortcut icon" href="imagenes/Header/Logo/Logo.svg" type="image/x-icon" />
     <link rel="icon" href="imagenes/Logos/Header/Logo.svg" type="image/x-icon" />
-    <style>
-
-    </style>
+    <script src="javascript/script.js"></script>
 </head>
+<style>
+    .posicion {
+        position: relative;
+    }
 
-<body>
+    .account-menu {
+        display: none;
+        /* oculta el menú por defecto */
+        position: absolute;
+        top: 35px;
+        /* posición debajo del enlace "Mi Cuenta" */
+        left: 0;
+        width: 150px;
+        /* tamaño del cuadrado */
+        padding: 10px;
+        /* espaciado interno */
+        background-color: #fff;
+        /* color de fondo */
+        border: 1px solid #ccc;
+        /* borde */
+        z-index: 1;
+        /* coloca el menú por encima de otros elementos */
+    }
 
+    .account-menu a {
+        display: block;
+        /* muestra cada enlace como bloque */
+        padding: 10px;
+        /* espaciado interno */
+        color: #000;
+        /* color del texto */
+        text-decoration: none;
+        /* quita el subrayado */
+    }
+</style>
+
+<body onload="addDropdownMenu()">
     <header>
         <div class="container">
             <div class="logo"><img src="imagenes/Header/Logo/Logo.svg" />Mi Sitio</div>
@@ -28,23 +58,21 @@
                 <button type="submit">Buscar</button>
             </form>
 
-            <ul class="nav-links">
+            <ul class="nav-links" >
                 <li><a href="#">Inicio</a></li>
                 <li><a href="#">Acerca de</a></li>
                 <li><a href="#">Contacto</a></li>
-                <li><a href="#" onmouseover="getcuentaInfo()">Mi Cuenta
-                        <?php
-                        // Connect to the database
-                        $conn = new mysqli("localhost", "root", "", "construccion");
-                        // Retrieve the account information from the database
-                        $result = $conn->query("SELECT * FROM usuarios ");
-                        $cuenta = $result->fetch_assoc();
-                        // Return the cuenta information as a JSON object
-                        echo json_encode($cuenta);
-                        ?>
-                    </a></li>
+                <li  class="posicion"><a href="#" id="account-link">Mi Cuenta</a>
+                    <div class="account-menu" id="account-menu" style="display:none; position:absolute; top:35px; left:0;">
+                        <a href="#">Editar perfil</a>
+                        <a href="#">Desconectarse</a>
+                    </div>
+
+                </li>
             </ul>
+
         </div>
+
     </header>
     <nav>
         <div class="carrusel">
