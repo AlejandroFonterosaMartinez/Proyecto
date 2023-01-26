@@ -13,8 +13,10 @@
     <link rel="shortcut icon" href="imagenes/Header/Logo/Logo.svg" type="image/x-icon" />
     <link rel="icon" href="imagenes/Logos/Header/Logo.svg" type="image/x-icon" />
     <script src="javascript/script.js"></script>
+    <script src="javascript/carrusel.js"></script>
 </head>
 <style>
+    
     .posicion {
         position: relative;
     }
@@ -54,7 +56,7 @@
     <header>
         <div class="container">
             <div class="infoPag">
-                <img src="imagenes/Header/Logo.svg"/>
+                <img src="imagenes/Header/Logo.svg" />
                 NombreTienda
             </div>
             <div class="buscador">
@@ -63,14 +65,14 @@
             </div>
 
             <div class="menuPers">
-                <a href="#"><img src="imagenes/Header/User.svg"/>Mi Cuenta</a>
-                <a href="#"><img src="imagenes/Header/Presupuesto.svg"/>Presupuesto</a>
-                <a href="#"><img src="imagenes/Header/Carrito.svg"/>Pedido</a>
+                <a href="#"><img src="imagenes/Header/User.svg" />Mi Cuenta</a>
+                <a href="#"><img src="imagenes/Header/Presupuesto.svg" />Presupuesto</a>
+                <a href="#"><img src="imagenes/Header/Carrito.svg" />Pedido</a>
             </div>
         </div>
     </header>
     <nav>
-        
+
         <div class="carousel">
             <div id="imagen"></div>
         </div>
