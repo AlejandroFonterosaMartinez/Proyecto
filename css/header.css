@@ -1,109 +1,242 @@
-header {
-    position: sticky;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #fff;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* Estilos para el contenedor principal */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* Estilos para el logo */
-.logo {
-    font-size: 1.5em;
-    font-weight: bold;
-    margin-left: 1em;
-}
-
-.logo img {
-    width: 7%;
-    margin-right: 1em;
-}
-
-/* Estilos para el buscador */
-.search-form {
-    display: flex;
-    align-items: center;
-    margin-right: 1em;
-}
-
-/* Estilos para el input de busqueda */
-.search-form input[type="text"] {
-    padding: 0.5em;
-    border: none;
-    border-radius: 5px 0 0 5px;
-    margin-right: -1px;
-}
-
-/* Estilos para el boton de busqueda */
-.search-form button[type="submit"] {
-    padding: 0.5em 1em;
-    border: none;
-    background-color: #FF671E;
-    color: #fff;
-    border-radius: 0 5px 5px 0;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-links li {
-    margin-left: 1em;
-}
-
-/* Estilos para los enlaces */
-.nav-links a {
-    text-decoration: none;
-    color: #333;
-}
-
-/* Estilos para pantallas más grandes */
-@media (max-width: 600px) {
-    .nav-links {
-        display: flex; /* Muestra los enlaces del menú */
+/* Estilos para Pantallas de PC */
+@media (min-width: 1090px) {
+    header {
+        position: sticky;
+        display: flex;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
     }
 
-    .menu-button {
-        display: none; /* Oculta el botón de menú */
+    /* Estilos para el contenedor principal */
+    .container {
+        display: flex;
+        align-items: center;
+        width: 100%;
     }
 
-    .logo img {
+    .container>div {
+        width: 33%;
+        justify-content: center;
+    }
+
+    /* Estilos para el logo */
+    .infoPag {
+        display: flex;
+        font-size: larger;
+        font-weight: bolder;
+        align-items: center;
+        color: #3a3a3a;
+    }
+
+    .infoPag img {
+        width: 9%;
+    }
+
+    .buscador {
+        display: flex;
+    }
+
+    /* Estilos para el input de busqueda */
+    .buscador input[type="text"] {
+        padding: 0.5em;
+        border: none;
+        border-radius: 5px 0 0 5px;
+        margin-right: -1px;
         width: 50%;
-        margin-right: 1em;
     }
+
+    /* Estilos para el boton de busqueda */
+    .buscador button[type="submit"] {
+        padding: 0.5em 1em;
+        border: none;
+        background-color: #018273;
+        color: #fff;
+        border-radius: 0 5px 5px 0;
+    }
+
+    .menuPers {
+        display: flex;
+
+    }
+
+    .menuPers a {
+        width: 21%;
+        text-decoration: none;
+        margin: 0 0.1em 0 0.1em;
+        color: black;
+    }
+
+    .menuPers img {
+        width: 20%;
+        margin: 0 0.1em 0 0.1em;
+    }
+
 }
 
-/* Estilos para pantallas más pequeñas */
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
-    .nav-links {
-        display: none; /* Oculta los enlaces del menú */
+/* Estilos para tablet*/
+@media (min-width: 700px) and (max-width: 1090px) {
+    header {
+        position: sticky;
+        display: flex;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
     }
 
-    .menu-button {
-        display: block; /* Muestra el botón de menú */
+    /* Estilos para el contenedor principal */
+    .container {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 0.2em;
     }
-    
-    .logo img {
-        width: 7%;
-        margin-right: 1em;
+
+    .infoPag {
+        width: 25%;
     }
+
+    .buscador {
+        width: 25%;
+    }
+
+    /* Estilos para el logo */
+    .infoPag {
+        display: flex;
+        font-size: larger;
+        font-weight: bolder;
+        align-items: center;
+        color: #3a3a3a;
+    }
+
+    .infoPag img {
+        width: 12%;
+    }
+
+    .buscador {
+        display: flex;
+    }
+
+    /* Estilos para el input de busqueda */
+    .buscador input[type="text"] {
+        padding: 0.5em;
+        border: none;
+        border-radius: 5px 0 0 5px;
+        margin-right: -1px;
+    }
+
+    /* Estilos para el boton de busqueda */
+    .buscador button[type="submit"] {
+        padding: 0.5em 1em;
+        border: none;
+        background-color: #018273;
+        color: #fff;
+        border-radius: 0 5px 5px 0;
+    }
+
+    .menuPers {
+        display: flex;
+        width: 50%;
+        justify-content: end;
+        font-size: small;
+    }
+
+    .menuPers a {
+        width: 25%;
+        text-decoration: none;
+        margin: 0 0.1em 0 0.1em;
+        color: black;
+    }
+
+    .menuPers img {
+        width: 20%;
+        margin: 0 0.1em 0 0.1em;
+    }
+
 }
 
+/* Estilos para móvil */
+@media (max-width: 700px) {
+    header {
+        position: sticky;
+        display: flex;
+        top: 0.3em;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    }
 
+    /* Estilos para el contenedor principal */
+    .container {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        flex-wrap: wrap;
+        padding: 0.3em;
+    }
 
+    .buscador {
+        display: flex;
+        width: 70%;
+        justify-content: center;
+    }
 
+    /* Estilos para el logo */
+    .infoPag {
+        display: flex;
+        align-items: center;
+        color: #3a3a3a;
+        width: 15%;
+        font-size: 0%;
+        justify-content: center;
+    }
 
+    .infoPag img {
+        width: 60%;
+    }
 
+    /* Estilos para el input de busqueda */
+    .buscador input[type="text"] {
+        padding: 0.5em;
+        border: none;
+        border-radius: 5px 0 0 5px;
+        margin-right: -1px;
+    }
 
+    /* Estilos para el boton de busqueda */
+    .buscador button[type="submit"] {
+        padding: 0.5em 1em;
+        border: none;
+        background-color: #018273;
+        color: #fff;
+        border-radius: 0 5px 5px 0;
+    }
+
+    .menuPers {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin-top: 0.4em;
+    }
+
+    .menuPers a {
+        width: 33%;
+        text-decoration: none;
+        margin: 0 0.1em 0 0.1em;
+        color: black;
+        justify-content: center;
+        display: flex;
+    }
+
+    .menuPers img {
+        width: 16%;
+        margin: 0 0.1em 0 0.1em;
+    }
+
+}
