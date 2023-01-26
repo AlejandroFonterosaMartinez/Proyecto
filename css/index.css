@@ -1,25 +1,12 @@
 /*GENERAL*/
-
-
-
-
-/*CARROUSEL*/
-
-.banner {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
+body {
+    background: #ffffff86;
 }
 
-.banner img {
-    max-width: 100%;
-}
-
-@media (max-width: 768px) {
-    .banner img {
-        width: 100%;
-    }
+.separador {
+    text-align: center;
+    border-bottom: 1px solid rgba(158, 158, 158, 0.308);
+    /* Agrega una línea de separación en la parte superior */
 }
 
 /*CATEGORIAS*/
@@ -33,10 +20,7 @@
     /* Alinea los elementos en el centro del contenedor */
     align-items: center;
     /* Centra los elementos verticalmente */
-    border-top: 1px solid rgba(158, 158, 158, 0.308);
-    /* Agrega una línea de separación en la parte superior */
-    border-bottom: 1px solid rgba(158, 158, 158, 0.308);
-    /* Agrega una línea de separación en la parte inferior */
+
 }
 
 /* Estilos para los elementos dentro del contenedor */
@@ -66,14 +50,19 @@
     }
 
 /* Estilos para dispositivos móviles */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .categorias {
-        flex-direction: column;
-        /* Cambia la dirección de los elementos para que se vean debajo en dispositivos móviles */
+        flex-wrap: wrap;
+        /* Evita que los elementos se ajusten automáticamente */
+    }
+
+    .item {
+        flex: 20%;
+        
     }
 }
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+@media only screen and (min-device-width: 700px) and (max-device-width: 1024px) {
     .categorias {
         flex-wrap: wrap;
         /* Evita que los elementos se ajusten automáticamente */
@@ -81,6 +70,5 @@
 
     .item {
         flex: 0 0 30%;
-        /* Establece que cada elemento ocupe el 50% del ancho del contenedor */
     }
 }

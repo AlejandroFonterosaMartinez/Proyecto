@@ -3,11 +3,9 @@ footer {
     justify-content: space-between;
     margin-left: 2px;
     margin-right: 2px;
+    width: 100%;
     border-top: 1px solid rgba(158, 158, 158, 0.308);
-}
-
-footer * img {
-    width: 2%;
+    background-color: #00b3aa;
 }
 
 .redes {
@@ -16,4 +14,42 @@ footer * img {
 
 .info {
     cursor: pointer;
+}
+/* Estilos para PC */
+@media (min-width: 1090px) {
+    .redes {
+        width: 20%;
+    }
+
+    footer * img {
+        width: 7%;
+    }
+    
+}
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 700px) {
+    .redes {
+        width: 20%;
+    }
+    footer * img {
+        width: 20%;
+    }
+
+    .info {
+        width: 60%;
+        font-size: 13px;
+    }
+}
+
+@media only screen and (min-device-width: 700px) and (max-device-width: 1090px) {
+.redes {
+    width: 20%;
+}
+footer * img {
+    width: 15%;
+}
+.info {
+    width: 21%;
+}
 }

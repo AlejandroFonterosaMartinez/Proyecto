@@ -5,7 +5,6 @@
         <group name="htdocs"/>
         <group>
             <file>file:/C:/xampp/htdocs/Proyecto/index.php</file>
-            <file>file:/C:/xampp/htdocs/Proyecto/css/styles.css</file>
         </group>
     </open-files>
 </project-private>

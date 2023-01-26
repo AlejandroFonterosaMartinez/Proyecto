@@ -1,5 +1,5 @@
 create database construccion;
-use construccion;
+use  construccion;
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `categorias` (
   `Cod_categoria` smallint(10) UNSIGNED NOT NULL,
   `Nombre` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `categorias`
@@ -54,7 +54,7 @@ CREATE TABLE `productos` (
   `Precio` float NOT NULL,
   `Stock` int(10) UNSIGNED NOT NULL,
   `Categoria` smallint(10) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `productos`
@@ -80,7 +80,7 @@ INSERT INTO `productos` (`Cod_producto`, `Nombre`, `Descripcion`, `Precio`, `Sto
 (17, 'Big Bag Arena Entrefina', 'Big Bag Arena Entrefina 1000kg.', 32, 25, 4),
 (18, 'Poleistireno Extruido', 'Poleistireno Extruido 250KPA 260x60cm y 6cm de espesor.', 14.1, 100, 8),
 (19, 'Aislamiento Reflexivo', 'Aislamiento Reflexivo Polynium 3000x120cm y 8mm de espesor.', 187, 100, 8),
-(20, 'Panel Puliuretano', 'Panel Puliuretano 150kg/m3 Multiaislante 200x100cm y 2cm de espesor.', 15.8, 100, 8),
+(20, 'Panel Poliuretano', 'Panel Poliuretano 150kg/m3 Multiaislante 200x100cm y 2cm de espesor.', 15.8, 100, 8),
 (21, 'Lámina Asfáltica Plastómero', 'Lámina Asfáltica Plastómero 4km/m2 Chovaplast Vel 40', 37, 150, 8);
 
 -- --------------------------------------------------------
@@ -90,20 +90,22 @@ INSERT INTO `productos` (`Cod_producto`, `Nombre`, `Descripcion`, `Precio`, `Sto
 --
 
 CREATE TABLE `usuarios` (
-  `Usuario` varchar(50) NOT NULL,
   `Contraseña` varchar(100) NOT NULL,
   `Correo` varchar(150) NOT NULL,
-  `Fecha_Registro` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `Fecha_Registro` date DEFAULT NULL,
+  `Apellidos` varchar(150) NOT NULL,
+  `Fecha_Nacimiento` date DEFAULT NULL,
+  `Nombre` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`Usuario`, `Contraseña`, `Correo`, `Fecha_Registro`) VALUES
-('alex', '1', 'alejandrofonterosa@gmail.com', '2023-01-10'),
-('gabri', 'b', 'gabri185@gmail.com', '2023-01-10'),
-('patri', 'c', 'patricia.gonzalez@gmail.com', '2023-01-10');
+INSERT INTO `usuarios` (`Contraseña`, `Correo`, `Fecha_Registro`, `Apellidos`, `Fecha_Nacimiento`, `Nombre`) VALUES
+('', 'A@A.A', '2023-01-23', 'A', '1212-12-12', 'A'),
+('$2y$10$f.MxWUA72cum3JyQO9MxzOKpZzMgp42YrIXZPMoUD9bB6c1nvo/Au', 'alejandrofonterosa@gmail.com', '2023-01-23', 'fonterosa martinez', '2001-02-12', 'alex'),
+('$2y$10$dyDeCdgdO5BMjLJCHRZUvO/g8tDNgBAKnemgVSX9gXp1wbR2bOs4G', 'b@b.b', '2023-01-23', 'b', '1212-02-21', 'b');
 
 --
 -- Índices para tablas volcadas
@@ -127,8 +129,7 @@ ALTER TABLE `productos`
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`Correo`),
-  ADD UNIQUE KEY `index_usuario` (`Usuario`);
+  ADD PRIMARY KEY (`Correo`);
 
 --
 -- Restricciones para tablas volcadas
