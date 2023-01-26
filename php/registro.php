@@ -12,7 +12,7 @@
         <h1>Registro</h1>
         <form name="registro" action="" method="post">
             <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" name="nombre" required value="<?php echo isset($_POST['nombre']) ? $_POST['nombre'] : ''; ?>" placeholder="Nombre" />
+            <input type="text" id="username" name="username" required value="<?php echo isset($_POST['username']) ? $_POST['username'] : ''; ?>" placeholder="Nombre" />
             <label for="apellidos">Apellidos</label>
             <input type="text" id="apellidos" name="apellidos" required placeholder="Apellidos" />
             <label for="fecha_nacimiento">Fecha de Nacimiento</label>
@@ -28,11 +28,12 @@
          * Implementamos la clase db.php que contiene la conexión con la base de datos
          */
         require('db.php');
+        session_start();
         /**
          * Validadores/checkeadores/eliminador de caracteres para las entradas obtenidas
          */
-        if (isset($_REQUEST['nombre'])) {
-            $nombre = stripslashes($_REQUEST['nombre']);
+        if (isset($_REQUEST['username'])) {
+            $nombre = stripslashes($_REQUEST['username']);
             $nombre = mysqli_real_escape_string($con, $nombre);
             $apellidos = stripslashes($_REQUEST['apellidos']);
             $apellidos = mysqli_real_escape_string($con, $apellidos);
@@ -45,6 +46,7 @@
             $check_email = "SELECT * FROM usuarios WHERE Correo='$email'";
             $run_email = mysqli_query($con, $check_email);
             $check_email = mysqli_num_rows($run_email);
+
             /**
              * Comprobación del correo mediante una subconsulta, para probar que no se repita 
              */
@@ -58,7 +60,7 @@
                 $result = mysqli_query($con, $query);
                 if ($result) {
                     // CODIGO DEL CORREO DE CONFIRMACIÓN <AQUI>
-        
+
                     echo "<p style='color:green'>Registro Completado!</p>";
                     echo "<div class='loading'>Cargando...</div>";
                     echo "<script>setTimeout(function(){ window.location.href = '../index.php'; }, 1000);</script>";
