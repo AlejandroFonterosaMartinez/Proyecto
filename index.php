@@ -14,102 +14,67 @@
     <link rel="icon" href="imagenes/Logos/Header/Logo.svg" type="image/x-icon" />
     <script src="javascript/script.js"></script>
     <script src="javascript/carrusel.js"></script>
-</head>
-<style>
-    
-    .posicion {
-        position: relative;
-    }
-
-    .account-menu {
-        display: none;
-        /* oculta el menú por defecto */
-        position: absolute;
-        top: 35px;
-        /* posición debajo del enlace "Mi Cuenta" */
-        left: 0;
-        width: 150px;
-        /* tamaño del cuadrado */
-        padding: 10px;
-        /* espaciado interno */
-        background-color: #fff;
-        /* color de fondo */
-        border: 1px solid #ccc;
-        /* borde */
-        z-index: 1;
-        /* coloca el menú por encima de otros elementos */
-    }
-
-    .account-menu a {
-        display: block;
-        /* muestra cada enlace como bloque */
-        padding: 10px;
-        /* espaciado interno */
-        color: #000;
-        /* color del texto */
-        text-decoration: none;
-        /* quita el subrayado */
-    }
-</style>
-
-<body onload="addDropdownMenu()">
-    <header>
-        <div class="container">
-            <div class="infoPag">
-                <img src="imagenes/Header/Logo.svg" />
-                NombreTienda
-            </div>
-            <div class="buscador">
-                <input type="text" placeholder="Buscar...">
-                <button type="submit">Buscar</button>
-            </div>
-
-            <div class="menuPers">
-                <a href="#"><img src="imagenes/Header/User.svg" />Mi Cuenta</a>
-                <a href="#"><img src="imagenes/Header/Presupuesto.svg" />Presupuesto</a>
-                <a href="#"><img src="imagenes/Header/Carrito.svg" />Pedido</a>
-            </div>
+</head <body onload="addDropdownMenu()">
+<header>
+    <div class="container">
+        <div class="infoPag">
+            <img src="imagenes/Header/Logo.svg" />
+            NombreTienda
         </div>
-    </header>
-    <nav>
+        <div class="buscador">
+            <input type="text" placeholder="Buscar...">
+            <button type="submit">Buscar</button>
+        </div>
+        <div class="menuPers">
+            <a class="account-link" href="#"><img src="imagenes/Header/User.svg" />Mi Cuenta</a>
+            <ul class="sub-menu">
+                <li><a href="#">Editar perfil</a></li>
+                <li><a href="#">Desconectarse</a></li>
+            </ul>
+            <a href="#"><img src="imagenes/Header/Presupuesto.svg" />Presupuesto</a>
+            <a href="#"><img src="imagenes/Header/Carrito.svg" />Pedido</a>
+        </div>
+    </div>
+</header>
+<nav>
 
-        <div class="carousel">
-            <div id="imagen"></div>
-        </div>
-    </nav>
-    <div class="separador">
-        CATEGORÍAS
+    <div class="carousel">
+        <div id="imagen"></div>
     </div>
-    <div class="categorias">
-        <div class="item"><img src="imagenes/Menu/Techo.svg" />Tejados Y Cubiertas</div>
-        <div class="item"><img src="imagenes/Menu/Cemento.svg" />Cementos Y Morteros</div>
-        <div class="item"><img src="imagenes/Menu/Yeso.svg" />Yesos Y Escayolas</div>
-        <div class="item"><img src="imagenes/Menu/Arena.svg" />Arenas y Gravas</div>
-        <div class="item"><img src="imagenes/Menu/Valla.svg" />Cercados y Ocultación</div>
-        <div class="item"><img src="imagenes/Menu/Madera.svg" />Madera</div>
-        <div class="item"><img src="imagenes/Menu/Hormigonera.svg" />Hormigoneras, carretillas...</div>
-        <div class="item"><img src="imagenes/Menu/Aislante.svg" />Aislamientos</div>
-        <div class="item"><img src="imagenes/Menu/Eleconstruccion.svg" />Elementos de construcción</div>
+</nav>
+<div class="separador">
+    CATEGORÍAS
+</div>
+<div class="categorias">
+    <div class="item"><img src="imagenes/Menu/Techo.svg" />Tejados Y Cubiertas</div>
+    <div class="item"><img src="imagenes/Menu/Cemento.svg" />Cementos Y Morteros</div>
+    <div class="item"><img src="imagenes/Menu/Yeso.svg" />Yesos Y Escayolas</div>
+    <div class="item"><img src="imagenes/Menu/Arena.svg" />Arenas y Gravas</div>
+    <div class="item"><img src="imagenes/Menu/Valla.svg" />Cercados y Ocultación</div>
+    <div class="item"><img src="imagenes/Menu/Madera.svg" />Madera</div>
+    <div class="item"><img src="imagenes/Menu/Hormigonera.svg" />Hormigoneras, carretillas...</div>
+    <div class="item"><img src="imagenes/Menu/Aislante.svg" />Aislamientos</div>
+    <div class="item"><img src="imagenes/Menu/Eleconstruccion.svg" />Elementos de construcción</div>
+</div>
+<div class="separador">
+    PRODUCTOS DESTACADOS
+</div>
+<div class="separador">
+    NUESTROS COMPROMISOS
+</div>
+<footer>
+    <div class="redes">
+        <img src="imagenes/RRSS/facebook.svg" />
+        <img src="imagenes/RRSS/twitter.svg" />
+        <img src="imagenes/RRSS/youtube.svg" />
+        <img src="imagenes/RRSS/instagram.svg" />
     </div>
-    <div class="separador">
-        PRODUCTOS DESTACADOS
+    <div class="info">
+        <a href="html/AboutUs.html">About Us</a>
+        <a href="html/Newsletter.html">Newsletter</a>
+        <a href="html/InfoLegal.html">Información Legal</a>
     </div>
-    <div class="separador">
-        NUESTROS COMPROMISOS
-    </div>
-    <footer>
-        <div class="redes">
-            <img src="imagenes/RRSS/facebook.svg" />
-            <img src="imagenes/RRSS/twitter.svg" />
-            <img src="imagenes/RRSS/youtube.svg" />
-            <img src="imagenes/RRSS/instagram.svg" />
-        </div>
-        <div class="info">
-            <a href="html/AboutUs.html">About Us</a>
-            <a href="html/Newsletter.html">Newsletter</a>
-            <a href="html/InfoLegal.html">Información Legal</a>
-        </div>
-    </footer>
+</footer>
 </body>
 
 </html>

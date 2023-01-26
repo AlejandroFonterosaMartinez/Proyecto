@@ -1,36 +1,11 @@
 function addDropdownMenu() {
-  var accountLink = document.getElementById("account-link");
-  var accountMenu = document.getElementById("account-menu");
-  var menuVisible = false;
-
-  accountLink.addEventListener("mouseover", function () {
-    accountMenu.style.display = "block";
-    menuVisible = true;
+  // Obtén el enlace "Mi Cuenta"
+  var accountLink = document.querySelector(".menuPers a:first-child");
+  // Obtén el menú desplegable
+  var accountMenu = document.querySelector(".account-menu");
+  // Agrega un evento de clic al enlace "Mi Cuenta"
+  accountLink.addEventListener("click", function (event) {
+    event.preventDefault(); // evita que el enlace rediriga a otra página
+    accountMenu.classList.toggle("visible"); // muestra/oculta el menú desplegable
   });
-
-  accountMenu.addEventListener("mouseover", function () {
-    menuVisible = true;
-  });
-
-  accountLink.addEventListener("mouseout", function () {
-    if (!menuVisible) {
-      accountMenu.style.display = "none";
-    }
-  });
-
-  accountMenu.addEventListener("mouseout", function () {
-    menuVisible = false;
-    accountMenu.style.display = "none";
-  });
-
-  var menuLinks = accountMenu.getElementsByTagName("a");
-  for (var i = 0; i < menuLinks.length; i++) {
-    menuLinks[i].addEventListener("mouseover", function () {
-      menuVisible = true;
-    });
-    menuLinks[i].addEventListener("mouseout", function () {
-      menuVisible = false;
-      accountMenu.style.display = "none";
-    });
-  }
 }
