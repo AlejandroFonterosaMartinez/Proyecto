@@ -35,14 +35,14 @@
             </div>
 
             <div class="menuPers">
-                <div class="cuenta"><a href="#"><img src="imagenes/Header/User.svg" />Mi cuenta</a>
+                <div class="cuenta"><a href="#"></a><img src="imagenes/Header/01Menu/user.svg" />Mi cuenta
                     <div class="submenu">
-                        <div class="subdiv"><a href="#"></a>Editar Perfil</div>
-                        <div class="subdiv"><a href="#"></a>Iniciar Sesión</div>
+                        <div class="subdiv"><a href="#"></a><img src="imagenes/Header/01Menu/edit.svg" />Editar Perfil</div>
+                        <div class="subdiv"><a href="#"></a><img src="imagenes/Header/01Menu/entrance.svg" />Iniciar Sesión</div>
                     </div>
                 </div>
-                <div><a href="#"><img src="imagenes/Header/Presupuesto.svg" />Presupuesto</a></div>
-                <div><a href="#"><img src="imagenes/Header/Carrito.svg" />Pedido</a></div>
+                <div><a href="#"></a><img src="imagenes/Header/01Menu/heart.svg" />Favoritos</div>
+                <div><a href="#"></a><img src="imagenes/Header/01Menu/shopping-cart.svg" />Carrito</div>
             </div>
 
         </div>
@@ -89,10 +89,10 @@
             </div>
         </div>
         <div class="compromiso">
-            <div class="comp"><img src="imagenes/Compromisos/Precio.svg" />
-                PRECIOS IMBATIBLES
-                <p>Ofrecemos precios competitivos para garantizar que tengas acceso a materiales de alta calidad sin
-                    sacrificar tu presupuesto.</p>
+            <div class="comp"><img src="imagenes/Compromisos/Velocidad.svg" />
+                ENTREGAS RÁPIDAS
+                <p>Brindamos un servicio de entrega rápido y eficiente para ser una parte integral en el éxito de tus
+                    proyectos de construcción.</p>
             </div>
         </div>
         <div class="compromiso">
@@ -103,10 +103,10 @@
             </div>
         </div>
         <div class="compromiso">
-            <div class="comp"><img src="imagenes/Compromisos/Velocidad.svg" />
-                ENTREGAS RÁPIDAS
-                <p>Brindamos un servicio de entrega rápido y eficiente para ser una parte integral en el éxito de tus
-                    proyectos de construcción.</p>
+            <div class="comp"><img src="imagenes/Compromisos/Precio.svg" />
+                PRECIOS IMBATIBLES
+                <p>Ofrecemos precios competitivos para garantizar que tengas acceso a materiales de alta calidad sin
+                    sacrificar tu presupuesto.</p>
             </div>
         </div>
     </div>
@@ -116,6 +116,9 @@
             <img src="imagenes/Footer/RRSS/twitter.svg" />
             <img src="imagenes/Footer/RRSS/youtube.svg" />
             <img src="imagenes/Footer/RRSS/instagram.svg" />
+            <img src="imagenes/Footer/RRSS/linkedin.svg" />
+            <img src="imagenes/Footer/RRSS/pinterest.svg" />
+
         </div>
         <div class="info">
             <a href="php/AboutUs.php">About Us</a>
