@@ -10,36 +10,45 @@
     <link href="css/carrusel.css" rel="stylesheet" type="text/css">
     <link href="css/index.css" rel="stylesheet" type="text/css">
     <link href="css/footer.css" rel="stylesheet" type="text/css">
-    <script src="javascript/script.js"></script>
+    <link rel="shortcut icon" href="imagenes/Header/Logo/Logo.svg" type="image/x-icon" />
+    <link rel="icon" href="imagenes/Logos/Header/Logo.svg" type="image/x-icon" />
     <script src="javascript/carrusel.js"></script>
-    <link rel="shortcut icon" href="imagenes/Header/Logo.svg" type="image/x-icon" />
-    <link rel="icon" href="imagenes/Header/Logo.svg" type="image/x-icon" />
-    <style>
-
-    </style>
 </head>
+
 
 <body>
     <header>
         <div class="container">
+
             <div class="infoPag">
-                <img src="imagenes/Header/Logo.svg"/>
+                <img src="imagenes/Header/Logo.svg" />
                 NombreTienda
             </div>
+
             <div class="buscador">
-                <input type="text" placeholder="Buscar...">
-                <button type="submit">Buscar</button>
+            <form action="search.php" method="get">
+                <div class="cajaTexto">
+                    <input type="text" name="query" placeholder="Buscar...">
+                    <button type="submit">Buscar</button>
+                </div>
+            </form>
             </div>
 
-            <div class="menuPers">
-                <a href="#"><img src="imagenes/Header/User.svg"/>Mi Cuenta</a>
-                <a href="#"><img src="imagenes/Header/Presupuesto.svg"/>Presupuesto</a>
-                <a href="#"><img src="imagenes/Header/Carrito.svg"/>Pedido</a>
-            </div>
+            <ul class="menuPers">
+                <li><a href="#"><img src="imagenes/Header/User.svg" />Mi cuenta</a></li>
+                    <ul class="submenu">
+                        <li><a href="#"></a>Hola</li>
+                        <li><a href="#"></a>Hola</li>
+                        <li><a href="#"></a>Hola</li>
+                    </ul>
+                <li><a href="#"><img src="imagenes/Header/Presupuesto.svg" />Presupuesto</a></li>
+                <li><a href="#"><img src="imagenes/Header/Carrito.svg" />Pedido</a></li>
+            </ul>
+
         </div>
     </header>
     <nav>
-        
+
         <div class="carousel">
             <div id="imagen"></div>
         </div>
@@ -64,6 +73,13 @@
     <div class="separador">
         NUESTROS COMPROMISOS
     </div>
+    <div class="compromisos">
+        <div class="compromiso"><img src="imagenes/Compromisos/Calidad.svg" />CALIDAD ÓPTIMA</div>
+        <div class="compromiso"><img src="imagenes/Compromisos/Cantidad.svg" />STOCK SIEMPRE DISPONIBLE</div>
+        <div class="compromiso"><img src="imagenes/Compromisos/Precio.svg" />PRECIOS IMBATIBLES</div>
+        <div class="compromiso"><img src="imagenes/Compromisos/Comunicacion.svg" />ATENCIÓN 24 HORAS</div>
+        <div class="compromiso"><img src="imagenes/Compromisos/Velocidad.svg" />ENTREGAS RÁPIDAS</div>
+    </div>
     <footer>
         <div class="redes">
             <img src="imagenes/RRSS/facebook.svg" />
@@ -72,9 +88,9 @@
             <img src="imagenes/RRSS/instagram.svg" />
         </div>
         <div class="info">
-            <a href="html/AboutUs.html">About Us</a>
-            <a href="html/Newsletter.html">Newsletter</a>
-            <a href="html/InfoLegal.html">Información Legal</a>
+            <a href="php/AboutUs.php">About Us</a>
+            <a href="php/Newsletter.php">Newsletter</a>
+            <a href="php/InfoLegal.php">Información Legal</a>
         </div>
     </footer>
 </body>

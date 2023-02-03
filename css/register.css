@@ -3,11 +3,13 @@ body {
     display: flex;
     align-items: center;
     background-image: url('../imagenes/Fondo/fondo-login.jpg');
+
     justify-content: center;
     min-height: 100vh;
 }
+
 /*Contenedor formulario*/
-.formulario {
+.form {
     margin: auto;
     width: 30%;
     background-color: #fff;
@@ -16,25 +18,31 @@ body {
     box-shadow: 0 0 20px 0 #ccc;
     text-align: center;
 }
-/*H1 formulario*/
-.formulario h1 {
+
+
+/*Titulo*/
+.form h1 {
     font-size: 36px;
     margin-bottom: 20px;
 }
-/*Inputs formulario*/
-.formulario input[type="text"],
-.formulario input[type="password"] {
-    width: 80%;
+
+/*Inputs*/
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="password"],
+.form input[type="date"] {
+    width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
     border: none;
     border-bottom: 2px solid #ccc;
-    outline: none;
+    background-color: #f8f8f8;
 }
-/*Boton submit formulario*/
-.formulario input[type="submit"] {
-    width: 80%;
+
+/*Boton submit*/
+.form input[type="submit"] {
+    width: 100%;
     padding: 12px 20px;
     background-color: #4CAF50;
     color: white;
@@ -43,13 +51,31 @@ body {
     border: none;
     cursor: pointer;
 }
-/*Boton submit formulario efecto*/
-.formulario input[type="submit"]:hover {
+.form input[type="submit"]:hover {
     background-color: #45a049;
 }
-/*Para otros dispositivos con distinta resolucion*/
+
+/*Mensaje de error*/
+.form p {
+    margin: 8px 0;
+    color: red;
+}
+
+/*Mensaje de carga*/
+.form .loading {
+    margin: 8px 0;
+    color: green;
+}
+/*Labels*/
+.form label {
+    font-size: 18px;
+    display: block;
+    margin-bottom: 10px;
+
+}
+/* Para otros dispositivos con distinta resolucion */
 @media only screen and(max-width: 600px) {
-    .formulario {
+    .form {
         width: 90%;
     }
 }
