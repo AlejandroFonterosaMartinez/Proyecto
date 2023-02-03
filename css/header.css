@@ -16,57 +16,81 @@ header {
     width: 100%;
 }
 
-    /* Estilos para el logo */
-    .infoPag {
-        display: flex;
-        align-items: center;
-        color: #3a3a3a;
-    }
+/* Estilos para el logo */
+.infoPag {
+    display: flex;
+    align-items: center;
+    color: #3a3a3a;
+}
 
-    .menuPers {
-        display: flex;
-        list-style-type: none;
-    }
+.infoPag>a {
+    text-decoration: none;
+    color: black;
+    width: 40%;
+}
 
-    .menuPers a {
-        text-decoration: none;
-        margin: 0 0.1em 0 0.1em;
-        color: black;
-    }
+.menuPers {
+    display: flex;
+    height: 100%;
+    list-style-type: none;
+    position: relative;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bolder;
+    align-items: center;
+}
 
-    .menuPers img {
-        margin: 0 0.1em 0 0.1em;
-    }
+.menuPers a {
+    text-decoration: none;
+    margin: 0 0.1em 0 0.1em;
+    color: black;
+}
 
-    .submenu {
-        display: none;
-    }
+.menuPers img {
+    margin: 0 0.1em 0 0.1em;
+}
 
-    .submenu:hover {
-        display: block;
-    }
+.cuenta:hover .submenu {
+    visibility: visible;
+}
 
-    .buscador {
-        display: flex;
-    }
+/* Estilos para el submenu */
+.submenu {
+    visibility: hidden;
+    position: absolute;
+    top: 100%;
+    cursor: pointer;
+    padding: 1%;
+    background-color: #fff;
+    border-color: #ccc;
+    border-style: solid;
+    border-width: 0px 1px 1px 1px;
+}
 
-    /* Estilos para el input de busqueda */
-    .buscador input[type="text"] {
-        width: 66%;
-        border: none;
-        border-radius: 5px 0 0 5px;
-        margin-right: -1px;
-    }
+.subdiv:hover {
+    background-color: #00b3aa;
+}
 
-    /* Estilos para el boton de busqueda */
-    .buscador button[type="submit"] {
-        width: 30%;
-        padding: 0.5em 1em;
-        border: none;
-        background-color: #018273;
-        color: #fff;
-        border-radius: 0 5px 5px 0;
-    }
+.buscador {
+    display: flex;
+}
+
+/* Estilos para el input de busqueda */
+.buscador input[type="text"] {
+    width: 66%;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    margin-right: -1px;
+}
+
+/* Estilos para el boton de busqueda */
+.buscador button[type="submit"] {
+    width: 30%;
+    padding: 0.5em 1em;
+    border: none;
+    background-color: #018273;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+}
 
 /* Estilos para Pantallas de PC */
 @media (min-width: 1090px) {

@@ -1,3 +1,11 @@
+/*GENERAL*/
+body {
+    background: #ffffff86;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  
 .apartados {
     display: flex;
     flex-direction: column;

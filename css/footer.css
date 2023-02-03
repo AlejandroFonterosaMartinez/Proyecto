@@ -1,19 +1,19 @@
 footer {
     display: flex;
     justify-content: space-between;
-    margin-left: 2px;
-    margin-right: 2px;
     width: 100%;
     border-top: 1px solid rgba(158, 158, 158, 0.308);
-    background-color: #018273;
+    background-color: #00b3aa;
 }
 
 .redes {
     cursor: pointer;
+    padding: 0.5%;
 }
 
 .info {
     cursor: pointer;
+    padding: 0.5%;
 }
 /* Estilos para PC */
 @media (min-width: 1090px) {
