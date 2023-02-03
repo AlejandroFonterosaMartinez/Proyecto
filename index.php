@@ -57,15 +57,15 @@
         CATEGORÍAS
     </div>
     <div class="categorias">
+        <div class="item"><img src="imagenes/Menu/Arena.svg" />Arenas y Gravas</div>
         <div class="item"><img src="imagenes/Menu/Techo.svg" />Tejados Y Cubiertas</div>
         <div class="item"><img src="imagenes/Menu/Cemento.svg" />Cementos Y Morteros</div>
         <div class="item"><img src="imagenes/Menu/Madera.svg" />Madera</div>
-        <div class="item"><img src="imagenes/Menu/Arena.svg" />Arenas y Gravas</div>
+        <div class="item"><img src="imagenes/Menu/Hormigonera.svg" />Hormigoneras, carretillas...</div>
         <div class="item"><img src="imagenes/Menu/Valla.svg" />Cercados y Ocultación</div>
         <div class="item"><img src="imagenes/Menu/Yeso.svg" />Yesos Y Escayolas</div>
-        <div class="item"><img src="imagenes/Menu/Hormigonera.svg" />Hormigoneras, carretillas...</div>
-        <div class="item"><img src="imagenes/Menu/Aislante.svg" />Aislamientos</div>
         <div class="item"><img src="imagenes/Menu/Eleconstruccion.svg" />Elementos de construcción</div>
+        <div class="item"><img src="imagenes/Menu/Aislante.svg" />Aislamientos</div>
     </div>
     <div class="separador">
         PRODUCTOS DESTACADOS
