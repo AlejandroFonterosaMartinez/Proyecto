@@ -179,3 +179,4 @@ Stack trace:
   thrown in D:\XAMPP\htdocs\mvc\index.php on line 22
 [05-Feb-2023 00:22:08 Europe/Berlin] PHP Warning:  Undefined variable $row in D:\XAMPP\htdocs\mvc\index.php on line 23
 [05-Feb-2023 00:22:08 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in D:\XAMPP\htdocs\mvc\index.php on line 23
+[05-Feb-2023 16:29:51 Europe/Berlin] PHP Warning:  Undefined array key "correo" in D:\XAMPP\htdocs\mvc\index.php on line 18

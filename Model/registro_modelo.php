@@ -22,7 +22,7 @@ class UserRegistration extends Conectar
             $stmt = $this->conexion()->prepare($query);
             $stmt->bindParam(':nombre', $nombre);
             $stmt->bindParam(':apellidos', $apellidos);
-            $stmt->bindParam(':fecha_nacimiento', $fecha_nacimiento);
+            $stmt->bindParam(':fecha_nacimiento', $fecha_nacimiento);+
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':password', $password);
             $stmt->bindParam(':trn_date', $id_rol);
