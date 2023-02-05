@@ -1,61 +1,49 @@
+<?php
+include('../Config/Conectar.php');
+include('../Model/usuario_modelo.php');
+include('../Controller/usuario_controlador.php');
+session_start();
+if (isset($_SESSION['correo'])) {
+    header("../index.php");
+}
+
+?>
+
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
-    <meta charset="utf-8">
-    <title>Mi Cuenta</title>
-    <link rel="stylesheet" href="../css/login.css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Log In</title>
+</head>
 
 <body>
-    <?php
-    require('db.php');
-    session_start();
 
-    if (isset($_POST['username'])) {
-        // Quita las slashes del usuario
-        $username = stripslashes($_REQUEST['username']);
-        //Convierte los caracteres especiales en un string special
-        $username = mysqli_real_escape_string($con, $username);
-        $password = stripslashes($_REQUEST['password']);
-        $password = mysqli_real_escape_string($con, $password);
-        //Comprueba si el usuario existe en la base de datos
-        $query = "SELECT usuarios.Correo, usuarios.Contraseña FROM `usuarios` WHERE Correo='$username'";
-        $result = mysqli_query($con, $query) or die(mysql_error());
-        $rows = mysqli_num_rows($result);
-
-        if ($rows == 1) {
-            $user = mysqli_fetch_assoc($result);
-            $hash = $user['Contraseña'];
-            if (password_verify($password, $hash)) {
-                $_SESSION['username'] = $username;
-                // Redirecciona al usuario a la página principal
-                header("Location: ../index.php");
-            } else {
-                // Recarga la página con el usuario introducido y muestra un mensaje de error
-                echo "<script> window.location.href = 'login.php?username=$username&error=1' </script>";
-            }
-        } else {
-            // Recarga la página con el usuario introducido y muestra un mensaje de error
-            echo "<script> window.location.href = 'login.php?username=$username&error=1' </script>";
-        }
-    } else {
-        ?>
-        <div class="formulario">
-            <h1>Logueate Aquí</h1>
-            <?php
-            if (isset($_GET['error']) && $_GET['error'] == 1) {
-                echo '<p style="color:red">Usuario o contraseña incorrectos</p>';
-            }
-            ?>
-            <form action="" method="post" name="login">
-                <input type="text" name="username" value="<?php echo isset($_GET['username']) ? $_GET['username'] : '' ?>"
-                    placeholder="Correo" required />
-                <input type="password" name="password" placeholder="Contraseña" required />
-                <input name="submit" type="submit" value="Login" />
-            </form>
-            <p>Todavía sin una cuenta? <a href='registro.php'>Registrate aquí</a></p>
+    <div class="container">
+        <div class="row mt-3 justify-content-md-center">
+            <div class="col-md-6">
+                <form action="" method="POST">
+                    <div class="form-group">
+                        <label for="correo">Correo</label>
+                        <input class="form-control" type="email" name="correo"
+                            value="<?php echo isset($_GET['correo']) ? $_GET['correo'] : '' ?>" placeholder="Correo"
+                            required />
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Contraseña</label>
+                        <input class="form-control" type="password" name="password" placeholder="Contraseña" required />
+                    </div>
+                    <button type="submit" name="submit" class="btn btn-sm btn-block btn-primary">Iniciar Sesion</button>
+                </form>
+                <p>Todavía sin una cuenta? <a href='registro.php'>Registrate aquí</a></p>
+            </div>
         </div>
-    <?php } ?>
+    </div>
+
 </body>
 
 </html>
