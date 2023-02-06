@@ -47,10 +47,10 @@
     </header>
     <div class="apartados">
         <div class="titulo">
-            <h1>Información Legal</h1>
+            <h1>Proyecto ECO</h1>
         </div>
         <div class="apartado">
-            <h2>Política de privacidad de NombreTienda SL</h2>
+            <h2></h2>
             <p>Nos comprometemos a proteger su privacidad y a garantizar que sus datos personales sean tratados de
                 manera
                 confidencial y segura. Esta política describe cómo recopilamos, usamos, compartimos y protegemos sus

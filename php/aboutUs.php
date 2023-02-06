@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>NombreTienda</title>
     <link href="../css/header.css" rel="stylesheet" type="text/css">
-    <link href="../css/infoAbout.css" rel="stylesheet" type="text/css">
+    <link href="../css/infos.css" rel="stylesheet" type="text/css">
     <link href="../css/footer.css" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="../imagenes/Header/Logo/Logo.svg" type="image/x-icon" />
     <link rel="icon" href="../imagenes/Logos/Header/Logo.svg" type="image/x-icon" />
@@ -15,15 +15,13 @@
 
 
 <body>
-    <header>
+<header>
         <div class="container">
 
             <div class="infoPag">
-                <a href="../index.php">
-                    <img src="../imagenes/Header/Logo.svg" />
-                    NombreTienda
+                <img src="../imagenes/Header/Logo.svg" />
+                NombreTienda
             </div>
-            </a>
 
             <div class="buscador">
                 <form action="search.php" method="get">
@@ -35,14 +33,14 @@
             </div>
 
             <div class="menuPers">
-                <div class="cuenta"><a href="#"><img src="../imagenes/Header/User.svg" />Mi cuenta</a>
+                <div class="cuenta"><a href="#"></a><img src="../imagenes/Header/01Menu/user.svg" />Mi cuenta
                     <div class="submenu">
-                        <div class="subdiv"><a href="#"></a>Editar Perfil</div>
-                        <div class="subdiv"><a href="#"></a>Iniciar Sesión</div>
+                        <div class="subdiv"><a href="#"></a><img src="../imagenes/Header/01Menu/edit.svg" />Editar Perfil</div>
+                        <div class="subdiv"><a href="#"></a><img src="../imagenes/Header/01Menu/entrance.svg" />Iniciar Sesión</div>
                     </div>
                 </div>
-                <div><a href="#"><img src="../imagenes/Header/Presupuesto.svg" />Presupuesto</a></div>
-                <div><a href="#"><img src="../imagenes/Header/Carrito.svg" />Pedido</a></div>
+                <div><a href="#"></a><img src="../imagenes/Header/01Menu/heart.svg" />Favoritos</div>
+                <div><a href="#"></a><img src="../imagenes/Header/01Menu/shopping-cart.svg" />Carrito</div>
             </div>
 
         </div>
