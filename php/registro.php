@@ -2,6 +2,7 @@
 include('../Config/Conectar.php');
 include('../Model/registro_modelo.php');
 include('../Controller/registro_controlador.php');
+
 ?>
 
 <!DOCTYPE html>

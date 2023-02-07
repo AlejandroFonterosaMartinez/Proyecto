@@ -6,6 +6,7 @@ class UserRegistration extends Conectar
         $password = password_hash($password, PASSWORD_DEFAULT);
         $id_rol = date("Y-m-d H:i:s");
         $id_rol = 1;
+        $trn_data =  date("Y-m-d");
         $check_email = "SELECT * FROM usuarios WHERE Correo=:email";
 
         $stmt = $this->conexion()->prepare($check_email);
@@ -25,12 +26,12 @@ class UserRegistration extends Conectar
             $stmt->bindParam(':fecha_nacimiento', $fecha_nacimiento);+
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':password', $password);
-            $stmt->bindParam(':trn_date', $id_rol);
+            $stmt->bindParam(':trn_date', $trn_data);
             $stmt->bindParam(':id_rol', $id_rol);
 
             if ($stmt->execute()) {
-                echo "<p style='color:green'>Registro completado!</p>";
-                echo "<div class='loading'>Cargando...</div>";
+                echo "<p style='color:green';margin: 8px 0;>Registro completado!</p>";
+                echo "<div style='margin: 8px 0;color: green;'>Cargando...</div>";
                 echo "<script>setTimeout(function(){ window.location.href = '../index.php'; }, 1000);</script>";
             } else {
                 echo "<p style='color:red'>Ha ocurrido un error al intentar registrarse. Por favor, inténtelo de nuevo más tarde.</p>";

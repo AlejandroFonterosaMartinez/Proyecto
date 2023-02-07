@@ -1,0 +1,81 @@
+/*Body*/
+body {
+    display: flex;
+    align-items: center;
+    background-image: url('../imagenes/Fondo/fondo-login.jpg');
+
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/*Contenedor formulario*/
+.form {
+    margin: auto;
+    width: 30%;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 0 #ccc;
+    text-align: center;
+}
+
+
+/*Titulo*/
+.form h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+/*Inputs*/
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="password"],
+.form input[type="date"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    background-color: #f8f8f8;
+}
+
+/*Boton submit*/
+.form input[type="submit"] {
+    width: 100%;
+    padding: 12px 20px;
+    background-color: #4CAF50;
+    color: white;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+.form input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/*Mensaje de error*/
+.form p {
+    margin: 8px 0;
+    color: red;
+}
+
+/*Mensaje de carga*/
+.form .loading {
+    margin: 8px 0;
+    color: green;
+}
+/*Labels*/
+.form label {
+    font-size: 18px;
+    display: block;
+    margin-bottom: 10px;
+
+}
+/* Para otros dispositivos con distinta resolucion */
+@media only screen and(max-width: 600px) {
+    .form {
+        width: 90%;
+    }
+}

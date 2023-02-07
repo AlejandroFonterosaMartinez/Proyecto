@@ -1,0 +1,10 @@
+.carousel {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 10px 0;
+}
+    #imagen {
+        width: 99%;
+        height: 13.65vw;
+        background-size: cover;
+    }
