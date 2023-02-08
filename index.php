@@ -75,9 +75,7 @@
         NUESTRA REVISTA
     </div>
     <div class="contenedorRevista">
-        <div class="revista">
-            <img src="imagenes/revista.png" />
-        </div>
+        <img src="imagenes/revista.png" />
         <div class="textoRev">
             <h2>La Revista Nº1 de construcción</h2>
             <p>Descubre las últimas tendencias y novedades en construcción con la revista líder en el mercado. Este
@@ -142,18 +140,6 @@
         </div>
         <div class="redes">
             <div class="titulo">
-                <h3>Pago 100% Seguro</h3>
-            </div>
-            <div class="contenido">
-                <img src="imagenes/Footer/Pago/Amex.svg" />
-                <img src="imagenes/Footer/Pago/Mano.svg" />
-                <img src="imagenes/Footer/Pago/Mastercard.svg" />
-                <img src="imagenes/Footer/Pago/Paypal.svg" />
-                <img src="imagenes/Footer/Pago/Visa.svg" />
-            </div>
-        </div>
-        <div class="redes">
-            <div class="titulo">
                 <h3>Proyecto Ecológico</h3>
             </div>
             <div class="contenido">
@@ -162,6 +148,18 @@
                     <img src="imagenes/Footer/ECO/Reciclaje.svg" />
                     <img src="imagenes/Footer/ECO/Renovable.svg" />
                 </a>
+            </div>
+        </div>
+        <div class="redes">
+            <div class="titulo">
+                <h3>Pago 100% Seguro</h3>
+            </div>
+            <div class="contenido">
+                <img src="imagenes/Footer/Pago/Amex.svg" />
+                <img src="imagenes/Footer/Pago/Mano.svg" />
+                <img src="imagenes/Footer/Pago/Mastercard.svg" />
+                <img src="imagenes/Footer/Pago/Paypal.svg" />
+                <img src="imagenes/Footer/Pago/Visa.svg" />
             </div>
         </div>
         <div class="redes">
