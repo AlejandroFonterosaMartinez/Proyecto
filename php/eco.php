@@ -19,7 +19,7 @@
         <div class="container">
 
             <div class="infoPag">
-                <img src="../imagenes/Header/Logo.svg" />
+                <img src="imagenes/Header/Logo.svg" />
                 NombreTienda
             </div>
 
@@ -33,14 +33,16 @@
             </div>
 
             <div class="menuPers">
-                <div class="cuenta"><a href="#"></a><img src="../imagenes/Header/01Menu/user.svg" />Mi cuenta
+                <div class="cuenta"><a href="#"></a><img src="imagenes/Header/01Menu/user.svg" />Mi cuenta
                     <div class="submenu">
-                        <div class="subdiv"><a href="#"></a><img src="../imagenes/Header/01Menu/edit.svg" />Editar Perfil</div>
-                        <div class="subdiv"><a href="#"></a><img src="../imagenes/Header/01Menu/entrance.svg" />Iniciar Sesión</div>
+                        <div class="subdiv"><a href="#"></a><img src="imagenes/Header/01Menu/edit.svg" />Editar Perfil
+                        </div>
+                        <div class="subdiv"><a href="#"></a><img src="imagenes/Header/01Menu/entrance.svg" />Iniciar
+                            Sesión</div>
                     </div>
                 </div>
-                <div><a href="#"></a><img src="../imagenes/Header/01Menu/heart.svg" />Favoritos</div>
-                <div><a href="#"></a><img src="../imagenes/Header/01Menu/shopping-cart.svg" />Carrito</div>
+                <div><a href="#"></a><img src="imagenes/Header/01Menu/heart.svg" />Favoritos</div>
+                <div><a href="#"></a><img src="imagenes/Header/01Menu/shopping-cart.svg" />Carrito</div>
             </div>
 
         </div>
