@@ -37,8 +37,10 @@
             <div class="menuPers">
                 <div class="cuenta"><a href="#"></a><img src="imagenes/Header/01Menu/user.svg" />Mi cuenta
                     <div class="submenu">
-                        <div class="subdiv"><a href="#"></a><img src="imagenes/Header/01Menu/edit.svg" />Editar Perfil</div>
-                        <div class="subdiv"><a href="#"></a><img src="imagenes/Header/01Menu/entrance.svg" />Iniciar Sesión</div>
+                        <div class="subdiv"><a href="#"></a><img src="imagenes/Header/01Menu/edit.svg" />Editar Perfil
+                        </div>
+                        <div class="subdiv"><a href="#"></a><img src="imagenes/Header/01Menu/entrance.svg" />Iniciar
+                            Sesión</div>
                     </div>
                 </div>
                 <div><a href="#"></a><img src="imagenes/Header/01Menu/heart.svg" />Favoritos</div>
@@ -48,7 +50,6 @@
         </div>
     </header>
     <nav>
-
         <div class="carousel">
             <div id="imagen"></div>
         </div>
@@ -69,6 +70,21 @@
     </div>
     <div class="separador">
         PRODUCTOS DESTACADOS
+    </div>
+    <div class="separador">
+        NUESTRA REVISTA
+    </div>
+    <div class="contenedorRevista">
+        <div class="revista">
+            <img src="imagenes/revista.png" />
+        </div>
+        <div class="textoRev">
+            <h2>La Revista Nº1 de construcción</h2>
+            <p>Descubre las últimas tendencias y novedades en construcción con la revista líder en el mercado. Este
+                semana no te pierdas el apartado especial "Architect", con consejos de un arquitecto profesional para
+                construir tu casa de sueños. ¡Consigue tu ejemplar!</p>
+            <h3>Añadir al carrito</h3>
+        </div>
     </div>
     <div class="separador">
         NUESTROS COMPROMISOS
@@ -112,18 +128,51 @@
     </div>
     <footer>
         <div class="redes">
-            <img src="imagenes/Footer/RRSS/facebook.svg" />
-            <img src="imagenes/Footer/RRSS/twitter.svg" />
-            <img src="imagenes/Footer/RRSS/youtube.svg" />
-            <img src="imagenes/Footer/RRSS/instagram.svg" />
-            <img src="imagenes/Footer/RRSS/linkedin.svg" />
-            <img src="imagenes/Footer/RRSS/pinterest.svg" />
-
+            <div class="titulo">
+                <h3>Nuestras Redes Sociales</h3>
+            </div>
+            <div class="contenido">
+                <img src="imagenes/Footer/RRSS/facebook.svg" />
+                <img src="imagenes/Footer/RRSS/twitter.svg" />
+                <img src="imagenes/Footer/RRSS/youtube.svg" />
+                <img src="imagenes/Footer/RRSS/instagram.svg" />
+                <img src="imagenes/Footer/RRSS/linkedin.svg" />
+                <img src="imagenes/Footer/RRSS/pinterest.svg" />
+            </div>
         </div>
-        <div class="info">
-            <a href="php/AboutUs.php">About Us</a>
-            <a href="php/Newsletter.php">Newsletter</a>
-            <a href="php/InfoLegal.php">Información Legal</a>
+        <div class="redes">
+            <div class="titulo">
+                <h3>Pago 100% Seguro</h3>
+            </div>
+            <div class="contenido">
+                <img src="imagenes/Footer/Pago/Amex.svg" />
+                <img src="imagenes/Footer/Pago/Mano.svg" />
+                <img src="imagenes/Footer/Pago/Mastercard.svg" />
+                <img src="imagenes/Footer/Pago/Paypal.svg" />
+                <img src="imagenes/Footer/Pago/Visa.svg" />
+            </div>
+        </div>
+        <div class="redes">
+            <div class="titulo">
+                <h3>Proyecto Ecológico</h3>
+            </div>
+            <div class="contenido">
+                <a href="php/eco.php">
+                    <img src="imagenes/Footer/ECO/Agua.svg" />
+                    <img src="imagenes/Footer/ECO/Reciclaje.svg" />
+                    <img src="imagenes/Footer/ECO/Renovable.svg" />
+                </a>
+            </div>
+        </div>
+        <div class="redes">
+            <div class="titulo">
+                <h3>Información y Bases Legales</h3>
+            </div>
+            <div class="contenido">
+                <a href="php/AboutUs.php">About Us</a>
+                <a href="php/Newsletter.php">Newsletter</a>
+                <a href="php/InfoLegal.php">Información Legal</a>
+            </div>
         </div>
     </footer>
 </body>
