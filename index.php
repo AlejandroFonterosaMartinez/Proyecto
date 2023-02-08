@@ -53,7 +53,7 @@ session_start();
                     <div class="submenu">
                         <div class="subdiv"><a href="php/perfil.php"><img src="imagenes/Header/01Menu/edit.svg" />Editar Perfil</a>
                         </div>
-                        <div class="subdiv"><img src="imagenes/Header/01Menu/entrance.svg" />Cerrar Sesión ';
+                        <div class="subdiv"><a href="php/logout.php"><img src="imagenes/Header/01Menu/entrance.svg" />Cerrar Sesión ';
 
                     echo '</div></a>
                     </div>
