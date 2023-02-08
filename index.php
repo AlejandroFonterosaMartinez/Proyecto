@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html>
+<?php
+session_start();
+?>
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>NombreTienda</title>
+    <title>BricoTeis SL</title>
     <link href="css/header.css" rel="stylesheet" type="text/css">
     <link href="css/carrusel.css" rel="stylesheet" type="text/css">
     <link href="css/index.css" rel="stylesheet" type="text/css">
     <link href="css/footer.css" rel="stylesheet" type="text/css">
-    <link rel="shortcut icon" href="imagenes/Header/Logo/Logo.svg" type="image/x-icon" />
-    <link rel="icon" href="imagenes/Logos/Header/Logo.svg" type="image/x-icon" />
+    <link rel="shortcut icon" href="imagenes/Logo.ico" type="image/x-icon" />
+    <link rel="icon" href="imagenes/Logo.ico" type="image/x-icon" />
     <script src="javascript/carrusel.js"></script>
 </head>
 
@@ -22,32 +25,53 @@
 
             <div class="infoPag">
                 <img src="imagenes/Header/Logo.svg" />
-                NombreTienda
+                BricoTeis SL
             </div>
+
 
             <div class="buscador">
                 <form action="search.php" method="get">
                     <div class="cajaTexto">
-                        <input type="text" name="query" placeholder="Buscar...">
-                        <button type="submit">Buscar</button>
+                        <form action="search.php" method="get">
+                            <div class="cajaTexto">
+                                <input type="text" name="query" name="query" placeholder="Buscar...">
+                                <button type="submit">Buscar</button>
+                            </div>
+                        </form>
                     </div>
                 </form>
             </div>
 
             <div class="menuPers">
-                <div class="cuenta"><a href="#"></a><img src="imagenes/Header/01Menu/user.svg" />Mi cuenta
+                <?php if (!isset($_SESSION['correo'])) {
+                    echo '
+                     <div class="cuenta"><a href="#"></a><img src="imagenes/Header/01Menu/user.svg" />Mi cuenta
+                         <div class="submenu">
+                             <div class="subdiv"><a href="php/registro.php"><img src="imagenes/Header/01Menu/edit.svg" />Registrarse</a>
+                             </div>
+                             <div class="subdiv"><a href="php/login.php"><img src="imagenes/Header/01Menu/entrance.svg" />Iniciar Sesión</div></a>
+                         </div>
+                     </div>
+                     <div><a href="#"></a><img src="imagenes/Header/01Menu/heart.svg" />Favoritos</div>
+                     <div><a href="#"></a><img src="imagenes/Header/01Menu/shopping-cart.svg" />Carrito</div>
+                 </div>';
+                } else {
+                    echo '<div class="cuenta"><a href="#"></a><img src="imagenes/Header/01Menu/user.svg" />' . $_SESSION['correo'] . '
                     <div class="submenu">
-                        <div class="subdiv"><a href="#"></a><img src="imagenes/Header/01Menu/edit.svg" />Editar Perfil
+                        <div class="subdiv"><a href="php/perfil.php"><img src="imagenes/Header/01Menu/edit.svg" />Editar Perfil</a>
                         </div>
-                        <div class="subdiv"><a href="#"></a><img src="imagenes/Header/01Menu/entrance.svg" />Iniciar
-                            Sesión</div>
+                        <div class="subdiv"><a href="php/logout.php"><img src="imagenes/Header/01Menu/entrance.svg" />Cerrar Sesión ';
+
+                    echo '</div></a>
                     </div>
                 </div>
                 <div><a href="#"></a><img src="imagenes/Header/01Menu/heart.svg" />Favoritos</div>
-                <div><a href="#"></a><img src="imagenes/Header/01Menu/shopping-cart.svg" />Carrito</div>
-            </div>
+                <div><a href="#"></a><img src="imagenes/Header/01Menu/shopping-cart.svg" />Carrito</div>'
+                    ;
 
-        </div>
+                } ?>
+
+            </div>
     </header>
     <nav>
         <div class="carousel">
@@ -69,8 +93,13 @@
         <div class="item"><img src="imagenes/Menu/Aislante.svg" />Aislamientos</div>
     </div>
     <div class="separador">
-        PRODUCTOS DESTACADOS
+
+        <h1> PRODUCTOS DESTACADOS </h1>
+        <?php
+        require_once "Controller/productos_controlador.php";
+        ?>
     </div>
+
     <div class="separador">
         NUESTRA REVISTA
     </div>
@@ -78,8 +107,10 @@
         <img src="imagenes/revista.png" />
         <div class="textoRev">
             <h2>La Revista Nº1 de construcción</h2>
-            <p>Descubre las últimas tendencias y novedades en construcción con la revista líder en el mercado. Este
-                semana no te pierdas el apartado especial "Architect", con consejos de un arquitecto profesional para
+            <p>Descubre las últimas tendencias y novedades en construcción con la revista líder en el mercado.
+                Este
+                semana no te pierdas el apartado especial "Architect", con consejos de un arquitecto profesional
+                para
                 construir tu casa de sueños. ¡Consigue tu ejemplar!</p>
             <h3>Añadir al carrito</h3>
         </div>
@@ -91,42 +122,47 @@
         <div class="compromiso">
             <div class="comp"><img src="imagenes/Compromisos/Calidad.svg" />
                 CALIDAD ÓPTIMA
-                <p>Buscamos mejorar tu experiencia. Querémos ser más que una tienda de productos de construcción,
+                <p>Buscamos mejorar tu experiencia. Querémos ser más que una tienda de productos de
+                    construcción,
                     queremos formar parte de tus proyectos como una comunidad.</p>
             </div>
         </div>
         <div class="compromiso">
             <div class="comp"><img src="imagenes/Compromisos/Cantidad.svg" />
                 STOCK SIEMPRE DISPONIBLE
-                <p>Nos esforzamos por mantener un amplio stock disponible para que siempre tengas lo que necesitas para
+                <p>Nos esforzamos por mantener un amplio stock disponible para que siempre tengas lo que
+                    necesitas para
                     tus proyectos de construcción.</p>
             </div>
         </div>
         <div class="compromiso">
             <div class="comp"><img src="imagenes/Compromisos/Velocidad.svg" />
                 ENTREGAS RÁPIDAS
-                <p>Brindamos un servicio de entrega rápido y eficiente para ser una parte integral en el éxito de tus
+                <p>Brindamos un servicio de entrega rápido y eficiente para ser una parte integral en el éxito
+                    de tus
                     proyectos de construcción.</p>
             </div>
         </div>
         <div class="compromiso">
             <div class="comp"><img src="imagenes/Compromisos/Comunicacion.svg" />
                 ATENCIÓN 24 HORAS
-                <p>Estamos disponibles 24/7 para responder a tus preguntas y inquietudes sobre nuestros productos de
+                <p>Estamos disponibles 24/7 para responder a tus preguntas y inquietudes sobre nuestros
+                    productos de
                     construcción. ¡No dudes en contactarnos!</p>
             </div>
         </div>
         <div class="compromiso">
             <div class="comp"><img src="imagenes/Compromisos/Precio.svg" />
                 PRECIOS IMBATIBLES
-                <p>Ofrecemos precios competitivos para garantizar que tengas acceso a materiales de alta calidad sin
+                <p>Ofrecemos precios competitivos para garantizar que tengas acceso a materiales de alta calidad
+                    sin
                     sacrificar tu presupuesto.</p>
             </div>
         </div>
     </div>
     <footer>
         <div class="redes">
-            <div class="tituloFooter">
+            <div class="titulo">
                 <h3>Nuestras Redes Sociales</h3>
             </div>
             <div class="contenido">
@@ -139,7 +175,7 @@
             </div>
         </div>
         <div class="redes">
-            <div class="tituloFooter">
+            <div class="titulo">
                 <h3>Proyecto Ecológico</h3>
             </div>
             <div class="contenido">
@@ -151,19 +187,19 @@
             </div>
         </div>
         <div class="redes">
-            <div class="tituloFooter">
+            <div class="titulo">
                 <h3>Pago 100% Seguro</h3>
             </div>
             <div class="contenido">
                 <img src="imagenes/Footer/Pago/Amex.svg" />
-                <img src="imagenes/Footer/Pago/Klarna.svg" />
+                <img src="imagenes/Footer/Pago/Mano.svg" />
                 <img src="imagenes/Footer/Pago/Mastercard.svg" />
                 <img src="imagenes/Footer/Pago/Paypal.svg" />
                 <img src="imagenes/Footer/Pago/Visa.svg" />
             </div>
         </div>
         <div class="redes">
-            <div class="tituloFooter">
+            <div class="titulo">
                 <h3>Información y Bases Legales</h3>
             </div>
             <div class="contenido">

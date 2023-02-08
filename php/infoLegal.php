@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>NombreTienda</title>
+    <title>BricoTeis SL</title>
     <link href="../css/header.css" rel="stylesheet" type="text/css">
     <link href="../css/infos.css" rel="stylesheet" type="text/css">
     <link href="../css/footer.css" rel="stylesheet" type="text/css">
-    <link rel="shortcut icon" href="../imagenes/Header/Logo/Logo.svg" type="image/x-icon" />
-    <link rel="icon" href="../imagenes/Logos/Header/Logo.svg" type="image/x-icon" />
+    <link rel="shortcut icon" href="../imagenes/Logo.ico" type="image/x-icon" />
+    <link rel="icon" href="../imagenes/Logo.ico" type="image/x-icon" />
 </head>
 
 
@@ -20,7 +20,7 @@
 
             <div class="infoPag">
                 <img src="../imagenes/Header/Logo.svg" />
-                NombreTienda
+                BricoTeis SL
             </div>
 
             <div class="buscador">
@@ -52,7 +52,7 @@
             <h1>Información Legal</h1>
         </div>
         <div class="apartado">
-            <h2>Política de privacidad de NombreTienda SL</h2>
+            <h2>Política de privacidad de BricoTeis SL</h2>
             <p>Nos comprometemos a proteger su privacidad y a garantizar que sus datos personales sean tratados de
                 manera
                 confidencial y segura. Esta política describe cómo recopilamos, usamos, compartimos y protegemos sus
