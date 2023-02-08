@@ -85,26 +85,20 @@ body {
   /* Centra los elementos en el eje vertical */
   text-align: center;
 }
+
 .comp {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.comp p {
-  visibility: hidden;
-}
+
 .compromiso img {
   width: 7vw;
-}
-.comp:hover p {
-  visibility: visible;
 }
 
 .contenedorRevista {
   display: flex;
   background-color: #00b3aa26;
-  margin-left: 22.5%;
-  margin-right: 22.5%;
 }
 
 .contenedorRevista img {
@@ -132,19 +126,40 @@ body {
   background-color: rgb(222, 222, 222);
 }
 
-/* Estilos para dispositivos móviles */
-@media (max-width: 768px) {
+/* Estilos para Pantallas de PC */
+@media (min-width: 1090px) {
+  .comp p {
+    visibility: hidden;
+  }
+
+  .comp:hover p {
+    visibility: visible;
+  }
+
+  .contenedorRevista {
+    margin-left: 22.5%;
+    margin-right: 22.5%;
+  }
+}
+
+@media only screen and (min-device-width: 700px) and (max-device-width: 1024px) {
   .categorias {
     flex-wrap: wrap;
     /* Evita que los elementos se ajusten automáticamente */
   }
 
   .item {
-    flex: 20%;
+    flex: 0 0 30%;
+  }
+
+  .contenedorRevista {
+    margin-left: 22.5%;
+    margin-right: 22.5%;
   }
 }
 
-@media only screen and (min-device-width: 700px) and (max-device-width: 1024px) {
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
   .categorias {
     flex-wrap: wrap;
     /* Evita que los elementos se ajusten automáticamente */

@@ -35,8 +35,10 @@
             <div class="menuPers">
                 <div class="cuenta"><a href="#"></a><img src="../imagenes/Header/01Menu/user.svg" />Mi cuenta
                     <div class="submenu">
-                        <div class="subdiv"><a href="#"></a><img src="../imagenes/Header/01Menu/edit.svg" />Editar Perfil</div>
-                        <div class="subdiv"><a href="#"></a><img src="../imagenes/Header/01Menu/entrance.svg" />Iniciar Sesión</div>
+                        <div class="subdiv"><a href="#"></a><img src="../imagenes/Header/01Menu/edit.svg" />Editar Perfil
+                        </div>
+                        <div class="subdiv"><a href="#"></a><img src="../imagenes/Header/01Menu/entrance.svg" />Iniciar
+                            Sesión</div>
                     </div>
                 </div>
                 <div><a href="#"></a><img src="../imagenes/Header/01Menu/heart.svg" />Favoritos</div>
@@ -147,15 +149,51 @@
     </div>
     <footer>
         <div class="redes">
-            <img src="../imagenes/Footer/RRSS/facebook.svg" />
-            <img src="../imagenes/Footer/RRSS/twitter.svg" />
-            <img src="../imagenes/Footer/RRSS/youtube.svg" />
-            <img src="../imagenes/Footer/RRSS/instagram.svg" />
+            <div class="tituloFooter">
+                <h3>Nuestras Redes Sociales</h3>
+            </div>
+            <div class="contenido">
+                <img src="../imagenes/Footer/RRSS/facebook.svg" />
+                <img src="../imagenes/Footer/RRSS/twitter.svg" />
+                <img src="../imagenes/Footer/RRSS/youtube.svg" />
+                <img src="../imagenes/Footer/RRSS/instagram.svg" />
+                <img src="../imagenes/Footer/RRSS/linkedin.svg" />
+                <img src="../imagenes/Footer/RRSS/pinterest.svg" />
+            </div>
         </div>
-        <div class="info">
-            <a href="../php/AboutUs.php">About Us</a>
-            <a href="../php/Newsletter.php">Newsletter</a>
-            <a href="../php/InfoLegal.php">Información Legal</a>
+        <div class="redes">
+            <div class="tituloFooter">
+                <h3>Proyecto Ecológico</h3>
+            </div>
+            <div class="contenido">
+                <a href="php/eco.php">
+                    <img src="../imagenes/Footer/ECO/Agua.svg" />
+                    <img src="../imagenes/Footer/ECO/Reciclaje.svg" />
+                    <img src="../imagenes/Footer/ECO/Renovable.svg" />
+                </a>
+            </div>
+        </div>
+        <div class="redes">
+            <div class="tituloFooter">
+                <h3>Pago 100% Seguro</h3>
+            </div>
+            <div class="contenido">
+                <img src="../imagenes/Footer/Pago/Amex.svg" />
+                <img src="../imagenes/Footer/Pago/Klarna.svg" />
+                <img src="../imagenes/Footer/Pago/Mastercard.svg" />
+                <img src="../imagenes/Footer/Pago/Paypal.svg" />
+                <img src="../imagenes/Footer/Pago/Visa.svg" />
+            </div>
+        </div>
+        <div class="redes">
+            <div class="tituloFooter">
+                <h3>Información y Bases Legales</h3>
+            </div>
+            <div class="contenido">
+                <a href="../php/AboutUs.php">About Us</a>
+                <a href="../php/Newsletter.php">Newsletter</a>
+                <a href="../php/InfoLegal.php">Información Legal</a>
+            </div>
         </div>
     </footer>
 </body>
