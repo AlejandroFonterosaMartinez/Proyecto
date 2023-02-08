@@ -33,16 +33,16 @@
             </div>
 
             <div class="menuPers">
-                <div class="cuenta"><a href="#"></a><img src="../imagenes/Header/01Menu/user.svg" />Mi cuenta
+                <div class="cuenta"><a href="#"></a><img src="../imagenes/Header/Menu/user.svg" />Mi cuenta
                     <div class="submenu">
-                        <div class="subdiv"><a href="#"></a><img src="../imagenes/Header/01Menu/edit.svg" />Editar Perfil
+                        <div class="subdiv"><a href="#"></a><img src="../imagenes/Header/Menu/edit.svg" />Editar Perfil
                         </div>
-                        <div class="subdiv"><a href="#"></a><img src="../imagenes/Header/01Menu/entrance.svg" />Iniciar
+                        <div class="subdiv"><a href="#"></a><img src="../imagenes/Header/Menu/entrance.svg" />Iniciar
                             Sesión</div>
                     </div>
                 </div>
-                <div><a href="#"></a><img src="../imagenes/Header/01Menu/heart.svg" />Favoritos</div>
-                <div><a href="#"></a><img src="../imagenes/Header/01Menu/shopping-cart.svg" />Carrito</div>
+                <div><a href="#"></a><img src="../imagenes/Header/Menu/heart.svg" />Favoritos</div>
+                <div><a href="#"></a><img src="../imagenes/Header/Menu/shopping-cart.svg" />Carrito</div>
             </div>
 
         </div>

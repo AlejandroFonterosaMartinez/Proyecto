@@ -45,28 +45,28 @@ session_start();
             <div class="menuPers">
                 <?php if (!isset($_SESSION['correo'])) {
                     echo '
-                     <div class="cuenta"><a href="#"></a><img src="imagenes/Header/01Menu/user.svg" />Mi cuenta
+                     <div class="cuenta"><a href="#"></a><img src="imagenes/Header/Menu/user.svg" />Mi cuenta
                          <div class="submenu">
-                             <div class="subdiv"><a href="php/registro.php"><img src="imagenes/Header/01Menu/edit.svg" />Registrarse</a>
+                             <div class="subdiv"><a href="php/registro.php"><img src="imagenes/Header/Menu/edit.svg" />Registrarse</a>
                              </div>
-                             <div class="subdiv"><a href="php/login.php"><img src="imagenes/Header/01Menu/entrance.svg" />Iniciar Sesión</div></a>
+                             <div class="subdiv"><a href="php/login.php"><img src="imagenes/Header/Menu/entrance.svg" />Iniciar Sesión</div></a>
                          </div>
                      </div>
-                     <div><a href="#"></a><img src="imagenes/Header/01Menu/heart.svg" />Favoritos</div>
-                     <div><a href="#"></a><img src="imagenes/Header/01Menu/shopping-cart.svg" />Carrito</div>
+                     <div><a href="#"></a><img src="imagenes/Header/Menu/heart.svg" />Favoritos</div>
+                     <div><a href="#"></a><img src="imagenes/Header/Menu/shopping-cart.svg" />Carrito</div>
                  </div>';
                 } else {
-                    echo '<div class="cuenta"><a href="#"></a><img src="imagenes/Header/01Menu/user.svg" />' . $_SESSION['correo'] . '
+                    echo '<div class="cuenta"><a href="#"></a><img src="imagenes/Header/Menu/user.svg" />' . $_SESSION['correo'] . '
                     <div class="submenu">
-                        <div class="subdiv"><a href="php/perfil.php"><img src="imagenes/Header/01Menu/edit.svg" />Editar Perfil</a>
+                        <div class="subdiv"><a href="php/perfil.php"><img src="imagenes/Header/Menu/edit.svg" />Editar Perfil</a>
                         </div>
-                        <div class="subdiv"><a href="php/logout.php"><img src="imagenes/Header/01Menu/entrance.svg" />Cerrar Sesión ';
+                        <div class="subdiv"><a href="php/logout.php"><img src="imagenes/Header/Menu/entrance.svg" />Cerrar Sesión ';
 
                     echo '</div></a>
                     </div>
                 </div>
-                <div><a href="#"></a><img src="imagenes/Header/01Menu/heart.svg" />Favoritos</div>
-                <div><a href="#"></a><img src="imagenes/Header/01Menu/shopping-cart.svg" />Carrito</div>'
+                <div><a href="#"></a><img src="imagenes/Header/Menu/heart.svg" />Favoritos</div>
+                <div><a href="#"></a><img src="imagenes/Header/Menu/shopping-cart.svg" />Carrito</div>'
                     ;
 
                 } ?>
@@ -82,15 +82,15 @@ session_start();
         CATEGORÍAS
     </div>
     <div class="categorias">
-        <div class="item"><img src="imagenes/Menu/Arena.svg" />Arenas y Gravas</div>
-        <div class="item"><img src="imagenes/Menu/Techo.svg" />Tejados Y Cubiertas</div>
-        <div class="item"><img src="imagenes/Menu/Cemento.svg" />Cementos Y Morteros</div>
-        <div class="item"><img src="imagenes/Menu/Madera.svg" />Madera</div>
-        <div class="item"><img src="imagenes/Menu/Hormigonera.svg" />Hormigoneras, carretillas...</div>
-        <div class="item"><img src="imagenes/Menu/Valla.svg" />Cercados y Ocultación</div>
-        <div class="item"><img src="imagenes/Menu/Yeso.svg" />Yesos Y Escayolas</div>
-        <div class="item"><img src="imagenes/Menu/Eleconstruccion.svg" />Elementos de construcción</div>
-        <div class="item"><img src="imagenes/Menu/Aislante.svg" />Aislamientos</div>
+        <div class="item"><img src="imagenes/Categorias/Arena.svg" />Arenas y Gravas</div>
+        <div class="item"><img src="imagenes/Categorias/Techo.svg" />Tejados Y Cubiertas</div>
+        <div class="item"><img src="imagenes/Categorias/Cemento.svg" />Cementos Y Morteros</div>
+        <div class="item"><img src="imagenes/Categorias/Madera.svg" />Madera</div>
+        <div class="item"><img src="imagenes/Categorias/Hormigonera.svg" />Hormigoneras, carretillas...</div>
+        <div class="item"><img src="imagenes/Categorias/Valla.svg" />Cercados y Ocultación</div>
+        <div class="item"><img src="imagenes/Categorias/Yeso.svg" />Yesos Y Escayolas</div>
+        <div class="item"><img src="imagenes/Categorias/Eleconstruccion.svg" />Elementos de construcción</div>
+        <div class="item"><img src="imagenes/Categorias/Aislante.svg" />Aislamientos</div>
     </div>
     <div class="separador">
 
