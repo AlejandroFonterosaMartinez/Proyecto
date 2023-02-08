@@ -24,7 +24,7 @@ session_start();
         <div class="container">
 
             <div class="infoPag">
-                <img src="imagenes/Header/Logo.svg"  />
+                <img src="imagenes/Header/Logo.svg" />
                 NombreTienda
             </div>
 
@@ -33,12 +33,12 @@ session_start();
                 <form action="search.php" method="get">
                     <div class="cajaTexto">
                         <form action="search.php" method="get">
-                    <div class="cajaTexto">
-                        <input type="text" name="query" name="query" placeholder="Buscar...">
+                            <div class="cajaTexto">
+                                <input type="text" name="query" name="query" placeholder="Buscar...">
                                 <button type="submit">Buscar</button>
                             </div>
-                </form>
-            </div>
+                        </form>
+                    </div>
                 </form>
             </div>
 
@@ -82,7 +82,6 @@ session_start();
         CATEGORÍAS
     </div>
     <div class="categorias">
-        <div class="item"><img src="imagenes/Menu/Arena.svg" />Arenas y Gravas</div>
         <div class="item"><img src="imagenes/Menu/Arena.svg" />Arenas y Gravas</div>
         <div class="item"><img src="imagenes/Menu/Techo.svg" />Tejados Y Cubiertas</div>
         <div class="item"><img src="imagenes/Menu/Cemento.svg" />Cementos Y Morteros</div>
