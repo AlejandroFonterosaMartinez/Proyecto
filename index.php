@@ -126,7 +126,7 @@
     </div>
     <footer>
         <div class="redes">
-            <div class="titulo">
+            <div class="tituloFooter">
                 <h3>Nuestras Redes Sociales</h3>
             </div>
             <div class="contenido">
@@ -139,7 +139,7 @@
             </div>
         </div>
         <div class="redes">
-            <div class="titulo">
+            <div class="tituloFooter">
                 <h3>Proyecto Ecológico</h3>
             </div>
             <div class="contenido">
@@ -151,7 +151,7 @@
             </div>
         </div>
         <div class="redes">
-            <div class="titulo">
+            <div class="tituloFooter">
                 <h3>Pago 100% Seguro</h3>
             </div>
             <div class="contenido">
@@ -163,7 +163,7 @@
             </div>
         </div>
         <div class="redes">
-            <div class="titulo">
+            <div class="tituloFooter">
                 <h3>Información y Bases Legales</h3>
             </div>
             <div class="contenido">
@@ -172,6 +172,8 @@
                 <a href="php/InfoLegal.php">Información Legal</a>
             </div>
         </div>
+    </footer>
+    <footer>
     </footer>
 </body>
 
