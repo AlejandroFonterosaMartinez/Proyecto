@@ -156,7 +156,7 @@
             </div>
             <div class="contenido">
                 <img src="imagenes/Footer/Pago/Amex.svg" />
-                <img src="imagenes/Footer/Pago/Mano.svg" />
+                <img src="imagenes/Footer/Pago/Klarna.svg" />
                 <img src="imagenes/Footer/Pago/Mastercard.svg" />
                 <img src="imagenes/Footer/Pago/Paypal.svg" />
                 <img src="imagenes/Footer/Pago/Visa.svg" />
