@@ -10,7 +10,7 @@ include('../Controller/registro_controlador.php');
 
 <head>
     <meta charset="utf-8">
-    <title>NombreTienda SL</title>
+    <title>BricoTeis SL</title>
     <link rel="stylesheet" href="../css/register.css" />
     <link rel="shortcut icon" href="../imagenes/Logo.ico" type="image/x-icon" />
     <link rel="icon" href="../imagenes/Logo.ico" type="image/x-icon" />

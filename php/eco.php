@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>NombreTienda SL</title>
+    <title>BricoTeis SL</title>
     <link href="../css/header.css" rel="stylesheet" type="text/css">
     <link href="../css/infos.css" rel="stylesheet" type="text/css">
     <link href="../css/footer.css" rel="stylesheet" type="text/css">
@@ -21,7 +21,7 @@
             <div class="infoPag">
                 <a href="../index.php">
                     <img src="../imagenes/Header/Logo.svg" />
-                    NombreTienda SL
+                    BricoTeis SL
                 </a>
             </div>
 
