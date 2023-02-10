@@ -21,12 +21,15 @@ header {
   display: flex;
   align-items: center;
   color: #3a3a3a;
+  text-align: center;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: bolder;
 }
 
 .infoPag > a {
   text-decoration: none;
   color: black;
-  width: 40%;
+  width: 50%;
 }
 
 .menuPers {
@@ -35,10 +38,11 @@ header {
   position: relative;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-weight: bolder;
-  align-items: center;
+  text-align: center;
 }
 
 .menuPers a {
+  width: 100%;
   text-decoration: none;
   margin: 0 0.1em 0 0.1em;
   color: black;
@@ -101,17 +105,13 @@ header {
   }
 
   .infoPag img {
-    width: 9%;
+    width: 16%;
   }
 
   .menuPers {
     height: 100%;
     width: 40%;
     justify-content: end;
-  }
-
-  .menuPers a {
-    width: 21%;
   }
 
   .menuPers img {
@@ -156,10 +156,6 @@ header {
     font-size: small;
   }
 
-  .menuPers a {
-    width: 25%;
-  }
-
   .menuPers img {
     width: 20%;
   }
@@ -191,14 +187,11 @@ header {
   }
 
   .menuPers {
-    align-items: center;
-    justify-content: start;
     width: 100%;
     margin-top: 0.4em;
   }
 
   .menuPers a {
-    width: 33%;
     justify-content: center;
     display: flex;
   }

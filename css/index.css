@@ -126,6 +126,68 @@ body {
   background-color: rgb(222, 222, 222);
 }
 
+.textoRev button {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: bolder;
+  background-color: white;
+  padding: 1%;
+}
+
+.textoRev button:hover {
+  background-color: rgb(222, 222, 222);
+}
+
+.contenedor_productos {
+  display: flex;
+  /* Habilita Flexbox */
+  flex-wrap: wrap;
+  /* Permite que los elementos se ajusten automáticamente a la pantalla */
+  justify-content: center;
+  /* Alinea los elementos en el centro del contenedor */
+  align-items: center;
+  /* Centra los elementos verticalmente */
+  overflow: hidden;
+}
+
+.producto {
+  flex: 1;
+  /* Permite que los elementos ocupen el mismo espacio */
+  margin: 10px;
+  /* Agrega margen entre los elementos */
+  display: flex;
+  /* Establece que los elementos dentro del contenedor se dispongan en línea */
+  justify-content: center;
+  /* Centra los elementos en el eje horizontal */
+  flex-direction: column;
+  /* Establece que los elementos dentro del contenedor se dispongan en columnas */
+  align-items: center;
+  /* Centra los elementos en el eje vertical */
+  text-align: center;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: bolder;
+  width: 25%;
+}
+
+.producto img {
+  height: 20vw;
+  width: 17vw;
+}
+
+.producto button {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: bolder;
+  background-color: white;
+  padding: 1%;
+}
+
+.producto button:hover {
+  background-color: rgb(222, 222, 222);
+}
+
+.producto label {
+  padding: 10%;
+}
+
 /* Estilos para Pantallas de PC */
 @media (min-width: 1090px) {
   .comp p {
@@ -167,5 +229,26 @@ body {
 
   .item {
     flex: 0 0 30%;
+  }
+
+  .contenedorRevista {
+    flex-direction: column;
+    align-items: center;
+    margin: 1%;
+  }
+
+  .contenedorRevista img {
+    height: 38vw;
+    width: 35vw;
+    margin-top: 5%;
+  }
+
+  .compromiso {
+    flex: 1;
+  }
+
+  .comp p {
+    visibility: hidden;
+    height: 0px;
   }
 }

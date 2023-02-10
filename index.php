@@ -8,13 +8,13 @@ session_start();
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>NombreTienda</title>
+    <title>NombreTienda SL</title>
     <link href="css/header.css" rel="stylesheet" type="text/css">
     <link href="css/carrusel.css" rel="stylesheet" type="text/css">
     <link href="css/index.css" rel="stylesheet" type="text/css">
     <link href="css/footer.css" rel="stylesheet" type="text/css">
-    <link rel="shortcut icon" href="imagenes/Header/Logo/Logo.svg" type="image/x-icon" />
-    <link rel="icon" href="imagenes/Logos/Header/Logo.svg" type="image/x-icon" />
+    <link rel="shortcut icon" href="imagenes/Logo.ico" type="image/x-icon" />
+    <link rel="icon" href="imagenes/Logo.ico" type="image/x-icon" />
     <script src="javascript/carrusel.js"></script>
 </head>
 
@@ -24,8 +24,10 @@ session_start();
         <div class="container">
 
             <div class="infoPag">
+            <a href="index.php">
                 <img src="imagenes/Header/Logo.svg" />
-                NombreTienda
+                NombreTienda SL
+            </a>
             </div>
 
 
@@ -45,15 +47,15 @@ session_start();
             <div class="menuPers">
                 <?php if (!isset($_SESSION['correo'])) {
                     echo '
-                     <div class="cuenta"><a href="#"></a><img src="imagenes/Header/01Menu/user.svg" />Mi cuenta
+                     <div class="cuenta"><img src="imagenes/Header/01Menu/user.svg" />Mi cuenta
                          <div class="submenu">
                              <div class="subdiv"><a href="php/registro.php"><img src="imagenes/Header/01Menu/edit.svg" />Registrarse</a>
                              </div>
                              <div class="subdiv"><a href="php/login.php"><img src="imagenes/Header/01Menu/entrance.svg" />Iniciar Sesión</div></a>
                          </div>
                      </div>
-                     <div><a href="#"></a><img src="imagenes/Header/01Menu/heart.svg" />Favoritos</div>
-                     <div><a href="#"></a><img src="imagenes/Header/01Menu/shopping-cart.svg" />Carrito</div>
+                     <div><a href="#"><img src="imagenes/Header/01Menu/heart.svg" />Favoritos</a></div>
+                     <div><a href="#"><img src="imagenes/Header/01Menu/shopping-cart.svg" />Carrito</a></div>
                  </div>';
                 } else {
                     echo '<div class="cuenta"><a href="#"></a><img src="imagenes/Header/01Menu/user.svg" />' . $_SESSION['correo'] . '
@@ -93,12 +95,11 @@ session_start();
         <div class="item"><img src="imagenes/Menu/Aislante.svg" />Aislamientos</div>
     </div>
     <div class="separador">
-
-        <h1> PRODUCTOS DESTACADOS </h1>
-        <?php
-        require_once "Controller/productos_controlador.php";
-        ?>
+        PRODUCTOS DESTACADOS
     </div>
+    <?php
+    require_once "Controller/productos_controlador.php";
+    ?>
 
     <div class="separador">
         NUESTRA REVISTA
@@ -112,7 +113,7 @@ session_start();
                 semana no te pierdas el apartado especial "Architect", con consejos de un arquitecto profesional
                 para
                 construir tu casa de sueños. ¡Consigue tu ejemplar!</p>
-            <h3>Añadir al carrito</h3>
+                <button type="submit">Añadir al carrito</button>
         </div>
     </div>
     <div class="separador">
@@ -192,7 +193,7 @@ session_start();
             </div>
             <div class="contenido">
                 <img src="imagenes/Footer/Pago/Amex.svg" />
-                <img src="imagenes/Footer/Pago/Mano.svg" />
+                <img src="imagenes/Footer/Pago/Klarna.svg" />
                 <img src="imagenes/Footer/Pago/Mastercard.svg" />
                 <img src="imagenes/Footer/Pago/Paypal.svg" />
                 <img src="imagenes/Footer/Pago/Visa.svg" />
