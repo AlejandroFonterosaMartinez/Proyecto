@@ -13,7 +13,7 @@ class Conectar
         }
         return $conexion;
     }
-    
+
 
 }
 function cargar_configuracion($xml, $validador)

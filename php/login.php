@@ -3,8 +3,8 @@ include('../Config/Conectar.php');
 include('../Model/usuario_modelo.php');
 include('../Controller/usuario_controlador.php');
 session_start();
-if (isset($_SESSION['correo'])) {
-    header("../index.php");
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    (new loginController)->login($_POST['correo'], $_POST['password']);
 }
 
 ?>
@@ -18,7 +18,9 @@ if (isset($_SESSION['correo'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <title>Log In</title>
+    <title>BricoTeis SL</title>
+    <link rel="shortcut icon" href="../imagenes/Logo.ico" type="image/x-icon" />
+    <link rel="icon" href="../imagenes/Logo.ico" type="image/x-icon" />
 </head>
 
 <body>

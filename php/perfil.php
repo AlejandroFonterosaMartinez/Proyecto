@@ -6,7 +6,7 @@ if (isset($_SESSION['correo'])) {
     $email = $_SESSION['correo'];
     $stmt = Conectar::conexion()->prepare("SELECT usuarios.nombre, usuarios.apellidos, usuarios.correo, usuarios.fecha_nacimiento, usuarios.fecha_registro, roles.descripcion 
                                         FROM usuarios
-                                        INNER JOIN roles ON usuarios.id_rol = roles.id_rol
+                                        LEFT JOIN roles ON usuarios.id_rol = roles.id_rol
                                         WHERE correo='$email'");
     $stmt->execute();
     $valores = $stmt->fetch();
@@ -44,9 +44,11 @@ if (isset($_SESSION['correo'])) {
 <!DOCTYPE html>
 <html>
 </head>
-<title>Perfil</title>
+<title>BricoTeis SL</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="shortcut icon" href="../imagenes/Logo.ico" type="image/x-icon" />
+    <link rel="icon" href="../imagenes/Logo.ico" type="image/x-icon" />
 </head>
 
 <body>

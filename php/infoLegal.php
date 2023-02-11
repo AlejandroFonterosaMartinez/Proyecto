@@ -5,54 +5,76 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>NombreTienda</title>
+    <title>BricoTeis SL</title>
     <link href="../css/header.css" rel="stylesheet" type="text/css">
     <link href="../css/infos.css" rel="stylesheet" type="text/css">
     <link href="../css/footer.css" rel="stylesheet" type="text/css">
-    <link rel="shortcut icon" href="../imagenes/Header/Logo/Logo.svg" type="image/x-icon" />
-    <link rel="icon" href="../imagenes/Logos/Header/Logo.svg" type="image/x-icon" />
+    <link rel="shortcut icon" href="../imagenes/Logo.ico" type="image/x-icon" />
+    <link rel="icon" href="../imagenes/Logo.ico" type="image/x-icon" />
 </head>
 
 
 <body>
-<header>
+    <header>
         <div class="container">
 
             <div class="infoPag">
-                <img src="../imagenes/Header/Logo.svg" />
-                NombreTienda
+                <a href="../index.php">
+                    <img src="../imagenes/Header/Logo.svg" />
+                    BricoTeis SL
+                </a>
             </div>
 
             <div class="buscador">
                 <form action="search.php" method="get">
                     <div class="cajaTexto">
-                        <input type="text" name="query" placeholder="Buscar...">
-                        <button type="submit">Buscar</button>
+                        <form action="search.php" method="get">
+                            <div class="cajaTexto">
+                                <input type="text" name="query" name="query" placeholder="Buscar...">
+                                <button type="submit">Buscar</button>
+                            </div>
+                        </form>
                     </div>
                 </form>
             </div>
 
             <div class="menuPers">
-                <div class="cuenta"><a href="#"></a><img src="../imagenes/Header/01Menu/user.svg" />Mi cuenta
+                <?php if (!isset($_SESSION['correo'])) {
+                    echo '
+                     <div class="cuenta"><img src="../imagenes/Header/01Menu/user.svg" />Mi cuenta
+                         <div class="submenu">
+                             <div class="subdiv"><a href="../php/registro.php"><img src="../imagenes/Header/01Menu/edit.svg" />Registrarse</a>
+                             </div>
+                             <div class="subdiv"><a href="../php/login.php"><img src="../imagenes/Header/01Menu/entrance.svg" />Iniciar Sesión</div></a>
+                         </div>
+                     </div>
+                     <div><a href="#"><img src="../imagenes/Header/01Menu/heart.svg" />Favoritos</a></div>
+                     <div><a href="#"><img src="../imagenes/Header/01Menu/shopping-cart.svg" />Carrito</a></div>
+                 </div>';
+                } else {
+                    echo '<div class="cuenta"><a href="#"></a><img src="../imagenes/Header/01Menu/user.svg" />' . $_SESSION['correo'] . '
                     <div class="submenu">
-                        <div class="subdiv"><a href="#"></a><img src="../imagenes/Header/01Menu/edit.svg" />Editar Perfil
+                        <div class="subdiv"><a href="../php/perfil.php"><img src="../imagenes/Header/01Menu/edit.svg" />Editar Perfil</a>
                         </div>
-                        <div class="subdiv"><a href="#"></a><img src="../imagenes/Header/01Menu/entrance.svg" />Iniciar
-                            Sesión</div>
+                        <div class="subdiv"><a href="../php/logout.php"><img src="../imagenes/Header/01Menu/entrance.svg" />Cerrar Sesión ';
+
+                    echo '</div></a>
                     </div>
                 </div>
                 <div><a href="#"></a><img src="../imagenes/Header/01Menu/heart.svg" />Favoritos</div>
-                <div><a href="#"></a><img src="../imagenes/Header/01Menu/shopping-cart.svg" />Carrito</div>
-            </div>
+                <div><a href="#"></a><img src="../imagenes/Header/01Menu/shopping-cart.svg" />Carrito</div>'
+                    ;
 
-        </div>
+                } ?>
+
+            </div>
     </header>
     <div class="apartados">
         <div class="titulo">
             <h1>Información Legal</h1>
         </div>
         <div class="apartado">
-            <h2>Política de privacidad de NombreTienda SL</h2>
+            <h2>Política de privacidad de BricoTeis SL</h2>
             <p>Nos comprometemos a proteger su privacidad y a garantizar que sus datos personales sean tratados de
                 manera
                 confidencial y segura. Esta política describe cómo recopilamos, usamos, compartimos y protegemos sus
@@ -147,7 +169,7 @@
                 <h3>Proyecto Ecológico</h3>
             </div>
             <div class="contenido">
-                <a href="php/eco.php">
+                <a href="../php/eco.php">
                     <img src="../imagenes/Footer/ECO/Agua.svg" />
                     <img src="../imagenes/Footer/ECO/Reciclaje.svg" />
                     <img src="../imagenes/Footer/ECO/Renovable.svg" />

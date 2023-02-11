@@ -5,47 +5,69 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>NombreTienda</title>
+    <title>BricoTeis SL</title>
     <link href="../css/header.css" rel="stylesheet" type="text/css">
     <link href="../css/infos.css" rel="stylesheet" type="text/css">
     <link href="../css/footer.css" rel="stylesheet" type="text/css">
-    <link rel="shortcut icon" href="../imagenes/Header/Logo/Logo.svg" type="image/x-icon" />
-    <link rel="icon" href="../imagenes/Logos/Header/Logo.svg" type="image/x-icon" />
+    <link rel="shortcut icon" href="../imagenes/Logo.ico" type="image/x-icon" />
+    <link rel="icon" href="../imagenes/Logo.ico" type="image/x-icon" />
 </head>
 
 
 <body>
-<header>
+    <header>
         <div class="container">
 
             <div class="infoPag">
-                <img src="../imagenes/Header/Logo.svg" />
-                NombreTienda
+                <a href="../index.php">
+                    <img src="../imagenes/Header/Logo.svg" />
+                    BricoTeis SL
+                </a>
             </div>
 
             <div class="buscador">
                 <form action="search.php" method="get">
                     <div class="cajaTexto">
-                        <input type="text" name="query" placeholder="Buscar...">
-                        <button type="submit">Buscar</button>
+                        <form action="search.php" method="get">
+                            <div class="cajaTexto">
+                                <input type="text" name="query" name="query" placeholder="Buscar...">
+                                <button type="submit">Buscar</button>
+                            </div>
+                        </form>
                     </div>
                 </form>
             </div>
 
             <div class="menuPers">
-                <div class="cuenta"><a href="#"></a><img src="../imagenes/Header/01Menu/user.svg" />Mi cuenta
+                <?php if (!isset($_SESSION['correo'])) {
+                    echo '
+                     <div class="cuenta"><img src="../imagenes/Header/01Menu/user.svg" />Mi cuenta
+                         <div class="submenu">
+                             <div class="subdiv"><a href="../php/registro.php"><img src="../imagenes/Header/01Menu/edit.svg" />Registrarse</a>
+                             </div>
+                             <div class="subdiv"><a href="../php/login.php"><img src="../imagenes/Header/01Menu/entrance.svg" />Iniciar Sesión</div></a>
+                         </div>
+                     </div>
+                     <div><a href="#"><img src="../imagenes/Header/01Menu/heart.svg" />Favoritos</a></div>
+                     <div><a href="#"><img src="../imagenes/Header/01Menu/shopping-cart.svg" />Carrito</a></div>
+                 </div>';
+                } else {
+                    echo '<div class="cuenta"><a href="#"></a><img src="../imagenes/Header/01Menu/user.svg" />' . $_SESSION['correo'] . '
                     <div class="submenu">
-                        <div class="subdiv"><a href="#"></a><img src="../imagenes/Header/01Menu/edit.svg" />Editar Perfil
+                        <div class="subdiv"><a href="../php/perfil.php"><img src="../imagenes/Header/01Menu/edit.svg" />Editar Perfil</a>
                         </div>
-                        <div class="subdiv"><a href="#"></a><img src="../imagenes/Header/01Menu/entrance.svg" />Iniciar
-                            Sesión</div>
+                        <div class="subdiv"><a href="../php/logout.php"><img src="../imagenes/Header/01Menu/entrance.svg" />Cerrar Sesión ';
+
+                    echo '</div></a>
                     </div>
                 </div>
                 <div><a href="#"></a><img src="../imagenes/Header/01Menu/heart.svg" />Favoritos</div>
-                <div><a href="#"></a><img src="../imagenes/Header/01Menu/shopping-cart.svg" />Carrito</div>
-            </div>
+                <div><a href="#"></a><img src="../imagenes/Header/01Menu/shopping-cart.svg" />Carrito</div>'
+                    ;
 
-        </div>
+                } ?>
+
+            </div>
     </header>
     <div class="apartados">
         <div class="titulo">
@@ -53,13 +75,13 @@
         </div>
         <div class="apartado">
             <h2>Nuestra historia</h2>
-            <p>Somos tiendaNombre, una empresa joven y ambiciosa fundada por Alex Fonterosa Martínez, Gabriel Domínguez
+            <p>Somos BricoTeis SL, una empresa joven y ambiciosa fundada por Alex Fonterosa Martínez, Gabriel Domínguez
                 Reyes y Mario Ubeira González con sede en Vigo. La historia de nuestra empresa comienza con un grupo de
                 amigos apasionados por la construcción y el diseño que compartían un sueño de crear una empresa que
                 brindara
                 productos y servicios de alta calidad. Con mucha dedicación y trabajo duro, lograron convertir ese sueño
                 en
-                realidad y hoy en día, tiendaNombre es reconocida como una de las empresas más confiables y
+                realidad y hoy en día, BricoTeis SL es reconocida como una de las empresas más confiables y
                 profesionales en
                 el mercado. </p>
             <p>Desde nuestros comienzos, nos hemos esforzado por ofrecer productos de alta calidad a nuestros clientes y
@@ -72,7 +94,7 @@
         </div>
         <div class="apartado">
             <h2>Nuestros productos</h2>
-            <p>En tiendaNombre, nos esforzamos por ofrecer una amplia variedad de productos de construcción de la máxima
+            <p>En BricoTeis SL, nos esforzamos por ofrecer una amplia variedad de productos de construcción de la máxima
                 calidad para satisfacer las necesidades y expectativas de nuestros clientes. Además de maderas,
                 aislamientos, yesos, cementos y vallas, también ofrecemos herramientas y equipos esenciales para la
                 construcción, todo para asegurarnos de que nuestros clientes tengan acceso a los mejores productos y
@@ -83,7 +105,7 @@
         </div>
         <div class="apartado">
             <h2>Servicio personalizado</h2>
-            <p>En tiendaNombre, entendemos que cada proyecto es único y es por eso que nos esforzamos por brindar un
+            <p>En BricoTeis SL, entendemos que cada proyecto es único y es por eso que nos esforzamos por brindar un
                 servicio personalizado a cada uno de nuestros clientes. Estamos comprometidos con la satisfacción del
                 cliente y trabajamos incansablemente para asegurarnos de que cada proyecto se lleve a cabo con éxito.
                 Además, nuestro equipo está compuesto por profesionales altamente capacitados y experimentados que se
@@ -91,7 +113,7 @@
         </div>
         <div class="apartado">
             <h2>Nuestro equipo</h2>
-            <p>En tiendaNombre, también valoramos mucho a nuestro equipo y trabajamos para crear un ambiente laboral
+            <p>En BricoTeis SL, también valoramos mucho a nuestro equipo y trabajamos para crear un ambiente laboral
                 positivo y estimulante. Sabemos que el éxito de nuestra empresa depende de la felicidad y el bienestar
                 de
                 nuestro equipo, y es por eso que nos esforzamos por brindarles las mejores condiciones para trabajar.
@@ -112,7 +134,7 @@
         </div>
         <div class="apartado">
             <h2>Productos de calidad</h2>
-            <p>En tiendaNombre, nos esforzamos por ofrecer productos de alta calidad a nuestros clientes. Todos los
+            <p>En BricoTeis SL, nos esforzamos por ofrecer productos de alta calidad a nuestros clientes. Todos los
                 productos que ofrecemos son cuidadosamente seleccionados y cumplen con los estándares de calidad más
                 altos.
                 Nuestro equipo de expertos evalúa cada producto antes de ofrecerlo en nuestra tienda para garantizar su
@@ -127,7 +149,7 @@
         <div class="apartado">
             <h2>Nuestro compromiso</h2>
             <p>En resumen, si está buscando una empresa confiable y profesional para sus proyectos de construcción, no
-                busque más allá de tiendaNombre. Estamos comprometidos con brindarle los mejores productos y servicios,
+                busque más allá de BricoTeis SL. Estamos comprometidos con brindarle los mejores productos y servicios,
                 y
                 estamos ansiosos de trabajar con usted en su próximo proyecto.</p>
             <p>Nuestro compromiso con nuestros clientes va mucho más allá de ofrecer simplemente productos de alta
@@ -166,7 +188,7 @@
                 <h3>Proyecto Ecológico</h3>
             </div>
             <div class="contenido">
-                <a href="php/eco.php">
+                <a href="../php/eco.php">
                     <img src="../imagenes/Footer/ECO/Agua.svg" />
                     <img src="../imagenes/Footer/ECO/Reciclaje.svg" />
                     <img src="../imagenes/Footer/ECO/Renovable.svg" />
