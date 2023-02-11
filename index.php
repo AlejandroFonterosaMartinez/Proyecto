@@ -16,6 +16,8 @@ session_start();
     <link rel="shortcut icon" href="imagenes/Logo.ico" type="image/x-icon" />
     <link rel="icon" href="imagenes/Logo.ico" type="image/x-icon" />
     <script src="javascript/carrusel.js"></script>
+    <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
 </head>
 
 
@@ -24,10 +26,10 @@ session_start();
         <div class="container">
 
             <div class="infoPag">
-            <a href="index.php">
-                <img src="imagenes/Header/Logo.svg" />
-                BricoTeis SL
-            </a>
+                <a href="index.php">
+                    <img src="imagenes/Header/Logo.svg" />
+                    BricoTeis SL
+                </a>
             </div>
 
 
@@ -43,15 +45,14 @@ session_start();
                     </div>
                 </form>
             </div>
-
             <div class="menuPers">
                 <?php if (!isset($_SESSION['correo'])) {
                     echo '
                      <div class="cuenta"><img src="imagenes/Header/01Menu/user.svg" />Mi cuenta
                          <div class="submenu">
-                             <div class="subdiv"><a href="php/registro.php"><img src="imagenes/Header/01Menu/edit.svg" />Registrarse</a>
+                             <div class="subdiv"><a href="php/registro.php"><img src="imagenes/Header/01Menu/register.svg" /><div class="subText">Registrarse</div></a>
                              </div>
-                             <div class="subdiv"><a href="php/login.php"><img src="imagenes/Header/01Menu/entrance.svg" />Iniciar Sesión</div></a>
+                             <div class="subdiv"><a href="php/login.php"><img src="imagenes/Header/01Menu/entrance.svg" /><div class="subText">Iniciar Sesión</div></div></a>
                          </div>
                      </div>
                      <div><a href="#"><img src="imagenes/Header/01Menu/heart.svg" />Favoritos</a></div>
@@ -60,9 +61,9 @@ session_start();
                 } else {
                     echo '<div class="cuenta"><a href="#"></a><img src="imagenes/Header/01Menu/user.svg" />' . $_SESSION['correo'] . '
                     <div class="submenu">
-                        <div class="subdiv"><a href="php/perfil.php"><img src="imagenes/Header/01Menu/edit.svg" />Editar Perfil</a>
+                        <div class="subdiv"><a href="php/perfil.php"><img src="imagenes/Header/01Menu/edit.svg" /><div class="subText">Editar Perfil</div></a>
                         </div>
-                        <div class="subdiv"><a href="php/logout.php"><img src="imagenes/Header/01Menu/entrance.svg" />Cerrar Sesión ';
+                        <div class="subdiv"><a href="php/logout.php"><img src="imagenes/Header/01Menu/exit.svg" /><div class="subText">Cerrar Sesión</div> ';
 
                     echo '</div></a>
                     </div>
@@ -75,6 +76,7 @@ session_start();
 
             </div>
     </header>
+
     <nav>
         <div class="carousel">
             <div id="imagen"></div>
@@ -100,7 +102,9 @@ session_start();
     <?php
     require_once "Controller/productos_controlador.php";
     ?>
-
+    <script src="owlcarousel/jquery.min.js"></script>
+    <script src="owlcarousel/owl.carousel.min.js"></script>
+    <script src="owlcarousel/main.js"></script>
     <div class="separador">
         NUESTRA REVISTA
     </div>
@@ -113,7 +117,7 @@ session_start();
                 semana no te pierdas el apartado especial "Architect", con consejos de un arquitecto profesional
                 para
                 construir tu casa de sueños. ¡Consigue tu ejemplar!</p>
-                <button type="submit">Añadir al carrito</button>
+            <button type="submit">Añadir al carrito</button>
         </div>
     </div>
     <div class="separador">
@@ -123,17 +127,15 @@ session_start();
         <div class="compromiso">
             <div class="comp"><img src="imagenes/Compromisos/Calidad.svg" />
                 CALIDAD ÓPTIMA
-                <p>Buscamos mejorar tu experiencia. Querémos ser más que una tienda de productos de
-                    construcción,
-                    queremos formar parte de tus proyectos como una comunidad.</p>
+                <p>Nos aseguramos de que nuestros productos cumplan con los más altos estándares de
+                    calidad para que puedas confiar en su rendimiento y durabilidad.</p>
             </div>
         </div>
         <div class="compromiso">
             <div class="comp"><img src="imagenes/Compromisos/Cantidad.svg" />
                 STOCK SIEMPRE DISPONIBLE
                 <p>Nos esforzamos por mantener un amplio stock disponible para que siempre tengas lo que
-                    necesitas para
-                    tus proyectos de construcción.</p>
+                    necesitas para tus proyectos de construcción.</p>
             </div>
         </div>
         <div class="compromiso">
