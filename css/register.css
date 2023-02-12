@@ -55,17 +55,9 @@ body {
     background-color: #45a049;
 }
 
-/*Mensaje de error*/
-.form p {
-    margin: 8px 0;
-    color: red;
-}
 
-/*Mensaje de carga*/
-.form .loading {
-    margin: 8px 0;
-    color: green;
-}
+
+
 /*Labels*/
 .form label {
     font-size: 18px;

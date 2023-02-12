@@ -19,7 +19,7 @@ class loginController
                 exit;
             }
         } else {
-            echo 'Login failed';
+            echo '<div class="alert alert-danger" role="alert" style="text-align:center;">Usuario/Contraseña Incorrectos</div>';
         }
     }
 }

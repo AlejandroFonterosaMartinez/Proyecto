@@ -3,6 +3,7 @@
 <?php
 session_start();
 ?>
+<!-- Head -->
 
 <head>
     <meta charset="utf-8">
@@ -20,8 +21,10 @@ session_start();
     <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
 </head>
 
+<!-- Body -->
 
 <body>
+    <!-- Header -->
     <header>
         <div class="container">
 
@@ -32,7 +35,7 @@ session_start();
                 </a>
             </div>
 
-
+            <!-- Buscador -->
             <div class="buscador">
                 <form action="search.php" method="get">
                     <div class="cajaTexto">
@@ -45,6 +48,7 @@ session_start();
                     </div>
                 </form>
             </div>
+            <!-- Usuario, carrito, favoritos -->
             <div class="menuPers">
                 <?php if (!isset($_SESSION['correo'])) {
                     echo '
@@ -56,15 +60,14 @@ session_start();
                          </div>
                      </div>
                      <div><a href="#"><img src="imagenes/Header/01Menu/heart.svg" />Favoritos</a></div>
-                     <div><a href="#"><img src="imagenes/Header/01Menu/shopping-cart.svg" />Carrito</a></div>
+                     <div><a href="php/carrito.php"><img src="imagenes/Header/01Menu/shopping-cart.svg" />Carrito</a></div>
                  </div>';
                 } else {
-                    echo '<div class="cuenta"><a href="#"></a><img src="imagenes/Header/01Menu/user.svg" />' . $_SESSION['correo'] . '
+                    echo '<div class="cuenta"><a href="#"></a><img src="imagenes/Header/01Menu/user.svg" />' . $_SESSION['correo'] .'
                     <div class="submenu">
                         <div class="subdiv"><button><a href="php/perfil.php"><img src="imagenes/Header/01Menu/edit.svg" />Editar Perfil</button></a>
                         </div>
                         <div class="subdiv"><button><a href="php/logout.php"><img src="imagenes/Header/01Menu/exit.svg" />Cerrar Sesión</button> </a>';
-
                     echo '</div></a>
                     </div>
                 </div>
@@ -76,12 +79,14 @@ session_start();
 
             </div>
     </header>
-
+    <!-- Nav -->
     <nav>
+        <!-- Carrousel de banners -->
         <div class="carousel">
             <div id="imagen"></div>
         </div>
     </nav>
+    <!-- Categorias -->
     <div class="separador">
         CATEGORÍAS
     </div>
@@ -96,6 +101,7 @@ session_start();
         <div class="item"><img src="imagenes/Menu/Eleconstruccion.svg" />Elementos de construcción</div>
         <div class="item"><img src="imagenes/Menu/Aislante.svg" />Aislamientos</div>
     </div>
+    <!-- Productos destacados -->
     <div class="separador">
         PRODUCTOS DESTACADOS
     </div>
@@ -105,6 +111,7 @@ session_start();
     <script src="owlcarousel/jquery.min.js"></script>
     <script src="owlcarousel/owl.carousel.min.js"></script>
     <script src="owlcarousel/main.js"></script>
+    <!-- Revista -->
     <div class="separador">
         NUESTRA REVISTA
     </div>
@@ -120,6 +127,7 @@ session_start();
             <button type="submit">Añadir al carrito</button>
         </div>
     </div>
+    <!-- Compromisos -->
     <div class="separador">
         NUESTROS COMPROMISOS
     </div>
@@ -163,7 +171,9 @@ session_start();
             </div>
         </div>
     </div>
+    <!-- Footer -->
     <footer>
+        <!-- Redes -->
         <div class="redes">
             <div class="titulo">
                 <h3>Nuestras Redes Sociales</h3>
@@ -177,6 +187,7 @@ session_start();
                 <img src="imagenes/Footer/RRSS/pinterest.svg" />
             </div>
         </div>
+        <!-- Eco -->
         <div class="redes">
             <div class="titulo">
                 <h3>Proyecto Ecológico</h3>
@@ -189,6 +200,7 @@ session_start();
                 </a>
             </div>
         </div>
+        <!-- Pago -->
         <div class="redes">
             <div class="titulo">
                 <h3>Pago 100% Seguro</h3>
@@ -201,10 +213,12 @@ session_start();
                 <img src="imagenes/Footer/Pago/Visa.svg" />
             </div>
         </div>
+        <!-- Redes -->
         <div class="redes">
             <div class="titulo">
                 <h3>Información y Bases Legales</h3>
             </div>
+              <!-- Info -->
             <div class="contenido">
                 <a href="php/AboutUs.php">About Us</a>
                 <a href="php/Newsletter.php">Newsletter</a>
