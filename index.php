@@ -60,10 +60,10 @@ session_start();
                          </div>
                      </div>
                      <div><a href="#"><img src="imagenes/Header/01Menu/heart.svg" />Favoritos</a></div>
-                     <div><a href="php/carrito.php"><img src="imagenes/Header/01Menu/shopping-cart.svg" />Carrito</a></div>
+                     <div><a href="php/carrito.php"><img src="imagenes/Header/01Menu/shopping-cart.svg" />' . include("View/carrito_view.php") . '</a></div>
                  </div>';
                 } else {
-                    echo '<div class="cuenta"><a href="#"></a><img src="imagenes/Header/01Menu/user.svg" />' . $_SESSION['correo'] .'
+                    echo '<div class="cuenta"><a href="#"></a><img src="imagenes/Header/01Menu/user.svg" />' . $_SESSION['correo'] . '
                     <div class="submenu">
                         <div class="subdiv"><button><a href="php/perfil.php"><img src="imagenes/Header/01Menu/edit.svg" />Editar Perfil</button></a>
                         </div>
@@ -218,7 +218,7 @@ session_start();
             <div class="titulo">
                 <h3>Información y Bases Legales</h3>
             </div>
-              <!-- Info -->
+            <!-- Info -->
             <div class="contenido">
                 <a href="php/AboutUs.php">About Us</a>
                 <a href="php/Newsletter.php">Newsletter</a>

@@ -1,11 +1,4 @@
-/*Body*/
-body {
-    display: flex;
-    align-items: center;
-    background-image: url('../imagenes/Fondo/fondo-login.jpg');
-    justify-content: center;
-    min-height: 100vh;
-}
+
 /*Contenedor formulario*/
 .formulario {
     margin: auto;

@@ -18,6 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/register.css" />
     <title>BricoTeis SL</title>
     <link rel="shortcut icon" href="../imagenes/Logo.ico" type="image/x-icon" />
     <link rel="icon" href="../imagenes/Logo.ico" type="image/x-icon" />
@@ -25,25 +26,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
 
-    <div class="container">
-        <div class="row mt-3 justify-content-md-center">
-            <div class="col-md-6">
-                <form action="" method="POST">
-                    <div class="form-group">
-                        <label for="correo">Correo</label>
-                        <input class="form-control" type="email" name="correo"
-                            value="<?php echo isset($_GET['correo']) ? $_GET['correo'] : '' ?>" placeholder="Correo"
-                            required />
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Contraseña</label>
-                        <input class="form-control" type="password" name="password" placeholder="Contraseña" required />
-                    </div>
-                    <button type="submit" name="submit" class="btn btn-sm btn-block btn-primary">Iniciar Sesion</button>
-                </form>
-                <p>Todavía sin una cuenta? <a href='registro.php'>Registrate aquí</a></p>
+    <div class="form">
+        <h1> Log In </h1>
+        <form action="" method="POST">
+            <div class="form-group">
+                <label for="correo">Correo</label>
+                <input class="form-control" type="email" name="correo"
+                    value="<?php echo isset($_GET['correo']) ? $_GET['correo'] : '' ?>" placeholder="Correo" required />
             </div>
-        </div>
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" required class="form-control"
+                    placeholder="Contraseña" />
+            </div>
+            <input type="submit" name="submit" value="Iniciar Sesion" class="btn btn-primary" />
+        </form>
+        <p>Todavía sin una cuenta? <a href='registro.php'>Registrate aquí</a></p>
+    </div>
+    </div>
     </div>
 
 </body>
