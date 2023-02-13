@@ -6,13 +6,21 @@ class Categorias_model
     private $db;
     private $categorias;
 
+    /**
+     * [__construct Implementa la conexion con la bd, y asigna un array a categorias]
+     *
+     */
     public function __construct()
     {
         require_once("../Config/Conectar.php");
         $this->db = Conectar::conexion();
         $this->categorias = array();
     }
-
+    /**
+     * [get_categorias realiza una consulta en la base de datos en la tabla de categorias los va devolviendo en un array ]
+     *
+     * @return  [array]  [return array de categorias]
+     */
     public function get_categorias()
     {
 

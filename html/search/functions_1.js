@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['cargar_5fconfiguracion_0',['cargar_configuracion',['../_conectar_8php.html#a443fe0e46bc0ae406661427a69430a81',1,'Conectar.php']]],
-  ['conexion_1',['conexion',['../class_conectar.html#a5649dabd70fd599340df50f72dddc303',1,'Conectar']]]
+  ['_24_0',['$',['../main_8js.html#a362c9dd4cc47ecb70ca94a062b292693',1,'main.js']]]
 ];

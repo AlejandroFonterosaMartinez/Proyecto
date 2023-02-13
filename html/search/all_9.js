@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['register_0',['register',['../class_user_registration.html#a0d949cba10ce6c31ac7ab2d928dfe6b3',1,'UserRegistration']]],
-  ['registro_2ephp_1',['registro.php',['../registro_8php.html',1,'']]],
-  ['registro_5fcontrolador_2ephp_2',['registro_controlador.php',['../registro__controlador_8php.html',1,'']]],
-  ['registro_5fmodelo_2ephp_3',['registro_modelo.php',['../registro__modelo_8php.html',1,'']]]
+  ['g_0',['g',['../jquery_8min_8js.html#a103df269476e78897c9c4c6cb8f4eb06',1,'jquery.min.js']]],
+  ['get_5fcategorias_1',['get_categorias',['../class_categorias__model.html#a8d77cea5b57250da5077ecc08f830374',1,'Categorias_model']]],
+  ['get_5fproductos_2',['get_productos',['../class_productos__model.html#a6c961fd29505205a341ba0fa9b34d700',1,'Productos_model']]],
+  ['getuser_3',['getUser',['../class_user.html#ad46c847a2e2cbaeaac52ef48907099b4',1,'User']]]
 ];

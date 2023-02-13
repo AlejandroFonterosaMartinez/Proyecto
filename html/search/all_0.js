@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['_24array_5fcategorias_0',['$array_categorias',['../categorias__controlador_8php.html#a0bc74c2e1f4cfc72183fdfec43bc33a3',1,'categorias_controlador.php']]],
-  ['_24array_5fproductos_1',['$array_productos',['../productos__controlador_8php.html#a367bdc178e2f5c5ea7d2a3a2e86688b7',1,'productos_controlador.php']]],
-  ['_24categoria_2',['$categoria',['../categorias__controlador_8php.html#a2c2a1e2efdf867e89395775158aeb245',1,'categorias_controlador.php']]],
-  ['_24producto_3',['$producto',['../productos__controlador_8php.html#a4c4aa6206e982b2f5eb7bad73e41a8e2',1,'productos_controlador.php']]]
+  ['_21function_0',['!function',['../jquery_8min_8js.html#afcc778a3e07eb56672fb93c2a8eef157',1,'!function(e, t):&#160;jquery.min.js'],['../owl_8carousel_8min_8js.html#a4ed33cca82857b7ec45886df3e73f155',1,'!function(a, b, c, d):&#160;owl.carousel.min.js']]]
 ];

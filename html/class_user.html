@@ -115,21 +115,27 @@ Otros miembros heredados</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>El método "getUser" ejecuta una sentencia SQL preparada para seleccionar un registro de la tabla "usuarios" donde el correo electrónico y la contraseña coincidan con los argumentos proporcionados. La contraseña se encripta mediante el algoritmo SHA-256 antes de realizar la búsqueda en la base de datos. </p><dl class="params"><dt>Parámetros</dt><dd>
+<p>[getUser funcion que obtiene de la base de datos el correo y la contrasña del usuario y verifica si la contraseña introducida es la misma que la introducida pero hasheada, devuelve falso si la conexión no es correcta.]</p>
+<dl class="params"><dt>Parámetros</dt><dd>
   <table class="params">
-    <tr><td class="paramtype">mixed</td><td class="paramname">$email</td><td></td></tr>
-    <tr><td class="paramtype">mixed</td><td class="paramname">$password</td><td></td></tr>
+    <tr><td class="paramname">[string]</td><td>$email [$email correo del usuario] </td></tr>
+    <tr><td class="paramname">[string]</td><td>$password [$password contraseña del usuario]</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Devuelve</dt><dd>bool </dd></dl>
-<div class="fragment"><div class="line"><span class="lineno">   15</span>    {</div>
-<div class="line"><span class="lineno">   16</span>        <span class="comment">// Prevenir la inyección SQL mediante el uso de sentencias preparadas</span></div>
-<div class="line"><span class="lineno">   17</span>        $password = password_hash($password, PASSWORD_DEFAULT);</div>
-<div class="line"><span class="lineno">   18</span>        $stmt = $this-&gt;<a class="code hl_function" href="class_conectar.html#a5649dabd70fd599340df50f72dddc303">conexion</a>()-&gt;prepare(<span class="stringliteral">&quot;SELECT usuarios.Correo, usuarios.Contraseña FROM `usuarios` WHERE Correo=&#39;$email&#39;&quot;</span>);</div>
-<div class="line"><span class="lineno">   19</span>        $stmt-&gt;execute();</div>
-<div class="line"><span class="lineno">   20</span>        <span class="keywordflow">return</span> $stmt-&gt;rowCount() == 1;</div>
-<div class="line"><span class="lineno">   21</span>    }</div>
+<dl class="section return"><dt>Devuelve</dt><dd>[boolean] [return $user en caso de que sea correcto, y false en caso de que no es correcto] </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">   16</span>    {</div>
+<div class="line"><span class="lineno">   17</span>        $stmt = $this-&gt;<a class="code hl_function" href="class_conectar.html#a5649dabd70fd599340df50f72dddc303">conexion</a>()-&gt;prepare(<span class="stringliteral">&quot;SELECT usuarios.Correo, usuarios.Contraseña, usuarios.id_rol FROM `usuarios` WHERE Correo=&#39;$email&#39;&quot;</span>);</div>
+<div class="line"><span class="lineno">   18</span>        $stmt-&gt;execute();</div>
+<div class="line"><span class="lineno">   19</span>        <span class="keywordflow">if</span> ($stmt-&gt;rowCount() == 1) {</div>
+<div class="line"><span class="lineno">   20</span>            $user = $stmt-&gt;fetch(PDO::FETCH_ASSOC);</div>
+<div class="line"><span class="lineno">   21</span>            <span class="keywordflow">if</span> (password_verify($password, $user[<span class="stringliteral">&#39;Contraseña&#39;</span>])) {</div>
+<div class="line"><span class="lineno">   22</span>                <span class="keywordflow">return</span> $user;</div>
+<div class="line"><span class="lineno">   23</span>            }</div>
+<div class="line"><span class="lineno">   24</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   25</span>        }</div>
+<div class="line"><span class="lineno">   26</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   27</span>    }</div>
 <div class="ttc" id="aclass_conectar_html_a5649dabd70fd599340df50f72dddc303"><div class="ttname"><a href="class_conectar.html#a5649dabd70fd599340df50f72dddc303">Conectar\conexion</a></div><div class="ttdeci">static conexion()</div><div class="ttdef"><b>Definition:</b> Conectar.php:5</div></div>
 </div><!-- fragment -->
 </div>
@@ -140,7 +146,7 @@ Otros miembros heredados</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generado el Sábado, 11 de Febrero de 2023 15:11:14 para My Project por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+Generado el Lunes, 13 de Febrero de 2023 14:01:46 para My Project por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
 </small></address>
 </body>
 </html>

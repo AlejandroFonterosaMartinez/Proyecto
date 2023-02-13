@@ -1,12 +1,8 @@
 var searchData=
 [
-  ['cargar_5fconfiguracion_0',['cargar_configuracion',['../_conectar_8php.html#a443fe0e46bc0ae406661427a69430a81',1,'Conectar.php']]],
-  ['carrusel_2ejs_1',['carrusel.js',['../carrusel_8js.html',1,'']]],
-  ['categorias_5fcontrolador_2ephp_2',['categorias_controlador.php',['../categorias__controlador_8php.html',1,'']]],
-  ['categorias_5fmodel_3',['Categorias_model',['../class_categorias__model.html',1,'']]],
-  ['categorias_5fmodelo_2ephp_4',['categorias_modelo.php',['../categorias__modelo_8php.html',1,'']]],
-  ['categorias_5fview_2ephp_5',['categorias_view.php',['../categorias__view_8php.html',1,'']]],
-  ['conectar_6',['Conectar',['../class_conectar.html',1,'']]],
-  ['conectar_2ephp_7',['Conectar.php',['../_conectar_8php.html',1,'']]],
-  ['conexion_8',['conexion',['../class_conectar.html#a5649dabd70fd599340df50f72dddc303',1,'Conectar']]]
+  ['a_0',['a',['../jquery_8min_8js.html#a82ca4ee5dd63e58a2bb967077dc8b8fb',1,'a():&#160;jquery.min.js'],['../owl_8carousel_8min_8js.html#aa4d4888597588a84fd5b1184d00c91f3',1,'a():&#160;owl.carousel.min.js']]],
+  ['aboutus_2ephp_1',['aboutUs.php',['../about_us_8php.html',1,'']]],
+  ['additem_2',['addItem',['../class_cart.html#a66b2b7fa5ca4e03e12116c494f42131c',1,'Cart']]],
+  ['admin_2ephp_3',['admin.php',['../admin_8php.html',1,'']]],
+  ['autorefresh_4',['AutoRefresh',['../owl_8carousel_8min_8js.html#abb80a85d93bb7da7607d76c7ecb7d1b2',1,'owl.carousel.min.js']]]
 ];

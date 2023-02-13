@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['productos_5fmodel_0',['Productos_model',['../class_productos__model.html',1,'']]]
+  ['logincontroller_0',['loginController',['../classlogin_controller.html',1,'']]]
 ];

@@ -1,6 +1,7 @@
 <?php
+
 require_once('../Model/usuario_modelo.php');
-// Controlador
+
 class loginController
 {
     public function login($email, $password)
