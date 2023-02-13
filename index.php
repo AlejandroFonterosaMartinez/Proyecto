@@ -28,7 +28,6 @@ session_start();
                 BricoTeis SL
             </div>
 
-
             <div class="buscador">
                 <form action="search.php" method="get">
                     <div class="cajaTexto">
