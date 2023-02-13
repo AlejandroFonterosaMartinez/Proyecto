@@ -163,9 +163,9 @@
                 <h3>Información y Bases Legales</h3>
             </div>
             <div class="contenido">
-                <a href="../php/aboutUs.php">About Us</a>
+                <a href="../php/AboutUs.php">About Us</a>
                 <a href="../php/Newsletter.php">Newsletter</a>
-                <a href="../php/infoLegal.php">Información Legal</a>
+                <a href="../php/InfoLegal.php">Información Legal</a>
             </div>
         </div>
     </footer>

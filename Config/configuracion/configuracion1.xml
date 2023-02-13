@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuracion>
-    <ip>127.0.0.1</ip>
+    <ip>vl23934.dinaserver.com</ip>
     <nombre>construccion</nombre>
-    <usuario>root</usuario>
-    <clave></clave>    
+    <usuario>bricoadmin</usuario>
+    <clave>Leomessi11.</clave>    
 </configuracion>
