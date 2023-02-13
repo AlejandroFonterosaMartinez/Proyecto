@@ -171,29 +171,42 @@ body {
   width: 100%;
   max-width: 100%;
   }
+
+  .button {
+    display: flex;
+  }
   
-  .producto button {
+  .button button {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     font-weight: bolder;
-    background-color: #00b3aa; /* Green */
     border: none;
     color: white;
-    padding: 1%;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     border-radius: 5px;
     margin: 1%;
   }
+
+  .button button:hover {
+    transition: background-color .8s;
+  }
+
+  .trollButton {
+    width: 70%;
+    background-color: #00b3aa;
+  }
   
   .favButton {
+    width: 30%;
     background-color: crimson;
   }
+
   .favButton:hover {
     background-color: rgb(185, 17, 51);
   }
-  .producto button:hover {
-    transition: background-color .8s;
+
+  .trollButton:hover {
     background-color: #018273;
   }
   

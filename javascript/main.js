@@ -8,10 +8,10 @@ $(document).ready(function(){
               items:2
           },
           700:{
-              items:3
+              items:4
           },
           1090:{
-              items:4
+              items:5
           }
       }
     })
