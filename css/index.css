@@ -4,6 +4,7 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
+  overflow-x: hidden;;
 }
 
 .separador {
@@ -71,7 +72,6 @@ body {
 
 .compromiso {
   padding: 0.6vw;
-  width: 30%;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-weight: bolder;
   color: #0d0335;
@@ -103,8 +103,9 @@ body {
 
 .contenedorRevista img {
   transform: rotate(-12deg);
-  height: 20vw;
-  width: 17vw;
+  height: 21vw;
+  width: 18vw;
+  margin-right: 3%;
   box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.5);
 }
 
@@ -115,6 +116,7 @@ body {
   flex-direction: column;
   justify-content: center;
   margin: 2%;
+  text-align: justify;
 }
 
 .textoRev h3 {
@@ -125,6 +127,79 @@ body {
 .textoRev h3:hover {
   background-color: rgb(222, 222, 222);
 }
+
+.textoRev button {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: bolder;
+  background-color: #00b3aa; /* Green */
+  border: none;
+  color: white;
+  padding: 1%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+.textoRev button:hover {
+  transition: background-color .8s;
+  background-color: #018273;
+}
+
+.contenedor_productos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  }
+  
+  .producto {
+  flex: 1 0 calc(33.33% - 20px);
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: bolder;
+  }
+  
+  .producto img {
+  height: auto;
+  width: 100%;
+  max-width: 100%;
+  }
+  
+  .producto button {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    font-weight: bolder;
+    background-color: #00b3aa; /* Green */
+    border: none;
+    color: white;
+    padding: 1%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+    margin: 1%;
+  }
+  
+  .favButton {
+    background-color: crimson;
+  }
+  .favButton:hover {
+    background-color: rgb(185, 17, 51);
+  }
+  .producto button:hover {
+    transition: background-color .8s;
+    background-color: #018273;
+  }
+  
+  .producto label {
+  padding: 1%;
+  }
 
 /* Estilos para Pantallas de PC */
 @media (min-width: 1090px) {
@@ -137,8 +212,12 @@ body {
   }
 
   .contenedorRevista {
-    margin-left: 22.5%;
-    margin-right: 22.5%;
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+
+  .compromiso {
+    width: 30%;
   }
 }
 
@@ -153,9 +232,19 @@ body {
   }
 
   .contenedorRevista {
-    margin-left: 22.5%;
-    margin-right: 22.5%;
+    margin-left: 10%;
+    margin-right: 10%;
   }
+
+  .contenedorRevista img {
+    height: 28vw;
+    width: 25vw;
+  }
+
+  .compromiso {
+    width: 30%;
+  }
+
 }
 
 /* Estilos para dispositivos móviles */
@@ -167,5 +256,35 @@ body {
 
   .item {
     flex: 0 0 30%;
+  }
+
+  .contenedorRevista {
+    flex-direction: column;
+    align-items: center;
+    margin: 1%;
+  }
+
+  .contenedorRevista img {
+    height: 40vw;
+    width: 35vw;
+    margin-top: 5%;
+  }
+
+  .compromisos {
+    flex-direction: column;
+  }
+
+  .compromiso {
+    flex: 1;
+    width: 55%;
+  }
+
+  .compromiso img {
+    width: 20vw;
+  }
+
+  .comp p {
+    visibility: hidden;
+    height: 0px;
   }
 }

@@ -1,23 +1,16 @@
-<!DOCTYPE html>
-<html lang="es">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-</head>
-
-
-
-<body>
-    <div class="contenedor_productos">
+<div class="contenedor_productos">
+    <div class="owl-carousel owl-theme">
         <?php
-        foreach ($array_productos as $linea) {
-            echo "<div class='producto'>" . $linea['Nombre'] . "</div>";
+        foreach ($array_productos as $row) {
+            echo "<div class='producto'>";
+            echo "<img src='imagenes/Productos/" . $row["Cod_producto"] . ".png'</img>";
+            echo '<label>' . $row["Nombre"] . '</label>';
+            echo '<label>' . $row["Precio"].'€/Ud.' . '</label>';
+            echo '<button class="favButton" type="submit">AÑADIR A FAVORITOS</button>';
+            echo '<button type="submit">AÑADIR AL CARRITO</button>';
+            echo '</div>';
         }
         ?>
     </div>
-</body>
-
-</html>
+</div>

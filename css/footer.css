@@ -11,8 +11,15 @@ footer {
 }
 
 .redes {
-  cursor: pointer;
   padding: 0.5%;
+}
+
+.contenido img{
+  cursor: pointer;
+}
+.contenido a {
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /* Estilos para PC */

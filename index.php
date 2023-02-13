@@ -16,6 +16,8 @@ session_start();
     <link rel="shortcut icon" href="imagenes/Logo.ico" type="image/x-icon" />
     <link rel="icon" href="imagenes/Logo.ico" type="image/x-icon" />
     <script src="javascript/carrusel.js"></script>
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
 </head>
 
 
@@ -24,8 +26,10 @@ session_start();
         <div class="container">
 
             <div class="infoPag">
-                <img src="imagenes/Header/Logo.svg" />
-                BricoTeis SL
+                <a href="index.php">
+                    <img src="imagenes/Header/Logo.svg" />
+                    BricoTeis SL
+                </a>
             </div>
 
             <div class="buscador">
@@ -40,38 +44,38 @@ session_start();
                     </div>
                 </form>
             </div>
-
             <div class="menuPers">
                 <?php if (!isset($_SESSION['correo'])) {
                     echo '
-                     <div class="cuenta"><a href="#"></a><img src="imagenes/Header/Menu/user.svg" />Mi cuenta
+                     <div class="cuenta"><img src="imagenes/Header/01Menu/user.svg" />Mi cuenta
                          <div class="submenu">
-                             <div class="subdiv"><a href="php/registro.php"><img src="imagenes/Header/Menu/edit.svg" />Registrarse</a>
+                             <div class="subdiv"><a href="php/registro.php"><img src="imagenes/Header/01Menu/register.svg" /><div class="subText">Registrarse</div></a>
                              </div>
-                             <div class="subdiv"><a href="php/login.php"><img src="imagenes/Header/Menu/entrance.svg" />Iniciar Sesión</div></a>
+                             <div class="subdiv"><a href="php/login.php"><img src="imagenes/Header/01Menu/entrance.svg" /><div class="subText">Iniciar Sesión</div></div></a>
                          </div>
                      </div>
-                     <div><a href="#"></a><img src="imagenes/Header/Menu/heart.svg" />Favoritos</div>
-                     <div><a href="#"></a><img src="imagenes/Header/Menu/shopping-cart.svg" />Carrito</div>
+                     <div><a href="#"><img src="imagenes/Header/01Menu/heart.svg" />Favoritos</a></div>
+                     <div><a href="#"><img src="imagenes/Header/01Menu/shopping-cart.svg" />Carrito</a></div>
                  </div>';
                 } else {
-                    echo '<div class="cuenta"><a href="#"></a><img src="imagenes/Header/Menu/user.svg" />' . $_SESSION['correo'] . '
+                    echo '<div class="cuenta"><a href="#"></a><img src="imagenes/Header/01Menu/user.svg" />' . $_SESSION['correo'] . '
                     <div class="submenu">
-                        <div class="subdiv"><a href="php/perfil.php"><img src="imagenes/Header/Menu/edit.svg" />Editar Perfil</a>
+                        <div class="subdiv"><a href="php/perfil.php"><img src="imagenes/Header/01Menu/edit.svg" /><div class="subText">Editar Perfil</div></a>
                         </div>
-                        <div class="subdiv"><a href="php/logout.php"><img src="imagenes/Header/Menu/entrance.svg" />Cerrar Sesión ';
+                        <div class="subdiv"><a href="php/logout.php"><img src="imagenes/Header/01Menu/exit.svg" /><div class="subText">Cerrar Sesión</div> ';
 
                     echo '</div></a>
                     </div>
                 </div>
-                <div><a href="#"></a><img src="imagenes/Header/Menu/heart.svg" />Favoritos</div>
-                <div><a href="#"></a><img src="imagenes/Header/Menu/shopping-cart.svg" />Carrito</div>'
+                <div><a href="#"></a><img src="imagenes/Header/01Menu/heart.svg" />Favoritos</div>
+                <div><a href="#"></a><img src="imagenes/Header/01Menu/shopping-cart.svg" />Carrito</div>'
                     ;
 
                 } ?>
 
             </div>
     </header>
+
     <nav>
         <div class="carousel">
             <div id="imagen"></div>
@@ -81,24 +85,25 @@ session_start();
         CATEGORÍAS
     </div>
     <div class="categorias">
-        <div class="item"><img src="imagenes/Categorias/Arena.svg" />Arenas y Gravas</div>
-        <div class="item"><img src="imagenes/Categorias/Techo.svg" />Tejados Y Cubiertas</div>
-        <div class="item"><img src="imagenes/Categorias/Cemento.svg" />Cementos Y Morteros</div>
-        <div class="item"><img src="imagenes/Categorias/Madera.svg" />Madera</div>
-        <div class="item"><img src="imagenes/Categorias/Hormigonera.svg" />Hormigoneras, carretillas...</div>
-        <div class="item"><img src="imagenes/Categorias/Valla.svg" />Cercados y Ocultación</div>
-        <div class="item"><img src="imagenes/Categorias/Yeso.svg" />Yesos Y Escayolas</div>
-        <div class="item"><img src="imagenes/Categorias/Eleconstruccion.svg" />Elementos de construcción</div>
-        <div class="item"><img src="imagenes/Categorias/Aislante.svg" />Aislamientos</div>
+        <div class="item"><img src="imagenes/Menu/Arena.svg" />Arenas y Gravas</div>
+        <div class="item"><img src="imagenes/Menu/Techo.svg" />Tejados Y Cubiertas</div>
+        <div class="item"><img src="imagenes/Menu/Cemento.svg" />Cementos Y Morteros</div>
+        <div class="item"><img src="imagenes/Menu/Madera.svg" />Madera</div>
+        <div class="item"><img src="imagenes/Menu/Hormigonera.svg" />Hormigoneras, carretillas...</div>
+        <div class="item"><img src="imagenes/Menu/Valla.svg" />Cercados y Ocultación</div>
+        <div class="item"><img src="imagenes/Menu/Yeso.svg" />Yesos Y Escayolas</div>
+        <div class="item"><img src="imagenes/Menu/Eleconstruccion.svg" />Elementos de construcción</div>
+        <div class="item"><img src="imagenes/Menu/Aislante.svg" />Aislamientos</div>
     </div>
     <div class="separador">
-
-        <h1> PRODUCTOS DESTACADOS </h1>
-        <?php
-        require_once "Controller/productos_controlador.php";
-        ?>
+        PRODUCTOS DESTACADOS
     </div>
-
+    <?php
+    require_once "Controller/productos_controlador.php";
+    ?>
+    <script src="javascript/jquery.min.js"></script>
+    <script src="javascript/owl.carousel.min.js"></script>
+    <script src="javascript/main.js"></script>
     <div class="separador">
         NUESTRA REVISTA
     </div>
@@ -111,7 +116,7 @@ session_start();
                 semana no te pierdas el apartado especial "Architect", con consejos de un arquitecto profesional
                 para
                 construir tu casa de sueños. ¡Consigue tu ejemplar!</p>
-            <h3>Añadir al carrito</h3>
+            <button type="submit">AÑADIR AL CARRITO</button>
         </div>
     </div>
     <div class="separador">
@@ -121,17 +126,15 @@ session_start();
         <div class="compromiso">
             <div class="comp"><img src="imagenes/Compromisos/Calidad.svg" />
                 CALIDAD ÓPTIMA
-                <p>Buscamos mejorar tu experiencia. Querémos ser más que una tienda de productos de
-                    construcción,
-                    queremos formar parte de tus proyectos como una comunidad.</p>
+                <p>Nos aseguramos de que nuestros productos cumplan con los más altos estándares de
+                    calidad para que puedas confiar en su rendimiento y durabilidad.</p>
             </div>
         </div>
         <div class="compromiso">
             <div class="comp"><img src="imagenes/Compromisos/Cantidad.svg" />
                 STOCK SIEMPRE DISPONIBLE
                 <p>Nos esforzamos por mantener un amplio stock disponible para que siempre tengas lo que
-                    necesitas para
-                    tus proyectos de construcción.</p>
+                    necesitas para tus proyectos de construcción.</p>
             </div>
         </div>
         <div class="compromiso">
@@ -191,7 +194,7 @@ session_start();
             </div>
             <div class="contenido">
                 <img src="imagenes/Footer/Pago/Amex.svg" />
-                <img src="imagenes/Footer/Pago/Mano.svg" />
+                <img src="imagenes/Footer/Pago/Klarna.svg" />
                 <img src="imagenes/Footer/Pago/Mastercard.svg" />
                 <img src="imagenes/Footer/Pago/Paypal.svg" />
                 <img src="imagenes/Footer/Pago/Visa.svg" />
@@ -202,9 +205,9 @@ session_start();
                 <h3>Información y Bases Legales</h3>
             </div>
             <div class="contenido">
-                <a href="php/AboutUs.php">About Us</a>
+                <a href="php/aboutUs.php">About Us</a>
                 <a href="php/Newsletter.php">Newsletter</a>
-                <a href="php/InfoLegal.php">Información Legal</a>
+                <a href="php/infoLegal.php">Información Legal</a>
             </div>
         </div>
     </footer>

@@ -15,37 +15,59 @@
 
 
 <body>
-<header>
+    <header>
         <div class="container">
 
             <div class="infoPag">
-                <img src="../imagenes/Header/Logo.svg" />
-                BricoTeis SL
+                <a href="../index.php">
+                    <img src="../imagenes/Header/Logo.svg" />
+                    BricoTeis SL
+                </a>
             </div>
 
             <div class="buscador">
                 <form action="search.php" method="get">
                     <div class="cajaTexto">
-                        <input type="text" name="query" placeholder="Buscar...">
-                        <button type="submit">Buscar</button>
+                        <form action="search.php" method="get">
+                            <div class="cajaTexto">
+                                <input type="text" name="query" name="query" placeholder="Buscar...">
+                                <button type="submit">Buscar</button>
+                            </div>
+                        </form>
                     </div>
                 </form>
             </div>
 
             <div class="menuPers">
-                <div class="cuenta"><a href="#"></a><img src="../imagenes/Header/Menu/user.svg" />Mi cuenta
+                <?php if (!isset($_SESSION['correo'])) {
+                    echo '
+                     <div class="cuenta"><img src="../imagenes/Header/01Menu/user.svg" />Mi cuenta
+                         <div class="submenu">
+                             <div class="subdiv"><a href="../php/registro.php"><img src="../imagenes/Header/01Menu/edit.svg" />Registrarse</a>
+                             </div>
+                             <div class="subdiv"><a href="../php/login.php"><img src="../imagenes/Header/01Menu/entrance.svg" />Iniciar Sesión</div></a>
+                         </div>
+                     </div>
+                     <div><a href="#"><img src="../imagenes/Header/01Menu/heart.svg" />Favoritos</a></div>
+                     <div><a href="#"><img src="../imagenes/Header/01Menu/shopping-cart.svg" />Carrito</a></div>
+                 </div>';
+                } else {
+                    echo '<div class="cuenta"><a href="#"></a><img src="../imagenes/Header/01Menu/user.svg" />' . $_SESSION['correo'] . '
                     <div class="submenu">
-                        <div class="subdiv"><a href="#"></a><img src="../imagenes/Header/Menu/edit.svg" />Editar Perfil
+                        <div class="subdiv"><a href="../php/perfil.php"><img src="../imagenes/Header/01Menu/edit.svg" />Editar Perfil</a>
                         </div>
-                        <div class="subdiv"><a href="#"></a><img src="../imagenes/Header/Menu/entrance.svg" />Iniciar
-                            Sesión</div>
+                        <div class="subdiv"><a href="../php/logout.php"><img src="../imagenes/Header/01Menu/entrance.svg" />Cerrar Sesión ';
+
+                    echo '</div></a>
                     </div>
                 </div>
-                <div><a href="#"></a><img src="../imagenes/Header/Menu/heart.svg" />Favoritos</div>
-                <div><a href="#"></a><img src="../imagenes/Header/Menu/shopping-cart.svg" />Carrito</div>
-            </div>
+                <div><a href="#"></a><img src="../imagenes/Header/01Menu/heart.svg" />Favoritos</div>
+                <div><a href="#"></a><img src="../imagenes/Header/01Menu/shopping-cart.svg" />Carrito</div>'
+                    ;
 
-        </div>
+                } ?>
+
+            </div>
     </header>
     <div class="apartados">
         <div class="titulo">
@@ -147,7 +169,7 @@
                 <h3>Proyecto Ecológico</h3>
             </div>
             <div class="contenido">
-                <a href="php/eco.php">
+                <a href="../php/eco.php">
                     <img src="../imagenes/Footer/ECO/Agua.svg" />
                     <img src="../imagenes/Footer/ECO/Reciclaje.svg" />
                     <img src="../imagenes/Footer/ECO/Renovable.svg" />
@@ -171,9 +193,9 @@
                 <h3>Información y Bases Legales</h3>
             </div>
             <div class="contenido">
-                <a href="../php/AboutUs.php">About Us</a>
+                <a href="../php/aboutUs.php">About Us</a>
                 <a href="../php/Newsletter.php">Newsletter</a>
-                <a href="../php/InfoLegal.php">Información Legal</a>
+                <a href="../php/infoLegal.php">Información Legal</a>
             </div>
         </div>
     </footer>

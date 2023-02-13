@@ -1,10 +1,16 @@
 .carousel {
-    display: flex;
-    justify-content: center;
-    margin: 10px 0 10px 0;
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 10px 0;
 }
-    #imagen {
-        width: 99%;
-        height: 13.65vw;
-        background-size: cover;
-    }
+#imagen {
+  width: 99%;
+  height: 13.65vw;
+  background-size: cover;
+}
+
+@media (max-width: 768px) {
+#imagen {
+    height: 52.65vw;
+}
+}
