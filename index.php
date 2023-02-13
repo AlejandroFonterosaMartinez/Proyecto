@@ -59,11 +59,11 @@ session_start();
                              <div class="subdiv"><button><a href="php/login.php"><img src="imagenes/Header/01Menu/entrance.svg" />Iniciar Sesión</button></div></a>
                          </div>
                      </div>
-                     <div><a href="#"><img src="imagenes/Header/01Menu/heart.svg" />Favoritos</a></div>
-                     <div><a href="view/carrito_view.php"><img src="imagenes/Header/01Menu/shopping-cart.svg" />Carrito</a></div>
+                     <div><img src="imagenes/Header/01Menu/heart.svg" />Favoritos</a></div>
+                     <div><img src="imagenes/Header/01Menu/shopping-cart.svg" />Carrito</div>
                  </div>';
                 } else {
-                    echo '<div class="cuenta"><a href="#"></a><img src="imagenes/Header/01Menu/user.svg" />' . $_SESSION['correo'] . '
+                    echo '<div class="cuenta"><img src="imagenes/Header/01Menu/user.svg" />' . $_SESSION['correo'] . '
                     <div class="submenu">
                         <div class="subdiv"><button><a href="php/perfil.php"><img src="imagenes/Header/01Menu/edit.svg" />Editar Perfil</button></a>
                         </div>
@@ -71,8 +71,8 @@ session_start();
                     echo '</div></a>
                     </div>
                 </div>
-                <div><a href="#"></a><img src="imagenes/Header/01Menu/heart.svg" />Favoritos</div>
-                <div><a href="#"></a><img src="imagenes/Header/01Menu/shopping-cart.svg" />Carrito</div>'
+                <div><img src="imagenes/Header/01Menu/heart.svg" />Favoritos</div>
+                <div><img src="imagenes/Header/01Menu/shopping-cart.svg"/>Carrito</div>'
                     ;
 
                 } ?>
