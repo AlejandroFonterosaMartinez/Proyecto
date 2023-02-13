@@ -3,6 +3,7 @@ header {
   display: flex;
   top: 0;
   left: 0;
+  padding: 0.2em;
   z-index: 999;
   width: 100%;
   background-color: #fff;
@@ -52,6 +53,14 @@ header {
   align-items: center;
 }
 
+.cuenta:hover {
+  cursor: pointer;
+}
+
+button:hover {
+  cursor:pointer;
+}
+
 .cuenta:hover .submenu {
   visibility: visible;
 }
@@ -80,10 +89,12 @@ header {
 
 /* Estilos para el input de busqueda */
 .buscador input[type="text"] {
-  width: 66%;
+  width: 65%;
   border: none;
+  padding: 0.5em 0;
   border-radius: 5px 0 0 5px;
-  margin-right: -1px;
+  margin-right: -4px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 /* Estilos para el boton de busqueda */
@@ -94,6 +105,12 @@ header {
   background-color: #018273;
   color: #fff;
   border-radius: 0 5px 5px 0;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.buscador button[type="submit"]:hover {
+  background-color: #00675b;
+  cursor: pointer;
 }
 
 /* Estilos para Pantallas de PC */
@@ -170,7 +187,6 @@ header {
   
   .buscador input[type="text"] {
     padding: 0.5em;
-    width: 65%;
   }
 
   .buscador button[type="submit"] {

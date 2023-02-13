@@ -1,21 +1,26 @@
 <?php
-require_once('../Model/usuario_modelo.php');
+require_once(DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'usuario_modelo.php');
 
+// Controlador
+class loginController
+{
+    public function login($email, $password)
+    {
+        $user = (new User)->getUser($email, $password);
 
-if (isset($_POST['submit'])) {
-    $correo = $_POST['correo'];
-    $contraseña = $_POST['password'];
-    if (empty($correo) || empty($contraseña)) {
-        echo '<div class="alert alert-danger">Correo/Contraseña vacios </div>';
-    } else {
-        $user = new User;
-        if ($user->getUser($correo, $contraseña)) {
-            session_start();
-            $_SESSION['correo'] = $correo;
- 
-            header("Location: ../index.php");
-        } else{
-            echo '<div class="alert alert-danger">Correo/Contraseña inválido</div>';
+        if (is_array($user)) {
+            $_SESSION['correo'] = $email;
+            $_SESSION['rol'] = $user['id_rol'];
+
+            if ($_SESSION['rol'] == 2) {
+                header('Location: admin.php');
+                exit;
+            } else {
+                header('Location: ..' . DIRECTORY_SEPARATOR . 'index.php');
+                exit;
+            }
+        } else {
+            echo '<div class="alert alert-danger" role="alert" style="text-align:center;">Usuario/Contraseña Incorrectos</div>';
         }
     }
 }
