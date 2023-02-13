@@ -1,7 +1,7 @@
 <?php
+require_once(DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'usuario_modelo.php');
 
-require_once('../Model/usuario_modelo.php');
-
+// Controlador
 class loginController
 {
     public function login($email, $password)
@@ -16,7 +16,7 @@ class loginController
                 header('Location: admin.php');
                 exit;
             } else {
-                header('Location: ../index.php');
+                header('Location: ..' . DIRECTORY_SEPARATOR . 'index.php');
                 exit;
             }
         } else {

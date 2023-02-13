@@ -4,6 +4,7 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
+  overflow-x: hidden;;
 }
 
 .separador {
@@ -115,6 +116,7 @@ body {
   flex-direction: column;
   justify-content: center;
   margin: 2%;
+  text-align: justify;
 }
 
 .textoRev h3 {
@@ -129,12 +131,19 @@ body {
 .textoRev button {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-weight: bolder;
-  background-color: white;
+  background-color: #00b3aa; /* Green */
+  border: none;
+  color: white;
   padding: 1%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 5px;
 }
 
 .textoRev button:hover {
-  background-color: rgb(222, 222, 222);
+  transition: background-color .8s;
+  background-color: #018273;
 }
 
 .contenedor_productos {
@@ -162,20 +171,47 @@ body {
   width: 100%;
   max-width: 100%;
   }
+
+  .button {
+    display: flex;
+  }
   
-  .producto button {
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-weight: bolder;
-  background-color: white;
+  .button button {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    font-weight: bolder;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+    margin: 1%;
+  }
+
+  .button button:hover {
+    transition: background-color .8s;
+  }
+
+  .trollButton {
+    width: 70%;
+    background-color: #00b3aa;
+  }
+  
+  .favButton {
+    width: 30%;
+    background-color: crimson;
+  }
+
+  .favButton:hover {
+    background-color: rgb(185, 17, 51);
+  }
+
+  .trollButton:hover {
+    background-color: #018273;
+  }
+  
+  .producto label {
   padding: 1%;
-  }
-  
-  .producto button:hover {
-  background-color: rgb(222, 222, 222);
-  }
-  
-  .producto input {
-  padding: 10%;
   }
 
 /* Estilos para Pantallas de PC */
@@ -242,7 +278,7 @@ body {
   }
 
   .contenedorRevista img {
-    height: 39vw;
+    height: 40vw;
     width: 35vw;
     margin-top: 5%;
   }
@@ -254,6 +290,10 @@ body {
   .compromiso {
     flex: 1;
     width: 55%;
+  }
+
+  .compromiso img {
+    width: 20vw;
   }
 
   .comp p {

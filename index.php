@@ -17,8 +17,8 @@ session_start();
     <link rel="shortcut icon" href="imagenes/Logo.ico" type="image/x-icon" />
     <link rel="icon" href="imagenes/Logo.ico" type="image/x-icon" />
     <script src="javascript/carrusel.js"></script>
-    <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
-    <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
 </head>
 
 <!-- Body -->
@@ -108,10 +108,9 @@ session_start();
     <?php
     require_once "Controller/productos_controlador.php";
     ?>
-    <script src="owlcarousel/jquery.min.js"></script>
-    <script src="owlcarousel/owl.carousel.min.js"></script>
-    <script src="owlcarousel/main.js"></script>
-    <!-- Revista -->
+    <script src="javascript/jquery.min.js"></script>
+    <script src="javascript/owl.carousel.min.js"></script>
+    <script src="javascript/main.js"></script>
     <div class="separador">
         NUESTRA REVISTA
     </div>
@@ -124,7 +123,7 @@ session_start();
                 semana no te pierdas el apartado especial "Architect", con consejos de un arquitecto profesional
                 para
                 construir tu casa de sueños. ¡Consigue tu ejemplar!</p>
-            <button type="submit">Añadir al carrito</button>
+            <button type="submit">AÑADIR AL CARRITO</button>
         </div>
     </div>
     <!-- Compromisos -->
@@ -220,9 +219,9 @@ session_start();
             </div>
             <!-- Info -->
             <div class="contenido">
-                <a href="php/AboutUs.php">About Us</a>
+                <a href="php/aboutUs.php">About Us</a>
                 <a href="php/Newsletter.php">Newsletter</a>
-                <a href="php/InfoLegal.php">Información Legal</a>
+                <a href="php/infoLegal.php">Información Legal</a>
             </div>
         </div>
     </footer>
