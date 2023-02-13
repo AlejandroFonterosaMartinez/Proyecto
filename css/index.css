@@ -192,8 +192,11 @@ body {
     transition: background-color .8s;
   }
 
-  .trollButton {
+  .button form {
     width: 70%;
+  }
+
+  .trollButton {
     background-color: #00b3aa;
   }
   
