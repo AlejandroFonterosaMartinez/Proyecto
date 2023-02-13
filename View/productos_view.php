@@ -8,7 +8,10 @@
             echo '<label>' . $row["Precio"] . '€/Ud.' . '</label>';
             echo '<div class="button">';
             echo '<button class="favButton" type="submit">❤</button>';
-            echo '<form method="post" name="producto_carrito" action="view/carrito_view.php"><button class="trollButton" type="submit">AÑADIR AL CARRITO</button></form>';
+            echo '<form method="post">';
+            echo '<input type="hidden" name="id_producto" value="' . $row["Cod_producto"] . '">';
+            echo '<button class="trollButton" name="anadir" type="submit">AÑADIR AL CARRITO</button>';
+            echo '</form>';
             echo '</div>';
             echo '</div>';
         }
