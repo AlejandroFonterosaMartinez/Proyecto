@@ -54,9 +54,9 @@ session_start();
                     echo '
                      <div class="cuenta"><img src="imagenes/Header/01Menu/user.svg" />Mi cuenta
                          <div class="submenu">
-                             <div class="subdiv"><button><a href="php/registro.php"><img src="imagenes/Header/01Menu/register.svg" /><div class="subText">Registrarse</div></button></a>
+                             <div class="subdiv"><button><a href="php/registro.php"><img src="imagenes/Header/01Menu/register.svg" /><div class="subText">REGISTRARSE</div></a></button>
                              </div>
-                             <div class="subdiv"><button><a href="php/login.php"><img src="imagenes/Header/01Menu/entrance.svg" /><div class="subText">Iniciar Sesión</div></button></div></a>
+                             <div class="subdiv"><button><a href="php/login.php"><img src="imagenes/Header/01Menu/entrance.svg" /><div class="subText">INICIAR SESIÓN</div></a></button></div>
                          </div>
                      </div>
                      <div><img src="imagenes/Header/01Menu/heart.svg" />Favoritos</a></div>
@@ -65,14 +65,20 @@ session_start();
                 } else {
                     echo '<div class="cuenta"><img src="imagenes/Header/01Menu/user.svg" />' . $_SESSION['correo'] . '
                     <div class="submenu">
-                        <div class="subdiv"><button><a href="php/perfil.php"><img src="imagenes/Header/01Menu/edit.svg" /><div class="subText">Editar Perfil</div></button></a>
+                        <div class="subdiv"><button><a href="php/perfil.php"><img src="imagenes/Header/01Menu/edit.svg" /><div class="subText">EDITAR PERFIL</div></a></button>
                         </div>
-                        <div class="subdiv"><button><a href="php/logout.php"><img src="imagenes/Header/01Menu/exit.svg" /><div class="subText">Cerrar Sesión</div></button> </a>';
-                    echo '</div></a>
+                        <div class="subdiv"><button><a href="php/logout.php"><img src="imagenes/Header/01Menu/exit.svg" /><div class="subText">CERRAR SESIÓN</div></a></button> ';
+                    echo '</div>
                     </div>
                 </div>
                 <div><img src="imagenes/Header/01Menu/heart.svg" />Favoritos</div>
-                <div><img src="imagenes/Header/01Menu/shopping-cart.svg"/>Carrito</div>'
+                <div class="carrito"><img src="imagenes/Header/01Menu/shopping-cart.svg"/>Carrito
+                    <div class="subcarrito">
+                        <div class="carProd">Hola</div>
+                        <div class="carProd">Hola</div>
+                        <div class="carProd">Hola</div>
+                    </div>
+                </div>'
                     ;
 
                 } ?>

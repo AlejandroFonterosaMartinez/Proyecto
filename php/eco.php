@@ -43,7 +43,7 @@
                     echo '
                      <div class="cuenta"><img src="../imagenes/Header/01Menu/user.svg" />Mi cuenta
                          <div class="submenu">
-                             <div class="subdiv"><a href="../php/registro.php"><img src="../imagenes/Header/01Menu/edit.svg" />Registrarse</a>
+                             <div class="subdiv"><a href="registro.php"><img src="../imagenes/Header/01Menu/edit.svg" />Registrarse</a>
                              </div>
                              <div class="subdiv"><a href="../php/login.php"><img src="../imagenes/Header/01Menu/entrance.svg" />Iniciar Sesión</div></a>
                          </div>
@@ -163,9 +163,9 @@
                 <h3>Información y Bases Legales</h3>
             </div>
             <div class="contenido">
-                <a href="../php/AboutUs.php">About Us</a>
-                <a href="../php/Newsletter.php">Newsletter</a>
-                <a href="../php/InfoLegal.php">Información Legal</a>
+                <a href="AboutUs.php">About Us</a>
+                <a href="Newsletter.php">Newsletter</a>
+                <a href="InfoLegal.php">Información Legal</a>
             </div>
         </div>
     </footer>
