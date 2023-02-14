@@ -44,7 +44,7 @@
                 <div><img src="imagenes/Header/01Menu/heart.svg" />Favoritos</div>
                 <div><a href ="php/carrito.php"><img src="imagenes/Header/01Menu/shopping-cart.svg"/>Carrito</a></div>';
 
-                    require('php/contador_carrito.php');
+                    require('../php/contador_carrito.php');
 
                 } ?>
 

@@ -1,0 +1,47 @@
+ .buttons {
+     margin: 5px 0;
+ }
+
+ .buttons button {
+     font-size: 14px;
+     display: inline;
+     padding: 3px 6px;
+     border: 2px solid #ccc;
+     background: #fff;
+     border-radius: 5px;
+     outline: none;
+ }
+
+ .buttons button:hover {
+     border: 2px solid #888;
+     background: #ffe;
+     cursor: pointer;
+ }
+
+ #carroWrapper {
+     position: relative;
+     overflow: hidden;
+ }
+
+ #carro {
+     position: absolute;
+     visibility: hidden;
+ }
+
+ .subcarrito {
+    visibility: hidden;
+    position: absolute;
+    top: 100%;
+    cursor: pointer;
+    padding: 1%;
+    background-color: #fff;
+    border-color: #ccc;
+    border-style: solid;
+    border-width: 0px 1px 1px 1px;
+    width: 65%;
+    right: 0%;
+  }
+
+  .carrito:hover .subcarrito {
+    visibility: visible;
+  }

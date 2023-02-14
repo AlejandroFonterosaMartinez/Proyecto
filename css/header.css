@@ -65,24 +65,6 @@ button:hover {
   visibility: visible;
 }
 
-.carrito:hover .subcarrito {
-  visibility: visible;
-}
-
-.subcarrito {
-  visibility: hidden;
-  position: absolute;
-  top: 100%;
-  cursor: pointer;
-  padding: 1%;
-  background-color: #fff;
-  border-color: #ccc;
-  border-style: solid;
-  border-width: 0px 1px 1px 1px;
-  width: 65%;
-  right: 0%;
-}
-
 /* Estilos para el submenu */
 .submenu {
   visibility: hidden;
@@ -138,6 +120,18 @@ button:hover {
   color: #fff;
   border-radius: 0 5px 5px 0;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.contador {
+  position: absolute;
+  top: 50%;
+  right: 20.2%;
+  background-color: #00b3aa;
+  border-radius: 50%;
+  font-size: 13px;
+  color: white;
+  text-align: center;
+  width: 2%;
 }
 
 .buscador button[type="submit"]:hover {
@@ -249,6 +243,11 @@ button:hover {
   .submenu {
     width: 33%;
   }
+
+  .contador {
+    width: 4%;
+    right: 29.5%;
+  }
 }
 
 /* Estilos para móvil */
@@ -318,6 +317,10 @@ button:hover {
   .buscador {
     width: 60%;
     justify-content: center;
+  }
+
+  .contador {
+    width: 15%;
   }
 }
 
