@@ -31,5 +31,18 @@ class Productos_model
         }
         return $this->productos;
     }
+}
 
+function cargar_categorias($cat)
+{
+    include('../Config/Conectar.php');
+    /*
+ * Devuelve un puntero con el código y nombre de las categorías de la BBDD
+ * o falso si se produjo un error
+ */
+
+    $db = Conectar::conexion();
+    $ins = "SELECT Cod_producto,Nombre,Precio FROM productos WHERE Categoria='$cat'";
+    $resul = $db->query($ins);
+    return $resul;
 }

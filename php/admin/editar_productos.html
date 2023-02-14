@@ -36,7 +36,7 @@
 </head>
 
 <body>
-    <button type='button' id="boton" class='btn btn-info'>Cargar</button>
+    <button type='button' id="boton" class='btn btn-success'>Cargar</button>
     <button type='button' id="Actualizar" class='btn btn-info'>Actualizar</button>
 
     <div class="tabla">
@@ -61,12 +61,13 @@
     </div>
     <script>
         var editando = 0;
+        var cargado = 0;
         var pruebas = document.getElementsByClassName('pruebas');
 
         function guardar(fila) {
             var elementos = fila.parentNode.children;
             var textarea = document.querySelectorAll(".texta");
-            textarea.forEach(area =>  console.log(area.value));
+            textarea.forEach(area => console.log(area.value));
             console.log(textarea[0].value);
             $.ajax({
                 data: {
@@ -83,52 +84,67 @@
                 url: "admin_guardar.php"
             })
                 .done(function (response) {
-                   console.log(response);
+                    console.log(response);
                 });
         }
         function mostrar(fila) {
-            if(editando == 0){
-            editando++;
-            var elementos = fila.parentNode.children;
-            //console.log(elementos[1].innerHTML);
-            for (let i = 1; i < 8; i++) {
-                var datos = elementos[i].innerHTML;
-                console.log(elementos[i].innerHTML);
-                //elementos[i].innerHTML = "<input type='text' value="+ elementos[i].innerHTML + ">";
-                elementos[i].innerHTML = "<textarea  id='textarea' cols='30' rows='10' class='texta'>" + elementos[i].innerHTML + "</textarea>"
-                const textarea = document.getElementById("textarea");
+            if (editando == 0) {
+                editando++;
+                var elementos = fila.parentNode.children;
+                //console.log(elementos[1].innerHTML);
+                for (let i = 1; i < 8; i++) {
+                    var datos = elementos[i].innerHTML;
+                    console.log(elementos[i].innerHTML);
+                    //elementos[i].innerHTML = "<input type='text' value="+ elementos[i].innerHTML + ">";
+                    elementos[i].innerHTML = "<textarea  id='textarea' cols='30' rows='10' class='texta'>" + elementos[i].innerHTML + "</textarea>"
+                    const textarea = document.getElementById("textarea");
 
-                textarea.addEventListener("input", function () {
-                    this.style.height = "auto";
-                    this.style.height = (this.scrollHeight) + "px";
+                    textarea.addEventListener("input", function () {
+                        this.style.height = "auto";
+                        this.style.height = (this.scrollHeight) + "px";
+                    });
+                }
+                elementos[8].innerHTML = "<button type='button' id='btn' class='btn btn-success'>Guardar</button>";
+                elementos[9].innerHTML = "<button type='button' id='btn' class='btn btn-danger'>Cancelar</button>";
+                elementos[8].addEventListener('click', (evento) => {
+                    evento.preventDefault();
+                    console.log(elementos[1].children.value);
+
+                    var botonG = elementos[8];
+                    guardar(botonG);
                 });
+            } else {
+                console.log('ya se esta editando un elemento');
             }
-            elementos[8].innerHTML = "<button type='button' id='btn' class='btn btn-success'>Guardar</button>";
-            elementos[9].innerHTML = "<button type='button' id='btn' class='btn btn-danger'>Cancelar</button>";
-            elementos[8].addEventListener('click', (evento) => {
-                evento.preventDefault();
-                console.log(elementos[1].children.value);
-                
-                var botonG = elementos[8];
-                guardar(botonG);
-            });
-        }else{
-            console.log('ya se esta editando un elemento');
-        }
 
         }
+
 
         document.getElementById('boton').addEventListener('click', function (e) {
-            $.ajax({
-                method: "POST",
-                url: "admin_cargar.php"
-            })
-                .done(function (response) {
-                    $("tbody.pruebas").html(response);
-                    //document.getElementsByClassName('botoncito').addEventListener('click',mostrar);
-                    const editButtons = document.querySelectorAll(".btn-info");
-                    editButtons.forEach(editBtn => editBtn.addEventListener("click", () => mostrar(editBtn.parentNode)));
-                });
+
+            //if (cargado == 0) {
+                cargado++;
+                console.log(cargado);
+                $.ajax({
+                    method: "POST",
+                    url: "admin_cargar.php"
+                })
+                    .done(function (response) {
+                        $("tbody.pruebas").html(response);
+                        //document.getElementsByClassName('botoncito').addEventListener('click',mostrar);
+                        const editButtons = document.querySelectorAll(".btn-info");
+                        editButtons.forEach(editBtn => editBtn.addEventListener("click", function (e) {
+                            e.preventDefault;
+                            console.log('dentro de boton');
+                            mostrar(editBtn.parentNode);
+                        })
+                        );
+                    });
+
+            //} else {
+                console.log('ya esta cargado');
+            //}
+
 
         })
         document.getElementById('Actualizar').addEventListener('click', function (e) {

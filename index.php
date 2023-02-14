@@ -112,15 +112,15 @@ if (isset($_POST['anadir'], $_POST['id_producto'])) {
         CATEGORÍAS
     </div>
     <div class="categorias">
-        <div class="item"><img src="imagenes/Menu/Arena.svg" />Arenas y Gravas</div>
-        <div class="item"><img src="imagenes/Menu/Techo.svg" />Tejados Y Cubiertas</div>
-        <div class="item"><img src="imagenes/Menu/Cemento.svg" />Cementos Y Morteros</div>
-        <div class="item"><img src="imagenes/Menu/Madera.svg" />Madera</div>
-        <div class="item"><img src="imagenes/Menu/Hormigonera.svg" />Hormigoneras, carretillas...</div>
-        <div class="item"><img src="imagenes/Menu/Valla.svg" />Cercados y Ocultación</div>
-        <div class="item"><img src="imagenes/Menu/Yeso.svg" />Yesos Y Escayolas</div>
-        <div class="item"><img src="imagenes/Menu/Eleconstruccion.svg" />Elementos de construcción</div>
-        <div class="item"><img src="imagenes/Menu/Aislante.svg" />Aislamientos</div>
+        <div class="item"><a href="php/productos.php?categoria=4"><img src="imagenes/Menu/Arena.svg" /></a>Arenas y Gravas</div>
+        <div class="item"><a href="php/productos.php?categoria=1"><img src="imagenes/Menu/Techo.svg" /></a>Tejados Y Cubiertas</div>
+        <div class="item"><a href="php/productos.php?categoria=2"><img src="imagenes/Menu/Cemento.svg" /></a>Cementos Y Morteros</div>
+        <div class="item"><a href="php/productos.php?categoria=6"><img src="imagenes/Menu/Madera.svg" /></a>Madera</div>
+        <div class="item"><a href="php/productos.php?categoria=7"><img src="imagenes/Menu/Hormigonera.svg" /></a>Hormigoneras, carretillas...</div>
+        <div class="item"><a href="php/productos.php?categoria=5"><img src="imagenes/Menu/Valla.svg" /></a>Cercados y Ocultación</div>
+        <div class="item"><a href="php/productos.php?categoria=3"><img src="imagenes/Menu/Yeso.svg" /></a>Yesos Y Escayolas</div>
+        <div class="item"><a href="php/productos.php?categoria=9"><img src="imagenes/Menu/Eleconstruccion.svg" /></a>Elementos de construcción</div>
+        <div class="item"><a href="php/productos.php?categoria=8"><img src="imagenes/Menu/Aislante.svg" /></a>Aislamientos</div>
     </div>
     <!-- Productos destacados -->
     <div class="separador">
