@@ -4,7 +4,8 @@ body {
     align-items: center;
     background-color: #bedfec;
     background-repeat: no-repeat;
-
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    font-weight: bolder;
 }
 
 /*Contenedor formulario*/
@@ -12,10 +13,17 @@ body {
     margin: auto;
     width: 30%;
     background-color: #fff;
-    padding: 30px;
+    padding: 3%;
     border-radius: 10px;
     box-shadow: 0 0 20px 0 #ccc;
     text-align: center;
+    margin-top: 3.9%;
+}
+
+.alerta {
+    position: absolute;
+    width: 100%;
+    top: 0;
 }
 
 /*Inputs*/
@@ -24,7 +32,7 @@ body {
 .form input[type="password"],
 .form input[type="date"] {
     width: 100%;
-    padding: 12px 20px;
+    padding: 2% 5%;
     margin: 8px 0;
     box-sizing: border-box;
     border: none;
@@ -35,7 +43,7 @@ body {
 /*Boton submit*/
 .form input[type="submit"] {
     width: 100%;
-    padding: 12px 20px;
+    padding: 2% 5%;
     background-color: #00b3aa;
     color: white;
     margin-top: 20px;
@@ -55,9 +63,18 @@ body {
     margin-bottom: 10px
 }
 
-/* Para otros dispositivos con distinta resolucion */
-@media only screen and(max-width: 600px) {
+@media only screen and (min-device-width: 700px) and (max-device-width: 1024px) {
     .form {
+        padding: 5%;
+        width: 60%;
+        margin-top: 8%;
+    }
+}
+
+@media (max-width: 768px) {
+    .form {
+        padding: 5%;
         width: 90%;
+        margin-top: 20%;
     }
 }

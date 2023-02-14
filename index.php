@@ -81,12 +81,12 @@ if (isset($_POST['anadir'], $_POST['id_producto'])) {
                      <div class="subcarrito">
                    
                    <div id="carro">
-                     <img src="http://malsup.github.io/images/beach1.jpg">
-                     <img src="http://malsup.github.io/images/beach2.jpg">
-                     <img src="http://malsup.github.io/images/beach3.jpg">
-                     <img src="http://malsup.github.io/images/beach4.jpg">
-                     <img src="http://malsup.github.io/images/beach5.jpg">
-                     <img src="http://malsup.github.io/images/beach9.jpg">
+                   <img src="http://malsup.github.io/images/beach1.jpg">
+                   <img src="http://malsup.github.io/images/beach2.jpg">
+                   <img src="http://malsup.github.io/images/beach3.jpg">
+                   <img src="http://malsup.github.io/images/beach4.jpg">
+                   <img src="http://malsup.github.io/images/beach5.jpg">
+                   <img src="http://malsup.github.io/images/beach9.jpg">
                    </div>
                    
                    <div class="buttons">
@@ -110,12 +110,12 @@ if (isset($_POST['anadir'], $_POST['id_producto'])) {
                 <div class="subcarrito">
                    
                 <div id="carro">
-                  <img src="http://malsup.github.io/images/beach1.jpg">
-                  <img src="http://malsup.github.io/images/beach2.jpg">
-                  <img src="http://malsup.github.io/images/beach3.jpg">
-                  <img src="http://malsup.github.io/images/beach4.jpg">
-                  <img src="http://malsup.github.io/images/beach5.jpg">
-                  <img src="http://malsup.github.io/images/beach9.jpg">
+                    <div class="prodCarr"><img src="http://malsup.github.io/images/beach1.jpg"></div>
+                    <div class="prodCarr"><img src="http://malsup.github.io/images/beach2.jpg"></div>
+                    <div class="prodCarr"><img src="http://malsup.github.io/images/beach3.jpg"></div>
+                    <div class="prodCarr"><img src="http://malsup.github.io/images/beach4.jpg"></div>
+                    <div class="prodCarr"><img src="http://malsup.github.io/images/beach5.jpg"></div>
+                    <div class="prodCarr"><img src="http://malsup.github.io/images/beach9.jpg"></div>
                 </div>
                 
                 <div class="buttons">
@@ -123,8 +123,8 @@ if (isset($_POST['anadir'], $_POST['id_producto'])) {
                   <button id="next">&darr; Next</button>
                 </div>
                   </div>';
-                 require('php/contador_carrito.php');
-                 '</div>';
+                    require('php/contador_carrito.php');
+                    '</div>';
                 } ?>
                 <script src="javascript/carrito.js"></script>
             </div>
@@ -133,7 +133,7 @@ if (isset($_POST['anadir'], $_POST['id_producto'])) {
     <div class="carrusel">
         <div id="imagenCarr"></div>
     </div>
-    <script src="javascript/carrusel.js"></script>     
+    <script src="javascript/carrusel.js"></script>
     <!-- Categorias -->
     <div class="separador">
         CATEGORÍAS
