@@ -64,9 +64,7 @@
                 <div><a href="#"></a><img src="../imagenes/Header/01Menu/heart.svg" />Favoritos</div>
                 <div><a href="#"></a><img src="../imagenes/Header/01Menu/shopping-cart.svg" />Carrito</div>'
                     ;
-
                 } ?>
-
             </div>
     </header>
     <div class="apartados">

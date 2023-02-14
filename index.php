@@ -2,6 +2,23 @@
 <html>
 <?php
 session_start();
+
+// Verificamos si se han enviado los datos del formulario y si el campo 'id_producto' existe
+if (isset($_POST['anadir'], $_POST['id_producto'])) {
+    // Verificamos si la sesión 'cart' no está inicializada
+    if (!isset($_SESSION['cart'])) {
+        // Inicializamos la sesión 'cart' como un arreglo vacío
+        $_SESSION['cart'] = array();
+    }
+
+    // Almacenamos el valor del campo 'id_producto' en una variable
+    $product_id = $_POST['id_producto'];
+
+    // Agregamos un nuevo elemento al final del arreglo 'cart' con la clave 'Cod_producto' y el valor del 'id_producto'
+    $new_product = array('Cod_producto' => $product_id);
+    $_SESSION['cart'][] = $new_product;
+}
+
 ?>
 <!-- Head -->
 
@@ -59,8 +76,11 @@ session_start();
                              <div class="subdiv"><button><a href="php/login.php"><img src="imagenes/Header/01Menu/entrance.svg" /><div class="subText">INICIAR SESIÓN</div></a></button></div>
                          </div>
                      </div>
-                     <div><img src="imagenes/Header/01Menu/heart.svg" />Favoritos</a></div>
-                     <div><img src="imagenes/Header/01Menu/shopping-cart.svg" />Carrito</div>
+                     <div><img src="imagenes/Header/01Menu/heart.svg"/>Favoritos</a></div>
+                     <div><a href ="php/carrito.php"><img src="imagenes/Header/01Menu/shopping-cart.svg"/>Carrito</a></div>';
+                    require('php/contador_carrito.php');
+
+                    '
                  </div>';
                 } else {
                     echo '<div class="cuenta"><img src="imagenes/Header/01Menu/user.svg" />' . $_SESSION['correo'] . '
@@ -72,14 +92,9 @@ session_start();
                     </div>
                 </div>
                 <div><img src="imagenes/Header/01Menu/heart.svg" />Favoritos</div>
-                <div class="carrito"><img src="imagenes/Header/01Menu/shopping-cart.svg"/>Carrito
-                    <div class="subcarrito">
-                        <div class="carProd">Hola</div>
-                        <div class="carProd">Hola</div>
-                        <div class="carProd">Hola</div>
-                    </div>
-                </div>'
-                    ;
+                <div><a href ="php/carrito.php"><img src="imagenes/Header/01Menu/shopping-cart.svg"/>Carrito</a></div>';
+
+                    require('php/contador_carrito.php');
 
                 } ?>
 
@@ -129,7 +144,7 @@ session_start();
                 semana no te pierdas el apartado especial "Architect", con consejos de un arquitecto profesional
                 para
                 construir tu casa de sueños. ¡Consigue tu ejemplar!</p>
-            <button type="submit">AÑADIR AL CARRITO</button>
+            <button type="submit" action="php/carrito.php">AÑADIR AL CARRITO</button>
         </div>
     </div>
     <!-- Compromisos -->
