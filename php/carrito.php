@@ -25,6 +25,7 @@ session_start();
                 <div class="shopping-cart">
                     <h6>Mi Carrito</h6>
                     <hr>
+
                     <?php
                     if (isset($_SESSION['cart'])) {
                         $total = 0;
@@ -34,32 +35,35 @@ session_start();
                         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         if (!empty($result)) {
                             foreach ($result as $row) {
-                                if (in_array($row['Cod_producto'], $id_productos_en_carrito)) {
+                                $indice = array_search($row['Cod_producto'], $id_productos_en_carrito);
+                                if ($indice !== false) {
                                     $nombreproducto = $row['Nombre'];
+                                    $cantidad = $_SESSION['cart'][$indice]['cantidad'];
                                     $precioproducto = $row['Precio'];
+                                    $clave_unica = 'cantidad_' . $row['Cod_producto'];
 
-                                    echo "<form action='carrito.php' method='get' class='cart-items'>
-                                    <div class='border rounded'>
-                                    <div class='row bg-white'>
-                                    <div class='col-md-3'>
-                                    <img src='../imagenes/Productos/" . $row["Cod_producto"] . ".png' class='img-fluid'>
-                                    </div>
-                                    <div class='col-md-6'>
-                                    <h5 class='pt-2'>" . $nombreproducto . "</h5>
-                                    <small class='text-secondary'>Vendedor: BricoTeis SL</small>
-                                    <h5 class='pt-2'>" . $precioproducto . " €</h5>
-                                    <button type='submit' class='btn btn-warning btn-block'>Guardar para más tarde</button>
-                                    <button type='submit' class='btn btn-danger mx-2' name='borrar'>Borrar</button>
-                                    </div>
-                                    <div class='col-md-3 py-5'>
-                                    <button type='button' class='btn btn-light border rounded circle'>-</button>
-                                    <input type='text' value='1' class='text-center form-control w-25 d-inline text'>
-                                    <button type='button' class='btn btn-light border rounded circle'>+</button>
-                                    </div>
-                                    </div>
-                                    </div>
-                                    </form>";
-                                    $total += $precioproducto;
+                                    echo "<form action='carrito.php' method='post' class='cart-items'>
+                    <div class='border rounded'>
+                        <div class='row bg-white'>
+                            <div class='col-md-3'>
+                                <img src='../imagenes/Productos/" . $row["Cod_producto"] . ".png' class='img-fluid'>
+                            </div>
+                            <div class='col-md-6' id='prod'>
+                                <h5 class='pt-2'>" . $nombreproducto . "</h5>
+                                <small class='text-secondary'>Vendedor: BricoTeis SL</small>
+                                <h5 class='pt-2 precio' id='precio'>" . $precioproducto . "</h5>
+                                <button type='submit' class='btn btn-warning btn-block'>Guardar para más tarde</button>
+                                <button type='submit' class='btn btn-danger mx-2' name='borrar' value='" . $row['Cod_producto'] . "'>Borrar</button>
+                                <div class='row-md-3'>
+                                <input type='hidden' name='id_producto' value='" . $row['Cod_producto'] . "'>
+                                <input type='number' id='cantidad' name='" . $clave_unica . "' value='" . $cantidad . "' class='text-center form-control w-25 d-inline text' onchange='actualizarCantidad()'>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>";
+
+                                    $total += $precioproducto * $cantidad;
                                 }
                             }
                         } else {
@@ -69,6 +73,20 @@ session_start();
                         echo "<h5>Carrito VACÍO!</h5>";
                     }
                     ?>
+
+                    <script>
+                        function actualizarCantidad() {
+                            const productos = document.querySelectorAll('#prod');
+                            var suma = 0;
+                            productos.forEach(element => {
+                                console.log(element);   
+                                suma += element.precio * element.cantidad.value;
+                               
+                            });
+                            document.getElementById('preciototal').innerHTML = suma + " €";
+
+                        }
+                    </script>
                     <div class="col-md-5">
                         <h6>Detalles del pedido</h6>
                         <hr>
@@ -79,7 +97,7 @@ session_start();
                                 </h6>
                                 <h6> Total </h6>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6" id="preciototal">
                                 <?php echo $total . "€"; ?>
                             </div>
                         </div>

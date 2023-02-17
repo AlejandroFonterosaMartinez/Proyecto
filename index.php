@@ -3,22 +3,41 @@
 <?php
 session_start();
 
-// Verificamos si se han enviado los datos del formulario y si el campo 'id_producto' existe
-if (isset($_POST['anadir'], $_POST['id_producto'])) {
-    // Verificamos si la sesión 'cart' no está inicializada
+if (isset($_POST['anadir'], $_POST['id_producto'], $_POST['cantidad'])) {
+    // Verificar que los campos sean válidos
+    $product_id = filter_input(INPUT_POST, 'id_producto', FILTER_VALIDATE_INT);
+    $quantity = filter_input(INPUT_POST, 'cantidad', FILTER_VALIDATE_INT);
+
+    if (!$product_id || !$quantity) {
+        // Mostrar un mensaje de error si los campos son inválidos
+        echo "Error: campos inválidos";
+        exit;
+    }
+
+    // Inicializar el arreglo del carrito si es necesario
     if (!isset($_SESSION['cart'])) {
-        // Inicializamos la sesión 'cart' como un arreglo vacío
         $_SESSION['cart'] = array();
     }
 
-    // Almacenamos el valor del campo 'id_producto' en una variable
-    $product_id = $_POST['id_producto'];
+    // Buscar si el producto ya está en el carrito
+    $product_index = array_search($product_id, array_column($_SESSION['cart'], 'Cod_producto'));
 
-    // Agregamos un nuevo elemento al final del arreglo 'cart' con la clave 'Cod_producto' y el valor del 'id_producto'
-    $new_product = array('Cod_producto' => $product_id);
-    $_SESSION['cart'][] = $new_product;
+    if ($product_index !== false) {
+        // Si el producto ya está en el carrito, actualizar la cantidad
+        $_SESSION['cart'][$product_index]['cantidad'] += $quantity;
+    } else {
+        // Si el producto no está en el carrito, agregar un nuevo elemento
+        $new_product = array(
+            'Cod_producto' => $product_id,
+            'cantidad' => $quantity,
+
+        );
+        $_SESSION['cart'][] = $new_product;
+    }
+
+    // Mostrar un mensaje de confirmación
+    echo "Producto agregado al carrito con éxito";
 }
-
 ?>
 <!-- Head -->
 
@@ -71,9 +90,9 @@ if (isset($_POST['anadir'], $_POST['id_producto'])) {
                     echo '
                      <div class="cuenta"><img src="imagenes/Header/01Menu/user.svg" />Mi cuenta
                          <div class="submenu">
-                             <div class="subdiv"><button><a href="php/registro.php"><img src="imagenes/Header/01Menu/register.svg" />Registrarse</button></a>
+                             <div class="subdiv"><button><a href="View/registro_view.php"><img src="imagenes/Header/01Menu/register.svg" />Registrarse</button></a>
                              </div>
-                             <div class="subdiv"><button><a href="php/login.php"><img src="imagenes/Header/01Menu/entrance.svg" />Iniciar Sesión</button></div></a>
+                             <div class="subdiv"><button><a href="View/login_view.php"><img src="imagenes/Header/01Menu/entrance.svg" />Iniciar Sesión</button></div></a>
                          </div>
                      </div>
                      <div><img src="imagenes/Header/01Menu/heart.svg"/>Favoritos</a></div>
@@ -85,7 +104,7 @@ if (isset($_POST['anadir'], $_POST['id_producto'])) {
                 } else {
                     echo '<div class="cuenta"><img src="imagenes/Header/01Menu/user.svg" />' . $_SESSION['correo'] . '
                     <div class="submenu">
-                        <div class="subdiv"><button><a href="php/perfil.php"><img src="imagenes/Header/01Menu/edit.svg" />Editar Perfil</button></a>
+                        <div class="subdiv"><button><a href="controller/perfil_controlador.php"><img src="imagenes/Header/01Menu/edit.svg" />Editar Perfil</button></a>
                         </div>
                         <div class="subdiv"><button><a href="php/logout.php"><img src="imagenes/Header/01Menu/exit.svg" />Cerrar Sesión</button> </a>';
                     echo '</div></a>

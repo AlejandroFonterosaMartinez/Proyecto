@@ -4,7 +4,7 @@ session_start();
 
 if (isset($_SESSION['correo'])) {
     $email = $_SESSION['correo'];
-    $stmt = Conectar::conexion()->prepare("SELECT usuarios.nombre, usuarios.apellidos, usuarios.correo, usuarios.fecha_nacimiento, usuarios.fecha_registro, roles.descripcion 
+    $stmt = Conectar::conexion()->prepare("SELECT usuarios.nombre, usuarios.apellidos, usuarios.correo, usuarios.fecha_nacimiento, usuarios.fecha_registro,usuarios.Telefono ,roles.descripcion 
                                         FROM usuarios
                                         LEFT JOIN roles ON usuarios.id_rol = roles.id_rol
                                         WHERE correo='$email'");
@@ -31,89 +31,15 @@ if (isset($_SESSION['correo'])) {
      */
     if (isset($_POST['telefono'])) {
         $telefono = $_POST['telefono'];
-
         $stmt = Conectar::conexion()->prepare("UPDATE usuarios SET telefono = '$telefono' WHERE correo = '$correo'");
         $stmt->execute();
+
     }
 } else {
     echo "Por favor, inicia sesión";
     header("Location:../index.php");
 }
 ?>
-
-<!DOCTYPE html>
-<html lang="es">
-<html>
-
-<head>
-    <title>BricoTeis SL</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>BricoTeis SL</title>
-    <link href="../css/header.css" rel="stylesheet" type="text/css">
-    <link href="../css/index.css" rel="stylesheet" type="text/css">
-    <link href="../css/footer.css" rel="stylesheet" type="text/css">
-    <link rel="shortcut icon" href="../imagenes/Logo.ico" type="image/x-icon" />
-    <link rel="icon" href="../imagenes/Logo.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-</head>
-<!-- Header -->
-<header>
-    <div class="container">
-
-        <div class="infoPag">
-            <a href="../index.php">
-                <img src="../imagenes/Header/Logo.svg" />
-                BricoTeis SL
-            </a>
-        </div>
-
-        <!-- Buscador -->
-        <div class="buscador">
-            <form action="search.php" method="get">
-                <div class="cajaTexto">
-                    <form action="search.php" method="get">
-                        <div class="cajaTexto">
-                            <input type="text" name="query" name="query" placeholder="Buscar...">
-                            <button type="submit">Buscar</button>
-                        </div>
-                    </form>
-                </div>
-            </form>
-        </div>
-        <!-- Usuario, carrito, favoritos -->
-        <div class="menuPers">
-            <?php if (!isset($_SESSION['correo'])) {
-                echo '
-                     <div class="cuenta"><img src="../imagenes/Header/01Menu/user.svg" />Mi cuenta
-                         <div class="submenu">
-                             <div class="subdiv"><button><a href="registro.php"><img src="../imagenes/Header/01Menu/register.svg" />Registrarse</button></a>
-                             </div>
-                             <div class="subdiv"><button><a href="login.php"><img src="../imagenes/Header/01Menu/entrance.svg" />Iniciar Sesión</button></div></a>
-                         </div>
-                     </div>
-                     <div><a href="#"><img src="../imagenes/Header/01Menu/heart.svg" />Favoritos</a></div>
-                     <div><a href="carrito.php"><img src="../imagenes/Header/01Menu/shopping-cart.svg" />Carrito</a></div>
-                 </div>';
-            } else {
-                echo '<div class="cuenta"><a href="#"></a><img src="../imagenes/Header/01Menu/user.svg" />' . $_SESSION['correo'] . '
-                    <div class="submenu">
-                        <div class="subdiv"><button><a href="perfil.php"><img src="../imagenes/Header/01Menu/edit.svg" />Editar Perfil</button></a>
-                        </div>
-                        <div class="subdiv"><button><a href="logout.php"><img src="../imagenes/Header/01Menu/exit.svg" />Cerrar Sesión</button> </a>';
-                echo '</div></a>
-                    </div>
-                </div>
-                <div><a href="#"></a><img src="../imagenes/Header/01Menu/heart.svg" />Favoritos</div>
-                <div><a href="#"></a><img src="../imagenes/Header/01Menu/shopping-cart.svg" />Carrito</div>'
-                ;
-
-            } ?>
-
-        </div>
-</header>
 
 <body>
     <div class="d-flex align-items-center" style="height: 100vh;">
@@ -136,10 +62,11 @@ if (isset($_SESSION['correo'])) {
                 </div>
                 <div class="form-group text-center">
                     <label for="telefono">Teléfono:</label>
-                    <input type="text" class="form-control" placeholder="Añade tu número de teléfono" id="telefono"
-                        value="<?php if (isset($telefono)) {
-                            echo $telefono;
-                        } ?>" name="telefono">
+                    <input type="text" class="form-control" id="telefono" value="<?php if (!empty($valores['Telefono'])) {
+                        echo $valores['Telefono'];
+                    } else {
+                        echo $valores['Telefono'];
+                    } ?>" name="telefono">
                 </div>
                 <div class="form-group text-center">
                     <label for="fecha_nacimiento">Fecha de nacimiento:</label>
@@ -156,7 +83,7 @@ if (isset($_SESSION['correo'])) {
                     <input type="text" class="form-control" readonly id="rol" name="rol" value="<?php echo $rol; ?>">
                 </div>
                 <input type="submit" class="btn btn-primary" value="Guardar cambios"
-                    onclick="alert('Perfil actualizado correctamente')">
+                    onclick="alert('Perfil actualizado correctamente'),location.reload()">
             </form>
         </div>
     </div>
