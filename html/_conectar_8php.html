@@ -116,32 +116,33 @@ Funciones</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   20</span>{</div>
-<div class="line"><span class="lineno">   21</span>    $config = <span class="keyword">new</span> DOMDocument();</div>
-<div class="line"><span class="lineno">   22</span>    $config-&gt;load($xml);</div>
-<div class="line"><span class="lineno">   23</span>    $res = $config-&gt;schemaValidate($validador);</div>
-<div class="line"><span class="lineno">   24</span>    <span class="keywordflow">if</span> ($res === FALSE) {</div>
-<div class="line"><span class="lineno">   25</span>        <span class="keywordflow">throw</span> <span class="keyword">new</span> InvalidArgumentException(<span class="stringliteral">&quot;ERROR en el fichero de configuración&quot;</span>);</div>
-<div class="line"><span class="lineno">   26</span>    }</div>
-<div class="line"><span class="lineno">   27</span>    $datos = simplexml_load_file($xml);</div>
-<div class="line"><span class="lineno">   28</span>    $ip = $datos-&gt;xpath(<span class="stringliteral">&quot;//ip&quot;</span>);</div>
-<div class="line"><span class="lineno">   29</span>    $nombre = $datos-&gt;xpath(<span class="stringliteral">&quot;//nombre&quot;</span>);</div>
-<div class="line"><span class="lineno">   30</span>    $usuario = $datos-&gt;xpath(<span class="stringliteral">&quot;//usuario&quot;</span>);</div>
-<div class="line"><span class="lineno">   31</span>    $clave = $datos-&gt;xpath(<span class="stringliteral">&quot;//clave&quot;</span>);</div>
-<div class="line"><span class="lineno">   32</span>    $conexion = sprintf(<span class="stringliteral">&quot;mysql:dbname=%s;host=%s&quot;</span>, $nombre[0], $ip[0]);</div>
-<div class="line"><span class="lineno">   33</span>    $resul = [];</div>
-<div class="line"><span class="lineno">   34</span>    $resul[] = $conexion;</div>
-<div class="line"><span class="lineno">   35</span>    $resul[] = $usuario[0];</div>
-<div class="line"><span class="lineno">   36</span>    $resul[] = $clave[0];</div>
-<div class="line"><span class="lineno">   37</span>    <span class="keywordflow">return</span> $resul;</div>
-<div class="line"><span class="lineno">   38</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   19</span>{</div>
+<div class="line"><span class="lineno">   20</span>    $config = <span class="keyword">new</span> DOMDocument();</div>
+<div class="line"><span class="lineno">   21</span>    $config-&gt;load($xml);</div>
+<div class="line"><span class="lineno">   22</span>    $res = $config-&gt;schemaValidate($validador);</div>
+<div class="line"><span class="lineno">   23</span>    <span class="keywordflow">if</span> ($res === FALSE) {</div>
+<div class="line"><span class="lineno">   24</span>        <span class="keywordflow">throw</span> <span class="keyword">new</span> InvalidArgumentException(<span class="stringliteral">&quot;ERROR en el fichero de configuración&quot;</span>);</div>
+<div class="line"><span class="lineno">   25</span>    }</div>
+<div class="line"><span class="lineno">   26</span>    $datos = simplexml_load_file($xml);</div>
+<div class="line"><span class="lineno">   27</span>    $ip = $datos-&gt;xpath(<span class="stringliteral">&quot;//ip&quot;</span>);</div>
+<div class="line"><span class="lineno">   28</span>    $nombre = $datos-&gt;xpath(<span class="stringliteral">&quot;//nombre&quot;</span>);</div>
+<div class="line"><span class="lineno">   29</span>    $usuario = $datos-&gt;xpath(<span class="stringliteral">&quot;//usuario&quot;</span>);</div>
+<div class="line"><span class="lineno">   30</span>    $clave = $datos-&gt;xpath(<span class="stringliteral">&quot;//clave&quot;</span>);</div>
+<div class="line"><span class="lineno">   31</span>    $conexion = sprintf(<span class="stringliteral">&quot;mysql:dbname=%s;host=%s&quot;</span>, $nombre[0], $ip[0]);</div>
+<div class="line"><span class="lineno">   32</span>    <a class="code hl_variable" href="select__productos_8php.html#a85400a4de635efc67d199bbdd4567e7c">$resul</a> = [];</div>
+<div class="line"><span class="lineno">   33</span>    <a class="code hl_variable" href="select__productos_8php.html#a85400a4de635efc67d199bbdd4567e7c">$resul</a>[] = $conexion;</div>
+<div class="line"><span class="lineno">   34</span>    <a class="code hl_variable" href="select__productos_8php.html#a85400a4de635efc67d199bbdd4567e7c">$resul</a>[] = $usuario[0];</div>
+<div class="line"><span class="lineno">   35</span>    <a class="code hl_variable" href="select__productos_8php.html#a85400a4de635efc67d199bbdd4567e7c">$resul</a>[] = $clave[0];</div>
+<div class="line"><span class="lineno">   36</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="select__productos_8php.html#a85400a4de635efc67d199bbdd4567e7c">$resul</a>;</div>
+<div class="line"><span class="lineno">   37</span>}</div>
+<div class="ttc" id="aselect__productos_8php_html_a85400a4de635efc67d199bbdd4567e7c"><div class="ttname"><a href="select__productos_8php.html#a85400a4de635efc67d199bbdd4567e7c">$resul</a></div><div class="ttdeci">$resul</div><div class="ttdef"><b>Definition:</b> select_productos.php:40</div></div>
 </div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generado el Lunes, 13 de Febrero de 2023 14:01:46 para My Project por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+Generado el Jueves, 16 de Febrero de 2023 12:11:40 para My Project por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
 </small></address>
 </body>
 </html>

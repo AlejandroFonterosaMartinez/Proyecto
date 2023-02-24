@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['register_0',['register',['../class_user_registration.html#a0d949cba10ce6c31ac7ab2d928dfe6b3',1,'UserRegistration']]],
-  ['removeitem_1',['removeItem',['../class_cart.html#a0351c7f2fca1d0288bd536f3ff2f0b7a',1,'Cart']]]
+  ['selectcategorias_0',['selectCategorias',['../admin__cargar_8php.html#acaa65e2698241d2cb559618ac0ff39ec',1,'selectCategorias($con):&#160;admin_cargar.php'],['../admin__guardar_8php.html#acaa65e2698241d2cb559618ac0ff39ec',1,'selectCategorias($con):&#160;admin_guardar.php']]]
 ];
