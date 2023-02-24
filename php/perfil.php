@@ -66,7 +66,7 @@ if (isset($_SESSION['correo'])) {
                         echo $valores['Telefono'];
                     } else {
                         echo $valores['Telefono'];
-                    } ?>" name="telefono">
+                        } ?>" name="telefono">
                 </div>
                 <div class="form-group text-center">
                     <label for="fecha_nacimiento">Fecha de nacimiento:</label>
