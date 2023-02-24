@@ -3,22 +3,41 @@
 <?php
 session_start();
 
-// Verificamos si se han enviado los datos del formulario y si el campo 'id_producto' existe
-if (isset($_POST['anadir'], $_POST['id_producto'])) {
-    // Verificamos si la sesión 'cart' no está inicializada
+if (isset($_POST['anadir'], $_POST['id_producto'], $_POST['cantidad'])) {
+    // Verificar que los campos sean válidos
+    $product_id = filter_input(INPUT_POST, 'id_producto', FILTER_VALIDATE_INT);
+    $quantity = filter_input(INPUT_POST, 'cantidad', FILTER_VALIDATE_INT);
+
+    if (!$product_id || !$quantity) {
+        // Mostrar un mensaje de error si los campos son inválidos
+        echo "Error: campos inválidos";
+        exit;
+    }
+
+    // Inicializar el arreglo del carrito si es necesario
     if (!isset($_SESSION['cart'])) {
-        // Inicializamos la sesión 'cart' como un arreglo vacío
         $_SESSION['cart'] = array();
     }
 
-    // Almacenamos el valor del campo 'id_producto' en una variable
-    $product_id = $_POST['id_producto'];
+    // Buscar si el producto ya está en el carrito
+    $product_index = array_search($product_id, array_column($_SESSION['cart'], 'Cod_producto'));
 
-    // Agregamos un nuevo elemento al final del arreglo 'cart' con la clave 'Cod_producto' y el valor del 'id_producto'
-    $new_product = array('Cod_producto' => $product_id);
-    $_SESSION['cart'][] = $new_product;
+    if ($product_index !== false) {
+        // Si el producto ya está en el carrito, actualizar la cantidad
+        $_SESSION['cart'][$product_index]['cantidad'] += $quantity;
+    } else {
+        // Si el producto no está en el carrito, agregar un nuevo elemento
+        $new_product = array(
+            'Cod_producto' => $product_id,
+            'cantidad' => $quantity,
+
+        );
+        $_SESSION['cart'][] = $new_product;
+    }
+
+    // Mostrar un mensaje de confirmación
+    echo "Producto agregado al carrito con éxito";
 }
-
 ?>
 <!-- Head -->
 
@@ -71,9 +90,9 @@ if (isset($_POST['anadir'], $_POST['id_producto'])) {
                     echo '
                      <div class="cuenta"><img src="imagenes/Header/01Menu/user.svg" />Mi cuenta
                          <div class="submenu">
-                             <div class="subdiv"><button><a href="php/registro.php"><img src="imagenes/Header/01Menu/register.svg" />Registrarse</button></a>
+                             <div class="subdiv"><button><a href="View/registro_view.php"><img src="imagenes/Header/01Menu/register.svg" />Registrarse</button></a>
                              </div>
-                             <div class="subdiv"><button><a href="php/login.php"><img src="imagenes/Header/01Menu/entrance.svg" />Iniciar Sesión</button></div></a>
+                             <div class="subdiv"><button><a href="View/login_view.php"><img src="imagenes/Header/01Menu/entrance.svg" />Iniciar Sesión</button></div></a>
                          </div>
                      </div>
                      <div><img src="imagenes/Header/01Menu/heart.svg"/>Favoritos</a></div>
@@ -85,7 +104,7 @@ if (isset($_POST['anadir'], $_POST['id_producto'])) {
                 } else {
                     echo '<div class="cuenta"><img src="imagenes/Header/01Menu/user.svg" />' . $_SESSION['correo'] . '
                     <div class="submenu">
-                        <div class="subdiv"><button><a href="php/perfil.php"><img src="imagenes/Header/01Menu/edit.svg" />Editar Perfil</button></a>
+                        <div class="subdiv"><button><a href="controller/perfil_controlador.php"><img src="imagenes/Header/01Menu/edit.svg" />Editar Perfil</button></a>
                         </div>
                         <div class="subdiv"><button><a href="php/logout.php"><img src="imagenes/Header/01Menu/exit.svg" />Cerrar Sesión</button> </a>';
                     echo '</div></a>
@@ -112,15 +131,15 @@ if (isset($_POST['anadir'], $_POST['id_producto'])) {
         CATEGORÍAS
     </div>
     <div class="categorias">
-        <div class="item"><a href="php/productos.php?categoria=4"><img src="imagenes/Menu/Arena.svg" /></a>Arenas y Gravas</div>
-        <div class="item"><a href="php/productos.php?categoria=1"><img src="imagenes/Menu/Techo.svg" /></a>Tejados Y Cubiertas</div>
-        <div class="item"><a href="php/productos.php?categoria=2"><img src="imagenes/Menu/Cemento.svg" /></a>Cementos Y Morteros</div>
-        <div class="item"><a href="php/productos.php?categoria=6"><img src="imagenes/Menu/Madera.svg" /></a>Madera</div>
-        <div class="item"><a href="php/productos.php?categoria=7"><img src="imagenes/Menu/Hormigonera.svg" /></a>Hormigoneras, carretillas...</div>
-        <div class="item"><a href="php/productos.php?categoria=5"><img src="imagenes/Menu/Valla.svg" /></a>Cercados y Ocultación</div>
-        <div class="item"><a href="php/productos.php?categoria=3"><img src="imagenes/Menu/Yeso.svg" /></a>Yesos Y Escayolas</div>
-        <div class="item"><a href="php/productos.php?categoria=9"><img src="imagenes/Menu/Eleconstruccion.svg" /></a>Elementos de construcción</div>
-        <div class="item"><a href="php/productos.php?categoria=8"><img src="imagenes/Menu/Aislante.svg" /></a>Aislamientos</div>
+        <div class="item"><img src="imagenes/Menu/Arena.svg" />Arenas y Gravas</div>
+        <div class="item"><img src="imagenes/Menu/Techo.svg" />Tejados Y Cubiertas</div>
+        <div class="item"><img src="imagenes/Menu/Cemento.svg" />Cementos Y Morteros</div>
+        <div class="item"><img src="imagenes/Menu/Madera.svg" />Madera</div>
+        <div class="item"><img src="imagenes/Menu/Hormigonera.svg" />Hormigoneras, carretillas...</div>
+        <div class="item"><img src="imagenes/Menu/Valla.svg" />Cercados y Ocultación</div>
+        <div class="item"><img src="imagenes/Menu/Yeso.svg" />Yesos Y Escayolas</div>
+        <div class="item"><img src="imagenes/Menu/Eleconstruccion.svg" />Elementos de construcción</div>
+        <div class="item"><img src="imagenes/Menu/Aislante.svg" />Aislamientos</div>
     </div>
     <!-- Productos destacados -->
     <div class="separador">

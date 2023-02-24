@@ -1,7 +1,7 @@
 <?php
 include('../Config/Conectar.php');
-include('../Model/usuario_modelo.php');
-include('../Controller/usuario_controlador.php');
+include('../Model/login_modelo.php');
+include('../Controller/login_controlador.php');
 session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     (new loginController)->login($_POST['correo'], $_POST['password']);

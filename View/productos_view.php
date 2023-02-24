@@ -2,18 +2,20 @@
     <div class="owl-carousel owl-theme">
         <?php
         foreach ($array_productos as $row) {
-            echo "<div class='producto'>";
-            echo "<img src='imagenes/Productos/" . $row["Cod_producto"] . ".png'</img>";
-            echo '<label>' . $row["Nombre"] . '</label>';
-            echo '<label>' . $row["Precio"] . '€/Ud.' . '</label>';
-            echo '<div class="button">';
-            echo '<button class="favButton" type="submit">❤</button>';
-            echo '<form method="post">';
-            echo '<input type="hidden" name="id_producto" value="' . $row["Cod_producto"] . '">';
-            echo '<button class="trollButton" name="anadir" type="submit">AÑADIR AL CARRITO</button>';
-            echo '</form>';
-            echo '</div>';
-            echo '</div>';
+            $precio_formateado = number_format($row["Precio"], 2);
+            echo "<div class='producto'>
+          <img src='imagenes/Productos/{$row['Cod_producto']}.png'></img>
+          <label>{$row['Nombre']}</label>
+          <label>{$precio_formateado}€/Ud.</label>
+          <div class='button'>
+            <button class='favButton' type='submit'>❤</button>
+            <form method='post'>
+              <input type='hidden' name='id_producto' value='{$row['Cod_producto']}'>
+              <input type='hidden' name='cantidad' value='1'>
+              <button class='trollButton' name='anadir' type='submit'>AÑADIR AL CARRITO</button>
+            </form>
+          </div>
+        </div>";
         }
         ?>
     </div>
