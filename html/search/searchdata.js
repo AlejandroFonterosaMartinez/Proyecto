@@ -2,8 +2,8 @@ var indexSectionsWithContent =
 {
   0: "!$_abcdefghijlmnoprstuvwxy",
   1: "clpu",
-  2: "aceijlmopru",
-  3: "!$_aceglmrx",
+  2: "aceijlmoprsu",
+  3: "!$_ceglmrsx",
   4: "$abcdefghijlnoprstuvwy"
 };
 

@@ -199,10 +199,10 @@ Otros miembros heredados</h2></td></tr>
 <div class="line"><span class="lineno">   34</span>                <span class="keywordflow">return</span>;</div>
 <div class="line"><span class="lineno">   35</span>            }</div>
 <div class="line"><span class="lineno">   36</span> </div>
-<div class="line"><span class="lineno">   37</span>            $query = <span class="stringliteral">&quot;INSERT INTO usuarios (Nombre, Apellidos, Fecha_Nacimiento, Correo, Contraseña, Fecha_Registro,id_rol) </span></div>
+<div class="line"><span class="lineno">   37</span>            <a class="code hl_variable" href="admin__borrar_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;INSERT INTO usuarios (Nombre, Apellidos, Fecha_Nacimiento, Correo, Contraseña, Fecha_Registro,id_rol) </span></div>
 <div class="line"><span class="lineno">   38</span><span class="stringliteral">                      VALUES (:nombre, :apellidos, :fecha_nacimiento, :email, :password, :trn_date,:id_rol)&quot;</span>;</div>
 <div class="line"><span class="lineno">   39</span> </div>
-<div class="line"><span class="lineno">   40</span>            $stmt = $this-&gt;<a class="code hl_function" href="class_conectar.html#a5649dabd70fd599340df50f72dddc303">conexion</a>()-&gt;prepare($query);</div>
+<div class="line"><span class="lineno">   40</span>            $stmt = $this-&gt;<a class="code hl_function" href="class_conectar.html#a5649dabd70fd599340df50f72dddc303">conexion</a>()-&gt;prepare(<a class="code hl_variable" href="admin__borrar_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);</div>
 <div class="line"><span class="lineno">   41</span>            $stmt-&gt;bindParam(<span class="stringliteral">&#39;:nombre&#39;</span>, $nombre);</div>
 <div class="line"><span class="lineno">   42</span>            $stmt-&gt;bindParam(<span class="stringliteral">&#39;:apellidos&#39;</span>, $apellidos);</div>
 <div class="line"><span class="lineno">   43</span>            $stmt-&gt;bindParam(<span class="stringliteral">&#39;:fecha_nacimiento&#39;</span>, $fecha_nacimiento);</div>
@@ -221,7 +221,8 @@ Otros miembros heredados</h2></td></tr>
 <div class="line"><span class="lineno">   56</span>            }</div>
 <div class="line"><span class="lineno">   57</span>        }</div>
 <div class="line"><span class="lineno">   58</span>    }</div>
-<div class="ttc" id="aclass_conectar_html_a5649dabd70fd599340df50f72dddc303"><div class="ttname"><a href="class_conectar.html#a5649dabd70fd599340df50f72dddc303">Conectar\conexion</a></div><div class="ttdeci">static conexion()</div><div class="ttdef"><b>Definition:</b> Conectar.php:5</div></div>
+<div class="ttc" id="aadmin__borrar_8php_html_af59a5f7cd609e592c41dc3643efd3c98"><div class="ttname"><a href="admin__borrar_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a></div><div class="ttdeci">$query</div><div class="ttdef"><b>Definition:</b> admin_borrar.php:12</div></div>
+<div class="ttc" id="aclass_conectar_html_a5649dabd70fd599340df50f72dddc303"><div class="ttname"><a href="class_conectar.html#a5649dabd70fd599340df50f72dddc303">Conectar\conexion</a></div><div class="ttdeci">static conexion()</div><div class="ttdef"><b>Definition:</b> Conectar.php:4</div></div>
 <div class="ttc" id="aclass_user_registration_html_a2b8c3daa56a1b0c5d153bbdbdd631dd4"><div class="ttname"><a href="class_user_registration.html#a2b8c3daa56a1b0c5d153bbdbdd631dd4">UserRegistration\calcularEdad</a></div><div class="ttdeci">calcularEdad($fecha_nacimiento)</div><div class="ttdef"><b>Definition:</b> registro_modelo.php:66</div></div>
 </div><!-- fragment -->
 </div>
@@ -232,7 +233,7 @@ Otros miembros heredados</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generado el Lunes, 13 de Febrero de 2023 14:01:46 para My Project por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+Generado el Jueves, 16 de Febrero de 2023 12:11:41 para My Project por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
 </small></address>
 </body>
 </html>
