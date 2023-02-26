@@ -1,9 +1,7 @@
 <?php
-include_once('../Config/Conectar.php');
-
-class PerfilModel
+class Perfil extends Conectar
 {
-    public static function getPerfil($email)
+    public function obtenerUsuario($email)
     {
         $stmt = Conectar::conexion()->prepare("SELECT usuarios.nombre, usuarios.apellidos, usuarios.correo, usuarios.fecha_nacimiento, usuarios.fecha_registro,usuarios.Telefono ,roles.descripcion 
                                         FROM usuarios
@@ -14,15 +12,15 @@ class PerfilModel
         return $valores;
     }
 
-    public static function updateNombreApellido($email, $nombre, $apellidos)
+    public function actualizarNombre($email, $nombre, $apellidos)
     {
         $stmt = Conectar::conexion()->prepare("UPDATE usuarios SET nombre = '$nombre', apellidos = '$apellidos' WHERE correo = '$email'");
         $stmt->execute();
     }
 
-    public static function updateTelefono($email, $telefono)
+    public function actualizarTelefono($email, $telefono)
     {
         $stmt = Conectar::conexion()->prepare("UPDATE usuarios SET telefono = '$telefono' WHERE correo = '$email'");
         $stmt->execute();
     }
-}   
+}
