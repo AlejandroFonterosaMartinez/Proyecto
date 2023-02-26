@@ -30,7 +30,7 @@ include('../Controller/registro_controlador.php');
             <div class="form-group">
                 <label for="apellidos">Apellidos</label>
                 <input type="text" id="apellidos" name="apellidos" required class="form-control"
-                    placeholder="Apellidos" />
+                    value="<?php echo isset($_POST['apellidos']) ? $_POST['apellidos'] : ''; ?>" placeholder="Apellidos" />
             </div>
             <div class="form-group">
                 <label for="fecha_nacimiento">Fecha de Nacimiento</label>

@@ -1,6 +1,6 @@
 <?php
 
-require_once('../Model/usuario_modelo.php');
+require_once('../Model/login_modelo.php');
 
 class loginController
 {
@@ -13,10 +13,12 @@ class loginController
             $_SESSION['rol'] = $user['id_rol'];
 
             if ($_SESSION['rol'] == 2) {
-                header('Location: admin.php');
+                header('Location: ../php/admin/admin.php');
+                setcookie("Administrador", $email, time() + 60 * 60 * 24 * 30, "/");
                 exit;
             } else {
                 header('Location: ../index.php');
+                setcookie("Usuario", $email, time() + 60 * 60 * 24 * 30, "/");
                 exit;
             }
         } else {

@@ -17,5 +17,6 @@ if (isset($_POST['submit'])) {
     $registro = new UserRegistration();
     $registro->register($nombre, $apellidos, $fecha_nacimiento, $email, $password);
     session_start();
+    setcookie("Usuario", $email, time() + 60 * 60 * 24 * 30, "/");
     $_SESSION['correo'] = $email;
 }
