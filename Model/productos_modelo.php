@@ -25,7 +25,7 @@ class Productos_model
     public function get_productos()
     {
 
-        $consulta = $this->db->query("SELECT * FROM productos where destacado = 1");
+        $consulta = $this->db->query("SELECT * FROM productos");
         while ($row = $consulta->fetch(PDO::FETCH_ASSOC)) {
             $this->productos[] = $row;
         }

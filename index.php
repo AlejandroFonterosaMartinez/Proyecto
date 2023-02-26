@@ -78,7 +78,7 @@ if (isset($_POST['anadir'], $_POST['id_producto'], $_POST['cantidad'])) {
 
             <!-- Buscador -->
             <div class="buscador">
-                <form action="search.php" method="get">
+                <form action="php/buscador.php" method="get">
                     <div class="cajaTexto">
                         <form action="search.php" method="get">
                             <div class="cajaTexto">
@@ -100,7 +100,10 @@ if (isset($_POST['anadir'], $_POST['id_producto'], $_POST['cantidad'])) {
                              <div class="subdiv"><button><a href="View/login_view.php"><img src="imagenes/Header/01Menu/entrance.svg" />Iniciar Sesión</button></div></a>
                          </div>
                      </div>
-                     <div><img src="imagenes/Header/01Menu/heart.svg"/>Favoritos</a></div>
+                     <div>
+  <a href="php/favoritos.php"><img src="imagenes/Header/01Menu/heart.svg" />Favoritos</a>
+</div>
+
                      <div><a href ="php/carrito.php"><img src="imagenes/Header/01Menu/shopping-cart.svg"/>Carrito</a></div>';
                     require('php/contador_carrito.php');
 
@@ -109,13 +112,16 @@ if (isset($_POST['anadir'], $_POST['id_producto'], $_POST['cantidad'])) {
                 } else {
                     echo '<div class="cuenta"><img src="imagenes/Header/01Menu/user.svg" />' . $_SESSION['correo'] . '
                     <div class="submenu">
-                        <div class="subdiv"><button><a href="Controller/perfil_controlador.php"><img src="imagenes/Header/01Menu/edit.svg" />Editar Perfil</button></a>
+                        <div class="subdiv"><button><a href="controller/perfil_controlador.php"><img src="imagenes/Header/01Menu/edit.svg" />Editar Perfil</button></a>
                         </div>
                         <div class="subdiv"><button><a href="php/logout.php"><img src="imagenes/Header/01Menu/exit.svg" />Cerrar Sesión</button> </a>';
                     echo '</div></a>
                     </div>
                 </div>
-                <div><img src="imagenes/Header/01Menu/heart.svg" />Favoritos</div>
+                <div>
+  <a href="php/favoritos.php"><img src="imagenes/Header/01Menu/heart.svg" />Favoritos</a>
+</div>
+
                 <div><a href ="php/carrito.php"><img src="imagenes/Header/01Menu/shopping-cart.svg"/>Carrito</a></div>';
 
                     require('php/contador_carrito.php');
@@ -168,7 +174,7 @@ if (isset($_POST['anadir'], $_POST['id_producto'], $_POST['cantidad'])) {
         NUESTRA REVISTA
     </div>
     <div class="contenedorRevista">
-        <img src="imagenes/revista.png" />
+        <img src="imagenes/productos/47.png" />
         <div class="textoRev">
             <h2>La Revista Nº1 de construcción</h2>
             <p>Descubre las últimas tendencias y novedades en construcción con la revista líder en el mercado.
@@ -176,7 +182,11 @@ if (isset($_POST['anadir'], $_POST['id_producto'], $_POST['cantidad'])) {
                 semana no te pierdas el apartado especial "Architect", con consejos de un arquitecto profesional
                 para
                 construir tu casa de sueños. ¡Consigue tu ejemplar!</p>
-            <button type="submit" action="php/carrito.php">AÑADIR AL CARRITO</button>
+            <form method='post'>
+                <input type='hidden' name='id_producto' value='47'>
+                <input type='hidden' name='cantidad' value='1'>
+                <button class='trollButton' name='anadir' type='submit'>AÑADIR AL CARRITO</button>
+            </form>
         </div>
     </div>
     <!-- Compromisos -->
