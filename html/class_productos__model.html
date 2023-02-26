@@ -98,13 +98,13 @@ Métodos públicos</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>[__construct Implementa la conexion con la bd, y asigna un array a productos] </p>
+<p>__construct Implementa la conexion con la bd, y asigna un array a productos </p>
 <div class="fragment"><div class="line"><span class="lineno">   14</span>    {</div>
 <div class="line"><span class="lineno">   15</span>        require_once <span class="stringliteral">&quot;Config/Conectar.php&quot;</span>;</div>
 <div class="line"><span class="lineno">   16</span>        $this-&gt;db = <a class="code hl_function" href="class_conectar.html#a5649dabd70fd599340df50f72dddc303">Conectar::conexion</a>();</div>
 <div class="line"><span class="lineno">   17</span>        $this-&gt;productos = array();</div>
 <div class="line"><span class="lineno">   18</span>    }</div>
-<div class="ttc" id="aclass_conectar_html_a5649dabd70fd599340df50f72dddc303"><div class="ttname"><a href="class_conectar.html#a5649dabd70fd599340df50f72dddc303">Conectar\conexion</a></div><div class="ttdeci">static conexion()</div><div class="ttdef"><b>Definition:</b> Conectar.php:5</div></div>
+<div class="ttc" id="aclass_conectar_html_a5649dabd70fd599340df50f72dddc303"><div class="ttname"><a href="class_conectar.html#a5649dabd70fd599340df50f72dddc303">Conectar\conexion</a></div><div class="ttdeci">static conexion()</div><div class="ttdef"><b>Definition:</b> Conectar.php:4</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -123,8 +123,8 @@ Métodos públicos</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>[get_productos realiza una consulta en la base de datos en la que destados = 1 para mostrar los productos destacados y los va devolviendo en un array ]</p>
-<dl class="section return"><dt>Devuelve</dt><dd>[array] [return array de productos] </dd></dl>
+<p>get_productos realiza una consulta en la base de datos en la que destados = 1 para mostrar los productos destacados y los va devolviendo en un array</p>
+<dl class="section return"><dt>Devuelve</dt><dd>[array] return array de productos </dd></dl>
 <div class="fragment"><div class="line"><span class="lineno">   26</span>    {</div>
 <div class="line"><span class="lineno">   27</span> </div>
 <div class="line"><span class="lineno">   28</span>        $consulta = $this-&gt;db-&gt;query(<span class="stringliteral">&quot;SELECT * FROM productos where destacado = 1&quot;</span>);</div>
@@ -142,7 +142,7 @@ Métodos públicos</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generado el Lunes, 13 de Febrero de 2023 14:01:46 para My Project por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+Generado el Jueves, 16 de Febrero de 2023 12:11:41 para My Project por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
 </small></address>
 </body>
 </html>
