@@ -25,11 +25,11 @@ class UserRegistration extends Conectar
         $stmt->execute();
         $check_email = $stmt->rowCount();
         if ($check_email > 0) {
-            echo '<div class="alert alert-danger" role="alert" style="text-align:center;">El correo ya está en uso, intente con otro.</div>';
+            echo '<div class="alerta alert alert-danger" role="alert" style="text-align:center;">El correo ya está en uso, intente con otro.</div>';
         } else {
             $edad = $this->calcularEdad($fecha_nacimiento);
             if ($edad < 16 || $edad > 100) {
-                echo '<div class="alert alert-danger" role="alert" style="text-align:center;"> La edad debe ser mayor o igual a 16 años y menor o igual a 100 años.</div>';
+                echo '<div class="alerta alert alert-danger" role="alert" style="text-align:center;"> La edad debe ser mayor o igual a 16 años y menor o igual a 100 años.</div>';
                 return;
             }
 
@@ -47,11 +47,11 @@ class UserRegistration extends Conectar
             $stmt->bindParam(':id_rol', $id_rol);
 
             if ($stmt->execute()) {
-                echo '<div class="alert alert-success" role="alert" style="text-align:center;">Registro completado!</div>';
+                echo '<div class="alerta alert alert-success" role="alert" style="text-align:center;">Registro completado!</div>';
                 echo "<script>setTimeout(function(){ window.location.href = '../index.php'; }, 1000);</script>";
             } else {
 
-                echo '<div class="alert alert-danger" role="alert" style="text-align:center;">Ha ocurrido un error al intentar registrarse. Por favor, inténtelo de nuevo más tarde.</div>';
+                echo '<div class="alerta alert alert-danger" role="alert" style="text-align:center;">Ha ocurrido un error al intentar registrarse. Por favor, inténtelo de nuevo más tarde.</div>';
             }
         }
     }

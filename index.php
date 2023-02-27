@@ -81,13 +81,13 @@ if (isset($_POST['anadir'], $_POST['id_producto'], $_POST['cantidad'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>BricoTeis SL</title>
-    <link href="css/header.css" rel="stylesheet" type="text/css">
     <link href="css/carrusel.css" rel="stylesheet" type="text/css">
+    <link href="css/header.css" rel="stylesheet" type="text/css">
+    <link href="css/carrito.css" rel="stylesheet" type="text/css">
     <link href="css/index.css" rel="stylesheet" type="text/css">
     <link href="css/footer.css" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="imagenes/Logo.ico" type="image/x-icon" />
     <link rel="icon" href="imagenes/Logo.ico" type="image/x-icon" />
-    <script src="javascript/carrusel.js"></script>
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
 </head>
@@ -125,48 +125,69 @@ if (isset($_POST['anadir'], $_POST['id_producto'], $_POST['cantidad'])) {
                     echo '
                      <div class="cuenta"><img src="imagenes/Header/01Menu/user.svg" />Mi cuenta
                          <div class="submenu">
-                             <div class="subdiv"><button><a href="View/registro_view.php"><img src="imagenes/Header/01Menu/register.svg" />Registrarse</button></a>
+                             <div class="subdiv"><button><a href="php/registro.php"><img src="imagenes/Header/01Menu/register.svg" /><div class="subText">REGISTRARSE</div></a></button>
                              </div>
-                             <div class="subdiv"><button><a href="View/login_view.php"><img src="imagenes/Header/01Menu/entrance.svg" />Iniciar Sesión</button></div></a>
+                             <div class="subdiv"><button><a href="php/login.php"><img src="imagenes/Header/01Menu/entrance.svg" /><div class="subText">INICIAR SESIÓN</div></a></button></div>
                          </div>
                      </div>
-                     <div>
-  <a href="php/favoritos.php"><img src="imagenes/Header/01Menu/heart.svg" />Favoritos</a>
-</div>
-
-                     <div><a href ="php/carrito.php"><img src="imagenes/Header/01Menu/shopping-cart.svg"/>Carrito</a></div>';
+                     <div><img src="imagenes/Header/01Menu/heart.svg"/>Favoritos</a></div>
+                     <div class="carrito"><a href ="php/carrito.php"><img src="imagenes/Header/01Menu/shopping-cart.svg"/>Carrito</a>
+                     <div class="subcarrito">
+                   
+                   <div id="carro">
+                   <img src="http://malsup.github.io/images/beach1.jpg">
+                   <img src="http://malsup.github.io/images/beach2.jpg">
+                   <img src="http://malsup.github.io/images/beach3.jpg">
+                   <img src="http://malsup.github.io/images/beach4.jpg">
+                   <img src="http://malsup.github.io/images/beach5.jpg">
+                   <img src="http://malsup.github.io/images/beach9.jpg">
+                   </div>
+                   
+                   <div class="buttons">
+                     <button id="prev">&uarr; Prev</button>
+                     <button id="next">&darr; Next</button>
+                   </div>
+                     </div>';
                     require('php/contador_carrito.php');
-
-                    '
-                 </div>';
+                    '</div>';
                 } else {
                     echo '<div class="cuenta"><img src="imagenes/Header/01Menu/user.svg" />' . $_SESSION['correo'] . '
                     <div class="submenu">
                         <div class="subdiv"><button><a href="controller/perfil_controlador.php"><img src="imagenes/Header/01Menu/edit.svg" />Editar Perfil</button></a>
                         </div>
-                        <div class="subdiv"><button><a href="php/logout.php"><img src="imagenes/Header/01Menu/exit.svg" />Cerrar Sesión</button> </a>';
-                    echo '</div></a>
+                        <div class="subdiv"><button><a href="php/logout.php"><img src="imagenes/Header/01Menu/exit.svg" /><div class="subText">CERRAR SESIÓN</div></a></button> ';
+                    echo '</div>
                     </div>
                 </div>
-                <div>
-  <a href="php/favoritos.php"><img src="imagenes/Header/01Menu/heart.svg" />Favoritos</a>
-</div>
-
-                <div><a href ="php/carrito.php"><img src="imagenes/Header/01Menu/shopping-cart.svg"/>Carrito</a></div>';
-
+                <div><img src="imagenes/Header/01Menu/heart.svg" />Favoritos</div>
+                <div class="carrito"><a href ="php/carrito.php"><img src="imagenes/Header/01Menu/shopping-cart.svg"/>Carrito</a>
+                <div class="subcarrito">
+                   
+                <div id="carro">
+                    <div class="prodCarr"><img src="http://malsup.github.io/images/beach1.jpg"></div>
+                    <div class="prodCarr"><img src="http://malsup.github.io/images/beach2.jpg"></div>
+                    <div class="prodCarr"><img src="http://malsup.github.io/images/beach3.jpg"></div>
+                    <div class="prodCarr"><img src="http://malsup.github.io/images/beach4.jpg"></div>
+                    <div class="prodCarr"><img src="http://malsup.github.io/images/beach5.jpg"></div>
+                    <div class="prodCarr"><img src="http://malsup.github.io/images/beach9.jpg"></div>
+                </div>
+                
+                <div class="buttons">
+                  <button id="prev">&uarr; Prev</button>
+                  <button id="next">&darr; Next</button>
+                </div>
+                  </div>';
                     require('php/contador_carrito.php');
-
+                    '</div>';
                 } ?>
-
+                <script src="javascript/carrito.js"></script>
             </div>
     </header>
-    <!-- Nav -->
-    <nav>
-        <!-- Carrousel de banners -->
-        <div class="carousel">
-            <div id="imagen"></div>
-        </div>
-    </nav>
+    <!-- Carrousel de banners -->
+    <div class="carrusel">
+        <div id="imagenCarr"></div>
+    </div>
+    <script src="javascript/carrusel.js"></script>
     <!-- Categorias -->
     <div class="separador">
         CATEGORÍAS

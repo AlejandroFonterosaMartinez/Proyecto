@@ -1,4 +1,4 @@
-window.onload = function() {
+function carrImgs() {
     const ANCHO_LIMITE = 768; // Define el ancho límite en el que se cambian las imágenes
     const IMAGENES = [
       'imagenes/Banner/Banner01.png',
@@ -12,7 +12,7 @@ window.onload = function() {
     ];
     const TIEMPO_INTERVALO_MILESIMAS_SEG = 2000;
     let posicionActual = 0;
-    let $imagen = document.querySelector('#imagen');
+    let $imagen = document.querySelector('#imagenCarr');
     let intervalo;
     window.addEventListener("resize", () => {
       pasarFoto();
@@ -39,4 +39,11 @@ window.onload = function() {
     renderizarImagen();
     intervalo = setInterval(pasarFoto, TIEMPO_INTERVALO_MILESIMAS_SEG);
   }
-  
+  carga.push(carrImgs);
+  console.log(window.onload);
+
+  window.onload = () => {
+    carga.forEach(element => {
+      element();
+    });
+  }
