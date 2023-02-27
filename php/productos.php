@@ -1,130 +1,70 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>BricoTeis SL</title>
-    <link href="../css/header.css" rel="stylesheet" type="text/css">
-    <link href="../css/infos.css" rel="stylesheet" type="text/css">
-    <link href="../css/footer.css" rel="stylesheet" type="text/css">
-    <link rel="shortcut icon" href="../imagenes/Logo.ico" type="image/x-icon" />
-    <link rel="icon" href="../imagenes/Logo.ico" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
-
 <body>
-    <header>
-        <div class="container">
+    <div>
+        <input type="button" class="categoria" value="Tejados Y Cubiertas" />
+        <input type="button" class="categoria" value="Arenas y Gravas" />
+        <input type="button" class="categoria" value="Cementos Y Morteros" />
+        <input type="button" class="categoria" value="Madera" />
+        <input type="button" class="categoria" value="Hormigoneras, carretillas..." />
+        <input type="button" class="categoria" value="Cercados y Ocultación" />
+        <input type="button" class="categoria" value="Yesos Y Escayolas" />
+        <input type="button" class="categoria" value="Elementos de construcción" />
+        <input type="button" class="categoria" value="Aislamientos" />
 
-            <div class="infoPag">
-                <a href="../index.php">
-                    <img src="../imagenes/Header/Logo.svg" />
-                    BricoTeis SL
-                </a>
-            </div>
+        <div class="mostrar">
+            <?php
+            include('../Model/productos_modelo.php');
+            $productos = cargar_categorias($_GET['categoria']);
 
-            <div class="buscador">
-                <form action="search.php" method="get">
-                    <div class="cajaTexto">
-                        <form action="search.php" method="get">
-                            <div class="cajaTexto">
-                                <input type="text" name="query" name="query" placeholder="Buscar...">
-                                <button type="submit">Buscar</button>
-                            </div>
-                        </form>
-                    </div>
-                </form>
-            </div>
+            foreach ($productos as $producto) {
 
-            <div class="menuPers">
-                <?php if (!isset($_SESSION['correo'])) {
-                    echo '
-                     <div class="cuenta"><img src="../imagenes/Header/01Menu/user.svg" />Mi cuenta
-                         <div class="submenu">
-                             <div class="subdiv"><button><a href="php/registro.php"><img src="imagenes/Header/01Menu/register.svg" /><div class="subText">REGISTRARSE</div></a></button>
-                             </div>
-                             <div class="subdiv"><button><a href="php/login.php"><img src="imagenes/Header/01Menu/entrance.svg" /><div class="subText">INICIAR SESIÓN</div></a></button></div>
-                         </div>
-                     </div>
-                     <div><img src="imagenes/Header/01Menu/heart.svg" />Favoritos</a></div>
-                     <div><img src="imagenes/Header/01Menu/shopping-cart.svg" />Carrito</div>
-                 </div>';
-                } else {
-                    echo '<div class="cuenta"><img src="imagenes/Header/01Menu/user.svg" />' . $_SESSION['correo'] . '
-                    <div class="submenu">
-                        <div class="subdiv"><button><a href="php/perfil.php"><img src="imagenes/Header/01Menu/edit.svg" /><div class="subText">EDITAR PERFIL</div></a></button>
-                        </div>
-                        <div class="subdiv"><button><a href="php/logout.php"><img src="imagenes/Header/01Menu/exit.svg" /><div class="subText">CERRAR SESIÓN</div></a></button> ';
-                    echo '</div>
-                    </div>
-                </div>
-                <div><img src="imagenes/Header/01Menu/heart.svg" />Favoritos</div>
-                <div class="carrito"><img src="imagenes/Header/01Menu/shopping-cart.svg"/>Carrito
-                    <div class="subcarrito">
-                        <div class="carProd">Hola</div>
-                        <div class="carProd">Hola</div>
-                        <div class="carProd">Hola</div>
-                    </div>
-                </div>'
-                    ;
+                $cod = $producto['Cod_producto'];
+                $nom = $producto['Nombre'];
+                $pre = $producto['Precio'];
+                /*
+             * Dentro del formulario hay un campo oculto para enviar el código del producto
+             * que debemos añadir al carro del la compra. El formulario llama al fichero anadir.php
+             */
+                echo "<ul><li>$cod</li><li>$nom</li><li>$pre</li></ul>";
+            }
 
-                } ?>
-
-            </div>
-            </div>
-    </header>
-
-    <footer>
-        <div class="redes">
-            <div class="tituloFooter">
-                <h3>Nuestras Redes Sociales</h3>
-            </div>
-            <div class="contenido">
-                <img src="../imagenes/Footer/RRSS/facebook.svg" />
-                <img src="../imagenes/Footer/RRSS/twitter.svg" />
-                <img src="../imagenes/Footer/RRSS/youtube.svg" />
-                <img src="../imagenes/Footer/RRSS/instagram.svg" />
-                <img src="../imagenes/Footer/RRSS/linkedin.svg" />
-                <img src="../imagenes/Footer/RRSS/pinterest.svg" />
-            </div>
+            ?>
         </div>
-        <div class="redes">
-            <div class="tituloFooter">
-                <h3>Proyecto Ecológico</h3>
-            </div>
-            <div class="contenido">
-                <a href="../php/eco.php">
-                    <img src="../imagenes/Footer/ECO/Agua.svg" />
-                    <img src="../imagenes/Footer/ECO/Reciclaje.svg" />
-                    <img src="../imagenes/Footer/ECO/Renovable.svg" />
-                </a>
-            </div>
-        </div>
-        <div class="redes">
-            <div class="tituloFooter">
-                <h3>Pago 100% Seguro</h3>
-            </div>
-            <div class="contenido">
-                <img src="../imagenes/Footer/Pago/Amex.svg" />
-                <img src="../imagenes/Footer/Pago/Klarna.svg" />
-                <img src="../imagenes/Footer/Pago/Mastercard.svg" />
-                <img src="../imagenes/Footer/Pago/Paypal.svg" />
-                <img src="../imagenes/Footer/Pago/Visa.svg" />
-            </div>
-        </div>
-        <div class="redes">
-            <div class="tituloFooter">
-                <h3>Información y Bases Legales</h3>
-            </div>
-            <div class="contenido">
-                <a href="../php/AboutUs.php">About Us</a>
-                <a href="../php/Newsletter.php">Newsletter</a>
-                <a href="../php/InfoLegal.php">Información Legal</a>
-            </div>
-        </div>
-    </footer>
+        <script>
+            const editButtons = document.querySelectorAll(".categoria");
+            editButtons.forEach(editBtn => editBtn.addEventListener("click", () => select_productos(editBtn.value)));
+
+            function select_productos(value) {
+                console.log(value);
+                $.ajax({
+                        data: {
+                            "categoria": value
+                        },
+                        method: "POST",
+                        url: "select_productos.php"
+                    })
+                    .done(function(response) {
+                        console.log(response);
+                        $("div.mostrar").html(response);
+                        //document.getElementsByClassName('botoncito').addEventListener('click',mostrar);
+                        //const editButtons = document.querySelectorAll(".btn-info");
+                        //editButtons.forEach(editBtn => editBtn.addEventListener("click", () => mostrar(editBtn.parentNode)));
+
+                    });
+            }
+        </script>
+    </div>
+
 </body>
 
 </html>

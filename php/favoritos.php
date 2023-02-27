@@ -20,46 +20,70 @@ session_start();
 
 <body class="bg-light">
     <div class="container-fluid">
-        <h2>Favoritos</h2>
         <?php
+        if (isset($_POST['anadir_fav'])) {
+            header("Location: ../index.php ");
+            echo '<div class="alerta alert alert-success" role="alert" style="text-align:center;">Añadido a favoritos</div>';
+            if (!isset($_SESSION['favoritos'])) {
+                $_SESSION['favoritos'] = array();
+            }
+            // Comprobar si el producto ya está en favoritos
+            if (!in_array($_POST['id_producto_fav'], $_SESSION['favoritos'])) {
+                array_push($_SESSION['favoritos'], $_POST['id_producto_fav']);
+            }
+        }
+
         if (isset($_SESSION['favoritos'])) {
-            // Obtener los IDs de los productos favoritos
-            $id_productos_en_favoritos = array_column($_SESSION['favoritos'], 'Cod_producto');
-            // Obtener los detalles de los productos favoritos
-            $stmt = Conectar::conexion()->prepare("SELECT Cod_producto, Nombre, Precio FROM productos WHERE Cod_producto IN (" . implode(',', $id_productos_en_favoritos) . ")");
-            $stmt->execute();
-            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            if (!empty($result)) {
-                foreach ($result as $row) {
-                    $nombreproducto = $row['Nombre'];
-                    $precioproducto = $row['Precio'];
-                    ?>
-                    <form class='cart-items' id='form-<?php echo $row["Cod_producto"]; ?>'>
-                        <div class='border rounded'>
-                            <div class='row bg-white'>
-                                <div class='col-md-3'>
-                                    <img src='../imagenes/Productos/<?php echo $row["Cod_producto"]; ?>.png' class='img-fluid'>
-                                </div>
-                                <div class='col-md-6'>
-                                    <h5 class='pt-2'>
-                                        <?php echo $nombreproducto; ?>
-                                    </h5>
-                                    <h5 class='pt-2 precio'>
-                                        <?php echo $precioproducto; ?> €/u
-                                    </h5>
-                                    <button type='submit' class='btn btn-warning btn-block'>AÑADIR AL CARRITO</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                    <?php
+            // Obtener detalles de los productos en favoritos
+            $favoritos = array();
+            foreach ($_SESSION['favoritos'] as $id_producto) {
+                // Obtener información del producto de la base de datos
+                $query = "SELECT Cod_producto, nombre, precio,descripcion FROM productos WHERE Cod_producto = :id_producto";
+                $stmt = Conectar::conexion()->prepare($query);
+                $id_producto = intval($id_producto);
+                $stmt->bindParam(':id_producto', $id_producto, PDO::PARAM_INT);
+                $stmt->execute();
+                $producto = $stmt->fetch(PDO::FETCH_ASSOC);
+                // Agregar producto al array de favoritos
+                array_push($favoritos, $producto);
+            }
+
+            // Mostrar productos en favoritos
+            if (count($favoritos) > 0) {
+                foreach ($favoritos as $producto) {
+                    echo "<h2>Productos Favoritos</h2>";
+                    echo "<table class='table'>";
+                    echo "<thead><tr><th>Imagen</th><th>Nombre</th><th>Descripción</th><th>Precio</th><th></th></tr></thead>";
+                    echo "<tbody>";
+
+                    echo "<tr><td><img  src='../imagenes/Productos/{$producto['Cod_producto']}.png'></img></td><td>{$producto['nombre']}</td><td>{$producto['descripcion']}</td><td>{$producto['precio']}€</td>";
+                    echo "<td>";
+                    // Formulario para eliminar el producto
+                    echo "<form method='post'>";
+                    echo "<input type='hidden' name='eliminar_fav' value='{$producto['Cod_producto']}' />";
+                    echo "<button type='submit' class='btn btn-danger'>Eliminar 🗑️</button>";
+                    echo "</form>";
+                    echo "</td></tr>";
                 }
+                echo "</tbody>";
+                echo "</table>";
             } else {
                 echo "No hay productos favoritos";
             }
-        } else {
-            echo "No hay productos favoritos";
         }
+        // Eliminar producto de favoritos
+        if (isset($_POST['eliminar_fav'])) {
+            $id_producto = $_POST['eliminar_fav'];
+            // Buscar el índice del producto en el array de favoritos
+            $indice = array_search($id_producto, $_SESSION['favoritos']);
+            if ($indice !== false) {
+                // Eliminar el producto del array
+                unset($_SESSION['favoritos'][$indice]);
+                // Redirigir para actualizar la página
+                header("Location: " . $_SERVER['PHP_SELF']);
+            }
+        }
+
         ?>
     </div>
 </body>

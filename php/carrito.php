@@ -52,7 +52,7 @@ session_start();
                                         <h5 class='pt-2'>$nombreproducto</h5>
                                         <small class='text-secondary'>Vendedor: BricoTeis SL</small>
                                         <h5 class='pt-2 precio' id='precio_$clave_unica'>$precioproducto €/u</h5>
-                                        <button type='submit' class='btn btn-warning btn-block'>Añadir a favoritos ❤</button>
+                                        <form method='post' action='php/favoritos.php'>
                                         <form onsubmit='eliminarProducto(event,'echo $clave_unica)'>
                                         <input type='hidden' name='clave_unica' value=' <?php echo $clave_unica ?> '>
                                         <button type='submit' class='btn btn-danger mx-2'>Borrar 🗑</button>
@@ -128,13 +128,14 @@ session_start();
                                 <h6> Total </h6>
                             </div>
                             <div class="col-md-6" id="preciototal">
-                                <?php echo $total . "€"; ?>
+                                <?php echo isset($total) ? $total . "€" : "0€"; ?>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
     </div>
     </div>
