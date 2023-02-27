@@ -3,10 +3,40 @@
 <?php
 session_start();
 
+/**
+ * Agregar producto a favoritos
+ */
+if (isset($_POST['anadir_fav'], $_POST['id_producto'])) {
+    // Obtener el ID del producto
+    $id_producto = filter_input(INPUT_POST, 'id_producto', FILTER_VALIDATE_INT);
+    if (!$id_producto || $id_producto <= 0) {
+        // El ID del producto no es válido
+        die("ID del producto no válido");
+    }
+
+    // Inicializar el array de favoritos si es necesario
+    if (!isset($_SESSION['favoritos'])) {
+        $_SESSION['favoritos'] = array();
+    }
+
+    // Verificar si el producto ya está en favoritos
+    $producto_en_favoritos = in_array($id_producto, array_column($_SESSION['favoritos'], 'Cod_producto'));
+    if (!$producto_en_favoritos) {
+        // Agregar el producto a favoritos
+        $nuevo_favorito = array(
+            'Cod_producto' => $id_producto,
+        );
+        $_SESSION['favoritos'][] = $nuevo_favorito;
+    }
+}
+
+
+/**
+ * Carrito
+ */
 if (!isset($_SESSION['cart_count'])) {
     $_SESSION['cart_count'] = 0;
 }
-
 if (isset($_POST['anadir'], $_POST['id_producto'], $_POST['cantidad'])) {
     // Verificar que los campos sean válidos
     $product_id = filter_input(INPUT_POST, 'id_producto', FILTER_VALIDATE_INT);

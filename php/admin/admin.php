@@ -20,10 +20,9 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 2) {
     <div class="container">
         <h1>Backend Administrador</h1>
         <div class="btn-group">
-            <button type="button" class="btn btn-success">Agregar Productos</button>
-            <a href="editar_productos.html"> <button type="button" class="btn btn-primary">Editar Productos</button></a>
-            <button type="button" class="btn btn-success">Agregar Usuarios</button>
-            <button type="button" class="btn btn-primary">Editar Usuarios</button>
+        <a href="../../index.php"> <button type="button" class="btn btn-primary">BricoTeis</button></a>
+            <a href="editar_productos.html"> <button type="button" class="btn btn-warning">Agregar/Editar Productos</button></a>
+
         </div>
     </div>
 
