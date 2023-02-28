@@ -22,8 +22,11 @@ class loginController
                 exit;
             }
         } else {
+            // Si el usuario no existe, establecer el rol en 3
+            $_SESSION['rol'] = 3;
             echo '<div class="alerta alert alert-danger" role="alert" style="text-align:center;">Usuario/Contraseña Incorrectos</div>';
         }
     }
 }
+
 ?>

@@ -18,7 +18,7 @@
         <input type="button" class="categoria" value="Hormigoneras, carretillas..." />
         <input type="button" class="categoria" value="Cercados y Ocultación" />
         <input type="button" class="categoria" value="Yesos Y Escayolas" />
-        <input type="button" class="categoria" value="Elementos de construcción" />
+        <input type="button" class="categoria" value="Elementos de construcción"/>
         <input type="button" class="categoria" value="Aislamientos" />
 
         <div class="mostrar">
@@ -27,15 +27,14 @@
             $productos = cargar_categorias($_GET['categoria']);
 
             foreach ($productos as $producto) {
-
                 $cod = $producto['Cod_producto'];
                 $nom = $producto['Nombre'];
                 $pre = $producto['Precio'];
                 /*
-             * Dentro del formulario hay un campo oculto para enviar el código del producto
-             * que debemos añadir al carro del la compra. El formulario llama al fichero anadir.php
-             */
-                echo "<ul><li>$cod</li><li>$nom</li><li>$pre</li></ul>";
+                 * Dentro del formulario hay un campo oculto para enviar el código del producto
+                 * que debemos añadir al carro del la compra. El formulario llama al fichero anadir.php
+                 */
+                echo "<ul><li>$cod</li><li><img src='../imagenes/Productos/{$cod}.png'></img></li><li>$nom</li><li>$pre</li></ul>";
             }
 
             ?>
@@ -47,13 +46,13 @@
             function select_productos(value) {
                 console.log(value);
                 $.ajax({
-                        data: {
-                            "categoria": value
-                        },
-                        method: "POST",
-                        url: "select_productos.php"
-                    })
-                    .done(function(response) {
+                    data: {
+                        "categoria": value
+                    },
+                    method: "POST",
+                    url: "select_productos.php"
+                })
+                    .done(function (response) {
                         console.log(response);
                         $("div.mostrar").html(response);
                         //document.getElementsByClassName('botoncito').addEventListener('click',mostrar);

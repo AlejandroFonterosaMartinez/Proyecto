@@ -2,6 +2,11 @@
 <html>
 <?php
 session_start();
+// Verificar si el usuario está logueado
+if (!isset($_SESSION['correo'])) {
+    // Si el usuario no está logueado, establecer el rol en 3
+    $_SESSION['rol'] = 3;
+}
 
 /**
  * Carrito
@@ -258,6 +263,8 @@ if (isset($_POST['anadir'], $_POST['id_producto'], $_POST['cantidad'])) {
     </div>
     <!-- Footer -->
     <footer>
+        <!-- Contactanos -->
+        <script src="javascript/contactanos.js"></script>
         <!-- Redes -->
         <div class="redes">
             <div class="titulo">
