@@ -1,5 +1,12 @@
 <?php
 require_once('../Model/registro_modelo.php');
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require '../vendor/phpmailer/phpmailer/src/Exception.php';
+require '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
+require '../vendor/phpmailer/phpmailer/src/SMTP.php';
+
 if (isset($_POST['submit'])) {
     $nombre = $_POST['username'];
     $apellidos = $_POST['apellidos'];
@@ -7,12 +14,30 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
     // ENVIO DEL CORREO:
-    //  $asunto = "Registro en mipagina";
-    // $msg = "Gracias" . $nombre . " " . $apellidos . " por registrarte en MiPagina disfruta de todos nuestros productos. <BR> En caso de cualquier duda contactanos en mipagina@gmail.com.";
-    // $header = "From: noreply@mipagina.com" . "\r\n";
-    // $header .= "Reply-To: noreply@mipagina.com" . "\r\n";
-    // $header .= "X-Mailer: PHP/" . phpversion();
-    // $mail = mail($email, $asunto, $msg);
+    $mail = new PHPMailer(true);
+    try {
+        //Server settings
+        $mail->SMTPDebug = 2; //Enable verbose debug output
+        $mail->isSMTP(); //Send using SMTP
+        $mail->Host = 'smtp.office365.com'; //Set the SMTP server to send through
+        $mail->SMTPAuth = true; //Enable SMTP authentication
+        $mail->Username = 'servidorcorreo'; //SMTP username
+        $mail->Password = ''; //SMTP password
+        $mail->SMTPSecure = 'tls'; //Enable implicit TLS encryption
+        $mail->Port = 587; //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+        //Recipients
+        $mail->setFrom('alejandrofonterosamartinez@hotmail.com', 'Mailer');
+        $mail->addAddress($email, $nombre); //Add a recipient
+        //Content
+        $mail->isHTML(true); //Set email format to HTML
+        $mail->Subject = 'Registro en BricoTeis SL';
+        $mail->Body = 'Gracias por registrarte en BricoTeis SL, ' . $nombre . '  disfruta de nuestros productos.</b>';
+        //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+        $mail->send();
+    } catch (Exception $e) {
+        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    }
+
     // REGISTRO
     $registro = new UserRegistration();
     $registro->register($nombre, $apellidos, $fecha_nacimiento, $email, $password);

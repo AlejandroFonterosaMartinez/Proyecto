@@ -1,7 +1,6 @@
 <?php
 require_once('../Config/Conectar.php');
 session_start();
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -23,14 +22,14 @@ session_start();
         <div class="row px-5">
             <div class="col-md-7">
                 <div class="shopping-cart">
-                    <h6>Mi Carrito</h6>
                     <hr>
-
+                    <h1 class="text-center">Mi Carrito</h1>
+                    <hr>
                     <?php
                     if (isset($_SESSION['cart'])) {
                         $total = 0;
                         $id_productos_en_carrito = array_column($_SESSION['cart'], 'Cod_producto');
-                        $stmt = Conectar::conexion()->prepare("SELECT Cod_producto, Nombre, Precio FROM productos");
+                        $stmt = Conectar::conexion()->prepare("SELECT Cod_producto, Nombre, Precio,stock FROM productos");
                         $stmt->execute();
                         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         if (!empty($result)) {
@@ -40,8 +39,8 @@ session_start();
                                     $nombreproducto = $row['Nombre'];
                                     $cantidad = $_SESSION['cart'][$indice]['cantidad'];
                                     $precioproducto = $row['Precio'];
+                                    $stock = $row['stock'];
                                     $clave_unica = 'cantidad_' . $row['Cod_producto'];
-
                                     echo "<form action='carrito.php' method='post' class='cart-items'>
                             <div class='border rounded'>
                                 <div class='row bg-white'>
@@ -50,22 +49,24 @@ session_start();
                                     </div>
                                     <div class='col-md-6' id='prod_$clave_unica'>
                                         <h5 class='pt-2'>$nombreproducto</h5>
-                                        <small class='text-secondary'>Vendedor: BricoTeis SL</small>
+                                        <small class='text-secondary'>Vendedor: BricoTeis SL</small>   
+                                        <p class='text-right'><small class='text-secondary'>Stock: $stock </small> </p>                                
                                         <h5 class='pt-2 precio' id='precio_$clave_unica'>$precioproducto €/u</h5>
-                                        <form method='post' action='php/favoritos.php'>
+                                        
                                         <form onsubmit='eliminarProducto(event,'echo $clave_unica)'>
                                         <input type='hidden' name='clave_unica' value=' <?php echo $clave_unica ?> '>
-                                        <button type='submit' class='btn btn-danger mx-2'>Borrar 🗑</button>
-                                    </form>                             
+                                        <button type='button' class='btn btn-danger mx-2' onclick='eliminarProducto(event)'>Borrar 🗑</button>
+                                    </form>              
+                                               
                                     <div class='row-md-3'>
                                             <input type='hidden' name='id_producto' value='$clave_unica'>
-                                            <input type='number' id='cantidad_$clave_unica' name='cantidad_$clave_unica' value='$cantidad' class='text-center form-control w-25 d-inline cantidad' onchange='actualizarCantidad()'>
+                                            <input type='number' min='1' max='$stock' id='cantidad_$clave_unica' name='cantidad_$clave_unica' value='$cantidad' class='text-center form-control w-25 d-inline cantidad' onchange='actualizarCantidad()'>
                                         </div>
+                                        
                                     </div>
                                 </div>
                             </div>
                         </form>";
-
                                     $total += $precioproducto * $cantidad;
                                 }
                             }
@@ -74,7 +75,6 @@ session_start();
                         echo "<h5>Carrito VACÍO!</h5>";
                     }
                     ?>
-
                     <script>
                         const cantidades = document.querySelectorAll('[id^="cantidad"]');
                         cantidades.forEach(cantidad => {
@@ -91,35 +91,30 @@ session_start();
                             });
                             document.getElementById('preciototal').innerHTML = suma.toFixed(2) + " €";
                         }
+                        function actualizarPrecio(precio) {
+                            const precioTotal = document.getElementById('preciototal');
+                            const precioNumerico = parseFloat(precioTotal.textContent.replace('€', ''));
+                            const nuevoPrecio = precioNumerico + precio;
+                            precioTotal.textContent = nuevoPrecio.toFixed(2) + '€';
 
-                        function eliminarProducto(event, claveUnica) {
-                            event.preventDefault(); // Prevenir que se envíe el formulario
-
-                            $.ajax({
-                                type: 'POST',
-                                url: 'eliminar_producto.php',
-                                data: {
-                                    clave_unica: claveUnica
-                                },
-                                success: function (response) {
-                                    // Actualizar la vista del carrito
-                                    $('#carrito').html(response);
-                                },
-                                error: function (xhr, status, error) {
-                                    console.error(error);
-                                    alert('Hubo un error al eliminar el producto del carrito');
-                                }
-                            });
                         }
 
-
-
-
+                        function eliminarProducto(event, claveUnica) {
+                            event.preventDefault();
+                            const botonBorrar = event.target;
+                            const divProducto = botonBorrar.closest('.border.rounded');
+                            const precioProducto = divProducto.querySelector('.precio').textContent;
+                            const precioNumerico = parseFloat(precioProducto.replace('€', ''));
+                            const cantidad = divProducto.querySelector('.cantidad').value;
+                            const cantidad_total = document.getElementById('cantidad_$clave_unica');
+                            divProducto.remove();
+                            actualizarPrecio(-precioNumerico * cantidad);
+                        }
                     </script>
-
                     <div class="col-md-5">
-                        <h6>Detalles del pedido</h6>
                         <hr>
+                        <h4>Detalles del pedido</h4>
+
                         <div class="row price-details">
                             <div class="col-md-6">
                                 <h6> Precio de los
@@ -130,18 +125,12 @@ session_start();
                             <div class="col-md-6" id="preciototal">
                                 <?php echo isset($total) ? $total . "€" : "0€"; ?>
                             </div>
+                            <button class="btn btn-warning">Finalizar Compra</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    <form>
 </body>
 
 </html>

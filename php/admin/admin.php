@@ -20,12 +20,12 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 2) {
     <div class="container">
         <h1>Backend Administrador</h1>
         <div class="btn-group">
-        <a href="../../index.php"> <button type="button" class="btn btn-primary">BricoTeis</button></a>
-            <a href="editar_productos.html"> <button type="button" class="btn btn-warning">Agregar/Editar Productos</button></a>
-
+            <a href="productos/editar_productos.html"> <button type="button" class="btn btn-primary">Agregar/Editar
+                    Productos</button></a>
+            <a href="usuarios/editar_usuarios.html"> <button type="button" class="btn btn-primary">Agregar/Editar
+                    Usuarios</button></a>
         </div>
     </div>
-
     <!-- Agregamos los scripts de Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/esm/popper.min.js"></script>

@@ -1,9 +1,9 @@
 <?php
 include('../Config/Conectar.php');
 /*
- * Devuelve un puntero con el código y nombre de las categorías de la BBDD
- * o falso si se produjo un error
- */
+* Devuelve un puntero con el código y nombre de las categorías de la BBDD
+* o falso si se produjo un error
+*/
 
 $db = Conectar::conexion();
 $cat = $_POST['categoria'];
