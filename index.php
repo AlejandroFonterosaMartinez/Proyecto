@@ -2,6 +2,10 @@
 <html>
 <?php
 session_start();
+// Errores
+ini_set('log_errors', 1);
+ini_set('error_log', 'logs/error.log');
+
 // Verificar si el usuario está logueado
 if (!isset($_SESSION['correo'])) {
     // Si el usuario no está logueado, establecer el rol en 3
@@ -54,6 +58,7 @@ if (isset($_POST['anadir'], $_POST['id_producto'], $_POST['cantidad'])) {
 <!-- Head -->
 
 <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -102,62 +107,32 @@ if (isset($_POST['anadir'], $_POST['id_producto'], $_POST['cantidad'])) {
                     echo '
                      <div class="cuenta"><img src="imagenes/Header/01Menu/user.svg" />Mi cuenta
                          <div class="submenu">
-                             <div class="subdiv"><button><a href="view/registro_view.php"><img src="imagenes/Header/01Menu/register.svg" /><div class="subText">REGISTRARSE</div></a></button>
+                         <div class="subdiv"><button><a href="View' . DIRECTORY_SEPARATOR . 'registro_view.php"><img src="imagenes/Header/01Menu/register.svg" /><div class="subText">REGISTRARSE</div></a></button>
                              </div>
-                             <div class="subdiv"><button><a href="view/login_view.php"><img src="imagenes/Header/01Menu/entrance.svg" /><div class="subText">INICIAR SESIÓN</div></a></button></div>
+                             <div class="subdiv"><button><a href="View' . DIRECTORY_SEPARATOR . 'login_view.php"><img src="imagenes/Header/01Menu/entrance.svg" /><div class="subText">INICIAR SESIÓN</div></a></button></div>
                          </div>
                      </div>
-                     <div><a href="php/favoritos.php"><img src="imagenes/Header/01Menu/heart.svg"/>Favoritos</a></div>
-                     <div class="carrito"><a href ="php/carrito.php"><img src="imagenes/Header/01Menu/shopping-cart.svg"/>Carrito</a>
-                     <div class="subcarrito">
-                   
-                   <div id="carro">
-                   <img src="http://malsup.github.io/images/beach1.jpg">
-                   <img src="http://malsup.github.io/images/beach2.jpg">
-                   <img src="http://malsup.github.io/images/beach3.jpg">
-                   <img src="http://malsup.github.io/images/beach4.jpg">
-                   <img src="http://malsup.github.io/images/beach5.jpg">
-                   <img src="http://malsup.github.io/images/beach9.jpg">
-                   </div>
-                   
-                   <div class="buttons">
-                     <button id="prev">&uarr; Prev</button>
-                     <button id="next">&darr; Next</button>
-                   </div>
-                     </div>';
-                    require('php/contador_carrito.php');
+                     <div><a href="php' . DIRECTORY_SEPARATOR . 'favoritos.php"><img src="imagenes/Header/01Menu/heart.svg"/>Favoritos</a></div>
+    <div class="carrito"><a href ="php' . DIRECTORY_SEPARATOR . 'carrito.php"><img src="imagenes/Header/01Menu/shopping-cart.svg"/>Carrito</a>';
+                    require('php' . DIRECTORY_SEPARATOR . 'contador_carrito.php');
+                    ;
                     '</div>';
                 } else {
                     echo '<div class="cuenta"><img src="imagenes/Header/01Menu/user.svg" />' . $_SESSION['correo'] . '
                     <div class="submenu">
-                        <div class="subdiv"><button><a href="controller/perfil_controlador.php"><img src="imagenes/Header/01Menu/edit.svg" />Editar Perfil</button></a>
-                        </div>
-                        <div class="subdiv"><button><a href="php/logout.php"><img src="imagenes/Header/01Menu/exit.svg" /><div class="subText">CERRAR SESIÓN</div></a></button> ';
+                    <div class="subdiv"><button><a href="Controller' . DIRECTORY_SEPARATOR . 'perfil_controlador.php"><img src="imagenes/Header/01Menu/edit.svg" /><div class="subText">EDITAR PERFIL</div></button></a>
+                    </div>
+                    <div class="subdiv"><button><a href="php' . DIRECTORY_SEPARATOR . 'logout.php"><img src="imagenes/Header/01Menu/exit.svg" /><div class="subText">CERRAR SESIÓN</div></a></button> ';
                     echo '</div>
                     </div>
                 </div>
-                <div><a href="php/favoritos.php"><img src="imagenes/Header/01Menu/heart.svg"/>Favoritos</a></div>
-                <div class="carrito"><a href ="php/carrito.php"><img src="imagenes/Header/01Menu/shopping-cart.svg"/>Carrito</a>
+                <div><a href="php' . DIRECTORY_SEPARATOR . 'favoritos.php"><img src="imagenes/Header/01Menu/heart.svg"/>Favoritos</a></div>
+                <div class="carrito"><a href ="php' . DIRECTORY_SEPARATOR . 'carrito.php"><img src="imagenes/Header/01Menu/shopping-cart.svg"/>Carrito</a>
                 <div class="subcarrito">
-                   
-                <div id="carro">
-                    <div class="prodCarr"><img src="http://malsup.github.io/images/beach1.jpg"></div>
-                    <div class="prodCarr"><img src="http://malsup.github.io/images/beach2.jpg"></div>
-                    <div class="prodCarr"><img src="http://malsup.github.io/images/beach3.jpg"></div>
-                    <div class="prodCarr"><img src="http://malsup.github.io/images/beach4.jpg"></div>
-                    <div class="prodCarr"><img src="http://malsup.github.io/images/beach5.jpg"></div>
-                    <div class="prodCarr"><img src="http://malsup.github.io/images/beach9.jpg"></div>
-                </div>
-                
-                <div class="buttons">
-                  <button id="prev">&uarr; Prev</button>
-                  <button id="next">&darr; Next</button>
-                </div>
-                  </div>';
-                    require('php/contador_carrito.php');
+                </div>';
+                    require('php' . DIRECTORY_SEPARATOR . 'contador_carrito.php');
                     '</div>';
                 } ?>
-                <script src="javascript/carrito.js"></script>
             </div>
     </header>
     <!-- Carrousel de banners -->
@@ -193,7 +168,7 @@ if (isset($_POST['anadir'], $_POST['id_producto'], $_POST['cantidad'])) {
         PRODUCTOS DESTACADOS
     </div>
     <?php
-    require_once "Controller/productos_controlador.php";
+    require_once "Controller" . DIRECTORY_SEPARATOR . "productos_controlador.php";
     ?>
     <script src="javascript/jquery.min.js"></script>
     <script src="javascript/owl.carousel.min.js"></script>

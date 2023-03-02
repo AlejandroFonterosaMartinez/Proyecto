@@ -1,5 +1,5 @@
 <?php
-require_once('../Config/Conectar.php');
+require_once('..'. DIRECTORY_SEPARATOR .'Config'. DIRECTORY_SEPARATOR .'Conectar.php');
 session_start();
 ?>
 <!DOCTYPE html>

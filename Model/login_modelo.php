@@ -12,17 +12,18 @@ class User extends Conectar
      *
      * @return  [boolean]             [return $user en caso de que sea correcto, y false en caso de que no sean las mismas]
      */
-    public function getUser($email, $password)
+    public function loguearUsuario($email, $password)
     {
-        $stmt = $this->conexion()->prepare("SELECT usuarios.Correo, usuarios.Contraseña, usuarios.id_rol FROM `usuarios` WHERE Correo='$email'");
+        $stmt = $this->conexion()->prepare("SELECT Correo, Contraseña, id_rol FROM `usuarios` WHERE Correo=:email");
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
         $stmt->execute();
-        if ($stmt->rowCount() == 1) {
-            $user = $stmt->fetch(PDO::FETCH_ASSOC);
-            if (password_verify($password, $user['Contraseña'])) {
-                return $user;
-            }
-            return false;
+
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($user && password_verify($password, $user['Contraseña'])) {
+            return $user;
         }
+
         return false;
     }
 }

@@ -12,7 +12,7 @@ class Categorias_model
      */
     public function __construct()
     {
-        require_once("../Config/Conectar.php");
+        require_once("..". DIRECTORY_SEPARATOR ."Config". DIRECTORY_SEPARATOR ."Conectar.php");
         $this->db = Conectar::conexion();
         $this->categorias = array();
     }

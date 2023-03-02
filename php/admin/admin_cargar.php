@@ -1,10 +1,6 @@
 <?php
-$con = mysqli_connect("localhost", "root", "", "construccion");
-// Check connection
-if (mysqli_connect_errno()) {
-    echo "Error en la conexión a MySQL: " . mysqli_connect_error();
-}
-
+include('..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
+$con = Conectar::conexion();
 function selectCategorias($con)
 {
     $query = $con->query("SELECT * FROM productos");
@@ -12,17 +8,11 @@ function selectCategorias($con)
 }
 
 
-//$query = $con->query("SELECT * FROM productos WHERE Cod_producto='8'");
-//$query = $con->query("SELECT * FROM productos");
-//while ($valores = mysqli_fetch_array($query)) {
-//echo '<img src="C:\xampp\htdocs\pruebas\imagenes' . $valores["Cod_producto"] . 'png">';
-//    echo "<img src='imagenes/" . $valores["Cod_producto"] .".png' border='0' width='300' height='100'>"; 
-//    echo '<label>' . $valores["Cod_producto"] . '</label>' . '<label>' . $valores["Nombre"] . '</label><br>';
-//}
 $contador = 1;
 $texto = "";
-$productos = selectCategorias($con);
-while ($valores = mysqli_fetch_array($productos)) {
+$productos = $con->prepare("SELECT Cod_producto, Nombre, Descripcion, Precio, Stock, Categoria, Descripcion_detallada, Destacado FROM tabla");
+$productos->execute();
+while ($valores = $productos->fetch(PDO::FETCH_ASSOC)) {
     $texto .= "<tr id='fila" . $contador . "'>";
     $texto .= "<td readonly>" . $valores["Cod_producto"] . "</td>";
     $texto .= "<td>" . $valores["Nombre"] . "</td>";
@@ -43,4 +33,5 @@ while ($valores = mysqli_fetch_array($productos)) {
 }
 $output = $texto;
 echo $output;
+
 ?>

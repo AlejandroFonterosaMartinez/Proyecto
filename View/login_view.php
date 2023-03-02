@@ -1,7 +1,7 @@
 <?php
-include('../Config/Conectar.php');
-include('../Model/login_modelo.php');
-include('../Controller/login_controlador.php');
+include('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
+include('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'login_modelo.php');
+include('..' . DIRECTORY_SEPARATOR . 'Controller' . DIRECTORY_SEPARATOR . 'login_controlador.php');
 session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     (new loginController)->login($_POST['correo'], $_POST['password']);

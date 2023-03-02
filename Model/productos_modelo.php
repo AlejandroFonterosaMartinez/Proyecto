@@ -12,7 +12,7 @@ class Productos_model
      */
     public function __construct()
     {
-        require_once "Config/Conectar.php";
+        require_once "Config". DIRECTORY_SEPARATOR ."Conectar.php";
         $this->db = Conectar::conexion();
         $this->productos = array();
     }
@@ -25,7 +25,7 @@ class Productos_model
     public function get_productos()
     {
 
-        $consulta = $this->db->query("SELECT * FROM productos");
+        $consulta = $this->db->query("SELECT * FROM productos WHERE destacado=1");
         while ($row = $consulta->fetch(PDO::FETCH_ASSOC)) {
             $this->productos[] = $row;
         }
@@ -35,7 +35,7 @@ class Productos_model
 }
 function cargar_categorias($cat)
 {
-    include('../Config/Conectar.php');
+    include('..'. DIRECTORY_SEPARATOR .'Config'. DIRECTORY_SEPARATOR .'Conectar.php');
     /*
      * Devuelve un puntero con el código y nombre de las categorías de la BBDD
      * o falso si se produjo un error

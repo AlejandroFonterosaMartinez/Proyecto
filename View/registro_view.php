@@ -1,7 +1,7 @@
 <?php
-include('../Config/Conectar.php');
-include('../Model/registro_modelo.php');
-include('../Controller/registro_controlador.php');
+include('..'. DIRECTORY_SEPARATOR .'Config'. DIRECTORY_SEPARATOR .'Conectar.php');
+include('..'. DIRECTORY_SEPARATOR .'Model'. DIRECTORY_SEPARATOR .'registro_modelo.php');
+include('..'. DIRECTORY_SEPARATOR .'Controller'. DIRECTORY_SEPARATOR .'registro_controlador.php');
 
 ?>
 

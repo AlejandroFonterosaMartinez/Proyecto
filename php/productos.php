@@ -18,12 +18,12 @@
         <input type="button" class="categoria" value="Hormigoneras, carretillas..." />
         <input type="button" class="categoria" value="Cercados y Ocultación" />
         <input type="button" class="categoria" value="Yesos Y Escayolas" />
-        <input type="button" class="categoria" value="Elementos de construcción"/>
+        <input type="button" class="categoria" value="Elementos de construcción" />
         <input type="button" class="categoria" value="Aislamientos" />
 
         <div class="mostrar">
             <?php
-            include('../Model/productos_modelo.php');
+            include('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'productos_modelo.php');
             $productos = cargar_categorias($_GET['categoria']);
 
             foreach ($productos as $producto) {
