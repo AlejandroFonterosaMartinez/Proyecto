@@ -26,9 +26,9 @@
             </div>
 
             <div class="buscador">
-                <form action="search.php" method="get">
+                <form  method="get" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                     <div class="cajaTexto">
-                        <form action="search.php" method="get">
+                    <form  method="get" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                             <div class="cajaTexto">
                                 <input type="text" name="query" name="query" placeholder="Buscar...">
                                 <button type="submit">Buscar</button>
@@ -89,7 +89,7 @@
         if ($stmt->execute()) {
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             if (count($result) == 0) {
-                header("Location:error.php");
+                echo "<body> No se han encontrado resultados </body>";
             } else {
                 echo "<div class='productos'>";
                 foreach ($result as $row) {
@@ -99,12 +99,12 @@
                     echo "<label>" . $row['Precio'] . "€/Ud</label>";
                     echo "<div class='button'>";
                     echo "<button class='favButton' name='anadir_fav' type='submit'>❤</button>
-                </form>
-                <form method='post' action='agregar_favoritos.php'>
-                  <input type='hidden' name='id_producto' value='{$row['Cod_producto']}'>
-                  <input type='hidden' name='cantidad' value='1'>
-                  <button class='trollButton' name='anadir' type='submit'>AÑADIR AL CARRITO</button>
-                </form>";
+                    </form>
+                    <form method='post' action='agregar_favoritos.php'>
+                      <input type='hidden' name='id_producto' value='{$row['Cod_producto']}'>
+                      <input type='hidden' name='cantidad' value='1'>
+                      <button class='trollButton' name='anadir' type='submit'>AÑADIR AL CARRITO</button>
+                    </form>";
                     echo "</div>";
                     echo "</div>";
                 }
@@ -113,10 +113,8 @@
         } else {
             echo "Error al ejecutar la consulta.";
         }
-    } else {
-        echo "No se encontraron resultados.";
-    }
 
+    }
 
     ?>
     <footer>

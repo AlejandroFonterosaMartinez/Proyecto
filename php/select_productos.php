@@ -1,9 +1,9 @@
 <?php
-include('..'. DIRECTORY_SEPARATOR .'Config'. DIRECTORY_SEPARATOR .'Conectar.php');
+include('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
 /*
-* Devuelve un puntero con el código y nombre de las categorías de la BBDD
-* o falso si se produjo un error
-*/
+ * Devuelve un puntero con el código y nombre de las categorías de la BBDD
+ * o falso si se produjo un error
+ */
 
 $db = Conectar::conexion();
 $cat = $_POST['categoria'];
@@ -45,6 +45,7 @@ foreach ($resul as $valores) {
     $texto .= "<li>" . $valores["Cod_producto"] . "</li>";
     $texto .= "<li>" . $valores["Nombre"] . "</li>";
     $texto .= "<li>" . $valores["Precio"] . "</li>";
+    $texto .= "<li> <img src='../imagenes/Productos/{$valores['Cod_producto']}.png'></img></li>";
     $texto .= "</ul>";
 }
 $output = $texto;

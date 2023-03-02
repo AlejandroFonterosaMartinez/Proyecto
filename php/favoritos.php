@@ -70,6 +70,7 @@ session_start();
             } else {
                 echo "No hay productos favoritos";
             }
+            
         }
         // Eliminar producto de favoritos
         if (isset($_POST['eliminar_fav'])) {

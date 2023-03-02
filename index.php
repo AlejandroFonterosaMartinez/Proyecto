@@ -177,7 +177,7 @@ if (isset($_POST['anadir'], $_POST['id_producto'], $_POST['cantidad'])) {
         NUESTRA REVISTA
     </div>
     <div class="contenedorRevista">
-        <img src="imagenes/productos/47.png" />
+        <img src="imagenes/Productos/47.png" />
         <div class="textoRev">
             <h2>La Revista Nº1 de construcción</h2>
             <p>Descubre las últimas tendencias y novedades en construcción con la revista líder en el mercado.
