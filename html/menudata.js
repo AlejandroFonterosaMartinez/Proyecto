@@ -30,8 +30,7 @@ var menudata={children:[
 {text:"Jerarquía de la clase",url:"hierarchy.html"},
 {text:"Miembros de las clases",url:"functions.html",children:[
 {text:"Todo",url:"functions.html"},
-{text:"Funciones",url:"functions_func.html"},
-{text:"Variables",url:"functions_vars.html"}]}]},
+{text:"Funciones",url:"functions_func.html"}]}]},
 {text:"Archivos",url:"files.html",children:[
 {text:"Lista de archivos",url:"files.html"},
 {text:"Miembros de los ficheros",url:"globals.html",children:[

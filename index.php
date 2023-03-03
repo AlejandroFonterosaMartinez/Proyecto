@@ -2,31 +2,68 @@
 <html>
 <?php
 session_start();
+// Errores
+ini_set('log_errors', 1);
+ini_set('error_log', 'logs/error.log');
 
-// Verificamos si se han enviado los datos del formulario y si el campo 'id_producto' existe
-if (isset($_POST['anadir'], $_POST['id_producto'])) {
-    // Verificamos si la sesión 'cart' no está inicializada
+// Verificar si el usuario está logueado
+if (!isset($_SESSION['correo'])) {
+    // Si el usuario no está logueado, establecer el rol en 3
+    $_SESSION['rol'] = 3;
+}
+
+/**
+ * Carrito
+ */
+if (!isset($_SESSION['cart_count'])) {
+    $_SESSION['cart_count'] = 0;
+}
+if (isset($_POST['anadir'], $_POST['id_producto'], $_POST['cantidad'])) {
+    // Verificar que los campos sean válidos
+    $product_id = filter_input(INPUT_POST, 'id_producto', FILTER_VALIDATE_INT);
+    $cantidad = filter_input(INPUT_POST, 'cantidad', FILTER_VALIDATE_INT);
+
+    if (!$product_id || !$cantidad) {
+        // Mostrar un mensaje de error si los campos son inválidos
+        echo "Error: campos inválidos";
+        exit;
+    }
+
+    // Inicializar el array del carrito si es necesario
     if (!isset($_SESSION['cart'])) {
-        // Inicializamos la sesión 'cart' como un arreglo vacío
         $_SESSION['cart'] = array();
     }
 
-    // Almacenamos el valor del campo 'id_producto' en una variable
-    $product_id = $_POST['id_producto'];
+    // Buscar si el producto ya está en el carrito
+    $product_index = array_search($product_id, array_column($_SESSION['cart'], 'Cod_producto'));
 
-    // Agregamos un nuevo elemento al final del arreglo 'cart' con la clave 'Cod_producto' y el valor del 'id_producto'
-    $new_product = array('Cod_producto' => $product_id);
-    $_SESSION['cart'][] = $new_product;
+    if ($product_index !== false) {
+        // Si el producto ya está en el carrito, actualizar la cantidad
+        $_SESSION['cart'][$product_index]['cantidad'] += $cantidad;
+        // Incrementar el contador del carrito
+        $_SESSION['cart_count'] += $cantidad;
+    } else {
+        // Si el producto no está en el carrito, agregar un nuevo elemento
+        $new_product = array(
+            'Cod_producto' => $product_id,
+            'cantidad' => $cantidad,
+        );
+        $_SESSION['cart'][] = $new_product;
+        // Incrementar el contador del carrito
+        $_SESSION['cart_count'] += $cantidad;
+    }
 }
-
 ?>
+
 <!-- Head -->
 
 <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>BricoTeis SL</title>
+    <link href="css/general.css" rel="stylesheet" type="text/css">
     <link href="css/carrusel.css" rel="stylesheet" type="text/css">
     <link href="css/header.css" rel="stylesheet" type="text/css">
     <link href="css/carrito.css" rel="stylesheet" type="text/css">
@@ -54,9 +91,9 @@ if (isset($_POST['anadir'], $_POST['id_producto'])) {
 
             <!-- Buscador -->
             <div class="buscador">
-                <form action="search.php" method="get">
+                <form action="php/buscador.php" method="get">
                     <div class="cajaTexto">
-                        <form action="search.php" method="get">
+                        <form action="php/buscador.php" method="get">
                             <div class="cajaTexto">
                                 <input type="text" name="query" name="query" placeholder="Buscar...">
                                 <button type="submit">Buscar</button>
@@ -71,62 +108,32 @@ if (isset($_POST['anadir'], $_POST['id_producto'])) {
                     echo '
                      <div class="cuenta"><img src="imagenes/Header/01Menu/user.svg" />Mi cuenta
                          <div class="submenu">
-                             <div class="subdiv"><button><a href="php/registro.php"><img src="imagenes/Header/01Menu/register.svg" /><div class="subText">REGISTRARSE</div></a></button>
+                         <div class="subdiv"><button><a href="View' . DIRECTORY_SEPARATOR . 'registro_view.php"><img src="imagenes/Header/01Menu/register.svg" /><div class="subText">REGISTRARSE</div></a></button>
                              </div>
-                             <div class="subdiv"><button><a href="php/login.php"><img src="imagenes/Header/01Menu/entrance.svg" /><div class="subText">INICIAR SESIÓN</div></a></button></div>
+                             <div class="subdiv"><button><a href="View' . DIRECTORY_SEPARATOR . 'login_view.php"><img src="imagenes/Header/01Menu/entrance.svg" /><div class="subText">INICIAR SESIÓN</div></a></button></div>
                          </div>
                      </div>
-                     <div><img src="imagenes/Header/01Menu/heart.svg"/>Favoritos</a></div>
-                     <div class="carrito"><a href ="php/carrito.php"><img src="imagenes/Header/01Menu/shopping-cart.svg"/>Carrito</a>
-                     <div class="subcarrito">
-                   
-                   <div id="carro">
-                   <img src="http://malsup.github.io/images/beach1.jpg">
-                   <img src="http://malsup.github.io/images/beach2.jpg">
-                   <img src="http://malsup.github.io/images/beach3.jpg">
-                   <img src="http://malsup.github.io/images/beach4.jpg">
-                   <img src="http://malsup.github.io/images/beach5.jpg">
-                   <img src="http://malsup.github.io/images/beach9.jpg">
-                   </div>
-                   
-                   <div class="buttons">
-                     <button id="prev">&uarr; Prev</button>
-                     <button id="next">&darr; Next</button>
-                   </div>
-                     </div>';
-                    require('php/contador_carrito.php');
+                     <div><a href="php' . DIRECTORY_SEPARATOR . 'favoritos.php"><img src="imagenes/Header/01Menu/heart.svg"/>Favoritos</a></div>
+    <div class="carrito"><a href ="php' . DIRECTORY_SEPARATOR . 'carrito.php"><img src="imagenes/Header/01Menu/shopping-cart.svg"/>Carrito</a>';
+                    require('php' . DIRECTORY_SEPARATOR . 'contador_carrito.php');
+                    ;
                     '</div>';
                 } else {
                     echo '<div class="cuenta"><img src="imagenes/Header/01Menu/user.svg" />' . $_SESSION['correo'] . '
                     <div class="submenu">
-                        <div class="subdiv"><button><a href="php/perfil.php"><img src="imagenes/Header/01Menu/edit.svg" /><div class="subText">EDITAR PERFIL</div></a></button>
-                        </div>
-                        <div class="subdiv"><button><a href="php/logout.php"><img src="imagenes/Header/01Menu/exit.svg" /><div class="subText">CERRAR SESIÓN</div></a></button> ';
+                    <div class="subdiv"><button><a href="Controller' . DIRECTORY_SEPARATOR . 'perfil_controlador.php"><img src="imagenes/Header/01Menu/edit.svg" /><div class="subText">EDITAR PERFIL</div></button></a>
+                    </div>
+                    <div class="subdiv"><button><a href="php' . DIRECTORY_SEPARATOR . 'logout.php"><img src="imagenes/Header/01Menu/exit.svg" /><div class="subText">CERRAR SESIÓN</div></a></button> ';
                     echo '</div>
                     </div>
                 </div>
-                <div><img src="imagenes/Header/01Menu/heart.svg" />Favoritos</div>
-                <div class="carrito"><a href ="php/carrito.php"><img src="imagenes/Header/01Menu/shopping-cart.svg"/>Carrito</a>
+                <div><a href="php' . DIRECTORY_SEPARATOR . 'favoritos.php"><img src="imagenes/Header/01Menu/heart.svg"/>Favoritos</a></div>
+                <div class="carrito"><a href ="php' . DIRECTORY_SEPARATOR . 'carrito.php"><img src="imagenes/Header/01Menu/shopping-cart.svg"/>Carrito</a>
                 <div class="subcarrito">
-                   
-                <div id="carro">
-                    <div class="prodCarr"><img src="http://malsup.github.io/images/beach1.jpg"></div>
-                    <div class="prodCarr"><img src="http://malsup.github.io/images/beach2.jpg"></div>
-                    <div class="prodCarr"><img src="http://malsup.github.io/images/beach3.jpg"></div>
-                    <div class="prodCarr"><img src="http://malsup.github.io/images/beach4.jpg"></div>
-                    <div class="prodCarr"><img src="http://malsup.github.io/images/beach5.jpg"></div>
-                    <div class="prodCarr"><img src="http://malsup.github.io/images/beach9.jpg"></div>
-                </div>
-                
-                <div class="buttons">
-                  <button id="prev">&uarr; Prev</button>
-                  <button id="next">&darr; Next</button>
-                </div>
-                  </div>';
-                    require('php/contador_carrito.php');
+                </div>';
+                    require('php' . DIRECTORY_SEPARATOR . 'contador_carrito.php');
                     '</div>';
                 } ?>
-                <script src="javascript/carrito.js"></script>
             </div>
     </header>
     <!-- Carrousel de banners -->
@@ -139,22 +146,30 @@ if (isset($_POST['anadir'], $_POST['id_producto'])) {
         CATEGORÍAS
     </div>
     <div class="categorias">
-        <div class="item"><img src="imagenes/Menu/Arena.svg" />Arenas y Gravas</div>
-        <div class="item"><img src="imagenes/Menu/Techo.svg" />Tejados Y Cubiertas</div>
-        <div class="item"><img src="imagenes/Menu/Cemento.svg" />Cementos Y Morteros</div>
-        <div class="item"><img src="imagenes/Menu/Madera.svg" />Madera</div>
-        <div class="item"><img src="imagenes/Menu/Hormigonera.svg" />Hormigoneras, carretillas...</div>
-        <div class="item"><img src="imagenes/Menu/Valla.svg" />Cercados y Ocultación</div>
-        <div class="item"><img src="imagenes/Menu/Yeso.svg" />Yesos Y Escayolas</div>
-        <div class="item"><img src="imagenes/Menu/Eleconstruccion.svg" />Elementos de construcción</div>
-        <div class="item"><img src="imagenes/Menu/Aislante.svg" />Aislamientos</div>
+        <div class="item"><a href="php/productos.php?categoria=4"><img src="imagenes/Menu/Arena.svg" /></a>Arenas y
+            Gravas</div>
+        <div class="item"><a href="php/productos.php?categoria=1"><img src="imagenes/Menu/Techo.svg" /></a>Tejados Y
+            Cubiertas</div>
+        <div class="item"><a href="php/productos.php?categoria=2"><img src="imagenes/Menu/Cemento.svg" /></a>Cementos Y
+            Morteros</div>
+        <div class="item"><a href="php/productos.php?categoria=6"><img src="imagenes/Menu/Madera.svg" /></a>Madera</div>
+        <div class="item"><a href="php/productos.php?categoria=7"><img
+                    src="imagenes/Menu/Hormigonera.svg" /></a>Hormigoneras, carretillas...</div>
+        <div class="item"><a href="php/productos.php?categoria=5"><img src="imagenes/Menu/Valla.svg" /></a>Cercados y
+            Ocultación</div>
+        <div class="item"><a href="php/productos.php?categoria=3"><img src="imagenes/Menu/Yeso.svg" /></a>Yesos Y
+            Escayolas</div>
+        <div class="item"><a href="php/productos.php?categoria=9"><img
+                    src="imagenes/Menu/Eleconstruccion.svg" /></a>Elementos de construcción</div>
+        <div class="item"><a href="php/productos.php?categoria=8"><img
+                    src="imagenes/Menu/Aislante.svg" /></a>Aislamientos</div>
     </div>
     <!-- Productos destacados -->
     <div class="separador">
         PRODUCTOS DESTACADOS
     </div>
     <?php
-    require_once "Controller/productos_controlador.php";
+    require_once "Controller" . DIRECTORY_SEPARATOR . "productos_controlador.php";
     ?>
     <script src="javascript/jquery.min.js"></script>
     <script src="javascript/owl.carousel.min.js"></script>
@@ -163,7 +178,7 @@ if (isset($_POST['anadir'], $_POST['id_producto'])) {
         NUESTRA REVISTA
     </div>
     <div class="contenedorRevista">
-        <img src="imagenes/revista.png" />
+        <img src="imagenes/Productos/47.png" />
         <div class="textoRev">
             <h2>La Revista Nº1 de construcción</h2>
             <p>Descubre las últimas tendencias y novedades en construcción con la revista líder en el mercado.
@@ -171,7 +186,11 @@ if (isset($_POST['anadir'], $_POST['id_producto'])) {
                 semana no te pierdas el apartado especial "Architect", con consejos de un arquitecto profesional
                 para
                 construir tu casa de sueños. ¡Consigue tu ejemplar!</p>
-            <button type="submit" action="php/carrito.php">AÑADIR AL CARRITO</button>
+            <form method='post'>
+                <input type='hidden' name='id_producto' value='47'>
+                <input type='hidden' name='cantidad' value='1'>
+                <button class='trollButton' name='anadir' type='submit'>AÑADIR AL CARRITO</button>
+            </form>
         </div>
     </div>
     <!-- Compromisos -->
@@ -220,6 +239,8 @@ if (isset($_POST['anadir'], $_POST['id_producto'])) {
     </div>
     <!-- Footer -->
     <footer>
+        <!-- Contactanos -->
+        <script src="javascript/contactanos.js"></script>
         <!-- Redes -->
         <div class="redes">
             <div class="titulo">
@@ -272,8 +293,6 @@ if (isset($_POST['anadir'], $_POST['id_producto'])) {
                 <a href="php/infoLegal.php">Información Legal</a>
             </div>
         </div>
-    </footer>
-    <footer>
     </footer>
 </body>
 

@@ -1,11 +1,12 @@
-<?php
- 
- if(isset($_SESSION['cart'])){
-    $count = count($_SESSION['cart']);
-    echo"<div class='contador'>" . $count . "</div>";
- 
- } else {
-    echo"<div class='contador'>0</div>";
- }
+<nav>
+   <!-- Resto del contenido de la barra de navegación -->
+   <?php
+   if (isset($_SESSION['cart'])) {
+      $count = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
+      echo "<div class='contador'>" . $count . "</div>";
+   } else {
+      echo "<div class='contador'>0</div>";
+   }
 
- ?>
+   ?>
+</nav>

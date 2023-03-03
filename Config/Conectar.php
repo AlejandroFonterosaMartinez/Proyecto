@@ -3,9 +3,10 @@ class Conectar
 {
     public static function conexion()
     {
+        $charset = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8');
         try {
-            $res = cargar_configuracion(dirname(__FILE__) . "/configuracion/configuracion.xml", dirname(__FILE__) . "/configuracion/configuracion.xsd");
-            $conexion = new PDO($res[0], $res[1], $res[2]);
+            $res = cargar_configuracion(dirname(__FILE__) . DIRECTORY_SEPARATOR . "configuracion" . DIRECTORY_SEPARATOR . "configuracion.xml", dirname(__FILE__) . DIRECTORY_SEPARATOR . "configuracion" . DIRECTORY_SEPARATOR . "configuracion.xsd");
+            $conexion = new PDO($res[0], $res[1], $res[2], $charset);
             $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (Exception $e) {
             die("Error: " . $e->getMessage());

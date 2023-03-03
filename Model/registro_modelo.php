@@ -20,7 +20,6 @@ class UserRegistration extends Conectar
         $id_rol = 1;
         $trn_data = date("Y-m-d");
         $check_email = "SELECT * FROM usuarios WHERE Correo=:email";
-
         $stmt = $this->conexion()->prepare($check_email);
         $stmt->bindParam(':email', $email);
         $stmt->execute();
