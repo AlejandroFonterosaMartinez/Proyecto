@@ -47,11 +47,10 @@ session_start();
                 // Agregar producto al array de favoritos
                 array_push($favoritos, $producto);
             }
-
+            echo "<h2>Productos Favoritos</h2>";
             // Mostrar productos en favoritos
             if (count($favoritos) > 0) {
                 foreach ($favoritos as $producto) {
-                    echo "<h2>Productos Favoritos</h2>";
                     echo "<table class='table'>";
                     echo "<thead><tr><th>Imagen</th><th>Nombre</th><th>Descripción</th><th>Precio</th><th></th></tr></thead>";
                     echo "<tbody>";

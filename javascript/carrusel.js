@@ -1,4 +1,4 @@
-function carrImgs() {
+window.addEventListener('load', function() {
   const ANCHO_LIMITE = 768; // Define el ancho límite en el que se cambian las imágenes
   const IMAGENES = [
     'imagenes/Banner/Banner01.png',
@@ -38,12 +38,4 @@ function carrImgs() {
 
   renderizarImagen();
   intervalo = setInterval(pasarFoto, TIEMPO_INTERVALO_MILESIMAS_SEG);
-}
-carga.push(carrImgs);
-console.log(window.onload);
-
-window.onload = () => {
-  carga.forEach(element => {
-    element();
-  });
-}
+});

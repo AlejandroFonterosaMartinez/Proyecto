@@ -39,14 +39,26 @@ switch ($cat) {
 $ins = "SELECT Cod_producto,Nombre,Precio FROM productos WHERE Categoria='$cat'";
 $resul = $db->query($ins);
 $texto = '';
-
-foreach ($resul as $valores) {
-    $texto .= "<ul>";
-    $texto .= "<li>" . $valores["Cod_producto"] . "</li>";
-    $texto .= "<li>" . $valores["Nombre"] . "</li>";
-    $texto .= "<li>" . $valores["Precio"] . "</li>";
-    $texto .= "<li> <img src='../imagenes/Productos/{$valores['Cod_producto']}.png'></img></li>";
-    $texto .= "</ul>";
+$texto .= "<div class='productos'>";
+foreach ($resul as $row) {
+    $precio_formateado = number_format($row["Precio"], 2);
+    $texto .= "<div class='producto'>";
+    $texto .= "<img src='../imagenes/Productos/{$row['Cod_producto']}.png'></img>";
+    $texto .= "<label>" . $row["Nombre"] . "</label>";
+    $texto .= "<label>" .$precio_formateado. "</label>";
+    $texto .= "<div class='button'>
+        <form method='post' action='favoritos.php'>
+            <input type='hidden' name='id_producto_fav' value='{$row['Cod_producto']}'>
+            <button class='favButton' name='anadir_fav' type='submit'>🤍</button>
+        </form>
+        <form method='post' action='agregar_favoritos.php'>
+        <input type='hidden' name='id_producto' value='{$row['Cod_producto']}'>
+        <input type='hidden' name='cantidad' value='1'>
+        <button class='trollButton' name='anadir' type='submit'>AÑADIR AL CARRITO</button>
+        </form>
+    </div>"; 
+    $texto .= "</div>";
 }
+$texto .= "</div>";
 $output = $texto;
 echo $output;

@@ -1,0 +1,13 @@
+/*GENERAL*/
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #ffffff86;
+  margin: 0;
+  padding-top: 0;
+  padding-right: 0;
+  padding-left: 0;
+  width: 100%;
+  overflow-x: hidden;
+}

@@ -63,6 +63,7 @@ if (isset($_POST['anadir'], $_POST['id_producto'], $_POST['cantidad'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>BricoTeis SL</title>
+    <link href="css/general.css" rel="stylesheet" type="text/css">
     <link href="css/carrusel.css" rel="stylesheet" type="text/css">
     <link href="css/header.css" rel="stylesheet" type="text/css">
     <link href="css/carrito.css" rel="stylesheet" type="text/css">
@@ -177,7 +178,7 @@ if (isset($_POST['anadir'], $_POST['id_producto'], $_POST['cantidad'])) {
         NUESTRA REVISTA
     </div>
     <div class="contenedorRevista">
-        <img src="imagenes/productos/47.png" />
+        <img src="imagenes/Productos/47.png" />
         <div class="textoRev">
             <h2>La Revista Nº1 de construcción</h2>
             <p>Descubre las últimas tendencias y novedades en construcción con la revista líder en el mercado.
@@ -292,8 +293,6 @@ if (isset($_POST['anadir'], $_POST['id_producto'], $_POST['cantidad'])) {
                 <a href="php/infoLegal.php">Información Legal</a>
             </div>
         </div>
-    </footer>
-    <footer>
     </footer>
 </body>
 

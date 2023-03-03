@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>BricoTeis SL</title>
+    <link href="../css/general.css" rel="stylesheet" type="text/css">
     <link href="../css/header.css" rel="stylesheet" type="text/css">
     <link href="../css/buscador.css" rel="stylesheet" type="text/css">
     <link href="../css/footer.css" rel="stylesheet" type="text/css">
@@ -89,22 +90,25 @@
         if ($stmt->execute()) {
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             if (count($result) == 0) {
-                echo "<body> No se han encontrado resultados </body>";
+                echo "<body> <div class='errorMsg'>No se han encontrado resultados.</div></body>";
             } else {
                 echo "<div class='productos'>";
                 foreach ($result as $row) {
+                    $precio_formateado = number_format($row["Precio"], 2);
                     echo "<div class='producto'>";
                     echo "<img src='../imagenes/Productos/" . $row["Cod_producto"] . ".png'>";
                     echo "<label>" . $row['Nombre'] . "</label>";
-                    echo "<label>" . $row['Precio'] . "€/Ud</label>";
+                    echo "<label>" . $precio_formateado . "€/Ud</label>";
                     echo "<div class='button'>";
-                    echo "<button class='favButton' name='anadir_fav' type='submit'>❤</button>
-                    </form>
-                    <form method='post' action='agregar_favoritos.php'>
-                      <input type='hidden' name='id_producto' value='{$row['Cod_producto']}'>
-                      <input type='hidden' name='cantidad' value='1'>
-                      <button class='trollButton' name='anadir' type='submit'>AÑADIR AL CARRITO</button>
-                    </form>";
+                    echo "<form class='fav' method='post' action='favoritos.php'>
+                            <input type='hidden' name='id_producto_fav' value='{$row['Cod_producto']}'>
+                            <button class='favButton' name='anadir_fav' type='submit'>🤍</button>
+                          </form>
+                            <form class='troll' method='post' action='agregar_favoritos.php'>
+                            <input type='hidden' name='id_producto' value='{$row['Cod_producto']}'>
+                            <input type='hidden' name='cantidad' value='1'>
+                            <button class='trollButton' name='anadir' type='submit'>AÑADIR AL CARRITO</button>
+                            </form>";
                     echo "</div>";
                     echo "</div>";
                 }

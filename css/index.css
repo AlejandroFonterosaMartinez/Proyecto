@@ -1,12 +1,3 @@
-/*GENERAL*/
-body {
-  background: #ffffff86;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  overflow-x: hidden;;
-}
-
 .separador {
   text-align: center;
   border-bottom: 1px solid rgba(158, 158, 158, 0.308);
@@ -192,16 +183,22 @@ body {
     transition: background-color .8s;
   }
 
-  .button form {
+  .troll {
     width: 70%;
   }
 
+  .fav {
+    width: 30%;
+  }
+
   .trollButton {
+    height: 100%;
     background-color: #00b3aa;
   }
   
   .favButton {
-    width: 30%;
+    width: 100%;
+    height: 100%;
     background-color: crimson;
   }
 
@@ -237,7 +234,7 @@ body {
   }
 }
 
-@media only screen and (min-device-width: 700px) and (max-device-width: 1024px) {
+@media (min-width: 700px) and (max-width: 1024px) {
   .categorias {
     flex-wrap: wrap;
     /* Evita que los elementos se ajusten automáticamente */

@@ -1,3 +1,25 @@
+.contenido {
+    display: flex;
+}
+
+.menuCat {
+    display: flex;
+    flex-direction: column;
+}
+
+.categoria {
+    height: 9vh;
+    background-color:#00b3aa;
+    text-align: center;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    font-weight: bolder;
+    border: none;
+}
+
+.categoria:hover{
+    background-color: #018273;
+}
+
 .productos {
     display: flex;
     /* Habilita Flexbox */
@@ -34,7 +56,7 @@
     }
   }
 
-  @media(min-width: 769px) and (max-width: 1024px) {
+  @media (min-width: 769px) and (max-width: 1024px) {
     .producto {
         width: 32%;
     }  
@@ -101,13 +123,10 @@
     background-color: #018273;
   }
 
-
   .errorMsg {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10%;
     font-size: 30px;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-    font-weight: bolder;
   }

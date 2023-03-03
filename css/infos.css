@@ -1,11 +1,3 @@
-/*GENERAL*/
-body {
-    background: #ffffff86;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-  }
-  
 .apartados {
     display: flex;
     flex-direction: column;
@@ -18,6 +10,11 @@ body {
     text-align: justify;
     font-size: 17px;
     line-height: 24px;
+}
+
+iframe {
+    height: 40vh;
+    width: 95%;
 }
 
 .titulo {
