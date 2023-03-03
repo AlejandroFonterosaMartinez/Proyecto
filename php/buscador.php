@@ -26,9 +26,9 @@
             </div>
 
             <div class="buscador">
-                <form  method="get" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                <form method="get" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                     <div class="cajaTexto">
-                    <form  method="get" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                        <form method="get" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                             <div class="cajaTexto">
                                 <input type="text" name="query" name="query" placeholder="Buscar...">
                                 <button type="submit">Buscar</button>
@@ -37,6 +37,7 @@
                     </div>
                 </form>
             </div>
+
             <div class="menuPers">
                 <?php if (!isset($_SESSION['correo'])) {
                     echo '
@@ -47,8 +48,8 @@
                              <div class="subdiv"><a href="../php/login.php"><img src="../imagenes/Header/01Menu/entrance.svg" />Iniciar Sesión</div></a>
                          </div>
                      </div>
-                     <div><a href="#"><img src="../imagenes/Header/01Menu/heart.svg" />Favoritos</a></div>
-                     <div><a href="#"><img src="../imagenes/Header/01Menu/shopping-cart.svg" />Carrito</a></div>
+                     <div><a href="favoritos.php"><img src="../imagenes/Header/01Menu/heart.svg" />Favoritos</a></div>
+    <div class="carrito"><a href="carrito.php"><img src="../imagenes/Header/01Menu/shopping-cart.svg" />Carrito</a>
                  </div>';
                 } else {
                     echo '<div class="cuenta"><a href="#"></a><img src="../imagenes/Header/01Menu/user.svg" />' . $_SESSION['correo'] . '
@@ -60,8 +61,8 @@
                     echo '</div></a>
                     </div>
                 </div>
-                <div><a href="#"></a><img src="../imagenes/Header/01Menu/heart.svg" />Favoritos</div>
-                <div><a href="#"></a><img src="../imagenes/Header/01Menu/shopping-cart.svg" />Carrito</div>'
+                <div><a href="favoritos.php"><img src="../imagenes/Header/01Menu/heart.svg" />Favoritos</a></div>
+    <div class="carrito"><a href="carrito.php"><img src="../imagenes/Header/01Menu/shopping-cart.svg" />Carrito</a>'
                     ;
 
                 } ?>
