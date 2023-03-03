@@ -1,6 +1,8 @@
 <?php
+include('header.php');
 require_once('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
-session_start();
+$_SESSION['mensaje'] = "<div class='alert alert-success' role='alert'>Añadido a favoritos</div>";
+
 
 ?>
 <!DOCTYPE html>
@@ -11,6 +13,10 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Favoritos</title>
+    <link href="../css/general.css" rel="stylesheet" type="text/css">
+    <link href="../css/header.css" rel="stylesheet" type="text/css">
+    <link href="../css/footer.css" rel="stylesheet" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
@@ -21,9 +27,9 @@ session_start();
 <body class="bg-light">
     <div class="container-fluid">
         <?php
+
         if (isset($_POST['anadir_fav'])) {
             header("Location: ../index.php ");
-            echo '<div class="alerta alert alert-success" role="alert" style="text-align:center;">Añadido a favoritos</div>';
             if (!isset($_SESSION['favoritos'])) {
                 $_SESSION['favoritos'] = array();
             }
@@ -32,6 +38,7 @@ session_start();
                 array_push($_SESSION['favoritos'], $_POST['id_producto_fav']);
             }
         }
+
 
         if (isset($_SESSION['favoritos'])) {
             // Obtener detalles de los productos en favoritos
@@ -55,7 +62,7 @@ session_start();
                     echo "<thead><tr><th>Imagen</th><th>Nombre</th><th>Descripción</th><th>Precio</th><th></th></tr></thead>";
                     echo "<tbody>";
 
-                    echo "<tr><td><img  src='../imagenes/Productos/{$producto['Cod_producto']}.png'></img></td><td>{$producto['nombre']}</td><td>{$producto['descripcion']}</td><td>{$producto['precio']}€</td>";
+                    echo "<tr><td class='col-1'><img class='img-thumbnail' src='../imagenes/Productos/{$producto['Cod_producto']}.png'></td><td>{$producto['nombre']}</td><td>{$producto['descripcion']}</td><td>{$producto['precio']}€</td>";
                     echo "<td>";
                     // Formulario para eliminar el producto
                     echo "<form method='post'>";
@@ -69,7 +76,9 @@ session_start();
             } else {
                 echo "No hay productos favoritos";
             }
-            
+
+        } else {
+            echo "No hay productos favoritos";
         }
         // Eliminar producto de favoritos
         if (isset($_POST['eliminar_fav'])) {

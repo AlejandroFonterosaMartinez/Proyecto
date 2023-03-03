@@ -1,3 +1,5 @@
+<?php
+include('header.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>BricoTeis SL</title>
     <link href="../css/general.css" rel="stylesheet" type="text/css">
     <link href="../css/header.css" rel="stylesheet" type="text/css">
     <link href="../css/productos.css" rel="stylesheet" type="text/css">
@@ -14,61 +16,10 @@
 </head>
 
 <body>
-<header>
-        <div class="container">
-
-            <div class="infoPag">
-                <a href="../index.php">
-                    <img src="../imagenes/Header/Logo.svg" />
-                    BricoTeis SL
-                </a>
-            </div>
-
-            <div class="buscador">
-                <form action="search.php" method="get">
-                    <div class="cajaTexto">
-                        <form action="search.php" method="get">
-                            <div class="cajaTexto">
-                                <input type="text" name="query" name="query" placeholder="Buscar...">
-                                <button type="submit">Buscar</button>
-                            </div>
-                        </form>
-                    </div>
-                </form>
-            </div>
-
-            <div class="menuPers">
-                <?php if (!isset($_SESSION['correo'])) {
-                    echo '
-                     <div class="cuenta"><img src="../imagenes/Header/01Menu/user.svg" />Mi cuenta
-                         <div class="submenu">
-                             <div class="subdiv"><a href="../php/registro.php"><img src="../imagenes/Header/01Menu/edit.svg" />Registrarse</a>
-                             </div>
-                             <div class="subdiv"><a href="../php/login.php"><img src="../imagenes/Header/01Menu/entrance.svg" />Iniciar Sesión</div></a>
-                         </div>
-                     </div>
-                     <div><a href="#"><img src="../imagenes/Header/01Menu/heart.svg" />Favoritos</a></div>
-                     <div><a href="#"><img src="../imagenes/Header/01Menu/shopping-cart.svg" />Carrito</a></div>
-                 </div>';
-                } else {
-                    echo '<div class="cuenta"><a href="#"></a><img src="../imagenes/Header/01Menu/user.svg" />' . $_SESSION['correo'] . '
-                    <div class="submenu">
-                        <div class="subdiv"><a href="../php/perfil.php"><img src="../imagenes/Header/01Menu/edit.svg" />Editar Perfil</a>
-                        </div>
-                        <div class="subdiv"><a href="../php/logout.php"><img src="../imagenes/Header/01Menu/entrance.svg" />Cerrar Sesión ';
-
-                    echo '</div></a>
-                    </div>
-                </div>
-                <div><a href="#"></a><img src="../imagenes/Header/01Menu/heart.svg" />Favoritos</div>
-                <div><a href="#"></a><img src="../imagenes/Header/01Menu/shopping-cart.svg" />Carrito</div>'
-                    ;
-                } ?>
-            </div>
-    </header>
     <div class="contenido">
+        <button id="toggleMenuCat"> ≡ </button>  
         <div class="menuCat">
-            <input type="button" class="categoria" value="Tejados Y Cubiertas" />
+        <input type="button" class="categoria" value="Tejados Y Cubiertas" />
             <input type="button" class="categoria" value="Arenas y Gravas" />
             <input type="button" class="categoria" value="Cementos Y Morteros" />
             <input type="button" class="categoria" value="Madera" />
@@ -78,6 +29,7 @@
             <input type="button" class="categoria" value="Elementos de construcción" />
             <input type="button" class="categoria" value="Aislamientos" />
         </div>
+        <script src="../javascript/menuLat.js"></script>
         <div class="mostrar">
             <?php
             include('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'productos_modelo.php');
@@ -101,8 +53,8 @@
                         <input type='hidden' name='id_producto_fav' value='$cod'>
                           <button class='favButton' name='anadir_fav' type='submit'>🤍</button>
                           </form>
-                        <form class='troll' method='post' action='agregar_favoritos.php'>
-                          <input type='hidden' name='id_producto' value='$cod'>
+                          <form class='troll' method='post'>
+                          <input type='hidden' name='id_producto' value='{$producto['Cod_producto']}'>
                           <input type='hidden' name='cantidad' value='1'>
                           <button class='trollButton' name='anadir' type='submit'>AÑADIR AL CARRITO</button>
                         </form>

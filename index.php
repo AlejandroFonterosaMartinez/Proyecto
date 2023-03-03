@@ -80,7 +80,7 @@ if (isset($_POST['anadir'], $_POST['id_producto'], $_POST['cantidad'])) {
 <body>
     <!-- Header -->
     <header>
-        <div class="container">
+        <div class="containerH">
 
             <div class="infoPag">
                 <a href="index.php">
@@ -93,12 +93,8 @@ if (isset($_POST['anadir'], $_POST['id_producto'], $_POST['cantidad'])) {
             <div class="buscador">
                 <form action="php/buscador.php" method="get">
                     <div class="cajaTexto">
-                        <form action="php/buscador.php" method="get">
-                            <div class="cajaTexto">
-                                <input type="text" name="query" name="query" placeholder="Buscar...">
-                                <button type="submit">Buscar</button>
-                            </div>
-                        </form>
+                            <input type="text" name="query" name="query" placeholder="Buscar...">
+                            <button type="submit">Buscar</button>
                     </div>
                 </form>
             </div>

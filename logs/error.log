@@ -180,3 +180,48 @@ Stack trace:
 [05-Feb-2023 00:22:08 Europe/Berlin] PHP Warning:  Undefined variable $row in D:\XAMPP\htdocs\mvc\index.php on line 23
 [05-Feb-2023 00:22:08 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in D:\XAMPP\htdocs\mvc\index.php on line 23
 [05-Feb-2023 16:29:51 Europe/Berlin] PHP Warning:  Undefined array key "correo" in D:\XAMPP\htdocs\mvc\index.php on line 18
+[02-Mar-2023 19:39:59 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: array_column(): Argument #1 ($array) must be of type array, string given in C:\xampp\htdocs\Proyecto\index.php:38
+Stack trace:
+#0 C:\xampp\htdocs\Proyecto\index.php(38): array_column('productos_en_ca...', 'Cod_producto')
+#1 {main}
+  thrown in C:\xampp\htdocs\Proyecto\index.php on line 38
+[02-Mar-2023 19:40:04 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: array_column(): Argument #1 ($array) must be of type array, string given in C:\xampp\htdocs\Proyecto\index.php:38
+Stack trace:
+#0 C:\xampp\htdocs\Proyecto\index.php(38): array_column('productos_en_ca...', 'Cod_producto')
+#1 {main}
+  thrown in C:\xampp\htdocs\Proyecto\index.php on line 38
+[02-Mar-2023 19:40:21 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: array_column(): Argument #1 ($array) must be of type array, string given in C:\xampp\htdocs\Proyecto\index.php:38
+Stack trace:
+#0 C:\xampp\htdocs\Proyecto\index.php(38): array_column('productos_en_ca...', 'Cod_producto')
+#1 {main}
+  thrown in C:\xampp\htdocs\Proyecto\index.php on line 38
+[02-Mar-2023 19:40:23 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: array_column(): Argument #1 ($array) must be of type array, string given in C:\xampp\htdocs\Proyecto\index.php:38
+Stack trace:
+#0 C:\xampp\htdocs\Proyecto\index.php(38): array_column('productos_en_ca...', 'Cod_producto')
+#1 {main}
+  thrown in C:\xampp\htdocs\Proyecto\index.php on line 38
+[02-Mar-2023 19:40:51 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: array_column(): Argument #1 ($array) must be of type array, string given in C:\xampp\htdocs\Proyecto\index.php:38
+Stack trace:
+#0 C:\xampp\htdocs\Proyecto\index.php(38): array_column('productos_en_ca...', 'Cod_producto')
+#1 {main}
+  thrown in C:\xampp\htdocs\Proyecto\index.php on line 38
+[02-Mar-2023 19:41:02 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: array_column(): Argument #1 ($array) must be of type array, string given in C:\xampp\htdocs\Proyecto\index.php:38
+Stack trace:
+#0 C:\xampp\htdocs\Proyecto\index.php(38): array_column('productos_en_ca...', 'Cod_producto')
+#1 {main}
+  thrown in C:\xampp\htdocs\Proyecto\index.php on line 38
+[02-Mar-2023 19:44:40 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: array_column(): Argument #1 ($array) must be of type array, string given in C:\xampp\htdocs\Proyecto\index.php:38
+Stack trace:
+#0 C:\xampp\htdocs\Proyecto\index.php(38): array_column('productos_en_ca...', 'Cod_producto')
+#1 {main}
+  thrown in C:\xampp\htdocs\Proyecto\index.php on line 38
+[02-Mar-2023 19:44:46 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: array_column(): Argument #1 ($array) must be of type array, string given in C:\xampp\htdocs\Proyecto\index.php:38
+Stack trace:
+#0 C:\xampp\htdocs\Proyecto\index.php(38): array_column('productos_en_ca...', 'Cod_producto')
+#1 {main}
+  thrown in C:\xampp\htdocs\Proyecto\index.php on line 38
+[02-Mar-2023 19:44:51 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: array_column(): Argument #1 ($array) must be of type array, string given in C:\xampp\htdocs\Proyecto\index.php:38
+Stack trace:
+#0 C:\xampp\htdocs\Proyecto\index.php(38): array_column('productos_en_ca...', 'Cod_producto')
+#1 {main}
+  thrown in C:\xampp\htdocs\Proyecto\index.php on line 38

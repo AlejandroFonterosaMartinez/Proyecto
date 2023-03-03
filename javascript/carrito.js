@@ -1,105 +1,60 @@
-var Carro = {
-  width: 100,     // Images are forced into a width of this many pixels.
-  numVisible: 2,  // The number of images visible at once.
-  duration: 600,  // Animation duration in milliseconds.
-  padding: 2      // Vertical padding around each image, in pixels.
-};
-var carga = [];
-function rotateForward() {
-  var carro = Carro.carro,
-    children = carro.children,
-    firstChild = children[0],
-    lastChild = children[children.length - 1];
-  carro.insertBefore(lastChild, firstChild);
-}
-function rotateBackward() {
-  var carro = Carro.carro,
-    children = carro.children,
-    firstChild = children[0],
-    lastChild = children[children.length - 1];
-  carro.insertBefore(firstChild, lastChild.nextSibling);
-}
+const cantidades = document.querySelectorAll('[id^="cantidad"]');
+cantidades.forEach(cantidad => {
+    cantidad.onchange = actualizarCantidad;
+});
 
-function animate(begin, end, finalTask) {
-  var wrapper = Carro.wrapper,
-    carro = Carro.carro,
-    change = end - begin,
-    duration = Carro.duration,
-    startTime = Date.now();
-  carro.style.top = begin + 'px';
-  var animateInterval = window.setInterval(function () {
-    var t = Date.now() - startTime;
-    if (t >= duration) {
-      window.clearInterval(animateInterval);
-      finalTask();
-      return;
-    }
-    t /= (duration / 2);
-    var top = begin + (t < 1 ? change / 2 * Math.pow(t, 3) :
-      change / 2 * (Math.pow(t - 2, 3) + 2));
-    carro.style.top = top + 'px';
-  }, 1000 / 60);
-}
-carga.push(load);
-
-function load() {
-  var carro = Carro.carro = document.getElementById('carro'),
-    images = carro.getElementsByTagName('img'),
-    numImages = images.length,
-    imageWidth = Carro.width,
-    aspectRatio = images[0].width / images[0].height,
-    imageHeight = imageWidth / aspectRatio,
-    padding = Carro.padding,
-    rowHeight = Carro.rowHeight = imageHeight + 2 * padding;
-  carro.style.width = imageWidth + 'px';
-  for (var i = 0; i < numImages; ++i) {
-    var image = images[i],
-      frame = document.createElement('div');
-    frame.className = 'pictureFrame';
-    var aspectRatio = image.offsetWidth / image.offsetHeight;
-    image.style.width = frame.style.width = imageWidth + 'px';
-    image.style.height = imageHeight + 'px';
-    image.style.paddingTop = padding + 'px';
-    image.style.paddingBottom = padding + 'px';
-    frame.style.height = rowHeight + 'px';
-    carro.insertBefore(frame, image);
-    frame.appendChild(image);
-  }
-  Carro.rowHeight = carro.getElementsByTagName('div')[0].offsetHeight;
-  carro.style.height = Carro.numVisible * Carro.rowHeight + 'px';
-  carro.style.visibility = 'hidden'; // Establecer la visibilidad como oculto inicialmente
-  var wrapper = Carro.wrapper = document.createElement('div');
-  wrapper.id = 'carroWrapper';
-  wrapper.style.width = carro.offsetWidth + 'px';
-  wrapper.style.height = carro.offsetHeight + 'px';
-  carro.parentNode.insertBefore(wrapper, carro);
-  wrapper.appendChild(carro);
-  var prevButton = document.getElementById('prev'),
-    nextButton = document.getElementById('next');
-  prevButton.onclick = function () {
-    prevButton.disabled = nextButton.disabled = true;
-    rotateForward();
-    animate(-Carro.rowHeight, 0, function () {
-      carro.style.top = '0';
-      prevButton.disabled = nextButton.disabled = false;
+function actualizarCantidad() {
+    const productos = document.querySelectorAll('[id^="prod_"]');
+    var suma = 0;
+    var totalProductos = 0;
+    productos.forEach(element => {
+        const cantidad = element.querySelector('.cantidad').value;
+        const precio = element.querySelector('[id^="precio_"]').textContent;
+        suma += parseInt(cantidad) * parseFloat(precio);
+        totalProductos += parseInt(cantidad);
     });
-  };
+    document.getElementById('preciototal').innerHTML = suma.toFixed(2) + " €";
+    actualizarContadorCarrito(totalProductos);
+}
 
-  var carrito = document.getElementsByClassName('carrito')[0];
-  carrito.onmouseover = function () {
-    carro.style.visibility = 'visible';
-  }
+function actualizarPrecio(precio) {
+    const precioTotal = document.getElementById('preciototal');
+    const precioNumerico = parseFloat(precioTotal.textContent.replace('€', ''));
+    const nuevoPrecio = precioNumerico + precio;
+    precioTotal.textContent = nuevoPrecio.toFixed(2) + '€';
+}
 
-  carrito.onmouseout = function () {
-    carro.style.visibility = 'hidden';
-  }
+function eliminarProducto(event, claveUnica) {
+    event.preventDefault();
+    const botonBorrar = event.target;
+    const divProducto = botonBorrar.closest('.border.rounded');
+    const precioProducto = divProducto.querySelector('.precio').textContent;
+    const cantidadTotal = document.getElementById(`cantidad_${claveUnica}`);
+    const precioNumerico = parseFloat(precioProducto.replace('€', ''));
+    const cantidad = divProducto.querySelector('.cantidad').value;
 
-  nextButton.onclick = function () {
-    prevButton.disabled = nextButton.disabled = true;
-    animate(0, -Carro.rowHeight, function () {
-      rotateBackward();
-      carro.style.top = '0';
-      prevButton.disabled = nextButton.disabled = false;
-    });
-  };
-};
+    // Enviar una petición AJAX al servidor para eliminar la variable de sesión
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', 'eliminar_sesion.php');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                // Si la petición fue exitosa, actualizar el precio y remover el producto del DOM
+                actualizarPrecio(-precioNumerico * cantidad);
+                divProducto.remove();
+                actualizarContadorCarrito(); // Llamar a la función para actualizar el contador del carrito
+                actualizarContadorProductos(); // Llamar a la función para actualizar el contador de productos
+            } else {
+                // Si la petición falló, mostrar un mensaje de error
+                alert('Error al eliminar el producto');
+            }
+        }
+    };
+    xhr.send(`clave_unica=${claveUnica}`);
+}
+
+function actualizarContadorCarrito(totalProductos) {
+    const contadorCarrito = document.querySelector('.contador');
+    contadorCarrito.textContent = totalProductos;
+}
