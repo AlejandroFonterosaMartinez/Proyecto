@@ -18,6 +18,7 @@
 
 .categoria:hover{
     background-color: #018273;
+    cursor: pointer;
 }
 
 .productos {

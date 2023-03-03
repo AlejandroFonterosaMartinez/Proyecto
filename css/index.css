@@ -8,6 +8,23 @@
   font-weight: bolder;
 }
 
+
+  .alert {
+  
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+  }
+
+  .alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    
+  }
+
+  .alerta[role="alert"] {
+    text-align: center;
+  }
+
 /*CATEGORIAS*/
 
 .categorias {

@@ -1,3 +1,8 @@
+<?php
+include('header.php');
+?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -16,63 +21,8 @@
 
 
 <body>
-    <header>
-        <div class="container">
-
-            <div class="infoPag">
-                <a href="../index.php">
-                    <img src="../imagenes/Header/Logo.svg" />
-                    BricoTeis SL
-                </a>
-            </div>
-
-            <div class="buscador">
-                <form method="get" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-                    <div class="cajaTexto">
-                        <form method="get" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-                            <div class="cajaTexto">
-                                <input type="text" name="query" name="query" placeholder="Buscar...">
-                                <button type="submit">Buscar</button>
-                            </div>
-                        </form>
-                    </div>
-                </form>
-            </div>
-
-            <div class="menuPers">
-                <?php if (!isset($_SESSION['correo'])) {
-                    echo '
-                     <div class="cuenta"><img src="../imagenes/Header/01Menu/user.svg" />Mi cuenta
-                         <div class="submenu">
-                             <div class="subdiv"><a href="../php/registro.php"><img src="../imagenes/Header/01Menu/edit.svg" />Registrarse</a>
-                             </div>
-                             <div class="subdiv"><a href="../php/login.php"><img src="../imagenes/Header/01Menu/entrance.svg" />Iniciar Sesión</div></a>
-                         </div>
-                     </div>
-                     <div><a href="favoritos.php"><img src="../imagenes/Header/01Menu/heart.svg" />Favoritos</a></div>
-    <div class="carrito"><a href="carrito.php"><img src="../imagenes/Header/01Menu/shopping-cart.svg" />Carrito</a>
-                 </div>';
-                } else {
-                    echo '<div class="cuenta"><a href="#"></a><img src="../imagenes/Header/01Menu/user.svg" />' . $_SESSION['correo'] . '
-                    <div class="submenu">
-                        <div class="subdiv"><a href="../php/perfil.php"><img src="../imagenes/Header/01Menu/edit.svg" />Editar Perfil</a>
-                        </div>
-                        <div class="subdiv"><a href="../php/logout.php"><img src="../imagenes/Header/01Menu/entrance.svg" />Cerrar Sesión ';
-
-                    echo '</div></a>
-                    </div>
-                </div>
-                <div><a href="favoritos.php"><img src="../imagenes/Header/01Menu/heart.svg" />Favoritos</a></div>
-    <div class="carrito"><a href="carrito.php"><img src="../imagenes/Header/01Menu/shopping-cart.svg" />Carrito</a>'
-                    ;
-
-                } ?>
-
-            </div>
-    </header>
     <?php
     // Conectar a la base de datos
-    session_start();
     require_once('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
 
     // Verificar si hay una consulta enviada
@@ -100,15 +50,15 @@
                     echo "<label>" . $row['Nombre'] . "</label>";
                     echo "<label>" . $precio_formateado . "€/Ud</label>";
                     echo "<div class='button'>";
-                    echo "<form class='fav' method='post' action='favoritos.php'>
-                            <input type='hidden' name='id_producto_fav' value='{$row['Cod_producto']}'>
-                            <button class='favButton' name='anadir_fav' type='submit'>🤍</button>
-                          </form>
-                            <form class='troll' method='post' action='agregar_favoritos.php'>
-                            <input type='hidden' name='id_producto' value='{$row['Cod_producto']}'>
-                            <input type='hidden' name='cantidad' value='1'>
-                            <button class='trollButton' name='anadir' type='submit'>AÑADIR AL CARRITO</button>
-                            </form>";
+                    echo "  <form class='fav' method='post' action='favoritos.php'>
+                    <input type='hidden' name='id_producto_fav' value='{$row['Cod_producto']}'>
+                      <button class='favButton' name='anadir_fav' type='submit'>🤍</button>
+                      </form>
+                      <form class='troll' method='post'>
+                        <input type='hidden' name='id_producto' value='{$row['Cod_producto']}'>
+                        <input type='hidden' name='cantidad' value='1'>
+                        <button class='trollButton' name='anadir' type='submit'>AÑADIR AL CARRITO</button>
+                      </form>";
                     echo "</div>";
                     echo "</div>";
                 }

@@ -1,6 +1,6 @@
 <?php
 require_once('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
-session_start();
+include('header.php');
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -9,9 +9,8 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../css/carrito.css" rel="stylesheet" type="text/css">
+    <link href="../css/general.css" rel="stylesheet" type="text/css">
     <link href="../css/header.css" rel="stylesheet" type="text/css">
-    <link href="../css/buscador.css" rel="stylesheet" type="text/css">
     <link href="../css/footer.css" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="../imagenes/Logo.ico" type="image/x-icon" />
     <link rel="icon" href="../imagenes/Logo.ico" type="image/x-icon" />
@@ -22,44 +21,7 @@ session_start();
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
 </head>
-<header>
-    <div class="container">
-        <div class="infoPag">
-            <a href="../index.php">
-                <img src="../imagenes/Header/Logo.svg" />
-                BricoTeis SL
-            </a>
-        </div>
-        <div class="buscador">
-            <form method="get" action="buscador.php">
-                <div class="cajaTexto">
-                    <form method="get" action="buscador.php">
-                        <div class="cajaTexto">
-                            <input type="text" name="query" name="query" placeholder="Buscar...">
-                            <button type="submit">Buscar </button>
-                        </div>
-                    </form>
-                </div>
-            </form>
-        </div>
-        <div class="menuPers">
-            <div class="cuenta">
-                <div class="submenu">
-                    <div class="subdiv"><a href="../php/registro.php"><img
-                                src="../imagenes/Header/01Menu/edit.svg" />Registrarse</a>
-                    </div>
-                    <div class="subdiv"><a href="../php/login.php"><img
-                                src="../imagenes/Header/01Menu/entrance.svg" />Iniciar
-                            Sesión</div></a>
-                </div>
-            </div>
-            <div><a href="favoritos.php"><img src="../imagenes/Header/01Menu/heart.svg" />Favoritos</a></div>
-            <div class="carrito"><a href="carrito.php"><img
-                        src="../imagenes/Header/01Menu/shopping-cart.svg" />Carrito</a>
-                <?php require('contador_carrito.php'); ?>
-            </div>
-        </div>
-</header>
+
 
 <body class="bg-light">
     <div class="container-fluid">
@@ -98,7 +60,7 @@ session_start();
                                             <h5 class='pt-2 precio' id='precio_$clave_unica'>$precioproducto €/u</h5>
                                             <div>
                                                 <input type='hidden' name='clave_unica' value='$clave_unica'>
-                                                <button type='button' class='btn btn-danger mx-2' onclick='eliminarProducto(event, \"$clave_unica\")'>Borrar 🗑</button>
+                                                <button type='button' class='btn btn-danger mx-2' onclick='eliminarProducto(event, \"$clave_unica\")'>Eliminar 🗑</button>
                                             </div>
                 
                                             <div class='row-md-3'>

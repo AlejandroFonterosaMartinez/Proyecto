@@ -1,6 +1,8 @@
 <?php
+include('header.php');
 require_once('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
-session_start();
+$_SESSION['mensaje'] = "<div class='alert alert-success' role='alert'>Añadido a favoritos</div>";
+
 
 ?>
 <!DOCTYPE html>
@@ -11,19 +13,36 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Favoritos</title>
+    <link href="../css/general.css" rel="stylesheet" type="text/css">
+    <link href="../css/header.css" rel="stylesheet" type="text/css">
+    <link href="../css/footer.css" rel="stylesheet" type="text/css">
+    <link href="../css/productos.css" rel="stylesheet" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
 </head>
+<style>
+    .btn-custom {
+        background-color: #00b3aa;
+        color: #00b3aa;
+    }
+
+    .btn-custom:hover {
+        background-color: #00b3aa;
+        color: #00b3aa;
+    }
+</style>
+
 
 <body class="bg-light">
     <div class="container-fluid">
         <?php
+
         if (isset($_POST['anadir_fav'])) {
             header("Location: ../index.php ");
-            echo '<div class="alerta alert alert-success" role="alert" style="text-align:center;">Añadido a favoritos</div>';
             if (!isset($_SESSION['favoritos'])) {
                 $_SESSION['favoritos'] = array();
             }
@@ -32,6 +51,7 @@ session_start();
                 array_push($_SESSION['favoritos'], $_POST['id_producto_fav']);
             }
         }
+
 
         if (isset($_SESSION['favoritos'])) {
             // Obtener detalles de los productos en favoritos
@@ -60,16 +80,21 @@ session_start();
                     // Formulario para eliminar el producto
                     echo "<form method='post'>";
                     echo "<input type='hidden' name='eliminar_fav' value='{$producto['Cod_producto']}' />";
-                    echo "<button type='submit' class='btn btn-danger'>Eliminar 🗑️</button>";
-                    echo "</form>";
-                    echo "</td></tr>";
+                    echo "<button type='submit' class='btn btn-danger'>🗑️</button>";
+                    echo "";
+                    echo "<form method='post' class='troll'><input type='hidden' name='id_producto' value='{$producto['Cod_producto']}'>
+                    <input type='hidden' name='cantidad' value='1'>
+                    <button class='btn btn-custom' name='anadir' type='submit'>🛒</button>
+                  </form></form></form></td></tr>";
                 }
                 echo "</tbody>";
                 echo "</table>";
             } else {
                 echo "No hay productos favoritos";
             }
-            
+
+        } else {
+            echo "No hay productos favoritos";
         }
         // Eliminar producto de favoritos
         if (isset($_POST['eliminar_fav'])) {

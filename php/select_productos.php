@@ -1,4 +1,5 @@
 <?php
+include('header.php');
 include('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
 /*
  * Devuelve un puntero con el código y nombre de las categorías de la BBDD
@@ -45,18 +46,18 @@ foreach ($resul as $row) {
     $texto .= "<div class='producto'>";
     $texto .= "<img src='../imagenes/Productos/{$row['Cod_producto']}.png'></img>";
     $texto .= "<label>" . $row["Nombre"] . "</label>";
-    $texto .= "<label>" .$precio_formateado. "</label>";
+    $texto .= "<label>" . $precio_formateado . "</label>";
     $texto .= "<div class='button'>
         <form method='post' action='favoritos.php'>
             <input type='hidden' name='id_producto_fav' value='{$row['Cod_producto']}'>
             <button class='favButton' name='anadir_fav' type='submit'>🤍</button>
         </form>
-        <form method='post' action='agregar_favoritos.php'>
-        <input type='hidden' name='id_producto' value='{$row['Cod_producto']}'>
-        <input type='hidden' name='cantidad' value='1'>
-        <button class='trollButton' name='anadir' type='submit'>AÑADIR AL CARRITO</button>
-        </form>
-    </div>"; 
+        <form class='troll' method='post'>
+              <input type='hidden' name='id_producto' value='{$row['Cod_producto']}'>
+              <input type='hidden' name='cantidad' value='1'>
+              <button class='trollButton' name='anadir' type='submit'>AÑADIR AL CARRITO</button>
+            </form>
+    </div>";
     $texto .= "</div>";
 }
 $texto .= "</div>";
