@@ -37,7 +37,6 @@
                     </div>
                 </form>
             </div>
-
             <div class="menuPers">
                 <?php if (!isset($_SESSION['correo'])) {
                     echo '
