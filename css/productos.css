@@ -2,22 +2,95 @@
     display: flex;
 }
 
+#toggleMenuCat {
+  position: fixed;
+  top: 55; 
+  left: 0;
+  height: 35px;
+  z-index: 99999;
+  border: none;
+  background-color:#e6f8f7;
+}
+
 .menuCat {
-    display: flex;
-    flex-direction: column;
+  position: fixed;
+  top: 90; 
+  left: -400px;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+  z-index: 998;
+}
+
+.menuCat.active {
+  left: 0;
 }
 
 .categoria {
-    height: 9vh;
-    background-color:#00b3aa;
+  display: flex;
+  flex-direction: column;
+    background-color:#00b3aa19;
     text-align: center;
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     font-weight: bolder;
     border: none;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 1090px) {
+  .categoria {
+    font-size: 1.2vw;
+    height: 6vh;
+  }
+  
+  #toggleMenuCat {
+    width: 20vw;
+  }
+  .menuCat {
+    width: 20vw;
+  }
+  .productos {
+    margin-top: 3%;
+  }
+}
+
+@media (min-width: 700px) and (max-width: 1090px) {
+  .categoria {
+    font-size: 1.5vw;
+    height: 5vh;
+  }
+  #toggleMenuCat {
+    width: 25vw;
+  }
+  .menuCat {
+    width: 25vw;
+  }
+  .productos {
+    margin-top: 5%;
+  }
+}
+
+@media (max-width: 700px) {
+  .categoria {
+    font-size: 4vw;
+    height: 4vh;
+  }
+  #toggleMenuCat {
+    width: 80vw;
+    top: 70;
+  }
+  .menuCat {
+    width: 80vw;
+    top: 105;
+  }
+  .productos {
+    margin-top: 10%;
+  }
 }
 
 .categoria:hover{
-    background-color: #018273;
+    background-color: #00b3aa;
     cursor: pointer;
 }
 

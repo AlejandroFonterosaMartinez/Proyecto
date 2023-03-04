@@ -52,11 +52,11 @@ foreach ($resul as $row) {
             <input type='hidden' name='id_producto_fav' value='{$row['Cod_producto']}'>
             <button class='favButton' name='anadir_fav' type='submit'>🤍</button>
         </form>
-        <form method='post' action='agregar_favoritos.php'>
+        <form class='troll' method='post'>
         <input type='hidden' name='id_producto' value='{$row['Cod_producto']}'>
         <input type='hidden' name='cantidad' value='1'>
         <button class='trollButton' name='anadir' type='submit'>AÑADIR AL CARRITO</button>
-        </form>
+      </form>
     </div>";
     $texto .= "</div>";
 }

@@ -1,6 +1,7 @@
 <?php
 include('header.php');
 require_once('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
+$_SESSION['mensaje'] = "<div class='alert alert-success' role='alert'>Añadido a favoritos</div>";
 
 
 ?>
@@ -22,13 +23,25 @@ require_once('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Cone
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
 </head>
+<style>
+    .btn-custom {
+        background-color: #00b3aa;
+        color: #00b3aa;
+    }
+
+    .btn-custom:hover {
+        background-color: #00b3aa;
+        color: #00b3aa;
+    }
+</style>
+
 
 <body class="bg-light">
     <div class="container-fluid">
         <?php
+
         if (isset($_POST['anadir_fav'])) {
             header("Location: ../index.php ");
-            echo '<div class="alerta alert alert-success" role="alert" style="text-align:center;">Añadido a favoritos</div>';
             if (!isset($_SESSION['favoritos'])) {
                 $_SESSION['favoritos'] = array();
             }
@@ -37,6 +50,7 @@ require_once('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Cone
                 array_push($_SESSION['favoritos'], $_POST['id_producto_fav']);
             }
         }
+
 
         if (isset($_SESSION['favoritos'])) {
             // Obtener detalles de los productos en favoritos
@@ -60,14 +74,17 @@ require_once('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Cone
                     echo "<thead><tr><th>Imagen</th><th>Nombre</th><th>Descripción</th><th>Precio</th><th></th></tr></thead>";
                     echo "<tbody>";
 
-                    echo "<tr><td><img  src='../imagenes/Productos/{$producto['Cod_producto']}.png'></img></td><td>{$producto['nombre']}</td><td>{$producto['descripcion']}</td><td>{$producto['precio']}€</td>";
+                    echo "<tr><td class='col-1'><img class='img-thumbnail' src='../imagenes/Productos/{$producto['Cod_producto']}.png'></td><td>{$producto['nombre']}</td><td>{$producto['descripcion']}</td><td>{$producto['precio']}€</td>";
                     echo "<td>";
                     // Formulario para eliminar el producto
                     echo "<form method='post'>";
                     echo "<input type='hidden' name='eliminar_fav' value='{$producto['Cod_producto']}' />";
-                    echo "<button type='submit' class='btn btn-danger'>Eliminar 🗑️</button>";
-                    echo "</form>";
-                    echo "</td></tr>";
+                    echo "<button type='submit' class='btn btn-danger'>🗑️</button>";
+                    echo "";
+                    echo "<form method='post' class='troll'><input type='hidden' name='id_producto' value='{$producto['Cod_producto']}'>
+                    <input type='hidden' name='cantidad' value='1'>
+                    <button class='btn btn-custom' name='anadir' type='submit'>🛒</button>
+                  </form></form></form></td></tr>";
                 }
                 echo "</tbody>";
                 echo "</table>";
@@ -75,17 +92,24 @@ require_once('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Cone
                 echo "No hay productos favoritos";
             }
 
+        } else {
+            echo "No hay productos favoritos";
         }
         // Eliminar producto de favoritos
         if (isset($_POST['eliminar_fav'])) {
             $id_producto = $_POST['eliminar_fav'];
             // Buscar el índice del producto en el array de favoritos
             $indice = array_search($id_producto, $_SESSION['favoritos']);
+
             if ($indice !== false) {
                 // Eliminar el producto del array
                 unset($_SESSION['favoritos'][$indice]);
                 // Redirigir para actualizar la página
-                header("Location: " . $_SERVER['PHP_SELF']);
+        
+                if ($_POST['anadir_fav']) {
+
+                    header("Location: " . $_SERVER['HTTP_REFERER']);
+                }
             }
         }
 
