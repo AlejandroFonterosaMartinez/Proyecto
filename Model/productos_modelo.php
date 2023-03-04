@@ -46,3 +46,11 @@ function cargar_categorias($cat)
     $resul = $db->query($ins);
     return $resul;
 }
+
+function cargar_producto($cod){
+    include('..'. DIRECTORY_SEPARATOR .'Config'. DIRECTORY_SEPARATOR .'Conectar.php');
+    $db = Conectar::conexion();
+    $ins = "SELECT * FROM productos WHERE Cod_producto='$cod'";
+    $resul = $db->query($ins);
+    return $resul;
+}
