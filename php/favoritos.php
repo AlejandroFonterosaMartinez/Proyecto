@@ -100,11 +100,16 @@ $_SESSION['mensaje'] = "<div class='alert alert-success' role='alert'>Añadido a
             $id_producto = $_POST['eliminar_fav'];
             // Buscar el índice del producto en el array de favoritos
             $indice = array_search($id_producto, $_SESSION['favoritos']);
+
             if ($indice !== false) {
                 // Eliminar el producto del array
                 unset($_SESSION['favoritos'][$indice]);
                 // Redirigir para actualizar la página
-                header("Location: " . $_SERVER['PHP_SELF']);
+        
+                if ($_POST['anadir_fav']) {
+
+                    header("Location: " . $_SERVER['HTTP_REFERER']);
+                }
             }
         }
 

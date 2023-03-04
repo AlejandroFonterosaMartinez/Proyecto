@@ -51,41 +51,46 @@ function insertar_pedido($carrito, $iduser)
 {
     $bd = Conectar::conexion();
     $bd->beginTransaction();
+
+
     try {
         $factura = random_num();
         $fecha = date("Y-m-d");
         // insertar el pedido
-        $sql1 = "insert into pedidos(Cod_pedido, fecha) 
-			values( $factura, '$fecha')";
-        $bd->query($sql1);
+        $sql1 = "insert into pedidos(usuario,Cod_pedido, fecha) values(?,?,?)";
+        $stmt1 = $bd->prepare($sql1);
+        $stmt1->execute(array($iduser, $factura, $fecha));
         // coger el id del nuevo pedido para las filas detalle
-        $pedido = $bd->lastInsertId();
+        $pedido = $factura;
         // insertar las filas en pedidoproductos
-        foreach ($carrito as $codProd => $unidades) {
-            $stmt = $bd->prepare("Select stock, nombre from productos where Cod_producto=?");
-            $stmt->execute(array($codProd));
-            list($stock, $nombreproducto) = $stmt->fetch();
+        $bd->beginTransaction();
+        foreach ($carrito as $idproducto => $unidades) {
+            $stmt2 = $bd->prepare("Select stock, nombre from productos where Cod_producto=?");
+            $stmt2->execute(array($idproducto));
+            list($stock, $nombreproducto) = $stmt2->fetch();
             if ($stock < $unidades) {
                 throw new PDOException("El producto $nombreproducto no dispone del stock solicitado");
             }
             $stock -= $unidades;
-            $stmt = $bd->prepare("UPDATE productos set stock=? where Cod_producto=?");
-            $stmt->execute(array($stock, $codProd));
+            $stmt3 = $bd->prepare("UPDATE productos set stock=? where Cod_producto=?");
+            $stmt3->execute(array($stock, $idproducto));
 
-            $stmt = $bd->prepare("insert into pedidosproductos(Cod_pedido, Cod_producto, Unidades) 
-		             values(?, ?, ?)");
-            $stmt->execute(array($pedido, $codProd, $unidades));
+            $stmt4 = $bd->prepare("insert into pedidosproductos(Cod_pedido, Cod_producto, Unidades) values(?, ?, ?)");
+            $stmt4->execute(array($pedido, $idproducto, $unidades));
         }
         $bd->commit();
         return $pedido;
     } catch (PDOException $e) {
         echo $e->getMessage();
-        $bd->rollback();
+        $bd->rollBack();
         return FALSE;
+        
     } finally {
         unset($bd);
+        
     }
 }
+
 /**
  * [random_num funcion que genera un numero aleatorio de 3 cifras]
  *
@@ -93,7 +98,7 @@ function insertar_pedido($carrito, $iduser)
  */
 function random_num()
 {
-    $length = 2 ;
+    $length = 2;
     $key = '';
     $keys = array_merge(range(0, 9));
 

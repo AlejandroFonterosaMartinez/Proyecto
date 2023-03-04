@@ -51,7 +51,7 @@ function eliminarProducto(event, claveUnica) {
 
     // Enviar una petición AJAX al servidor para eliminar la variable de sesión
     const xhr = new XMLHttpRequest();
-    xhr.open('POST', 'eliminar_sesion.php');
+    xhr.open('POST', 'eliminar_producto.php');
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.onreadystatechange = function () {
         if (xhr.readyState === XMLHttpRequest.DONE) {
@@ -60,7 +60,7 @@ function eliminarProducto(event, claveUnica) {
                 actualizarPrecio(-precioNumerico * cantidad);
                 divProducto.remove();
                 actualizarContadorCarrito(); // Llamar a la función para actualizar el contador del carrito
-               // Llamar a la función para actualizar el contador de productos
+                // Llamar a la función para actualizar el contador de productos
             } else {
                 // Si la petición falló, mostrar un mensaje de error
                 alert('Error al eliminar el producto');

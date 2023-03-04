@@ -81,7 +81,7 @@ if (isset($_POST['anadir'], $_POST['id_producto'], $_POST['cantidad'])) {
     <link href="css/general.css" rel="stylesheet" type="text/css">
     <link href="css/carrusel.css" rel="stylesheet" type="text/css">
     <link href="css/header.css" rel="stylesheet" type="text/css">
-    <link href="css/carrito.css" rel="stylesheet" type="text/css">
+
     <link href="css/index.css" rel="stylesheet" type="text/css">
     <link href="css/footer.css" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="imagenes/Logo.ico" type="image/x-icon" />

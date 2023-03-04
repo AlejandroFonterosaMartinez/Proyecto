@@ -14,7 +14,7 @@ class User extends Conectar
      */
     public function loguearUsuario($email, $password)
     {
-        $stmt = $this->conexion()->prepare("SELECT Correo, Contraseña, id_rol FROM `usuarios` WHERE Correo=:email");
+        $stmt = $this->conexion()->prepare("SELECT id_usuario,Correo, Contraseña, id_rol FROM `usuarios` WHERE Correo=:email");
         $stmt->bindParam(':email', $email, PDO::PARAM_STR);
         $stmt->execute();
 
