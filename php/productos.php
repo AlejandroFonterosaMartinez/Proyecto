@@ -7,7 +7,7 @@ include('header.php'); ?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>BricoTeis SL</title>
     <link href="../css/general.css" rel="stylesheet" type="text/css">
     <link href="../css/header.css" rel="stylesheet" type="text/css">
     <link href="../css/productos.css" rel="stylesheet" type="text/css">
@@ -17,8 +17,9 @@ include('header.php'); ?>
 
 <body>
     <div class="contenido">
+        <button id="toggleMenuCat"> ≡ </button>  
         <div class="menuCat">
-            <input type="button" class="categoria" value="Tejados Y Cubiertas" />
+        <input type="button" class="categoria" value="Tejados Y Cubiertas" />
             <input type="button" class="categoria" value="Arenas y Gravas" />
             <input type="button" class="categoria" value="Cementos Y Morteros" />
             <input type="button" class="categoria" value="Madera" />
@@ -28,6 +29,7 @@ include('header.php'); ?>
             <input type="button" class="categoria" value="Elementos de construcción" />
             <input type="button" class="categoria" value="Aislamientos" />
         </div>
+        <script src="../javascript/menuLat.js"></script>
         <div class="mostrar">
             <?php
             include('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'productos_modelo.php');

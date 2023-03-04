@@ -16,7 +16,6 @@ $_SESSION['mensaje'] = "<div class='alert alert-success' role='alert'>Añadido a
     <link href="../css/general.css" rel="stylesheet" type="text/css">
     <link href="../css/header.css" rel="stylesheet" type="text/css">
     <link href="../css/footer.css" rel="stylesheet" type="text/css">
-    <link href="../css/productos.css" rel="stylesheet" type="text/css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
@@ -75,7 +74,7 @@ $_SESSION['mensaje'] = "<div class='alert alert-success' role='alert'>Añadido a
                     echo "<thead><tr><th>Imagen</th><th>Nombre</th><th>Descripción</th><th>Precio</th><th></th></tr></thead>";
                     echo "<tbody>";
 
-                    echo "<tr><td><img  src='../imagenes/Productos/{$producto['Cod_producto']}.png'></img></td><td>{$producto['nombre']}</td><td>{$producto['descripcion']}</td><td>{$producto['precio']}€</td>";
+                    echo "<tr><td class='col-1'><img class='img-thumbnail' src='../imagenes/Productos/{$producto['Cod_producto']}.png'></td><td>{$producto['nombre']}</td><td>{$producto['descripcion']}</td><td>{$producto['precio']}€</td>";
                     echo "<td>";
                     // Formulario para eliminar el producto
                     echo "<form method='post'>";

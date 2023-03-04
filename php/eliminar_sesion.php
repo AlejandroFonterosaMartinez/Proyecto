@@ -13,3 +13,6 @@ foreach ($_SESSION['cart'] as $producto) {
 
 }
 ?>
+
+}
+?>

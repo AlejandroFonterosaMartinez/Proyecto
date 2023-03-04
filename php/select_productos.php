@@ -53,10 +53,10 @@ foreach ($resul as $row) {
             <button class='favButton' name='anadir_fav' type='submit'>🤍</button>
         </form>
         <form class='troll' method='post'>
-              <input type='hidden' name='id_producto' value='{$row['Cod_producto']}'>
-              <input type='hidden' name='cantidad' value='1'>
-              <button class='trollButton' name='anadir' type='submit'>AÑADIR AL CARRITO</button>
-            </form>
+        <input type='hidden' name='id_producto' value='{$row['Cod_producto']}'>
+        <input type='hidden' name='cantidad' value='1'>
+        <button class='trollButton' name='anadir' type='submit'>AÑADIR AL CARRITO</button>
+      </form>
     </div>";
     $texto .= "</div>";
 }

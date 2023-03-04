@@ -53,22 +53,19 @@ if (isset($_POST['anadir'], $_POST['id_producto'], $_POST['cantidad'])) {
 }
 ?>
 <header>
-    <div class="container">
+    <div class="containerH">
         <div class="infoPag">
             <a href="../index.php">
                 <img src="../imagenes/Header/Logo.svg" />
                 BricoTeis SL
             </a>
         </div>
+<!-- Buscador -->
         <div class="buscador">
-            <form method="get" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
                 <div class="cajaTexto">
-                    <form method="get" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-                        <div class="cajaTexto">
-                            <input type="text" name="query" name="query" placeholder="Buscar...">
-                            <button type="submit">Buscar</button>
-                        </div>
-                    </form>
+                        <input type="text" name="query" name="query" placeholder="Buscar...">
+                        <button type="submit">Buscar</button>
                 </div>
             </form>
         </div>
