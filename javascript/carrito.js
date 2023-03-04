@@ -1,21 +1,37 @@
 const cantidades = document.querySelectorAll('[id^="cantidad"]');
 cantidades.forEach(cantidad => {
-    cantidad.onchange = actualizarCantidad;
+    cantidad.onchange = actualizar_cantidad;
 });
 
-function actualizarCantidad() {
+function actualizar_cantidad() {
     const productos = document.querySelectorAll('[id^="prod_"]');
     var suma = 0;
     var totalProductos = 0;
+
     productos.forEach(element => {
-        const cantidad = element.querySelector('.cantidad').value;
-        const precio = element.querySelector('[id^="precio_"]').textContent;
-        suma += parseInt(cantidad) * parseFloat(precio);
-        totalProductos += parseInt(cantidad);
+        const clave_unica = element.querySelector('[name="clave_unica"]').value;
+        const cantidad = parseInt(element.querySelector(`#cantidad_${clave_unica}`).value);
+        const precio = parseFloat(element.querySelector(`#precio_${clave_unica}`).textContent);
+
+        suma += cantidad * precio;
+        totalProductos += cantidad;
+
+        // Enviamos la cantidad actualizada al servidor a través de AJAX
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'actualizar_cantidad.php');
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onload = function () {
+            console.log(xhr.responseText);
+        };
+        xhr.send(`clave_unica=${clave_unica}&cantidad=${cantidad}`);
     });
+
     document.getElementById('preciototal').innerHTML = suma.toFixed(2) + " €";
     actualizarContadorCarrito(totalProductos);
 }
+
+
+
 
 function actualizarPrecio(precio) {
     const precioTotal = document.getElementById('preciototal');
@@ -44,7 +60,7 @@ function eliminarProducto(event, claveUnica) {
                 actualizarPrecio(-precioNumerico * cantidad);
                 divProducto.remove();
                 actualizarContadorCarrito(); // Llamar a la función para actualizar el contador del carrito
-                actualizarContadorProductos(); // Llamar a la función para actualizar el contador de productos
+               // Llamar a la función para actualizar el contador de productos
             } else {
                 // Si la petición falló, mostrar un mensaje de error
                 alert('Error al eliminar el producto');

@@ -9,7 +9,7 @@
 session_start();
 // añadir a favs
 if (isset($_SESSION['mensaje'])) {
-    echo '<div class="alerta alert alert-success" role="alert" style="text-align:center;">' . $_SESSION['mensaje'] . '</div>';
+    echo '<div class="alerta" id="alerta" style="text-align:center;">' . $_SESSION['mensaje'] . '</div>';
     unset($_SESSION['mensaje']);
 }
 // Errores

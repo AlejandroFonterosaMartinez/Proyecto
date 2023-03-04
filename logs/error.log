@@ -225,3 +225,7 @@ Stack trace:
 #0 C:\xampp\htdocs\Proyecto\index.php(38): array_column('productos_en_ca...', 'Cod_producto')
 #1 {main}
   thrown in C:\xampp\htdocs\Proyecto\index.php on line 38
+[04-Mar-2023 04:00:42 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: string + int in C:\xampp\htdocs\Proyecto\index.php:52
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Proyecto\index.php on line 52
