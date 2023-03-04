@@ -112,7 +112,20 @@
             </div>
             <div class="contenido">
                 <a href="AboutUs.php">About Us</a>
-                <a href="Newsletter.php">Newsletter</a>
+                <a id="newsletter-link">Newsletter</a>
+
+                <div id="newsletter-overlay">
+                    <div id="newsletter-popup">
+                        <button id="close-popup">X</button>
+                        <h2>Suscríbete a nuestra Newsletter</h2>
+                        <p>Ingresa tu correo electrónico para recibir nuestras últimas noticias y ofertas:</p>
+                        <form>
+                            <input type="email" name="email" placeholder="Tu correo electrónico" required>
+                            <button type="submit">Suscribirse</button>
+                        </form>
+                    </div>
+                </div>
+                <script src="../javascript/newsletter.js"></script>
                 <a href="InfoLegal.php">Información Legal</a>
             </div>
         </div>

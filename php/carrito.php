@@ -59,12 +59,12 @@ include('header.php');
                                             <h5 class='pt-2 precio' id='precio_$clave_unica'>$precioproducto €/u</h5>
                                             <div>
                                                 <input type='hidden' name='clave_unica' value='$clave_unica'>
-                                                <button type='button' class='btn btn-danger mx-2' onclick='eliminarProducto(event, \"$clave_unica\")'>Borrar 🗑</button>
+                                                <button type='button' id='borrar' class='btn btn-danger mx-2' onclick='eliminarProducto(event, \"$clave_unica\")'>Eliminar 🗑</button>
                                             </div>
                 
                                             <div class='row-md-3'>
                                                 <input type='hidden' name='id_producto' value='$clave_unica'>
-                                                <input type='number' min='1' max='$stock' id='cantidad_$clave_unica' name='cantidad_$clave_unica' value='$cantidad' class='text-center form-control w-25 d-inline cantidad' onchange='actualizarCantidad()'>
+                                                <input type='number' min='1' max='$stock' id='cantidad_$clave_unica' name='cantidad_$clave_unica' value='$cantidad' class='text-center form-control w-25 d-inline cantidad' onchange='actualizar_cantidad()'>
                                             </div>
                                         </div>
                                     </div>
@@ -91,19 +91,49 @@ include('header.php');
                         <hr>
                         <h4>Detalles del pedido</h4>
 
+                        <?php $cantidad_productos = isset($_SESSION['cart']) ? count($_SESSION['cart']) : 0; ?>
+
                         <div class="row price-details">
-                            <div class="col-md-6">
-                                <h6> Precio de los
-                                    <?php echo isset($_SESSION['cart']) ? count($_SESSION['cart']) : 0; ?>
-                                    productos
-                                </h6>
-                                <h6> Total </h6>
-                            </div>
-                            <div class="col-md-6" id="preciototal">
-                                <?php echo isset($total) ? $total . "€" : "0€"; ?>
-                            </div>
-                            <button class="btn btn-warning">Finalizar Compra</button>
+                            <?php if (isset($_SESSION['cart']) && count($_SESSION['cart']) > 0) { ?>
+                                <div class="col-md-6">
+                                    <h6> Precio de los
+                                        <?php echo count($_SESSION['cart']); ?> productos
+                                    </h6>
+                                    <h6> Total </h6>
+                                </div>
+                                <div class="col-md-6" id="preciototal">
+                                    <?php echo isset($total) ? $total . "€" : "0€"; ?>
+                                </div>
+                                <?php if ($_SESSION['rol'] != 3) { ?>
+                                    <form method="post" action="finalizar_compra.php">
+                                        <input type="hidden" name="total" value="<?php echo isset($total) ? $total : 0; ?>">
+                                        <input type="hidden" name="cantidad" value="<?php echo ($_SESSION['cart']); ?>">
+                                        <input type="hidden" name="id_producto"
+                                            value="<?php echo implode(',', $id_productos_en_carrito); ?>">
+                                        <input type="hidden" name="cantidad_producto" value="<?php echo $cantidad; ?>">
+                                        <input type="hidden" name="stock" value="<?php echo $stock; ?>">
+                                        <input type="hidden" name="nombre_producto" value="<?php echo $nombreproducto; ?>">
+                                        <input type="hidden" name="precio_producto" value="<?php echo $precioproducto; ?>">
+                                        <button type="submit" class="btn btn-warning">Finalizar Compra</button>
+                                    </form>
+                                <?php } else { ?>
+                                    <div class="col-md-12">
+                                        <div class="alert alert-warning">
+                                            <p>Debes iniciar sesión para poder realizar una compra.</p>
+                                        </div>
+                                    </div>
+                                <?php } ?>
+                            <?php } else { ?>
+                                <div class="col-md-12">
+                                    <div class="alert alert-warning">
+                                        <p>Debes tener productos en tu carrito para poder finalizar la compra.</p>
+                                    </div>
+                                </div>
+                            <?php } ?>
                         </div>
+
+
+
                     </div>
                 </div>
             </div>

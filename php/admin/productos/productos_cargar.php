@@ -1,12 +1,14 @@
 <?php
-include('..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
+include('../../../Config/Conectar.php');
 
 $db = Conectar::conexion();
-
-$sql = "SELECT * FROM productos";
+$sql = "SELECT Cod_producto,Nombre,Descripcion,Precio,Stock,Categoria,Descripcion_detallada,Destacado FROM productos";
 $stmt = $db->prepare($sql);
-$stmt->execute();
+if (!$stmt) {
+    die("Error al preparar la consulta SQL.");
+}
 
+$stmt->execute();
 $contador = 1;
 $texto = "";
 while ($valores = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -30,4 +32,3 @@ while ($valores = $stmt->fetch(PDO::FETCH_ASSOC)) {
 }
 $output =$texto;
 echo $output;
-?>

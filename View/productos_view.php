@@ -4,7 +4,8 @@
     foreach ($array_productos as $row) {
       $precio_formateado = number_format($row["Precio"], 2);
       echo "<div class='producto'>
-          <img src='imagenes/Productos/{$row['Cod_producto']}.png'></img>
+        <a href='php/producto.php?codigo=" . $row['Cod_producto'] . "'>
+          <img src='imagenes/Productos/{$row['Cod_producto']}.png'></img></a>
           <label>{$row['Nombre']}</label>
           <label>{$precio_formateado}€/Ud.</label>
           <div class='button'>

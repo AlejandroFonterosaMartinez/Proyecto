@@ -20,7 +20,7 @@ class loginController
                 exit;
             }
         } else {
-            echo '<div class="alerta alert alert-danger" role="alert" style="text-align:center;">Usuario/Contraseña Incorrectos</div>';
+            echo '<div class="alert alert-danger" role="alert" style="text-align:center;">Usuario/Contraseña Incorrectos</div>';
         }
     }
 }

@@ -23,6 +23,18 @@ $_SESSION['mensaje'] = "<div class='alert alert-success' role='alert'>Añadido a
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
 </head>
+<style>
+    .btn-custom {
+        background-color: #00b3aa;
+        color: #00b3aa;
+    }
+
+    .btn-custom:hover {
+        background-color: #00b3aa;
+        color: #00b3aa;
+    }
+</style>
+
 
 <body class="bg-light">
     <div class="container-fluid">
@@ -67,9 +79,12 @@ $_SESSION['mensaje'] = "<div class='alert alert-success' role='alert'>Añadido a
                     // Formulario para eliminar el producto
                     echo "<form method='post'>";
                     echo "<input type='hidden' name='eliminar_fav' value='{$producto['Cod_producto']}' />";
-                    echo "<button type='submit' class='btn btn-danger'>Eliminar 🗑️</button>";
-                    echo "</form>";
-                    echo "</td></tr>";
+                    echo "<button type='submit' class='btn btn-danger'>🗑️</button>";
+                    echo "";
+                    echo "<form method='post' class='troll'><input type='hidden' name='id_producto' value='{$producto['Cod_producto']}'>
+                    <input type='hidden' name='cantidad' value='1'>
+                    <button class='btn btn-custom' name='anadir' type='submit'>🛒</button>
+                  </form></form></form></td></tr>";
                 }
                 echo "</tbody>";
                 echo "</table>";
@@ -85,11 +100,16 @@ $_SESSION['mensaje'] = "<div class='alert alert-success' role='alert'>Añadido a
             $id_producto = $_POST['eliminar_fav'];
             // Buscar el índice del producto en el array de favoritos
             $indice = array_search($id_producto, $_SESSION['favoritos']);
+
             if ($indice !== false) {
                 // Eliminar el producto del array
                 unset($_SESSION['favoritos'][$indice]);
                 // Redirigir para actualizar la página
-                header("Location: " . $_SERVER['PHP_SELF']);
+        
+                if ($_POST['anadir_fav']) {
+
+                    header("Location: " . $_SERVER['HTTP_REFERER']);
+                }
             }
         }
 

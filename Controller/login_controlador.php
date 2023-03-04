@@ -10,6 +10,7 @@ class loginController
         if (is_array($user)) {
             $_SESSION['correo'] = $email;
             $_SESSION['rol'] = $user['id_rol'];
+            $_SESSION['usuario'] = $user['id_usuario'];
             if ($_SESSION['rol'] == 2) {
                 setcookie("Administrador", $email, time() + 60 * 60 * 24 * 30, "/");
                 header('Location: ../php/admin/admin.php');

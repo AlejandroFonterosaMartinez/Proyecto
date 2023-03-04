@@ -14,7 +14,7 @@ class User extends Conectar
      */
     public function loguearUsuario($email, $password)
     {
-        $stmt = $this->conexion()->prepare("SELECT Correo, Contraseña, id_rol FROM `usuarios` WHERE Correo=:email");
+        $stmt = $this->conexion()->prepare("SELECT id_usuario,Correo, Contraseña, id_rol FROM `usuarios` WHERE Correo=:email");
         $stmt->bindParam(':email', $email, PDO::PARAM_STR);
         $stmt->execute();
 
@@ -28,4 +28,23 @@ class User extends Conectar
     }
 }
 
+/**
+ * Obtiene el nombre del usuario a partir de su correo
+ *
+ * @param   [type]  $email  $email correo del usuario
+ *
+ * @return  [type]          return $user['Nombre'] nombre del usuario
+ */
+function getNombreUsuario($email)
+{
+    $stmt = Conectar::conexion()->prepare("SELECT nombre FROM `usuarios` WHERE correo=:email");
+    $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+    $stmt->execute();
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $user['nombre'];
+}
+
+
+
 ?>
+

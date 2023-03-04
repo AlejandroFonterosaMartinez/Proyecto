@@ -1,3 +1,4 @@
+
 <?php
 include('header.php'); ?>
 <!DOCTYPE html>
@@ -45,7 +46,9 @@ include('header.php'); ?>
                  * que debemos añadir al carro del la compra. El formulario llama al fichero anadir.php
                  */
                 echo "<div class='producto'>
-                        <img src='../imagenes/Productos/{$cod}.png'></img>                   
+                        <a href='producto.php?codigo=" .$cod ."'>
+                        <img src='../imagenes/Productos/{$cod}.png'></img>   
+                        </a>                
                         <label>$nom</label>
                         <label>$precio_formateado €/Ud</label>
                         <div class='button'>
@@ -132,7 +135,20 @@ include('header.php'); ?>
             </div>
             <div class="contenido">
                 <a href="../php/AboutUs.php">About Us</a>
-                <a href="../php/Newsletter.php">Newsletter</a>
+                <a id="newsletter-link">Newsletter</a>
+
+                <div id="newsletter-overlay">
+                    <div id="newsletter-popup">
+                        <button id="close-popup">X</button>
+                        <h2>Suscríbete a nuestra Newsletter</h2>
+                        <p>Ingresa tu correo electrónico para recibir nuestras últimas noticias y ofertas:</p>
+                        <form>
+                            <input type="email" name="email" placeholder="Tu correo electrónico" required>
+                            <button type="submit">Suscribirse</button>
+                        </form>
+                    </div>
+                </div>
+                <script src="../javascript/newsletter.js"></script>
                 <a href="../php/InfoLegal.php">Información Legal</a>
             </div>
         </div>
