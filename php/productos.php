@@ -1,10 +1,12 @@
 <?php
 use Models\Categorias_modelo;
 
-$categorias_modelo = new Categorias_modelo();
-include('header.php'); ?>
+include('header.php');
+include('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'categorias_modelo.php');
+
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -35,8 +37,9 @@ include('header.php'); ?>
         <script src="../javascript/menuLat.js"></script>
         <div class="mostrar">
             <?php
-            include('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'productos_modelo.php');
-            $productos = $Categorias_modelo->cargar_categorias($_GET['categoria']);
+
+            $cat_modelo = new Categorias_modelo();
+            $productos = $cat_modelo->cargar_categorias($_GET['categoria']);
             echo "<div class='productos'>";
             foreach ($productos as $producto) {
                 $cod = $producto['Cod_producto'];

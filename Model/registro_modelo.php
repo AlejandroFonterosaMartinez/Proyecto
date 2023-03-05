@@ -1,6 +1,8 @@
 <?php
 namespace Models;
+
 use Config\Conectar;
+
 class Registro_modelo extends Conectar
 {
     /**

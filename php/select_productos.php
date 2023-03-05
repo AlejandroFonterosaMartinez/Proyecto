@@ -2,7 +2,7 @@
 use Config\Conectar;
 
 include('header.php');
-include('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
+
 /*
  * Devuelve un puntero con el código y nombre de las categorías de la BBDD
  * o falso si se produjo un error

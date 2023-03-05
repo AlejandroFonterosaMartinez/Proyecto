@@ -35,26 +35,7 @@ class Productos_modelo
         return $this->productos;
     }
 
-    /**
-     * [cargar_categorias description]
-     *
-     * @param   [type]  $cat  [$cat description]
-     *
-     * @return  [type]        [return description]
-     */
-    function cargar_categorias($cat)
-    {
-        include('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
-        /*
-         * Devuelve un puntero con el código y nombre de las categorías de la BBDD
-         * o falso si se produjo un error
-         */
 
-        $db = Conectar::conexion();
-        $ins = "SELECT Cod_producto,Nombre,Precio,Stock FROM productos WHERE Categoria='$cat'";
-        $resul = $db->query($ins);
-        return $resul;
-    }
     /**
      * [cargar_producto description]
      *
@@ -62,10 +43,9 @@ class Productos_modelo
      *
      * @return  [type]        [return description]
      */
-    function cargar_producto($cod)
+    public function cargar_producto($cod)
     {
         include('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
-        $db = Conectar::conexion();
         $ins = "SELECT * FROM productos WHERE Cod_producto='$cod'";
         $resul = $db->query($ins);
         return $resul;

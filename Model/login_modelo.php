@@ -1,6 +1,8 @@
 <?php
 namespace Models;
+
 use Config\Conectar;
+
 class Login_modelo extends Conectar
 {
     /**

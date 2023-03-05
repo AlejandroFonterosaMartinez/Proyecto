@@ -1,8 +1,10 @@
 <?php
 namespace Controllers;
 
-require_once('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'login_modelo.php');
 use Models\Login_modelo;
+
+require_once('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'login_modelo.php');
+
 
 class Login_controlador
 {

@@ -1,6 +1,8 @@
 <?php
 namespace Controllers;
+
 use Models\Perfil_modelo;
+
 include('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
 include('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'perfil_modelo.php');
 
@@ -39,7 +41,7 @@ if (isset($_SESSION['correo'])) {
 
 } else {
     echo "Por favor, inicia sesión";
-    header("Location:..". DIRECTORY_SEPARATOR ."index.php");
+    header("Location:.." . DIRECTORY_SEPARATOR . "index.php");
 }
 
-include('..'. DIRECTORY_SEPARATOR .'View'. DIRECTORY_SEPARATOR .'perfil_view.php');
+include('..' . DIRECTORY_SEPARATOR . 'View' . DIRECTORY_SEPARATOR . 'perfil_view.php');

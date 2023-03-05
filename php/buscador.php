@@ -1,6 +1,7 @@
 <?php
-include('header.php');
 use Config\Conectar;
+
+include('header.php');
 ?>
 
 

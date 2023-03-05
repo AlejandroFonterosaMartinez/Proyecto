@@ -263,3 +263,56 @@ Stack trace:
 #0 {main}
   thrown in C:\xampp\htdocs\Proyecto\index.php on line 28
 [05-Mar-2023 16:18:35 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "as", expecting "{" in C:\xampp\htdocs\Proyecto\Config\Conectar.php on line 2
+[05-Mar-2023 19:23:26 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function Config\cargar_configuracion() in C:\xampp\htdocs\Proyecto\Config\Conectar.php:14
+Stack trace:
+#0 C:\xampp\htdocs\Proyecto\Model\productos_modelo.php(19): Config\Conectar::conexion()
+#1 C:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(8): Models\Productos_modelo->__construct()
+#2 C:\xampp\htdocs\Proyecto\index.php(153): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\Proyecto\Config\Conectar.php on line 14
+[05-Mar-2023 19:27:27 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function Config\cargar_configuracion() in C:\xampp\htdocs\Proyecto\Config\Conectar.php:14
+Stack trace:
+#0 C:\xampp\htdocs\Proyecto\Model\productos_modelo.php(19): Config\Conectar::conexion()
+#1 C:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(8): Models\Productos_modelo->__construct()
+#2 C:\xampp\htdocs\Proyecto\index.php(153): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\Proyecto\Config\Conectar.php on line 14
+[05-Mar-2023 19:27:27 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function Config\cargar_configuracion() in C:\xampp\htdocs\Proyecto\Config\Conectar.php:14
+Stack trace:
+#0 C:\xampp\htdocs\Proyecto\Model\productos_modelo.php(19): Config\Conectar::conexion()
+#1 C:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(8): Models\Productos_modelo->__construct()
+#2 C:\xampp\htdocs\Proyecto\index.php(153): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\Proyecto\Config\Conectar.php on line 14
+[05-Mar-2023 19:27:36 Europe/Berlin] PHP Warning:  The use statement with non-compound name 'PDO' has no effect in C:\xampp\htdocs\Proyecto\Config\Conectar.php on line 5
+[05-Mar-2023 19:27:36 Europe/Berlin] PHP Warning:  The use statement with non-compound name 'Exception' has no effect in C:\xampp\htdocs\Proyecto\Config\Conectar.php on line 6
+[05-Mar-2023 19:27:36 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Config\Conectar" not found in C:\xampp\htdocs\Proyecto\Model\productos_modelo.php:19
+Stack trace:
+#0 C:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(8): Models\Productos_modelo->__construct()
+#1 C:\xampp\htdocs\Proyecto\index.php(153): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 19
+[05-Mar-2023 19:27:42 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Config\Conectar" not found in C:\xampp\htdocs\Proyecto\Model\productos_modelo.php:19
+Stack trace:
+#0 C:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(8): Models\Productos_modelo->__construct()
+#1 C:\xampp\htdocs\Proyecto\index.php(153): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 19
+[05-Mar-2023 20:12:47 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in C:\xampp\htdocs\Proyecto\Model\productos_modelo.php:26
+Stack trace:
+#0 C:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(9): Models\Productos_modelo->get_productos()
+#1 C:\xampp\htdocs\Proyecto\index.php(153): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 26
+[05-Mar-2023 20:12:51 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Config\Conectar" not found in C:\xampp\htdocs\Proyecto\Model\productos_modelo.php:18
+Stack trace:
+#0 C:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(8): Models\Productos_modelo->__construct()
+#1 C:\xampp\htdocs\Proyecto\index.php(153): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 18
+[05-Mar-2023 20:12:52 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Config\Conectar" not found in C:\xampp\htdocs\Proyecto\Model\productos_modelo.php:18
+Stack trace:
+#0 C:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(8): Models\Productos_modelo->__construct()
+#1 C:\xampp\htdocs\Proyecto\index.php(153): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 18

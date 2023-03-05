@@ -1,5 +1,6 @@
 <?php
 use Config\Conectar;
+
 require_once('..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
 $db = Conectar::conexion();
 $id = $_POST['id'];

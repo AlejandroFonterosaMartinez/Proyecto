@@ -1,8 +1,9 @@
 <?php
 use Models\Productos_modelo;
 
-$producto_modelo = new Productos_modelo();
-include('header.php'); ?>
+
+include('header.php');
+$producto_modelo = new Productos_modelo(); ?>
 <!DOCTYPE html>
 <html lang="en">
 

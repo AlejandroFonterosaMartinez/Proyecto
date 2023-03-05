@@ -1,6 +1,8 @@
 <?php
 namespace Models;
+
 use Config\Conectar;
+
 class Categorias_modelo
 {
     private $db;
@@ -33,6 +35,26 @@ class Categorias_modelo
             die("Error: " . $e->getMessage());
         }
 
+    }
+    /**
+     * [cargar_categorias description]
+     *
+     * @param   [type]  $cat  [$cat description]
+     *
+     * @return  [type]        [return description]
+     */
+    public function cargar_categorias($cat)
+    {
+        include('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
+        /*
+         * Devuelve un puntero con el código y nombre de las categorías de la BBDD
+         * o falso si se produjo un error
+         */
+
+        $db = Conectar::conexion();
+        $ins = "SELECT Cod_producto,Nombre,Precio,Stock FROM productos WHERE Categoria='$cat'";
+        $resul = $db->query($ins);
+        return $resul;
     }
 }
 
