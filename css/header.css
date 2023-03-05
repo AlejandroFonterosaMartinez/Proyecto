@@ -61,6 +61,12 @@ button:hover {
   cursor: pointer;
 }
 
+.cuenta {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .cuenta:hover .submenu {
   visibility: visible;
 }

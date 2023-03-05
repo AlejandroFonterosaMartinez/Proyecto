@@ -7,7 +7,7 @@ require '..' . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'phpmailer
 require '..' . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'phpmailer' . DIRECTORY_SEPARATOR . 'phpmailer' . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'SMTP.php';
 
 
-function enviar_correo($email, $nombre)
+function enviar_correo($email, $nombre, $subjet, $cuerpo = "", )
 {
     $mail = new PHPMailer(true);
     try {
@@ -28,12 +28,13 @@ function enviar_correo($email, $nombre)
         $mail->addAddress($email, $nombre); //Add a recipient
 //Content
         $mail->isHTML(true); //Set email format to HTML
-        $mail->Subject = 'Registro en BricoTeis SL';
-        $mail->Body = 'Gracias por registrarte en BricoTeis SL, ' . $nombre . '  disfruta de nuestros productos.</b>';
+        $mail->Subject = $subjet;
+        $mail->Body = $cuerpo;
         //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
         $mail->send();
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
 }
+
 ?>

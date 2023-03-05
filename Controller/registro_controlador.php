@@ -9,7 +9,7 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
     // ENVIO CORREO
-    enviar_correo($email, $nombre);
+    enviar_correo($email, $nombre, "Registro BricoTeis", "Gracias " . $nombre . " por registrarte en BricoTeis");
     // REGISTRO
     $registro = new UserRegistration();
     $registro->register($nombre, $apellidos, $fecha_nacimiento, $email, $password);

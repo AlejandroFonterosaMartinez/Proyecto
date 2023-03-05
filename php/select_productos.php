@@ -37,25 +37,26 @@ switch ($cat) {
         $cat = 9;
         break;
 }
-$ins = "SELECT Cod_producto,Nombre,Precio FROM productos WHERE Categoria='$cat'";
+$ins = "SELECT Cod_producto,Nombre,Precio,Stock FROM productos WHERE Categoria='$cat'";
 $resul = $db->query($ins);
 $texto = '';
 $texto .= "<div class='productos'>";
 foreach ($resul as $row) {
+    $cod = $row['Cod_producto'];
+    $stock = $row['Stock'];
     $precio_formateado = number_format($row["Precio"], 2);
     $texto .= "<div class='producto'>";
     $texto .= "<img src='../imagenes/Productos/{$row['Cod_producto']}.png'></img>";
     $texto .= "<label>" . $row["Nombre"] . "</label>";
     $texto .= "<label>" . $precio_formateado . "</label>";
     $texto .= "<div class='button'>
-        <form method='post' action='favoritos.php'>
-            <input type='hidden' name='id_producto_fav' value='{$row['Cod_producto']}'>
-            <button class='favButton' name='anadir_fav' type='submit'>🤍</button>
-        </form>
-        <form class='troll' method='post'>
-        <input type='hidden' name='id_producto' value='{$row['Cod_producto']}'>
-        <input type='hidden' name='cantidad' value='1'>
-        <button class='trollButton' name='anadir' type='submit'>AÑADIR AL CARRITO</button>
+    <form class='fav' method='post' action='php/favoritos.php'>
+    <input type='hidden' name='id_producto_fav' value='{$row['Cod_producto']}'>
+      <button class='favButton' name='anadir_fav' type='submit'>🤍</button>
+      </form>
+      <form class='troll' method='post'>
+        <input name = 'unidades' type='number' min = '1' max='$stock' value = '1'>
+        <input type = 'submit' class='trollButton' name='anadir' value='Añadir al carrito'><input name ='cod' type='hidden' value = '$cod'></input>
       </form>
     </div>";
     $texto .= "</div>";

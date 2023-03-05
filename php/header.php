@@ -1,55 +1,31 @@
 <?php
 session_start();
-// Errores
-ini_set('log_errors', 1);
-ini_set('error_log', 'logs/error.log');
-
+// AÑADIR A FAVORITOS
+if (isset($_SESSION['mensaje'])) {
+    echo '<div class="alerta" id="alerta" style="text-align:center;">' . $_SESSION['mensaje'] . '</div>';
+    unset($_SESSION['mensaje']);
+}
 // Verificar si el usuario está logueado
 if (!isset($_SESSION['correo'])) {
     // Si el usuario no está logueado, establecer el rol en 3
     $_SESSION['rol'] = 3;
 }
+// Errores
+ini_set('log_errors', 1);
+ini_set('error_log', 'logs/error.log');
 
-/**
- * Carrito
- */
-if (!isset($_SESSION['cart_count'])) {
-    $_SESSION['cart_count'] = 0;
-}
-if (isset($_POST['anadir'], $_POST['id_producto'], $_POST['cantidad'])) {
-    // Verificar que los campos sean válidos
-    $product_id = filter_input(INPUT_POST, 'id_producto', FILTER_VALIDATE_INT);
-    $cantidad = filter_input(INPUT_POST, 'cantidad', FILTER_VALIDATE_INT);
-
-    if (!$product_id || !$cantidad) {
-        // Mostrar un mensaje de error si los campos son inválidos
-        echo "Error: campos inválidos";
-        exit;
-    }
-
-    // Inicializar el array del carrito si es necesario
-    if (!isset($_SESSION['cart'])) {
-        $_SESSION['cart'] = array();
-    }
-
-    // Buscar si el producto ya está en el carrito
-    $product_index = array_search($product_id, array_column($_SESSION['cart'], 'Cod_producto'));
-
-    if ($product_index !== false) {
-        // Si el producto ya está en el carrito, actualizar la cantidad
-        $_SESSION['cart'][$product_index]['cantidad'] += $cantidad;
-        // Incrementar el contador del carrito
-        $_SESSION['cart_count'] += $cantidad;
+// Verificar si el usuario está logueado
+if (isset($_POST['anadir'])) {
+    $cod = $_POST['cod'];
+    $unidades = (int) $_POST['unidades'];
+    /* si existe el código sumamos las unidades */
+    if (isset($_SESSION['carrito'][$cod])) {
+        $_SESSION['carrito'][$cod] += $unidades;
     } else {
-        // Si el producto no está en el carrito, agregar un nuevo elemento
-        $new_product = array(
-            'Cod_producto' => $product_id,
-            'cantidad' => $cantidad,
-        );
-        $_SESSION['cart'][] = $new_product;
-        // Incrementar el contador del carrito
-        $_SESSION['cart_count'] += $cantidad;
+        $_SESSION['carrito'][$cod] = $unidades;
     }
+    /* actualizamos el contador del carrito */
+    $_SESSION['cart_count'] = count($_SESSION['carrito']);
 }
 ?>
 <header>
@@ -60,12 +36,12 @@ if (isset($_POST['anadir'], $_POST['id_producto'], $_POST['cantidad'])) {
                 BricoTeis SL
             </a>
         </div>
-<!-- Buscador -->
+        <!-- Buscador -->
         <div class="buscador">
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
                 <div class="cajaTexto">
-                        <input type="text" name="query" name="query" placeholder="Buscar...">
-                        <button type="submit">Buscar</button>
+                    <input type="text" name="query" name="query" placeholder="Buscar...">
+                    <button type="submit">Buscar</button>
                 </div>
             </form>
         </div>

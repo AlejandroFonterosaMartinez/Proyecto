@@ -1,15 +1,15 @@
 <?php
+/* comprueba que el usuario haya abierto sesión o redirige */
 session_start();
-
-
-foreach ($_SESSION['cart'] as $producto) {
-    $cod_producto = $producto['Cod_producto'];
-
-    $indice = array_search($cod_producto, array_column($_SESSION['cart'], 'Cod_producto'));
-    if ($indice !== false) {
-        unset($_SESSION['cart'][$indice]);
-
+$cod = $_POST['cod'];
+$unidades = $_POST['unidades'];
+/* si existe el código restamos las unidades, con mínimo de 0 */
+if (isset($_SESSION['carrito'][$cod])) {
+    $_SESSION['carrito'][$cod] -= $unidades;
+    if ($_SESSION['carrito'][$cod] <= 0) {
+        unset($_SESSION['carrito'][$cod]);
     }
-
+    /* actualizamos el contador del carrito */
+    $_SESSION['cart_count'] = count($_SESSION['carrito']);
 }
-?>
+header("Location: carrito.php");
