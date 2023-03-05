@@ -1,4 +1,10 @@
 <?php
+
+namespace Config;
+
+use \PDO;
+use \Exception;
+
 class Conectar
 {
     public static function conexion()
@@ -13,16 +19,15 @@ class Conectar
         }
         return $conexion;
     }
-
-
 }
+
 function cargar_configuracion($xml, $validador)
 {
-    $config = new DOMDocument();
+    $config = new \DOMDocument();
     $config->load($xml);
     $res = $config->schemaValidate($validador);
     if ($res === FALSE) {
-        throw new InvalidArgumentException("ERROR en el fichero de configuración");
+        throw new \InvalidArgumentException("ERROR en el fichero de configuración");
     }
     $datos = simplexml_load_file($xml);
     $ip = $datos->xpath("//ip");

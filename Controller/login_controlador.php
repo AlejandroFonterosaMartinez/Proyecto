@@ -1,12 +1,15 @@
 <?php
+namespace Controllers;
 
 require_once('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'login_modelo.php');
+use Models\Login_modelo;
 
-class loginController
+class Login_controlador
 {
     public function login($email, $password)
     {
-        $user = (new User)->loguearUsuario($email, $password);
+
+        $user = (new Login_modelo)->loguearUsuario($email, $password);
         if (is_array($user)) {
             $_SESSION['correo'] = $email;
             $_SESSION['rol'] = $user['id_rol'];

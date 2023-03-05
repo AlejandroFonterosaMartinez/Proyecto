@@ -1,4 +1,7 @@
 <?php
+
+use Models\Productos_modelo;
+
 require_once('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
 require_once('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'productos_modelo.php');
 include('header.php');
@@ -30,14 +33,14 @@ if ($_SESSION['rol'] == 3) {
             <div class='alert-warning alert'>  Debes iniciar sesión primero para realizar una compra.
             </div></div></div>";
 } elseif (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])) {
-    $productos = insertar_carrito(array_keys($_SESSION['carrito']));
+    $productos = Productos_modelo::insertar_carrito(array_keys($_SESSION['carrito']));
     if ($productos === FALSE) {
         echo "<div class='alert alert-danger' role='alert'>
         No hay productos en el carrito.
     </div>";
         exit;
     }
-    $productos = insertar_carrito(array_keys($_SESSION['carrito']));
+    $productos = Productos_modelo::insertar_carrito(array_keys($_SESSION['carrito']));
     if ($productos === FALSE) {
         echo "<div class='alert alert-danger' role='alert'>
         No hay productos en el carrito.

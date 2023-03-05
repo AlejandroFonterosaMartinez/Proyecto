@@ -1,8 +1,8 @@
 <?php
-
-class Categorias_model
+namespace Models;
+use Config\Conectar;
+class Categorias_modelo
 {
-
     private $db;
     private $categorias;
 
@@ -12,7 +12,7 @@ class Categorias_model
      */
     public function __construct()
     {
-        require_once("..". DIRECTORY_SEPARATOR ."Config". DIRECTORY_SEPARATOR ."Conectar.php");
+        require_once(".." . DIRECTORY_SEPARATOR . "Config" . DIRECTORY_SEPARATOR . "Conectar.php");
         $this->db = Conectar::conexion();
         $this->categorias = array();
     }
@@ -23,15 +23,17 @@ class Categorias_model
      */
     public function get_categorias()
     {
-
-        $consulta = $this->db->query("SELECT * FROM categorias");
-        while ($row = $consulta->fetch(PDO::FETCH_ASSOC)) {
-            $this->categorias[] = $row;
+        try {
+            $consulta = Conectar::conexion()->query("SELECT * FROM categorias");
+            while ($row = $consulta->fetch(\PDO::FETCH_ASSOC)) {
+                $this->categorias[] = $row;
+            }
+            return $this->categorias;
+        } catch (\Exception $e) {
+            die("Error: " . $e->getMessage());
         }
-        return $this->categorias;
+
     }
-
-
 }
 
 

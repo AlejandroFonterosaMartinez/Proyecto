@@ -262,3 +262,4 @@ Stack trace:
 Stack trace:
 #0 {main}
   thrown in C:\xampp\htdocs\Proyecto\index.php on line 28
+[05-Mar-2023 16:18:35 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "as", expecting "{" in C:\xampp\htdocs\Proyecto\Config\Conectar.php on line 2

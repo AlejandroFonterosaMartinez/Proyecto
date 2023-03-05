@@ -1,13 +1,12 @@
 <?php
-include('../../../Config/Conectar.php');
-
+use Config\Conectar;
+require_once('..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
 $db = Conectar::conexion();
 $sql = "SELECT Cod_producto,Nombre,Descripcion,Precio,Stock,Categoria,Descripcion_detallada,Destacado FROM productos";
 $stmt = $db->prepare($sql);
 if (!$stmt) {
     die("Error al preparar la consulta SQL.");
 }
-
 $stmt->execute();
 $contador = 1;
 $texto = "";

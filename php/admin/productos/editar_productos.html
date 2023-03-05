@@ -41,7 +41,7 @@
             <H1>Agregar Productos</H1>
             <div id="botones">
                 <form method="post" enctype="multipart/form-data">
-                    <button onclick="javascript:history.back()" class="btn btn-secondary">Volver</button>
+                    <a href="../admin.php"> <button class="btn btn-secondary">Volver</button></a>
                     <button type='submit' id="añadir" name="añadir" class='btn btn-outline-success'>Añadir</button>
 
             </div>
@@ -159,7 +159,7 @@
                         "destacado": textAreas[6].value
                     },
                     method: "POST",
-                    url: "productos_crear.php"
+                    url: "productos_subir_imagen.php"
                 })
                     .done(function (response) {
                         crearImg();

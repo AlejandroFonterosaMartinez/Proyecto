@@ -1,5 +1,7 @@
 <?php
-class Perfil extends Conectar
+namespace Models;
+use Config\Conectar;
+class Perfil_modelo extends Conectar
 {
     public function obtenerUsuario($email)
     {

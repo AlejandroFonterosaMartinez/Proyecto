@@ -1,4 +1,6 @@
 <?php
+use Config\Conectar;
+
 include('header.php');
 include('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
 /*

@@ -1,7 +1,11 @@
 <?php
+use Models\Productos_modelo;
+
+$producto_modelo = new Productos_modelo();
 include('header.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,10 +16,11 @@ include('header.php'); ?>
     <link href="../css/producto.css" rel="stylesheet" type="text/css">
     <link href="../css/footer.css" rel="stylesheet" type="text/css">
 </head>
+
 <body>
-    <?php 
+    <?php
     include('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'productos_modelo.php');
-    $productos = cargar_producto($_GET['codigo']);
+    $productos = $producto_modelo->cargar_producto($_GET['codigo']);
     echo "<div class='contenedor'>";
     foreach ($productos as $producto) {
         $cod = $producto['Cod_producto'];
@@ -25,7 +30,7 @@ include('header.php'); ?>
         $desc = $producto['Descripcion'];
         $stock = $producto['Stock'];
         $precio_formateado = number_format($pre, 2);
-        $sinIVA_formateado = number_format($pre/1.21 ,2);
+        $sinIVA_formateado = number_format($pre / 1.21, 2);
         /*
          * Dentro del formulario hay un campo oculto para enviar el código del producto
          * que debemos añadir al carro del la compra. El formulario llama al fichero anadir.php
@@ -61,9 +66,9 @@ include('header.php'); ?>
             </div>";
     }
     echo "</div>";
-    
+
     ?>
-      <footer>
+    <footer>
         <div class="redes">
             <div class="tituloFooter">
                 <h3>Nuestras Redes Sociales</h3>
@@ -113,4 +118,5 @@ include('header.php'); ?>
         </div>
     </footer>
 </body>
+
 </html>

@@ -1,5 +1,7 @@
 <?php
-class UserRegistration extends Conectar
+namespace Models;
+use Config\Conectar;
+class Registro_modelo extends Conectar
 {
     /**
      * [Inserta en la base de datos el nombre apellidos fecha de nacimiento email y contraseña hasheada de la persona que se loguea]

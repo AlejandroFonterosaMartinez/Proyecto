@@ -1,4 +1,7 @@
 <?php
+use Models\Categorias_modelo;
+
+$categorias_modelo = new Categorias_modelo();
 include('header.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +36,7 @@ include('header.php'); ?>
         <div class="mostrar">
             <?php
             include('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'productos_modelo.php');
-            $productos = cargar_categorias($_GET['categoria']);
+            $productos = $Categorias_modelo->cargar_categorias($_GET['categoria']);
             echo "<div class='productos'>";
             foreach ($productos as $producto) {
                 $cod = $producto['Cod_producto'];
