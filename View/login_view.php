@@ -8,8 +8,10 @@ include('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.
 include('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'login_modelo.php');
 include('..' . DIRECTORY_SEPARATOR . 'Controller' . DIRECTORY_SEPARATOR . 'login_controlador.php');
 $login_controlador = new Login_controlador();
+$login_controlador = new Login_controlador();
 session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $login_controlador->login($_POST['correo'], $_POST['password']);
     $login_controlador->login($_POST['correo'], $_POST['password']);
 }
 
