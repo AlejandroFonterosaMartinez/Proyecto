@@ -42,76 +42,75 @@ function cargar_categorias($cat)
      */
 
     $db = Conectar::conexion();
-    $ins = "SELECT Cod_producto,Nombre,Precio FROM productos WHERE Categoria='$cat'";
+    $ins = "SELECT Cod_producto,Nombre,Precio,Stock FROM productos WHERE Categoria='$cat'";
     $resul = $db->query($ins);
     return $resul;
 }
 
-function cargar_producto($cod){
-    include('..'. DIRECTORY_SEPARATOR .'Config'. DIRECTORY_SEPARATOR .'Conectar.php');
+function cargar_producto($cod)
+{
+    include('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
     $db = Conectar::conexion();
     $ins = "SELECT * FROM productos WHERE Cod_producto='$cod'";
     $resul = $db->query($ins);
     return $resul;
 }
 
-function insertar_pedido($carrito, $iduser)
+function insertar_pedido($carrito, $usuario)
 {
+
     $bd = Conectar::conexion();
     $bd->beginTransaction();
-
-
     try {
-        $factura = random_num();
-        $fecha = date("Y-m-d");
+        $hora = date("Y-m-d");
         // insertar el pedido
-        $sql1 = "insert into pedidos(usuario,Cod_pedido, fecha) values(?,?,?)";
-        $stmt1 = $bd->prepare($sql1);
-        $stmt1->execute(array($iduser, $factura, $fecha));
-        // coger el id del nuevo pedido para las filas detalle
-        $pedido = $factura;
-        // insertar las filas en pedidoproductos
-        $bd->beginTransaction();
-        foreach ($carrito as $idproducto => $unidades) {
-            $stmt2 = $bd->prepare("Select stock, nombre from productos where Cod_producto=?");
-            $stmt2->execute(array($idproducto));
-            list($stock, $nombreproducto) = $stmt2->fetch();
-            if ($stock < $unidades) {
-                throw new PDOException("El producto $nombreproducto no dispone del stock solicitado");
-            }
-            $stock -= $unidades;
-            $stmt3 = $bd->prepare("UPDATE productos set stock=? where Cod_producto=?");
-            $stmt3->execute(array($stock, $idproducto));
+        $sql1 = "insert into pedidos(fecha,usuario) 
+			values('$hora',$usuario)";
+        $bd->query($sql1);
 
-            $stmt4 = $bd->prepare("insert into pedidosproductos(Cod_pedido, Cod_producto, Unidades) values(?, ?, ?)");
-            $stmt4->execute(array($pedido, $idproducto, $unidades));
+        // coger el id del nuevo pedido para las filas detalle
+        $pedido = $bd->lastInsertId();
+        // insertar las filas en pedidoproductos
+        foreach ($carrito as $codProd => $unidades) {
+            $stmt = $bd->query("Select stock, nombre from productos where Cod_producto=$codProd");
+            list($stock, $nombreproducto) = $stmt->fetch();
+            if ($stock < $unidades) {
+                throw new PDOException($nombreproducto  . "<div class='alert-error alert'> No se ha podido realizar el producto.</div>");
+            }
+            $sql4 = "UPDATE productos set stock=? where Cod_producto=?";
+            $stmt = $bd->prepare($sql4);
+            $stock -= $unidades;
+            $stmt->execute(array($stock, $codProd));
+
+            $sql2 = "insert into pedidosproductos(Cod_pedido, Cod_producto, Unidades) 
+		             values( ?, ?, ?)";
+            $stmt = $bd->prepare($sql2);
+            $stmt->execute(array($pedido, $codProd, $unidades));
         }
         $bd->commit();
-        return $pedido;
+        unset($stmt);
+        return $pedido; //devuelve el código del nuevo pedido
     } catch (PDOException $e) {
         echo $e->getMessage();
-        $bd->rollBack();
+        $bd->rollback();
         return FALSE;
-        
     } finally {
         unset($bd);
-        
     }
 }
-
-/**
- * [random_num funcion que genera un numero aleatorio de 3 cifras]
- *
- * @return  [type]  [return $key numero aleatorio]
- */
-function random_num()
+function insertar_carrito($codigosProductos)
 {
-    $length = 2;
-    $key = '';
-    $keys = array_merge(range(0, 9));
+    $bd = Conectar::conexion();
+    $placeholders = implode(',', array_fill(0, count($codigosProductos), '?'));
+    $stmt = $bd->prepare("SELECT * FROM productos WHERE Cod_producto IN ($placeholders)");
 
-    for ($i = 0; $i < $length; $i++) {
-        $key .= $keys[array_rand($keys)];
+    // bind the parameters
+    $stmt->execute($codigosProductos);
+    $resul = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    if (!$resul) {
+        return FALSE;
     }
-    return $key;
+
+    return $resul;
 }

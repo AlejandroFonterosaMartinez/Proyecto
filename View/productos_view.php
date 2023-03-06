@@ -2,6 +2,7 @@
   <div class="owl-carousel owl-theme">
     <?php
     foreach ($array_productos as $row) {
+      $cod = $row['Cod_producto'];
       $precio_formateado = number_format($row["Precio"], 2);
       echo "<div class='producto'>
         <a href='php/producto.php?codigo=" . $row['Cod_producto'] . "'>
@@ -14,9 +15,8 @@
             <button class='favButton' name='anadir_fav' type='submit'>🤍</button>
             </form>
             <form class='troll' method='post'>
-              <input type='hidden' name='id_producto' value='{$row['Cod_producto']}'>
-              <input type='hidden' name='cantidad' value='1'>
-              <button class='trollButton' name='anadir' type='submit'>AÑADIR AL CARRITO</button>
+              <input type = 'submit' class='trollButton' name='anadir' value='Añadir al carrito'><input name ='cod' type='hidden' value = '$cod'></input>
+              <input name = 'unidades' type='number' min = '1' max='{$row['Stock']}' value = '1'>
             </form>
           </div>
         </div>";

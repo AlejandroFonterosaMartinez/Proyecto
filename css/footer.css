@@ -18,9 +18,17 @@ footer {
 .contenido img{
   cursor: pointer;
 }
-.contenido a {
-  text-decoration: none;
+
+.contenido {
   cursor: pointer;
+  text-decoration: none;
+  color: #00407b;
+}
+
+.contenido a {
+  cursor: pointer;
+  text-decoration: none;
+  color: #00407b;
 }
 
 /* Estilos para PC */
@@ -70,7 +78,7 @@ footer {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   display: none;
-  z-index: 9999;
+  z-index: 999999;
 }
 
 #newsletter-popup {

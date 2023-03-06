@@ -1,6 +1,5 @@
-
 <?php
-include('header.php'); ?>
+include('sesion.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,14 +12,18 @@ include('header.php'); ?>
     <link href="../css/header.css" rel="stylesheet" type="text/css">
     <link href="../css/productos.css" rel="stylesheet" type="text/css">
     <link href="../css/footer.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="../imagenes/Logo.ico" type="image/x-icon" />
+    <link rel="icon" href="../imagenes/Logo.ico" type="image/x-icon" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
-    <div class="contenido">
-        <button id="toggleMenuCat"> ≡ </button>  
+<?php
+include('header.php'); ?>
+    <div class="contCats">
+        <button id="toggleMenuCat"> ≡ </button>
         <div class="menuCat">
-        <input type="button" class="categoria" value="Tejados Y Cubiertas" />
+            <input type="button" class="categoria" value="Tejados Y Cubiertas" />
             <input type="button" class="categoria" value="Arenas y Gravas" />
             <input type="button" class="categoria" value="Cementos Y Morteros" />
             <input type="button" class="categoria" value="Madera" />
@@ -40,27 +43,27 @@ include('header.php'); ?>
                 $cod = $producto['Cod_producto'];
                 $nom = $producto['Nombre'];
                 $pre = $producto['Precio'];
+                $stock = $producto['Stock'];
                 $precio_formateado = number_format($pre, 2);
                 /*
                  * Dentro del formulario hay un campo oculto para enviar el código del producto
                  * que debemos añadir al carro del la compra. El formulario llama al fichero anadir.php
                  */
                 echo "<div class='producto'>
-                        <a href='producto.php?codigo=" .$cod ."'>
+                        <a href='producto.php?codigo=" . $cod . "'>
                         <img src='../imagenes/Productos/{$cod}.png'></img>   
                         </a>                
                         <label>$nom</label>
                         <label>$precio_formateado €/Ud</label>
                         <div class='button'>
-                        <form class='fav' method='post' action='favoritos.php'>
-                        <input type='hidden' name='id_producto_fav' value='$cod'>
-                          <button class='favButton' name='anadir_fav' type='submit'>🤍</button>
-                          </form>
-                          <form class='troll' method='post'>
-                          <input type='hidden' name='id_producto' value='{$producto['Cod_producto']}'>
-                          <input type='hidden' name='cantidad' value='1'>
-                          <button class='trollButton' name='anadir' type='submit'>AÑADIR AL CARRITO</button>
-                        </form>
+                        <form class='fav' method='post' action='php/favoritos.php'>
+          <input type='hidden' name='id_producto_fav' value='{$producto['Cod_producto']}'>
+            <button class='favButton' name='anadir_fav' type='submit'>🤍</button>
+            </form>
+            <form class='troll' method='post'>
+              <input type = 'submit' class='trollButton' name='anadir' value='Añadir al carrito'><input name ='cod' type='hidden' value = '$cod'></input>
+              <input name = 'unidades' type='number' min = '1' max='$stock' value = '1'>
+            </form>
                         </div>
                     </div>";
             }

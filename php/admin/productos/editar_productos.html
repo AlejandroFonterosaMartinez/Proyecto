@@ -40,8 +40,10 @@
         <div>
             <H1>Agregar Productos</H1>
             <div id="botones">
-                <form method="post" enctype="multipart/form-data"> <button type='submit' id="añadir" name="añadir"
-                        class='btn btn-outline-success'>Añadir</button>
+                <form method="post" enctype="multipart/form-data">
+                    <button onclick="javascript:history.back()" class="btn btn-secondary">Volver</button>
+                    <button type='submit' id="añadir" name="añadir" class='btn btn-outline-success'>Añadir</button>
+
             </div>
             <div class="tabla">
                 <table class="table table-striped">
@@ -274,23 +276,23 @@
 
             function crearImg() {
 
-                    var formData = new FormData();
-                    var files = document.getElementById('image').files[0];
-                    formData.append('file', files);
+                var formData = new FormData();
+                var files = document.getElementById('image').files[0];
+                formData.append('file', files);
 
 
 
-                    $.ajax({
-                        data: formData,
-                        method: "POST",
-                        url: "crear.php",
-                        contentType: false,
-                        processData: false
-                    })
-                        .done(function (response) {
-                        });
-                }
-            
+                $.ajax({
+                    data: formData,
+                    method: "POST",
+                    url: "crear.php",
+                    contentType: false,
+                    processData: false
+                })
+                    .done(function (response) {
+                    });
+            }
+
         </script>
 </body>
 

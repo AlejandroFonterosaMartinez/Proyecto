@@ -182,3 +182,83 @@ Stack trace:
 [05-Feb-2023 16:29:51 Europe/Berlin] PHP Warning:  Undefined array key "correo" in D:\XAMPP\htdocs\mvc\index.php on line 18
 [04-Mar-2023 05:07:04 Europe/Berlin] PHP Warning:  Undefined array key 0 in C:\xampp\htdocs\Proyecto\index.php on line 52
 [04-Mar-2023 05:07:04 Europe/Berlin] PHP Warning:  Undefined array key "cantidad" in C:\xampp\htdocs\Proyecto\index.php on line 52
+[04-Mar-2023 18:57:57 Europe/Berlin] PHP Warning:  Undefined variable $product_id in C:\xampp\htdocs\Proyecto\index.php on line 48
+[04-Mar-2023 18:57:57 Europe/Berlin] PHP Warning:  Undefined array key "cart" in C:\xampp\htdocs\Proyecto\index.php on line 48
+[04-Mar-2023 18:57:57 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: array_column(): Argument #1 ($array) must be of type array, null given in C:\xampp\htdocs\Proyecto\index.php:48
+Stack trace:
+#0 C:\xampp\htdocs\Proyecto\index.php(48): array_column(NULL, 'Cod_producto')
+#1 {main}
+  thrown in C:\xampp\htdocs\Proyecto\index.php on line 48
+[04-Mar-2023 19:01:14 Europe/Berlin] PHP Warning:  Undefined variable $product_id in C:\xampp\htdocs\Proyecto\index.php on line 36
+[04-Mar-2023 19:01:14 Europe/Berlin] PHP Warning:  Undefined variable $product_id in C:\xampp\htdocs\Proyecto\index.php on line 45
+[04-Mar-2023 19:01:14 Europe/Berlin] PHP Warning:  Undefined variable $unidades in C:\xampp\htdocs\Proyecto\index.php on line 46
+[04-Mar-2023 19:01:14 Europe/Berlin] PHP Warning:  Undefined variable $unidades in C:\xampp\htdocs\Proyecto\index.php on line 50
+[04-Mar-2023 19:56:31 Europe/Berlin] PHP Warning:  Undefined array key "Cod_producto" in C:\xampp\htdocs\Proyecto\index.php on line 26
+[04-Mar-2023 19:56:31 Europe/Berlin] PHP Warning:  Undefined array key "unidades" in C:\xampp\htdocs\Proyecto\index.php on line 27
+[04-Mar-2023 19:56:32 Europe/Berlin] PHP Warning:  Undefined array key "Cod_producto" in C:\xampp\htdocs\Proyecto\index.php on line 26
+[04-Mar-2023 20:01:46 Europe/Berlin] PHP Warning:  Undefined array key "cod" in C:\xampp\htdocs\Proyecto\index.php on line 26
+[04-Mar-2023 20:01:46 Europe/Berlin] PHP Warning:  Undefined array key "unidades" in C:\xampp\htdocs\Proyecto\index.php on line 27
+[04-Mar-2023 20:02:58 Europe/Berlin] PHP Warning:  Undefined array key "cod" in C:\xampp\htdocs\Proyecto\index.php on line 26
+[04-Mar-2023 20:02:58 Europe/Berlin] PHP Warning:  Undefined array key "unidades" in C:\xampp\htdocs\Proyecto\index.php on line 27
+[04-Mar-2023 20:15:04 Europe/Berlin] PHP Warning:  Undefined array key "cod" in C:\xampp\htdocs\Proyecto\index.php on line 26
+[04-Mar-2023 20:15:04 Europe/Berlin] PHP Warning:  Undefined array key "unidades" in C:\xampp\htdocs\Proyecto\index.php on line 27
+[04-Mar-2023 20:15:15 Europe/Berlin] PHP Warning:  Undefined array key "cod" in C:\xampp\htdocs\Proyecto\index.php on line 26
+[04-Mar-2023 20:15:15 Europe/Berlin] PHP Warning:  Undefined array key "unidades" in C:\xampp\htdocs\Proyecto\index.php on line 27
+[04-Mar-2023 20:23:10 Europe/Berlin] PHP Warning:  Undefined array key "cod" in C:\xampp\htdocs\Proyecto\index.php on line 26
+[04-Mar-2023 20:23:10 Europe/Berlin] PHP Warning:  Undefined array key "unidades" in C:\xampp\htdocs\Proyecto\index.php on line 27
+[04-Mar-2023 20:23:10 Europe/Berlin] PHP Warning:  Undefined array key "cod" in C:\xampp\htdocs\Proyecto\index.php on line 26
+[04-Mar-2023 20:23:10 Europe/Berlin] PHP Warning:  Undefined array key "unidades" in C:\xampp\htdocs\Proyecto\index.php on line 27
+[04-Mar-2023 20:24:18 Europe/Berlin] PHP Warning:  Undefined array key "cod" in C:\xampp\htdocs\Proyecto\index.php on line 26
+[04-Mar-2023 20:24:18 Europe/Berlin] PHP Warning:  Undefined array key "unidades" in C:\xampp\htdocs\Proyecto\index.php on line 27
+[04-Mar-2023 20:25:56 Europe/Berlin] PHP Warning:  Undefined array key "cod" in C:\xampp\htdocs\Proyecto\index.php on line 26
+[04-Mar-2023 20:25:56 Europe/Berlin] PHP Warning:  Undefined array key "unidades" in C:\xampp\htdocs\Proyecto\index.php on line 27
+[04-Mar-2023 20:26:00 Europe/Berlin] PHP Warning:  Undefined array key "cod" in C:\xampp\htdocs\Proyecto\index.php on line 26
+[04-Mar-2023 20:26:00 Europe/Berlin] PHP Warning:  Undefined array key "unidades" in C:\xampp\htdocs\Proyecto\index.php on line 27
+[04-Mar-2023 20:27:43 Europe/Berlin] PHP Warning:  Undefined array key "cod" in C:\xampp\htdocs\Proyecto\index.php on line 26
+[04-Mar-2023 20:27:43 Europe/Berlin] PHP Warning:  Undefined array key "unidades" in C:\xampp\htdocs\Proyecto\index.php on line 27
+[04-Mar-2023 20:28:26 Europe/Berlin] PHP Warning:  Undefined array key "cod" in C:\xampp\htdocs\Proyecto\index.php on line 26
+[04-Mar-2023 20:28:26 Europe/Berlin] PHP Warning:  Undefined array key "unidades" in C:\xampp\htdocs\Proyecto\index.php on line 27
+[04-Mar-2023 20:28:31 Europe/Berlin] PHP Warning:  Undefined array key "cod" in C:\xampp\htdocs\Proyecto\index.php on line 26
+[04-Mar-2023 20:28:31 Europe/Berlin] PHP Warning:  Undefined array key "unidades" in C:\xampp\htdocs\Proyecto\index.php on line 27
+[04-Mar-2023 20:28:35 Europe/Berlin] PHP Warning:  Undefined array key "cod" in C:\xampp\htdocs\Proyecto\index.php on line 26
+[04-Mar-2023 20:28:35 Europe/Berlin] PHP Warning:  Undefined array key "unidades" in C:\xampp\htdocs\Proyecto\index.php on line 27
+[04-Mar-2023 20:29:25 Europe/Berlin] PHP Warning:  Undefined array key "cod" in C:\xampp\htdocs\Proyecto\index.php on line 26
+[04-Mar-2023 20:29:25 Europe/Berlin] PHP Warning:  Undefined array key "unidades" in C:\xampp\htdocs\Proyecto\index.php on line 27
+[04-Mar-2023 20:31:59 Europe/Berlin] PHP Warning:  Undefined array key "cod" in C:\xampp\htdocs\Proyecto\index.php on line 26
+[04-Mar-2023 20:31:59 Europe/Berlin] PHP Warning:  Undefined array key "unidades" in C:\xampp\htdocs\Proyecto\index.php on line 27
+[04-Mar-2023 20:36:41 Europe/Berlin] PHP Warning:  Undefined array key "cod" in C:\xampp\htdocs\Proyecto\index.php on line 29
+[04-Mar-2023 20:36:41 Europe/Berlin] PHP Warning:  Undefined array key "unidades" in C:\xampp\htdocs\Proyecto\index.php on line 30
+[04-Mar-2023 20:40:05 Europe/Berlin] PHP Warning:  Undefined array key "cod" in C:\xampp\htdocs\Proyecto\index.php on line 31
+[04-Mar-2023 20:40:05 Europe/Berlin] PHP Warning:  Undefined array key "unidades" in C:\xampp\htdocs\Proyecto\index.php on line 32
+[04-Mar-2023 20:43:31 Europe/Berlin] PHP Warning:  Undefined array key "cod" in C:\xampp\htdocs\Proyecto\index.php on line 31
+[04-Mar-2023 20:43:31 Europe/Berlin] PHP Warning:  Undefined array key "unidades" in C:\xampp\htdocs\Proyecto\index.php on line 32
+[04-Mar-2023 20:44:17 Europe/Berlin] PHP Warning:  Undefined array key "anadir" in C:\xampp\htdocs\Proyecto\index.php on line 31
+[04-Mar-2023 20:44:17 Europe/Berlin] PHP Warning:  Undefined array key "anadir" in C:\xampp\htdocs\Proyecto\index.php on line 31
+[04-Mar-2023 20:44:17 Europe/Berlin] PHP Warning:  Undefined array key "anadir" in C:\xampp\htdocs\Proyecto\index.php on line 31
+[04-Mar-2023 20:44:17 Europe/Berlin] PHP Warning:  Undefined array key "anadir" in C:\xampp\htdocs\Proyecto\index.php on line 31
+[04-Mar-2023 20:44:18 Europe/Berlin] PHP Warning:  Undefined array key "anadir" in C:\xampp\htdocs\Proyecto\index.php on line 31
+[04-Mar-2023 20:45:44 Europe/Berlin] PHP Warning:  Undefined array key "anadir" in C:\xampp\htdocs\Proyecto\index.php on line 31
+[04-Mar-2023 20:45:51 Europe/Berlin] PHP Warning:  Undefined array key "anadir" in C:\xampp\htdocs\Proyecto\index.php on line 31
+[04-Mar-2023 20:46:10 Europe/Berlin] PHP Warning:  Undefined array key "anadir" in C:\xampp\htdocs\Proyecto\index.php on line 31
+[04-Mar-2023 20:48:01 Europe/Berlin] PHP Warning:  Undefined array key "carrito" in C:\xampp\htdocs\Proyecto\index.php on line 29
+[04-Mar-2023 20:48:01 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in C:\xampp\htdocs\Proyecto\index.php:29
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Proyecto\index.php on line 29
+[04-Mar-2023 20:49:19 Europe/Berlin] PHP Warning:  Undefined array key "carrito_count" in C:\xampp\htdocs\Proyecto\index.php on line 28
+[04-Mar-2023 20:49:34 Europe/Berlin] PHP Warning:  Undefined array key "carrito_count" in C:\xampp\htdocs\Proyecto\index.php on line 28
+[04-Mar-2023 20:49:44 Europe/Berlin] PHP Warning:  Undefined array key "carrito_count" in C:\xampp\htdocs\Proyecto\index.php on line 28
+[04-Mar-2023 23:15:33 Europe/Berlin] PHP Warning:  Undefined array key "carrito_count" in C:\xampp\htdocs\Proyecto\index.php on line 28
+[04-Mar-2023 23:17:42 Europe/Berlin] PHP Warning:  Undefined array key "carrito_count" in C:\xampp\htdocs\Proyecto\index.php on line 30
+[04-Mar-2023 23:17:49 Europe/Berlin] PHP Warning:  Undefined array key "carrito_count" in C:\xampp\htdocs\Proyecto\index.php on line 30
+[04-Mar-2023 23:17:54 Europe/Berlin] PHP Warning:  Undefined array key "carrito_count" in C:\xampp\htdocs\Proyecto\index.php on line 30
+[04-Mar-2023 23:18:33 Europe/Berlin] PHP Warning:  Undefined array key "carrito_count" in C:\xampp\htdocs\Proyecto\index.php on line 28
+[04-Mar-2023 23:18:33 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in C:\xampp\htdocs\Proyecto\index.php:28
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Proyecto\index.php on line 28
+[04-Mar-2023 23:18:39 Europe/Berlin] PHP Warning:  Undefined array key "carrito_count" in C:\xampp\htdocs\Proyecto\index.php on line 28
+[04-Mar-2023 23:18:39 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in C:\xampp\htdocs\Proyecto\index.php:28
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Proyecto\index.php on line 28

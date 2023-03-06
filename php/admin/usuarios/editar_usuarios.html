@@ -39,7 +39,9 @@
     <div class="editar">
         <h1>Editar Usuarios</h1>
         <div id="botones">
+            <button class="btn btn-secondary">Volver</button>
             <button type='button' id="cargar" name="cargar" class='btn btn-primary'>Cargar</button>
+
         </div>
 
 
@@ -72,7 +74,7 @@
             cargar();
         });
 
-        
+
 
         function agregar() {
             //console.log("La función guardar() se está ejecutando desde: ");
@@ -82,7 +84,7 @@
             //console.log(textAreas[0].value);
             //var textarea = document.querySelectorAll(".texta");
             //textarea.forEach(area => console.log(area.value));
-            
+
             $.ajax({
                 data: {
                     "nombre": textAreas[0].value,
@@ -105,7 +107,7 @@
 
             var elementos = fila.parentNode.children;
             var textarea = document.querySelectorAll(".texta2");
-            textarea.forEach(area => console.log( "valor" + area.value));
+            textarea.forEach(area => console.log("valor" + area.value));
             $.ajax({
                 data: {
                     "id": elementos[0].innerHTML,
@@ -125,7 +127,7 @@
             editando--;
         }
 
-        
+
 
         function mostrar(fila) {
             if (editando == 0) {

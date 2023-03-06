@@ -16,7 +16,7 @@ class UserRegistration extends Conectar
     public function register($nombre, $apellidos, $fecha_nacimiento, $email, $password)
     {
         $password = password_hash($password, PASSWORD_DEFAULT);
-        $id_rol = date("Y-m-d H:i:s");
+
         $id_rol = 1;
         $trn_data = date("Y-m-d");
         $check_email = "SELECT * FROM usuarios WHERE Correo=:email";

@@ -7,69 +7,39 @@
 </script>
 <?php
 session_start();
-// añadir a favs
+// AÑADIR A FAVORITOS
 if (isset($_SESSION['mensaje'])) {
     echo '<div class="alerta" id="alerta" style="text-align:center;">' . $_SESSION['mensaje'] . '</div>';
     unset($_SESSION['mensaje']);
+}
+// Verificar si el usuario está logueado
+if (!isset($_SESSION['correo'])) {
+    // Si el usuario no está logueado, establecer el rol en 3
+    $_SESSION['rol'] = 3;
 }
 // Errores
 ini_set('log_errors', 1);
 ini_set('error_log', 'logs/error.log');
 
 // Verificar si el usuario está logueado
-if (!isset($_SESSION['correo'])) {
-    // Si el usuario no está logueado, establecer el rol en 3
-    $_SESSION['rol'] = 3;
-}
-
-/**
- * Carrito
- */
-if (!isset($_SESSION['cart_count'])) {
-    $_SESSION['cart_count'] = 0;
-}
-if (isset($_POST['anadir'], $_POST['id_producto'], $_POST['cantidad'])) {
-    // Verificar que los campos sean válidos
-    $product_id = filter_input(INPUT_POST, 'id_producto', FILTER_VALIDATE_INT);
-    $cantidad = filter_input(INPUT_POST, 'cantidad', FILTER_VALIDATE_INT);
-
-    if (!$product_id || !$cantidad) {
-        // Mostrar un mensaje de error si los campos son inválidos
-        echo "Error: campos inválidos";
-        exit;
-    }
-
-    // Inicializar el array del carrito si es necesario
-    if (!isset($_SESSION['cart'])) {
-        $_SESSION['cart'] = array();
-    }
-
-    // Buscar si el producto ya está en el carrito
-    $product_index = array_search($product_id, array_column($_SESSION['cart'], 'Cod_producto'));
-
-    if ($product_index !== false) {
-        // Si el producto ya está en el carrito, actualizar la cantidad
-        $_SESSION['cart'][$product_index]['cantidad'] += $cantidad;
-        // Incrementar el contador del carrito
-        $_SESSION['cart_count'] += $cantidad;
+if (isset($_POST['anadir'])) {
+    $cod = $_POST['cod'];
+    $unidades = (int) $_POST['unidades'];
+    /* si existe el código sumamos las unidades */
+    if (isset($_SESSION['carrito'][$cod])) {
+        $_SESSION['carrito'][$cod] += $unidades;
     } else {
-        // Si el producto no está en el carrito, agregar un nuevo elemento
-        $new_product = array(
-            'Cod_producto' => $product_id,
-            'cantidad' => $cantidad,
-        );
-        $_SESSION['cart'][] = $new_product;
-        // Incrementar el contador del carrito
-        $_SESSION['cart_count'] += $cantidad;
+        $_SESSION['carrito'][$cod] = $unidades;
     }
+    /* actualizamos el contador del carrito */
+    $_SESSION['cart_count'] = count($_SESSION['carrito']);
 }
-?>
 
+
+?>
 <!-- Head -->
 
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
@@ -89,7 +59,6 @@ if (isset($_POST['anadir'], $_POST['id_producto'], $_POST['cantidad'])) {
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
 </head>
-
 <!-- Body -->
 
 <body>
@@ -103,13 +72,12 @@ if (isset($_POST['anadir'], $_POST['id_producto'], $_POST['cantidad'])) {
                     BricoTeis SL
                 </a>
             </div>
-
             <!-- Buscador -->
             <div class="buscador">
                 <form action="php/buscador.php" method="get">
                     <div class="cajaTexto">
-                            <input type="text" name="query" name="query" placeholder="Buscar...">
-                            <button type="submit">Buscar</button>
+                        <input type="text" name="query" name="query" placeholder="Buscar...">
+                        <button type="submit">Buscar</button>
                     </div>
                 </form>
             </div>
@@ -157,23 +125,29 @@ if (isset($_POST['anadir'], $_POST['id_producto'], $_POST['cantidad'])) {
         CATEGORÍAS
     </div>
     <div class="categorias">
-        <div class="item"><a href="php/productos.php?categoria=4"><img src="imagenes/Menu/Arena.svg" /></a>Arenas y
-            Gravas</div>
-        <div class="item"><a href="php/productos.php?categoria=1"><img src="imagenes/Menu/Techo.svg" /></a>Tejados Y
-            Cubiertas</div>
-        <div class="item"><a href="php/productos.php?categoria=2"><img src="imagenes/Menu/Cemento.svg" /></a>Cementos Y
-            Morteros</div>
-        <div class="item"><a href="php/productos.php?categoria=6"><img src="imagenes/Menu/Madera.svg" /></a>Madera</div>
-        <div class="item"><a href="php/productos.php?categoria=7"><img
-                    src="imagenes/Menu/Hormigonera.svg" /></a>Hormigoneras, carretillas...</div>
-        <div class="item"><a href="php/productos.php?categoria=5"><img src="imagenes/Menu/Valla.svg" /></a>Cercados y
-            Ocultación</div>
-        <div class="item"><a href="php/productos.php?categoria=3"><img src="imagenes/Menu/Yeso.svg" /></a>Yesos Y
-            Escayolas</div>
-        <div class="item"><a href="php/productos.php?categoria=9"><img
-                    src="imagenes/Menu/Eleconstruccion.svg" /></a>Elementos de construcción</div>
-        <div class="item"><a href="php/productos.php?categoria=8"><img
-                    src="imagenes/Menu/Aislante.svg" /></a>Aislamientos</div>
+        <div class="item"><a class="itA" href="php/productos.php?categoria=4"><img
+                    src="imagenes/Menu/Arena.svg" />Arenas y
+                Gravas</a></div>
+        <div class="item"><a class="itA" href="php/productos.php?categoria=1"><img
+                    src="imagenes/Menu/Techo.svg" />Tejados Y
+                Cubiertas</a></div>
+        <div class="item"><a class="itA" href="php/productos.php?categoria=2"><img
+                    src="imagenes/Menu/Cemento.svg" />Cementos Y
+                Morteros</a></div>
+        <div class="item"><a class="itA" href="php/productos.php?categoria=6"><img
+                    src="imagenes/Menu/Madera.svg" />Madera</a></div>
+        <div class="item"><a class="itA" href="php/productos.php?categoria=7"><img
+                    src="imagenes/Menu/Hormigonera.svg" />Hormigoneras, carretillas...</a></div>
+        <div class="item"><a class="itA" href="php/productos.php?categoria=5"><img
+                    src="imagenes/Menu/Valla.svg" />Cercados y
+                Ocultación</a></div>
+        <div class="item"><a class="itA" href="php/productos.php?categoria=3"><img src="imagenes/Menu/Yeso.svg" />Yesos
+                Y
+                Escayolas</a></div>
+        <div class="item"><a class="itA" href="php/productos.php?categoria=9"><img
+                    src="imagenes/Menu/Eleconstruccion.svg" />Elementos de construcción</a></div>
+        <div class="item"><a class="itA" href="php/productos.php?categoria=8"><img
+                    src="imagenes/Menu/Aislante.svg" />Aislamientos</a></div>
     </div>
     <!-- Productos destacados -->
     <div class="separador">
@@ -198,8 +172,8 @@ if (isset($_POST['anadir'], $_POST['id_producto'], $_POST['cantidad'])) {
                 para
                 construir tu casa de sueños. ¡Consigue tu ejemplar!</p>
             <form method='post'>
-                <input type='hidden' name='id_producto' value='47'>
-                <input type='hidden' name='cantidad' value='1'>
+                <input type='hidden' name='cod' value='47'>
+                <input type='hidden' name='unidades' value='1'>
                 <button class='trollButton' name='anadir' type='submit'>AÑADIR AL CARRITO</button>
             </form>
         </div>
@@ -248,6 +222,12 @@ if (isset($_POST['anadir'], $_POST['id_producto'], $_POST['cantidad'])) {
             </div>
         </div>
     </div>
+    <button id="mainBtn">Admin.</button>
+    <div id="submenu">
+        <button>Administrar Usuarios</button>
+        <button>Administrar Productos</button>
+    </div>
+    <script src="javascript/admin.js"></script>
     <!-- Footer -->
     <footer>
         <!-- Contactanos -->
