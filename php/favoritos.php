@@ -1,7 +1,5 @@
 <?php
-use Config\Conectar;
-
-include('header.php');
+include('sesion.php');
 require_once('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
 $_SESSION['mensaje'] = "<div class='alert alert-success' role='alert'>Añadido a favoritos</div>";
 
@@ -39,6 +37,7 @@ $_SESSION['mensaje'] = "<div class='alert alert-success' role='alert'>Añadido a
 
 
 <body class="bg-light">
+<?php include("header.php"); ?>
     <div class="container-fluid">
         <?php
 

@@ -5,7 +5,7 @@ $(document).ready(function(){
       nav:true,
       responsive:{
           0:{
-              items:2
+              items:1
           },
           700:{
               items:4
