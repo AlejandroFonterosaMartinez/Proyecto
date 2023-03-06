@@ -10,7 +10,6 @@ require_once('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'login
 require_once('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'productos_modelo.php');
 require_once('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'correo_modelo.php');
 
-
 ?>
 
 <head>
@@ -159,4 +158,5 @@ $total += ($total * 0.21) + 3;
     </div>
 </body>
 
+</html>
 </html>
