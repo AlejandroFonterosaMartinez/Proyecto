@@ -5,14 +5,11 @@ namespace Models;
 use Config\Conectar;
 
 class Productos_modelo
-class Productos_modelo
 {
     private $productos;
     private $categorias;
     public function __construct()
     {
-        require_once "Config". DIRECTORY_SEPARATOR ."Conectar.php";
-        $this->db = Conectar::conexion();
         $this->productos = array();
         $this->categorias = array();
     }

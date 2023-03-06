@@ -1,7 +1,7 @@
 <?php
 use Config\Conectar;
+include('../Config/Conectar.php');
 
-include('header.php');
 
 /*
  * Devuelve un puntero con el código y nombre de las categorías de la BBDD
