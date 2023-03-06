@@ -34,12 +34,12 @@ require_once('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'corre
         crossorigin="anonymous"></script>
 </head>
 <?php
-$login_modelo = new Login_modelo();
-$productos_modelo = new Productos_modelo();
+
+
 // OBTENER NOMBRE DEL USUARIO
-$nombre = $login_modelo->getNombreUsuario($_SESSION['correo']);
+$nombre = Login_modelo::getNombreUsuario($_SESSION['correo']);
 $cod_producto = $_SESSION['carrito'];
-$resul = $producto_modelo->insertar_pedido($_SESSION['carrito'], $_SESSION['usuario']);
+$resul = Productos_modelo::insertar_pedido($_SESSION['carrito'], $_SESSION['usuario']);
 $total = 0;
 if ($resul === FALSE) {
     echo "<div class='alert-warning alert' role='alert'> No se ha podido realizar el producto.</div>";

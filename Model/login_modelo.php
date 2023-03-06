@@ -1,7 +1,6 @@
 <?php
 namespace Models;
 
-include 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php';
 use Config\Conectar;
 
 class Login_modelo
@@ -18,6 +17,7 @@ class Login_modelo
      */
     public function loguearUsuario($email, $password)
     {
+
         $stmt = Conectar::conexion()->prepare("SELECT id_usuario,Correo, Contraseña, id_rol FROM `usuarios` WHERE Correo=:email");
         $stmt->bindParam(':email', $email, \PDO::PARAM_STR);
         $stmt->execute();
@@ -39,8 +39,10 @@ class Login_modelo
      *
      * @return  [type]          return $user['Nombre'] nombre del usuario
      */
-    public function getNombreUsuario($email)
+    public static function getNombreUsuario($email)
     {
+
+       
         $stmt = Conectar::conexion()->prepare("SELECT nombre FROM `usuarios` WHERE correo=:email");
         $stmt->bindParam(':email', $email, \PDO::PARAM_STR);
         $stmt->execute();

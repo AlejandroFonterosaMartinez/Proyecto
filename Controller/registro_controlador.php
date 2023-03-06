@@ -13,6 +13,7 @@ if (isset($_POST['submit'])) {
     $fecha_nacimiento = $_POST['fecha_nacimiento'];
     $email = $_POST['email'];
     $password = $_POST['password'];
+
     // ENVIO CORREO
     Correo_modelo::enviar_correo($email, $nombre, "Registro BricoTeis", "Gracias " . $nombre . " por registrarte en BricoTeis");
     // REGISTRO
@@ -21,4 +22,5 @@ if (isset($_POST['submit'])) {
     session_start();
     setcookie("Usuario", $email, time() + 60 * 60 * 24 * 30, DIRECTORY_SEPARATOR);
     $_SESSION['correo'] = $email;
+    $_SESSION['rol'] = [1];
 }

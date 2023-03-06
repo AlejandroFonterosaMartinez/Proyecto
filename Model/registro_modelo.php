@@ -1,7 +1,7 @@
 <?php
 namespace Models;
 
-include 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php';
+
 use Config\Conectar;
 
 class Registro_modelo extends Conectar
@@ -20,6 +20,7 @@ class Registro_modelo extends Conectar
      */
     public function register($nombre, $apellidos, $fecha_nacimiento, $email, $password)
     {
+     
         $password = password_hash($password, PASSWORD_DEFAULT);
 
         $id_rol = 1;
