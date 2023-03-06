@@ -1,8 +1,8 @@
 <?php
-include('..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
+use Config\Conectar;
 
+require_once('..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
 $db = Conectar::conexion();
-
 $cod = $_POST['cod'];
 $nom = $_POST['nombre'];
 $des = $_POST['descripcion'];
@@ -23,7 +23,6 @@ $stmt->bindParam(':dsD', $dsD);
 $stmt->bindParam(':dsT', $dsT);
 $stmt->bindParam(':cod', $cod);
 $stmt->execute();
-
 echo "guardado";
 
 ?>

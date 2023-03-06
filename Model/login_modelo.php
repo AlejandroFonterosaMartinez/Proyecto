@@ -1,6 +1,10 @@
 <?php
+namespace Models;
 
-class User extends Conectar
+include 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php';
+use Config\Conectar;
+
+class Login_modelo
 {
     /**
      * [getUser funcion que obtiene de la base de datos el correo y la contrasña del usuario
@@ -14,11 +18,11 @@ class User extends Conectar
      */
     public function loguearUsuario($email, $password)
     {
-        $stmt = $this->conexion()->prepare("SELECT Correo, Contraseña, id_rol FROM `usuarios` WHERE Correo=:email");
-        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+        $stmt = Conectar::conexion()->prepare("SELECT id_usuario,Correo, Contraseña, id_rol FROM `usuarios` WHERE Correo=:email");
+        $stmt->bindParam(':email', $email, \PDO::PARAM_STR);
         $stmt->execute();
 
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        $user = $stmt->fetch(\PDO::FETCH_ASSOC);
 
         if ($user && password_verify($password, $user['Contraseña'])) {
             return $user;
@@ -26,6 +30,24 @@ class User extends Conectar
 
         return false;
     }
+
+
+    /**
+     * Obtiene el nombre del usuario a partir de su correo
+     *
+     * @param   [type]  $email  $email correo del usuario
+     *
+     * @return  [type]          return $user['Nombre'] nombre del usuario
+     */
+    public function getNombreUsuario($email)
+    {
+        $stmt = Conectar::conexion()->prepare("SELECT nombre FROM `usuarios` WHERE correo=:email");
+        $stmt->bindParam(':email', $email, \PDO::PARAM_STR);
+        $stmt->execute();
+        $user = $stmt->fetch(\PDO::FETCH_ASSOC);
+        return $user['nombre'];
+    }
+
 }
 
 ?>

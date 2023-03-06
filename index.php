@@ -7,64 +7,37 @@
 </script>
 <?php
 session_start();
-// añadir a favs
+// AÑADIR A FAVORITOS
 if (isset($_SESSION['mensaje'])) {
-    echo '<div class="alerta alert alert-success" role="alert" style="text-align:center;">' . $_SESSION['mensaje'] . '</div>';
+    echo '<div class="alerta" id="alerta" style="text-align:center;">' . $_SESSION['mensaje'] . '</div>';
     unset($_SESSION['mensaje']);
 }
-// Errores
-ini_set('log_errors', 1);
-ini_set('error_log', 'logs/error.log');
-
 // Verificar si el usuario está logueado
 if (!isset($_SESSION['correo'])) {
     // Si el usuario no está logueado, establecer el rol en 3
     $_SESSION['rol'] = 3;
 }
-
-/**
- * Carrito
- */
-if (!isset($_SESSION['cart_count'])) {
-    $_SESSION['cart_count'] = 0;
-}
-if (isset($_POST['anadir'], $_POST['id_producto'], $_POST['cantidad'])) {
-    // Verificar que los campos sean válidos
-    $product_id = filter_input(INPUT_POST, 'id_producto', FILTER_VALIDATE_INT);
-    $cantidad = filter_input(INPUT_POST, 'cantidad', FILTER_VALIDATE_INT);
-
-    if (!$product_id || !$cantidad) {
-        // Mostrar un mensaje de error si los campos son inválidos
-        echo "Error: campos inválidos";
-        exit;
-    }
-
-    // Inicializar el array del carrito si es necesario
-    if (!isset($_SESSION['cart'])) {
-        $_SESSION['cart'] = array();
-    }
-
-    // Buscar si el producto ya está en el carrito
-    $product_index = array_search($product_id, array_column($_SESSION['cart'], 'Cod_producto'));
-
-    if ($product_index !== false) {
-        // Si el producto ya está en el carrito, actualizar la cantidad
-        $_SESSION['cart'][$product_index]['cantidad'] += $cantidad;
-        // Incrementar el contador del carrito
-        $_SESSION['cart_count'] += $cantidad;
+// Errores
+ini_set('log_errors', 1);
+ini_set('error_log', 'logs/error.log');
+// Carrito
+if (isset($_POST['anadir'])) {
+    $cod = $_POST['cod'];
+    $unidades = (int) $_POST['unidades'];
+    /* si existe el código sumamos las unidades */
+    if (isset($_SESSION['carrito'][$cod])) {
+        $_SESSION['carrito'][$cod] += $unidades;
+        echo "<div class='alert alert-info' role='alert'>El producto ya está en el carrito. Las unidades se han actualizado.</div>";
     } else {
-        // Si el producto no está en el carrito, agregar un nuevo elemento
-        $new_product = array(
-            'Cod_producto' => $product_id,
-            'cantidad' => $cantidad,
-        );
-        $_SESSION['cart'][] = $new_product;
-        // Incrementar el contador del carrito
-        $_SESSION['cart_count'] += $cantidad;
+        $_SESSION['carrito'][$cod] = $unidades;
+        echo "<div class='alert alert-success' style='text-align:center' role='alert'>Producto añadido al carrito.</div>";
     }
+    /* actualizamos el contador del carrito */
+    $_SESSION['cart_count'] = count($_SESSION['carrito']);
 }
-?>
 
+
+?>
 <!-- Head -->
 
 <head>
@@ -81,7 +54,7 @@ if (isset($_POST['anadir'], $_POST['id_producto'], $_POST['cantidad'])) {
     <link href="css/general.css" rel="stylesheet" type="text/css">
     <link href="css/carrusel.css" rel="stylesheet" type="text/css">
     <link href="css/header.css" rel="stylesheet" type="text/css">
-    <link href="css/carrito.css" rel="stylesheet" type="text/css">
+
     <link href="css/index.css" rel="stylesheet" type="text/css">
     <link href="css/footer.css" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="imagenes/Logo.ico" type="image/x-icon" />
@@ -89,13 +62,12 @@ if (isset($_POST['anadir'], $_POST['id_producto'], $_POST['cantidad'])) {
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
 </head>
-
 <!-- Body -->
 
 <body>
     <!-- Header -->
     <header>
-        <div class="container">
+        <div class="containerH">
 
             <div class="infoPag">
                 <a href="index.php">
@@ -103,17 +75,12 @@ if (isset($_POST['anadir'], $_POST['id_producto'], $_POST['cantidad'])) {
                     BricoTeis SL
                 </a>
             </div>
-
             <!-- Buscador -->
             <div class="buscador">
                 <form action="php/buscador.php" method="get">
                     <div class="cajaTexto">
-                        <form action="php/buscador.php" method="get">
-                            <div class="cajaTexto">
-                                <input type="text" name="query" name="query" placeholder="Buscar...">
-                                <button type="submit">Buscar</button>
-                            </div>
-                        </form>
+                        <input type="text" name="query" name="query" placeholder="Buscar...">
+                        <button type="submit">Buscar</button>
                     </div>
                 </form>
             </div>
@@ -202,8 +169,8 @@ if (isset($_POST['anadir'], $_POST['id_producto'], $_POST['cantidad'])) {
                 para
                 construir tu casa de sueños. ¡Consigue tu ejemplar!</p>
             <form method='post'>
-                <input type='hidden' name='id_producto' value='47'>
-                <input type='hidden' name='cantidad' value='1'>
+                <input type='hidden' name='cod' value='47'>
+                <input type='hidden' name='unidades' value='1'>
                 <button class='trollButton' name='anadir' type='submit'>AÑADIR AL CARRITO</button>
             </form>
         </div>

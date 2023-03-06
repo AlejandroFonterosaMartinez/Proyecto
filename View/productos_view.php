@@ -1,10 +1,14 @@
+<?php
+namespace View; ?>
 <div class="contenedor_productos">
   <div class="owl-carousel owl-theme">
     <?php
     foreach ($array_productos as $row) {
+      $cod = $row['Cod_producto'];
       $precio_formateado = number_format($row["Precio"], 2);
       echo "<div class='producto'>
-          <img src='imagenes/Productos/{$row['Cod_producto']}.png'></img>
+        <a href='php/producto.php?codigo=" . $row['Cod_producto'] . "'>
+          <img src='imagenes/Productos/{$row['Cod_producto']}.png'></img></a>
           <label>{$row['Nombre']}</label>
           <label>{$precio_formateado}€/Ud.</label>
           <div class='button'>
@@ -13,9 +17,8 @@
             <button class='favButton' name='anadir_fav' type='submit'>🤍</button>
             </form>
             <form class='troll' method='post'>
-              <input type='hidden' name='id_producto' value='{$row['Cod_producto']}'>
-              <input type='hidden' name='cantidad' value='1'>
-              <button class='trollButton' name='anadir' type='submit'>AÑADIR AL CARRITO</button>
+              <input name = 'unidades' type='number' min = '1' max='{$row['Stock']}' value = '1'>
+              <input type = 'submit' class='trollButton' name='anadir' value='Añadir al carrito'><input name ='cod' type='hidden' value = '$cod'></input>
             </form>
           </div>
         </div>";

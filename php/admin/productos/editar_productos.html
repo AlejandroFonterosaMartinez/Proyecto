@@ -40,7 +40,10 @@
         <div>
             <H1>Agregar Productos</H1>
             <div id="botones">
-                <button type='button' id="añadir" name="añadir" class='btn btn-outline-success'>Añadir</button>
+                <form method="post" enctype="multipart/form-data">
+                    <a href="../admin.php"> <button class="btn btn-secondary">Volver</button></a>
+                    <button type='submit' id="añadir" name="añadir" class='btn btn-outline-success'>Añadir</button>
+
             </div>
             <div class="tabla">
                 <table class="table table-striped">
@@ -57,10 +60,10 @@
                         </tr>
                     </thead>
                     <tbody class="agregar">
-
                         <td>
-                            <form method="post"><input type="file" id="file" name="file" placeholder="Imagen"></input>
-                            </form>
+
+                            <input type="file" name="image" id="image" />
+
                         </td>
                         <td><textarea id='textarea' cols='15' rows='10' class='texta'
                                 placeholder="Nombre producto"></textarea></td>
@@ -74,8 +77,8 @@
                                 placeholder="Del 0 al 10 o el nombre"></textarea></td>
                         <td><textarea id='textarea' cols='30' rows='10' class='texta'
                                 placeholder="Descripción larga"></textarea></td>
-                        <td><textarea id='textarea' cols='5' rows='10' class='texta'
-                                placeholder="1 para Destacado            0 para No Destacado"></textarea></td>
+                        <td><textarea id='textarea' cols='5' rows='10' class='texta' placeholder="Si o No"></textarea>
+                        </td>
                     </tbody>
                 </table>
             </div>
@@ -136,6 +139,15 @@
                 //var textarea = document.querySelectorAll(".texta");
                 //textarea.forEach(area => console.log(area.value));
 
+                var formData = new FormData();
+                formData.append('nombre', textAreas[0].value);
+                formData.append('descripcion', textAreas[1].value);
+                formData.append('precio', textAreas[2].value);
+                formData.append('stock', textAreas[3].value);
+                formData.append('categoria', textAreas[4].value);
+                formData.append('descripcionD', textAreas[5].value);
+                formData.append('destacado', textAreas[6].value);
+
                 $.ajax({
                     data: {
                         "nombre": textAreas[0].value,
@@ -147,9 +159,10 @@
                         "destacado": textAreas[6].value
                     },
                     method: "POST",
-                    url: "productos_crear.php"
+                    url: "productos_subir_imagen.php"
                 })
                     .done(function (response) {
+                        crearImg();
                         cargar();
                     });
             }
@@ -210,15 +223,13 @@
                     cargar();
                     editando--;
                     //Fmostrar(editBtn.parentNode);
-                })
-                );
+                }));
                 const btnSucess = document.querySelectorAll(".btn-success");
                 btnSucess.forEach(editBtn => editBtn.addEventListener("click", function (e) {
                     e.preventDefault;
                     console.log('dentro de boton guardar');
                     guardar(editBtn.parentNode);
-                })
-                );
+                }));
 
             }
 
@@ -235,15 +246,13 @@
                             e.preventDefault();
                             console.log('dentro de boton');
                             mostrar(editBtn.parentNode);
-                        })
-                        );
+                        }));
                         const botonesBorrar = document.querySelectorAll(".btn-danger");
                         botonesBorrar.forEach(deletBtn => deletBtn.addEventListener("click", function (e) {
                             e.preventDefault();
                             console.log('dentro de boton');
                             borrar(deletBtn.parentNode);
-                        })
-                        );
+                        }));
                         cargarbtn.innerHTML = "Actualizar";
                     });
                 console.log('ya esta cargado');
@@ -263,6 +272,25 @@
                         cargar();
                     });
 
+            }
+
+            function crearImg() {
+
+                var formData = new FormData();
+                var files = document.getElementById('image').files[0];
+                formData.append('file', files);
+
+
+
+                $.ajax({
+                    data: formData,
+                    method: "POST",
+                    url: "crear.php",
+                    contentType: false,
+                    processData: false
+                })
+                    .done(function (response) {
+                    });
             }
 
         </script>

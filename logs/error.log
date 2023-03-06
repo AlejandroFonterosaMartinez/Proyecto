@@ -180,48 +180,369 @@ Stack trace:
 [05-Feb-2023 00:22:08 Europe/Berlin] PHP Warning:  Undefined variable $row in D:\XAMPP\htdocs\mvc\index.php on line 23
 [05-Feb-2023 00:22:08 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in D:\XAMPP\htdocs\mvc\index.php on line 23
 [05-Feb-2023 16:29:51 Europe/Berlin] PHP Warning:  Undefined array key "correo" in D:\XAMPP\htdocs\mvc\index.php on line 18
-[02-Mar-2023 19:39:59 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: array_column(): Argument #1 ($array) must be of type array, string given in C:\xampp\htdocs\Proyecto\index.php:38
+[04-Mar-2023 05:07:04 Europe/Berlin] PHP Warning:  Undefined array key 0 in C:\xampp\htdocs\Proyecto\index.php on line 52
+[04-Mar-2023 05:07:04 Europe/Berlin] PHP Warning:  Undefined array key "cantidad" in C:\xampp\htdocs\Proyecto\index.php on line 52
+[04-Mar-2023 18:57:57 Europe/Berlin] PHP Warning:  Undefined variable $product_id in C:\xampp\htdocs\Proyecto\index.php on line 48
+[04-Mar-2023 18:57:57 Europe/Berlin] PHP Warning:  Undefined array key "cart" in C:\xampp\htdocs\Proyecto\index.php on line 48
+[04-Mar-2023 18:57:57 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: array_column(): Argument #1 ($array) must be of type array, null given in C:\xampp\htdocs\Proyecto\index.php:48
 Stack trace:
-#0 C:\xampp\htdocs\Proyecto\index.php(38): array_column('productos_en_ca...', 'Cod_producto')
+#0 C:\xampp\htdocs\Proyecto\index.php(48): array_column(NULL, 'Cod_producto')
 #1 {main}
-  thrown in C:\xampp\htdocs\Proyecto\index.php on line 38
-[02-Mar-2023 19:40:04 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: array_column(): Argument #1 ($array) must be of type array, string given in C:\xampp\htdocs\Proyecto\index.php:38
+  thrown in C:\xampp\htdocs\Proyecto\index.php on line 48
+[04-Mar-2023 19:01:14 Europe/Berlin] PHP Warning:  Undefined variable $product_id in C:\xampp\htdocs\Proyecto\index.php on line 36
+[04-Mar-2023 19:01:14 Europe/Berlin] PHP Warning:  Undefined variable $product_id in C:\xampp\htdocs\Proyecto\index.php on line 45
+[04-Mar-2023 19:01:14 Europe/Berlin] PHP Warning:  Undefined variable $unidades in C:\xampp\htdocs\Proyecto\index.php on line 46
+[04-Mar-2023 19:01:14 Europe/Berlin] PHP Warning:  Undefined variable $unidades in C:\xampp\htdocs\Proyecto\index.php on line 50
+[04-Mar-2023 19:56:31 Europe/Berlin] PHP Warning:  Undefined array key "Cod_producto" in C:\xampp\htdocs\Proyecto\index.php on line 26
+[04-Mar-2023 19:56:31 Europe/Berlin] PHP Warning:  Undefined array key "unidades" in C:\xampp\htdocs\Proyecto\index.php on line 27
+[04-Mar-2023 19:56:32 Europe/Berlin] PHP Warning:  Undefined array key "Cod_producto" in C:\xampp\htdocs\Proyecto\index.php on line 26
+[04-Mar-2023 20:01:46 Europe/Berlin] PHP Warning:  Undefined array key "cod" in C:\xampp\htdocs\Proyecto\index.php on line 26
+[04-Mar-2023 20:01:46 Europe/Berlin] PHP Warning:  Undefined array key "unidades" in C:\xampp\htdocs\Proyecto\index.php on line 27
+[04-Mar-2023 20:02:58 Europe/Berlin] PHP Warning:  Undefined array key "cod" in C:\xampp\htdocs\Proyecto\index.php on line 26
+[04-Mar-2023 20:02:58 Europe/Berlin] PHP Warning:  Undefined array key "unidades" in C:\xampp\htdocs\Proyecto\index.php on line 27
+[04-Mar-2023 20:15:04 Europe/Berlin] PHP Warning:  Undefined array key "cod" in C:\xampp\htdocs\Proyecto\index.php on line 26
+[04-Mar-2023 20:15:04 Europe/Berlin] PHP Warning:  Undefined array key "unidades" in C:\xampp\htdocs\Proyecto\index.php on line 27
+[04-Mar-2023 20:15:15 Europe/Berlin] PHP Warning:  Undefined array key "cod" in C:\xampp\htdocs\Proyecto\index.php on line 26
+[04-Mar-2023 20:15:15 Europe/Berlin] PHP Warning:  Undefined array key "unidades" in C:\xampp\htdocs\Proyecto\index.php on line 27
+[04-Mar-2023 20:23:10 Europe/Berlin] PHP Warning:  Undefined array key "cod" in C:\xampp\htdocs\Proyecto\index.php on line 26
+[04-Mar-2023 20:23:10 Europe/Berlin] PHP Warning:  Undefined array key "unidades" in C:\xampp\htdocs\Proyecto\index.php on line 27
+[04-Mar-2023 20:23:10 Europe/Berlin] PHP Warning:  Undefined array key "cod" in C:\xampp\htdocs\Proyecto\index.php on line 26
+[04-Mar-2023 20:23:10 Europe/Berlin] PHP Warning:  Undefined array key "unidades" in C:\xampp\htdocs\Proyecto\index.php on line 27
+[04-Mar-2023 20:24:18 Europe/Berlin] PHP Warning:  Undefined array key "cod" in C:\xampp\htdocs\Proyecto\index.php on line 26
+[04-Mar-2023 20:24:18 Europe/Berlin] PHP Warning:  Undefined array key "unidades" in C:\xampp\htdocs\Proyecto\index.php on line 27
+[04-Mar-2023 20:25:56 Europe/Berlin] PHP Warning:  Undefined array key "cod" in C:\xampp\htdocs\Proyecto\index.php on line 26
+[04-Mar-2023 20:25:56 Europe/Berlin] PHP Warning:  Undefined array key "unidades" in C:\xampp\htdocs\Proyecto\index.php on line 27
+[04-Mar-2023 20:26:00 Europe/Berlin] PHP Warning:  Undefined array key "cod" in C:\xampp\htdocs\Proyecto\index.php on line 26
+[04-Mar-2023 20:26:00 Europe/Berlin] PHP Warning:  Undefined array key "unidades" in C:\xampp\htdocs\Proyecto\index.php on line 27
+[04-Mar-2023 20:27:43 Europe/Berlin] PHP Warning:  Undefined array key "cod" in C:\xampp\htdocs\Proyecto\index.php on line 26
+[04-Mar-2023 20:27:43 Europe/Berlin] PHP Warning:  Undefined array key "unidades" in C:\xampp\htdocs\Proyecto\index.php on line 27
+[04-Mar-2023 20:28:26 Europe/Berlin] PHP Warning:  Undefined array key "cod" in C:\xampp\htdocs\Proyecto\index.php on line 26
+[04-Mar-2023 20:28:26 Europe/Berlin] PHP Warning:  Undefined array key "unidades" in C:\xampp\htdocs\Proyecto\index.php on line 27
+[04-Mar-2023 20:28:31 Europe/Berlin] PHP Warning:  Undefined array key "cod" in C:\xampp\htdocs\Proyecto\index.php on line 26
+[04-Mar-2023 20:28:31 Europe/Berlin] PHP Warning:  Undefined array key "unidades" in C:\xampp\htdocs\Proyecto\index.php on line 27
+[04-Mar-2023 20:28:35 Europe/Berlin] PHP Warning:  Undefined array key "cod" in C:\xampp\htdocs\Proyecto\index.php on line 26
+[04-Mar-2023 20:28:35 Europe/Berlin] PHP Warning:  Undefined array key "unidades" in C:\xampp\htdocs\Proyecto\index.php on line 27
+[04-Mar-2023 20:29:25 Europe/Berlin] PHP Warning:  Undefined array key "cod" in C:\xampp\htdocs\Proyecto\index.php on line 26
+[04-Mar-2023 20:29:25 Europe/Berlin] PHP Warning:  Undefined array key "unidades" in C:\xampp\htdocs\Proyecto\index.php on line 27
+[04-Mar-2023 20:31:59 Europe/Berlin] PHP Warning:  Undefined array key "cod" in C:\xampp\htdocs\Proyecto\index.php on line 26
+[04-Mar-2023 20:31:59 Europe/Berlin] PHP Warning:  Undefined array key "unidades" in C:\xampp\htdocs\Proyecto\index.php on line 27
+[04-Mar-2023 20:36:41 Europe/Berlin] PHP Warning:  Undefined array key "cod" in C:\xampp\htdocs\Proyecto\index.php on line 29
+[04-Mar-2023 20:36:41 Europe/Berlin] PHP Warning:  Undefined array key "unidades" in C:\xampp\htdocs\Proyecto\index.php on line 30
+[04-Mar-2023 20:40:05 Europe/Berlin] PHP Warning:  Undefined array key "cod" in C:\xampp\htdocs\Proyecto\index.php on line 31
+[04-Mar-2023 20:40:05 Europe/Berlin] PHP Warning:  Undefined array key "unidades" in C:\xampp\htdocs\Proyecto\index.php on line 32
+[04-Mar-2023 20:43:31 Europe/Berlin] PHP Warning:  Undefined array key "cod" in C:\xampp\htdocs\Proyecto\index.php on line 31
+[04-Mar-2023 20:43:31 Europe/Berlin] PHP Warning:  Undefined array key "unidades" in C:\xampp\htdocs\Proyecto\index.php on line 32
+[04-Mar-2023 20:44:17 Europe/Berlin] PHP Warning:  Undefined array key "anadir" in C:\xampp\htdocs\Proyecto\index.php on line 31
+[04-Mar-2023 20:44:17 Europe/Berlin] PHP Warning:  Undefined array key "anadir" in C:\xampp\htdocs\Proyecto\index.php on line 31
+[04-Mar-2023 20:44:17 Europe/Berlin] PHP Warning:  Undefined array key "anadir" in C:\xampp\htdocs\Proyecto\index.php on line 31
+[04-Mar-2023 20:44:17 Europe/Berlin] PHP Warning:  Undefined array key "anadir" in C:\xampp\htdocs\Proyecto\index.php on line 31
+[04-Mar-2023 20:44:18 Europe/Berlin] PHP Warning:  Undefined array key "anadir" in C:\xampp\htdocs\Proyecto\index.php on line 31
+[04-Mar-2023 20:45:44 Europe/Berlin] PHP Warning:  Undefined array key "anadir" in C:\xampp\htdocs\Proyecto\index.php on line 31
+[04-Mar-2023 20:45:51 Europe/Berlin] PHP Warning:  Undefined array key "anadir" in C:\xampp\htdocs\Proyecto\index.php on line 31
+[04-Mar-2023 20:46:10 Europe/Berlin] PHP Warning:  Undefined array key "anadir" in C:\xampp\htdocs\Proyecto\index.php on line 31
+[04-Mar-2023 20:48:01 Europe/Berlin] PHP Warning:  Undefined array key "carrito" in C:\xampp\htdocs\Proyecto\index.php on line 29
+[04-Mar-2023 20:48:01 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in C:\xampp\htdocs\Proyecto\index.php:29
 Stack trace:
-#0 C:\xampp\htdocs\Proyecto\index.php(38): array_column('productos_en_ca...', 'Cod_producto')
-#1 {main}
-  thrown in C:\xampp\htdocs\Proyecto\index.php on line 38
-[02-Mar-2023 19:40:21 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: array_column(): Argument #1 ($array) must be of type array, string given in C:\xampp\htdocs\Proyecto\index.php:38
+#0 {main}
+  thrown in C:\xampp\htdocs\Proyecto\index.php on line 29
+[04-Mar-2023 20:49:19 Europe/Berlin] PHP Warning:  Undefined array key "carrito_count" in C:\xampp\htdocs\Proyecto\index.php on line 28
+[04-Mar-2023 20:49:34 Europe/Berlin] PHP Warning:  Undefined array key "carrito_count" in C:\xampp\htdocs\Proyecto\index.php on line 28
+[04-Mar-2023 20:49:44 Europe/Berlin] PHP Warning:  Undefined array key "carrito_count" in C:\xampp\htdocs\Proyecto\index.php on line 28
+[04-Mar-2023 23:15:33 Europe/Berlin] PHP Warning:  Undefined array key "carrito_count" in C:\xampp\htdocs\Proyecto\index.php on line 28
+[04-Mar-2023 23:17:42 Europe/Berlin] PHP Warning:  Undefined array key "carrito_count" in C:\xampp\htdocs\Proyecto\index.php on line 30
+[04-Mar-2023 23:17:49 Europe/Berlin] PHP Warning:  Undefined array key "carrito_count" in C:\xampp\htdocs\Proyecto\index.php on line 30
+[04-Mar-2023 23:17:54 Europe/Berlin] PHP Warning:  Undefined array key "carrito_count" in C:\xampp\htdocs\Proyecto\index.php on line 30
+[04-Mar-2023 23:18:33 Europe/Berlin] PHP Warning:  Undefined array key "carrito_count" in C:\xampp\htdocs\Proyecto\index.php on line 28
+[04-Mar-2023 23:18:33 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in C:\xampp\htdocs\Proyecto\index.php:28
 Stack trace:
-#0 C:\xampp\htdocs\Proyecto\index.php(38): array_column('productos_en_ca...', 'Cod_producto')
-#1 {main}
-  thrown in C:\xampp\htdocs\Proyecto\index.php on line 38
-[02-Mar-2023 19:40:23 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: array_column(): Argument #1 ($array) must be of type array, string given in C:\xampp\htdocs\Proyecto\index.php:38
+#0 {main}
+  thrown in C:\xampp\htdocs\Proyecto\index.php on line 28
+[04-Mar-2023 23:18:39 Europe/Berlin] PHP Warning:  Undefined array key "carrito_count" in C:\xampp\htdocs\Proyecto\index.php on line 28
+[04-Mar-2023 23:18:39 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in C:\xampp\htdocs\Proyecto\index.php:28
 Stack trace:
-#0 C:\xampp\htdocs\Proyecto\index.php(38): array_column('productos_en_ca...', 'Cod_producto')
-#1 {main}
-  thrown in C:\xampp\htdocs\Proyecto\index.php on line 38
-[02-Mar-2023 19:40:51 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: array_column(): Argument #1 ($array) must be of type array, string given in C:\xampp\htdocs\Proyecto\index.php:38
+#0 {main}
+  thrown in C:\xampp\htdocs\Proyecto\index.php on line 28
+[05-Mar-2023 16:18:35 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "as", expecting "{" in C:\xampp\htdocs\Proyecto\Config\Conectar.php on line 2
+[05-Mar-2023 19:23:26 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function Config\cargar_configuracion() in C:\xampp\htdocs\Proyecto\Config\Conectar.php:14
 Stack trace:
-#0 C:\xampp\htdocs\Proyecto\index.php(38): array_column('productos_en_ca...', 'Cod_producto')
-#1 {main}
-  thrown in C:\xampp\htdocs\Proyecto\index.php on line 38
-[02-Mar-2023 19:41:02 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: array_column(): Argument #1 ($array) must be of type array, string given in C:\xampp\htdocs\Proyecto\index.php:38
+#0 C:\xampp\htdocs\Proyecto\Model\productos_modelo.php(19): Config\Conectar::conexion()
+#1 C:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(8): Models\Productos_modelo->__construct()
+#2 C:\xampp\htdocs\Proyecto\index.php(153): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\Proyecto\Config\Conectar.php on line 14
+[05-Mar-2023 19:27:27 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function Config\cargar_configuracion() in C:\xampp\htdocs\Proyecto\Config\Conectar.php:14
 Stack trace:
-#0 C:\xampp\htdocs\Proyecto\index.php(38): array_column('productos_en_ca...', 'Cod_producto')
-#1 {main}
-  thrown in C:\xampp\htdocs\Proyecto\index.php on line 38
-[02-Mar-2023 19:44:40 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: array_column(): Argument #1 ($array) must be of type array, string given in C:\xampp\htdocs\Proyecto\index.php:38
+#0 C:\xampp\htdocs\Proyecto\Model\productos_modelo.php(19): Config\Conectar::conexion()
+#1 C:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(8): Models\Productos_modelo->__construct()
+#2 C:\xampp\htdocs\Proyecto\index.php(153): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\Proyecto\Config\Conectar.php on line 14
+[05-Mar-2023 19:27:27 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function Config\cargar_configuracion() in C:\xampp\htdocs\Proyecto\Config\Conectar.php:14
 Stack trace:
-#0 C:\xampp\htdocs\Proyecto\index.php(38): array_column('productos_en_ca...', 'Cod_producto')
-#1 {main}
-  thrown in C:\xampp\htdocs\Proyecto\index.php on line 38
-[02-Mar-2023 19:44:46 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: array_column(): Argument #1 ($array) must be of type array, string given in C:\xampp\htdocs\Proyecto\index.php:38
+#0 C:\xampp\htdocs\Proyecto\Model\productos_modelo.php(19): Config\Conectar::conexion()
+#1 C:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(8): Models\Productos_modelo->__construct()
+#2 C:\xampp\htdocs\Proyecto\index.php(153): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\Proyecto\Config\Conectar.php on line 14
+[05-Mar-2023 19:27:36 Europe/Berlin] PHP Warning:  The use statement with non-compound name 'PDO' has no effect in C:\xampp\htdocs\Proyecto\Config\Conectar.php on line 5
+[05-Mar-2023 19:27:36 Europe/Berlin] PHP Warning:  The use statement with non-compound name 'Exception' has no effect in C:\xampp\htdocs\Proyecto\Config\Conectar.php on line 6
+[05-Mar-2023 19:27:36 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Config\Conectar" not found in C:\xampp\htdocs\Proyecto\Model\productos_modelo.php:19
 Stack trace:
-#0 C:\xampp\htdocs\Proyecto\index.php(38): array_column('productos_en_ca...', 'Cod_producto')
-#1 {main}
-  thrown in C:\xampp\htdocs\Proyecto\index.php on line 38
-[02-Mar-2023 19:44:51 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: array_column(): Argument #1 ($array) must be of type array, string given in C:\xampp\htdocs\Proyecto\index.php:38
+#0 C:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(8): Models\Productos_modelo->__construct()
+#1 C:\xampp\htdocs\Proyecto\index.php(153): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 19
+[05-Mar-2023 19:27:42 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Config\Conectar" not found in C:\xampp\htdocs\Proyecto\Model\productos_modelo.php:19
 Stack trace:
-#0 C:\xampp\htdocs\Proyecto\index.php(38): array_column('productos_en_ca...', 'Cod_producto')
-#1 {main}
-  thrown in C:\xampp\htdocs\Proyecto\index.php on line 38
+#0 C:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(8): Models\Productos_modelo->__construct()
+#1 C:\xampp\htdocs\Proyecto\index.php(153): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 19
+[05-Mar-2023 20:12:47 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in C:\xampp\htdocs\Proyecto\Model\productos_modelo.php:26
+Stack trace:
+#0 C:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(9): Models\Productos_modelo->get_productos()
+#1 C:\xampp\htdocs\Proyecto\index.php(153): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 26
+[05-Mar-2023 20:12:51 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Config\Conectar" not found in C:\xampp\htdocs\Proyecto\Model\productos_modelo.php:18
+Stack trace:
+#0 C:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(8): Models\Productos_modelo->__construct()
+#1 C:\xampp\htdocs\Proyecto\index.php(153): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 18
+[05-Mar-2023 20:12:52 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Config\Conectar" not found in C:\xampp\htdocs\Proyecto\Model\productos_modelo.php:18
+Stack trace:
+#0 C:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(8): Models\Productos_modelo->__construct()
+#1 C:\xampp\htdocs\Proyecto\index.php(153): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 18
+[06-Mar-2023 08:22:10 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Config\Conectar" not found in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php:6
+Stack trace:
+#0 D:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(6): require_once()
+#1 D:\xampp\htdocs\Proyecto\index.php(154): require_once('D:\\xampp\\htdocs...')
+#2 {main}
+  thrown in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 6
+[06-Mar-2023 08:22:24 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Config\Conectar" not found in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php:6
+Stack trace:
+#0 D:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(6): require_once()
+#1 D:\xampp\htdocs\Proyecto\index.php(154): require_once('D:\\xampp\\htdocs...')
+#2 {main}
+  thrown in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 6
+[06-Mar-2023 08:22:47 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Config\Conectar" not found in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php:28
+Stack trace:
+#0 D:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(9): Models\Productos_modelo->get_productos()
+#1 D:\xampp\htdocs\Proyecto\index.php(154): require_once('D:\\xampp\\htdocs...')
+#2 {main}
+  thrown in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 28
+[06-Mar-2023 08:24:11 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Config\Conectar" not found in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php:6
+Stack trace:
+#0 D:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(6): require_once()
+#1 D:\xampp\htdocs\Proyecto\index.php(154): require_once('D:\\xampp\\htdocs...')
+#2 {main}
+  thrown in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 6
+[06-Mar-2023 08:24:46 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Config\Conectar" not found in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php:6
+Stack trace:
+#0 D:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(6): require_once()
+#1 D:\xampp\htdocs\Proyecto\index.php(154): require_once('D:\\xampp\\htdocs...')
+#2 {main}
+  thrown in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 6
+[06-Mar-2023 08:24:47 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Config\Conectar" not found in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php:6
+Stack trace:
+#0 D:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(6): require_once()
+#1 D:\xampp\htdocs\Proyecto\index.php(154): require_once('D:\\xampp\\htdocs...')
+#2 {main}
+  thrown in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 6
+[06-Mar-2023 08:24:50 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Config\Conectar" not found in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php:28
+Stack trace:
+#0 D:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(9): Models\Productos_modelo->get_productos()
+#1 D:\xampp\htdocs\Proyecto\index.php(154): require_once('D:\\xampp\\htdocs...')
+#2 {main}
+  thrown in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 28
+[06-Mar-2023 08:24:50 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Config\Conectar" not found in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php:28
+Stack trace:
+#0 D:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(9): Models\Productos_modelo->get_productos()
+#1 D:\xampp\htdocs\Proyecto\index.php(154): require_once('D:\\xampp\\htdocs...')
+#2 {main}
+  thrown in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 28
+[06-Mar-2023 08:25:23 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Config\Conectar" not found in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php:28
+Stack trace:
+#0 D:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(9): Models\Productos_modelo->get_productos()
+#1 D:\xampp\htdocs\Proyecto\index.php(154): require_once('D:\\xampp\\htdocs...')
+#2 {main}
+  thrown in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 28
+[06-Mar-2023 08:27:38 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Config\Conectar" not found in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php:28
+Stack trace:
+#0 D:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(9): Models\Productos_modelo->get_productos()
+#1 D:\xampp\htdocs\Proyecto\index.php(154): require_once('D:\\xampp\\htdocs...')
+#2 {main}
+  thrown in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 28
+[06-Mar-2023 08:27:41 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Config\Conectar" not found in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php:28
+Stack trace:
+#0 D:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(9): Models\Productos_modelo->get_productos()
+#1 D:\xampp\htdocs\Proyecto\index.php(154): require_once('D:\\xampp\\htdocs...')
+#2 {main}
+  thrown in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 28
+[06-Mar-2023 08:27:44 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Config\Conectar" not found in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php:28
+Stack trace:
+#0 D:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(9): Models\Productos_modelo->get_productos()
+#1 D:\xampp\htdocs\Proyecto\index.php(154): require_once('D:\\xampp\\htdocs...')
+#2 {main}
+  thrown in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 28
+[06-Mar-2023 08:29:39 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Config\Conectar" not found in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php:28
+Stack trace:
+#0 D:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(9): Models\Productos_modelo->get_productos()
+#1 D:\xampp\htdocs\Proyecto\index.php(154): require_once('D:\\xampp\\htdocs...')
+#2 {main}
+  thrown in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 28
+[06-Mar-2023 08:34:11 Europe/Berlin] PHP Warning:  include(..\Config\Conectar.php): Failed to open stream: No such file or directory in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 27
+[06-Mar-2023 08:34:11 Europe/Berlin] PHP Stack trace:
+[06-Mar-2023 08:34:11 Europe/Berlin] PHP   1. {main}() D:\xampp\htdocs\Proyecto\index.php:0
+[06-Mar-2023 08:34:11 Europe/Berlin] PHP   2. require_once() D:\xampp\htdocs\Proyecto\index.php:154
+[06-Mar-2023 08:34:11 Europe/Berlin] PHP   3. Models\Productos_modelo->get_productos() D:\xampp\htdocs\Proyecto\Controller\productos_controlador.php:9
+[06-Mar-2023 08:34:11 Europe/Berlin] PHP Warning:  include(): Failed opening '..\Config\Conectar.php' for inclusion (include_path='D:\xampp\php\PEAR') in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 27
+[06-Mar-2023 08:34:11 Europe/Berlin] PHP Stack trace:
+[06-Mar-2023 08:34:11 Europe/Berlin] PHP   1. {main}() D:\xampp\htdocs\Proyecto\index.php:0
+[06-Mar-2023 08:34:11 Europe/Berlin] PHP   2. require_once() D:\xampp\htdocs\Proyecto\index.php:154
+[06-Mar-2023 08:34:11 Europe/Berlin] PHP   3. Models\Productos_modelo->get_productos() D:\xampp\htdocs\Proyecto\Controller\productos_controlador.php:9
+[06-Mar-2023 08:34:11 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Config\Conectar" not found in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php:28
+Stack trace:
+#0 D:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(9): Models\Productos_modelo->get_productos()
+#1 D:\xampp\htdocs\Proyecto\index.php(154): require_once('D:\\xampp\\htdocs...')
+#2 {main}
+  thrown in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 28
+[06-Mar-2023 08:35:14 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Config\Conectar" not found in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php:23
+Stack trace:
+#0 D:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(9): Models\Productos_modelo->get_productos()
+#1 D:\xampp\htdocs\Proyecto\index.php(154): require_once('D:\\xampp\\htdocs...')
+#2 {main}
+  thrown in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 23
+[06-Mar-2023 08:37:20 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Config\Conectar" not found in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php:22
+Stack trace:
+#0 D:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(9): Models\Productos_modelo->get_productos()
+#1 D:\xampp\htdocs\Proyecto\index.php(154): require_once('D:\\xampp\\htdocs...')
+#2 {main}
+  thrown in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 22
+[06-Mar-2023 08:39:03 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Config\Conectar" not found in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php:22
+Stack trace:
+#0 D:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(9): Models\Productos_modelo->get_productos()
+#1 D:\xampp\htdocs\Proyecto\index.php(154): require_once('D:\\xampp\\htdocs...')
+#2 {main}
+  thrown in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 22
+[06-Mar-2023 08:39:03 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Config\Conectar" not found in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php:22
+Stack trace:
+#0 D:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(9): Models\Productos_modelo->get_productos()
+#1 D:\xampp\htdocs\Proyecto\index.php(154): require_once('D:\\xampp\\htdocs...')
+#2 {main}
+  thrown in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 22
+[06-Mar-2023 08:39:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Config\Conectar" not found in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php:22
+Stack trace:
+#0 D:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(9): Models\Productos_modelo->get_productos()
+#1 D:\xampp\htdocs\Proyecto\index.php(154): require_once('D:\\xampp\\htdocs...')
+#2 {main}
+  thrown in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 22
+[06-Mar-2023 08:39:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Config\Conectar" not found in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php:22
+Stack trace:
+#0 D:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(9): Models\Productos_modelo->get_productos()
+#1 D:\xampp\htdocs\Proyecto\index.php(154): require_once('D:\\xampp\\htdocs...')
+#2 {main}
+  thrown in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 22
+[06-Mar-2023 08:39:11 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Config\Conectar" not found in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php:22
+Stack trace:
+#0 D:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(9): Models\Productos_modelo->get_productos()
+#1 D:\xampp\htdocs\Proyecto\index.php(154): require_once('D:\\xampp\\htdocs...')
+#2 {main}
+  thrown in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 22
+[06-Mar-2023 08:45:18 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Config\Conectar" not found in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php:22
+Stack trace:
+#0 D:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(9): Models\Productos_modelo->get_productos()
+#1 D:\xampp\htdocs\Proyecto\index.php(154): require_once('D:\\xampp\\htdocs...')
+#2 {main}
+  thrown in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 22
+[06-Mar-2023 08:50:57 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Config\Conectar" not found in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php:20
+Stack trace:
+#0 D:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(9): Models\Productos_modelo->get_productos()
+#1 D:\xampp\htdocs\Proyecto\index.php(154): require_once('D:\\xampp\\htdocs...')
+#2 {main}
+  thrown in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 20
+[06-Mar-2023 08:53:40 Europe/Berlin] PHP Warning:  include(..\Config\Conectar.php): Failed to open stream: No such file or directory in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 3
+[06-Mar-2023 08:53:40 Europe/Berlin] PHP Stack trace:
+[06-Mar-2023 08:53:40 Europe/Berlin] PHP   1. {main}() D:\xampp\htdocs\Proyecto\index.php:0
+[06-Mar-2023 08:53:40 Europe/Berlin] PHP   2. require_once() D:\xampp\htdocs\Proyecto\index.php:154
+[06-Mar-2023 08:53:40 Europe/Berlin] PHP   3. require_once() D:\xampp\htdocs\Proyecto\Controller\productos_controlador.php:6
+[06-Mar-2023 08:53:40 Europe/Berlin] PHP Warning:  include(): Failed opening '..\Config\Conectar.php' for inclusion (include_path='D:\xampp\php\PEAR') in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 3
+[06-Mar-2023 08:53:40 Europe/Berlin] PHP Stack trace:
+[06-Mar-2023 08:53:40 Europe/Berlin] PHP   1. {main}() D:\xampp\htdocs\Proyecto\index.php:0
+[06-Mar-2023 08:53:40 Europe/Berlin] PHP   2. require_once() D:\xampp\htdocs\Proyecto\index.php:154
+[06-Mar-2023 08:53:40 Europe/Berlin] PHP   3. require_once() D:\xampp\htdocs\Proyecto\Controller\productos_controlador.php:6
+[06-Mar-2023 08:53:40 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Config\Conectar" not found in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php:20
+Stack trace:
+#0 D:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(9): Models\Productos_modelo->get_productos()
+#1 D:\xampp\htdocs\Proyecto\index.php(154): require_once('D:\\xampp\\htdocs...')
+#2 {main}
+  thrown in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 20
+[06-Mar-2023 08:55:53 Europe/Berlin] PHP Warning:  include(..\Config\Conectar.php): Failed to open stream: No such file or directory in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 4
+[06-Mar-2023 08:55:53 Europe/Berlin] PHP Stack trace:
+[06-Mar-2023 08:55:53 Europe/Berlin] PHP   1. {main}() D:\xampp\htdocs\Proyecto\index.php:0
+[06-Mar-2023 08:55:53 Europe/Berlin] PHP   2. require_once() D:\xampp\htdocs\Proyecto\index.php:154
+[06-Mar-2023 08:55:53 Europe/Berlin] PHP   3. require_once() D:\xampp\htdocs\Proyecto\Controller\productos_controlador.php:6
+[06-Mar-2023 08:55:53 Europe/Berlin] PHP Warning:  include(): Failed opening '..\Config\Conectar.php' for inclusion (include_path='D:\xampp\php\PEAR') in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 4
+[06-Mar-2023 08:55:53 Europe/Berlin] PHP Stack trace:
+[06-Mar-2023 08:55:53 Europe/Berlin] PHP   1. {main}() D:\xampp\htdocs\Proyecto\index.php:0
+[06-Mar-2023 08:55:53 Europe/Berlin] PHP   2. require_once() D:\xampp\htdocs\Proyecto\index.php:154
+[06-Mar-2023 08:55:53 Europe/Berlin] PHP   3. require_once() D:\xampp\htdocs\Proyecto\Controller\productos_controlador.php:6
+[06-Mar-2023 08:55:53 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Config\Conectar" not found in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php:21
+Stack trace:
+#0 D:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(9): Models\Productos_modelo->get_productos()
+#1 D:\xampp\htdocs\Proyecto\index.php(154): require_once('D:\\xampp\\htdocs...')
+#2 {main}
+  thrown in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 21
+[06-Mar-2023 09:06:12 Europe/Berlin] PHP Warning:  include(..\Config\Conectar.php): Failed to open stream: No such file or directory in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 4
+[06-Mar-2023 09:06:12 Europe/Berlin] PHP Stack trace:
+[06-Mar-2023 09:06:12 Europe/Berlin] PHP   1. {main}() D:\xampp\htdocs\Proyecto\index.php:0
+[06-Mar-2023 09:06:12 Europe/Berlin] PHP   2. require_once() D:\xampp\htdocs\Proyecto\index.php:154
+[06-Mar-2023 09:06:12 Europe/Berlin] PHP   3. require_once() D:\xampp\htdocs\Proyecto\Controller\productos_controlador.php:6
+[06-Mar-2023 09:06:12 Europe/Berlin] PHP Warning:  include(): Failed opening '..\Config\Conectar.php' for inclusion (include_path='D:\xampp\php\PEAR') in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 4
+[06-Mar-2023 09:06:12 Europe/Berlin] PHP Stack trace:
+[06-Mar-2023 09:06:12 Europe/Berlin] PHP   1. {main}() D:\xampp\htdocs\Proyecto\index.php:0
+[06-Mar-2023 09:06:12 Europe/Berlin] PHP   2. require_once() D:\xampp\htdocs\Proyecto\index.php:154
+[06-Mar-2023 09:06:12 Europe/Berlin] PHP   3. require_once() D:\xampp\htdocs\Proyecto\Controller\productos_controlador.php:6
+[06-Mar-2023 09:06:12 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Config\Conectar" not found in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php:23
+Stack trace:
+#0 D:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(9): Models\Productos_modelo->get_productos()
+#1 D:\xampp\htdocs\Proyecto\index.php(154): require_once('D:\\xampp\\htdocs...')
+#2 {main}
+  thrown in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 23
+[06-Mar-2023 09:10:16 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Config\Conectar" not found in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php:23
+Stack trace:
+#0 D:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(9): Models\Productos_modelo->get_productos()
+#1 D:\xampp\htdocs\Proyecto\index.php(154): require_once('D:\\xampp\\htdocs...')
+#2 {main}
+  thrown in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 23
+[06-Mar-2023 09:10:23 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Config\Conectar" not found in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php:23
+Stack trace:
+#0 D:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(9): Models\Productos_modelo->get_productos()
+#1 D:\xampp\htdocs\Proyecto\index.php(154): require_once('D:\\xampp\\htdocs...')
+#2 {main}
+  thrown in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 23
+[06-Mar-2023 09:10:27 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Config\Conectar" not found in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php:23
+Stack trace:
+#0 D:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(9): Models\Productos_modelo->get_productos()
+#1 D:\xampp\htdocs\Proyecto\index.php(154): require_once('D:\\xampp\\htdocs...')
+#2 {main}
+  thrown in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 23
+[06-Mar-2023 09:10:37 Europe/Berlin] PHP Warning:  include(../Config/Conectar.php): Failed to open stream: No such file or directory in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 23
+[06-Mar-2023 09:10:37 Europe/Berlin] PHP Stack trace:
+[06-Mar-2023 09:10:37 Europe/Berlin] PHP   1. {main}() D:\xampp\htdocs\Proyecto\index.php:0
+[06-Mar-2023 09:10:37 Europe/Berlin] PHP   2. require_once() D:\xampp\htdocs\Proyecto\index.php:154
+[06-Mar-2023 09:10:37 Europe/Berlin] PHP   3. Models\Productos_modelo->get_productos() D:\xampp\htdocs\Proyecto\Controller\productos_controlador.php:9
+[06-Mar-2023 09:10:37 Europe/Berlin] PHP Warning:  include(): Failed opening '../Config/Conectar.php' for inclusion (include_path='D:\xampp\php\PEAR') in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 23
+[06-Mar-2023 09:10:37 Europe/Berlin] PHP Stack trace:
+[06-Mar-2023 09:10:37 Europe/Berlin] PHP   1. {main}() D:\xampp\htdocs\Proyecto\index.php:0
+[06-Mar-2023 09:10:37 Europe/Berlin] PHP   2. require_once() D:\xampp\htdocs\Proyecto\index.php:154
+[06-Mar-2023 09:10:37 Europe/Berlin] PHP   3. Models\Productos_modelo->get_productos() D:\xampp\htdocs\Proyecto\Controller\productos_controlador.php:9
+[06-Mar-2023 09:10:37 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Config\Conectar" not found in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php:24
+Stack trace:
+#0 D:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(9): Models\Productos_modelo->get_productos()
+#1 D:\xampp\htdocs\Proyecto\index.php(154): require_once('D:\\xampp\\htdocs...')
+#2 {main}
+  thrown in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 24

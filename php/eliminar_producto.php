@@ -1,18 +1,15 @@
 <?php
+/* comprueba que el usuario haya abierto sesión o redirige */
 session_start();
-
-if (isset($_POST['clave_unica'])) {
-    $clave_unica = $_POST['clave_unica'];
-
-    // Verificar que la clave única es válida y está en la sesión del carrito
-    if (isset($_SESSION['cart']) && array_key_exists($clave_unica, $_SESSION['cart'])) {
-        unset($_SESSION['cart'][$clave_unica]); // Eliminar el producto del carrito
+$cod = $_POST['cod'];
+$unidades = $_POST['unidades'];
+/* si existe el código restamos las unidades, con mínimo de 0 */
+if (isset($_SESSION['carrito'][$cod])) {
+    $_SESSION['carrito'][$cod] -= $unidades;
+    if ($_SESSION['carrito'][$cod] <= 0) {
+        unset($_SESSION['carrito'][$cod]);
     }
-
-    // Actualizar la vista del carrito
-    include('mostrar_carrito.php');
-} else {
-    // Si no se proporcionó una clave única, devolver un mensaje de error
-    echo "Error: No se proporcionó una clave única";
+    /* actualizamos el contador del carrito */
+    $_SESSION['cart_count'] = count($_SESSION['carrito']);
 }
-?>
+header("Location: carrito.php");

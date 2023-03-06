@@ -1,3 +1,6 @@
+<?php
+namespace View; ?>
+
 <head>
     <meta charset="utf-8">
     <title>Editar perfil</title>
