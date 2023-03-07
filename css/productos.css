@@ -1,46 +1,71 @@
-.contenido {
+.contCats {
     display: flex;
 }
 
 #toggleMenuCat {
   position: fixed;
-  top: 55; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  top: 55px; 
   left: 0;
   height: 35px;
-  z-index: 99999;
+  z-index: 99995;
   border: none;
-  background-color:#e6f8f7;
+  background-color: #e6f8f7;
+  border-radius: 5px 0 0 5px;
+  color: #333;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 0 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
 }
+
+#toggleMenuCat:hover {
+  background-color: #d9f1ef;
+}
+
 
 .menuCat {
   position: fixed;
-  top: 90; 
+  top: 90px; 
   left: -400px;
   background-color: #fff;
   transition: all 0.3s ease-in-out;
   z-index: 998;
+  width: 400px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
 }
+
 
 .menuCat.active {
   left: 0;
 }
 
 .categoria {
-  display: flex;
-  flex-direction: column;
-    background-color:#00b3aa19;
-    text-align: center;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-    font-weight: bolder;
-    border: none;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
+  display: block;
+  background-color: #e6f8f7; 
+  text-align: center;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: bold;
+  border: none;
+  width: 100%;
+  padding: 10px 0;
+  text-transform: uppercase;
+  color: #555;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
+
+.categoria:hover {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
 
 @media (min-width: 1090px) {
   .categoria {
-    font-size: 1.2vw;
+    font-size: 1vw;
     height: 6vh;
   }
   
@@ -57,7 +82,7 @@
 
 @media (min-width: 700px) and (max-width: 1090px) {
   .categoria {
-    font-size: 1.5vw;
+    font-size: 1.3vw;
     height: 5vh;
   }
   #toggleMenuCat {
@@ -73,7 +98,7 @@
 
 @media (max-width: 700px) {
   .categoria {
-    font-size: 4vw;
+    font-size: 3.8vw;
     height: 4vh;
   }
   #toggleMenuCat {
@@ -138,7 +163,7 @@
 
   @media (max-width: 768px) {
     .producto {
-        width: 49%;
+        width: 85%;
     }
   }
 
@@ -154,7 +179,7 @@
     display: flex;
   }
   
-  .button button {
+  .button button,.trollButton {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     font-weight: bolder;
     border: none;
@@ -171,13 +196,14 @@
   }
 
   .troll {
+    display: flex;
     width: 70%;
   }
-
+  
   .fav {
-    width: 30%;
+    width: 15%;
   }
-
+  
   .trollButton {
     height: 100%;
     background-color: #00b3aa;
@@ -190,11 +216,26 @@
   }
 
   .favButton:hover {
+    transition: background-color .8s;
     background-color: rgb(185, 17, 51);
   }
-
+  
   .trollButton:hover {
+    transition: background-color .8s;
     background-color: #018273;
+  }
+
+  input[type=number] {
+    border: none;
+    border-bottom: 2px solid #018273;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    color: #333;
+  }
+  
+  input[type=number]:focus {
+    outline: none;
+    border-bottom: 2px solid #00b3aa;
   }
 
   .errorMsg {

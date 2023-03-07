@@ -59,14 +59,14 @@ include('header.php');
                         <label>$nom</label>
                         <label>$precio_formateado €/Ud</label>
                         <div class='button'>
-                        <form class='fav' method='post' action='php/favoritos.php'>
-          <input type='hidden' name='id_producto_fav' value='{$producto['Cod_producto']}'>
-            <button class='favButton' name='anadir_fav' type='submit'>🤍</button>
-            </form>
-            <form class='troll' method='post'>
-              <input name = 'unidades' type='number' min = '1' max='$stock' value = '1'>
-              <input type = 'submit' class='trollButton' name='anadir' value='Añadir al carrito'><input name ='cod' type='hidden' value = '$cod'></input>
-            </form>
+                        <form class='fav' method='post' action='favoritos.php'>
+                <input type='hidden' name='id_producto_fav' value='{$producto['Cod_producto']}'>
+                  <button class='favButton' name='anadir_fav' type='submit'>🤍</button>
+                  </form>
+                  <form class='troll' method='post'>
+                    <input type = 'submit' class='trollButton' name='anadir' value='Añadir al carrito'><input name ='cod' type='hidden' value = '$cod'></input>
+                    <input name = 'unidades' type='number' min = '1' max='{$producto['Stock']}' value = '1'>
+                  </form>
                         </div>
                     </div>";
             }
