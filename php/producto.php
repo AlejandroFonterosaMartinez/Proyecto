@@ -1,15 +1,12 @@
 <?php
 include('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'productos_modelo.php');
 use Models\Productos_modelo;
-include('sesion.php');
 
-
+include('header.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,6 +16,11 @@ include('sesion.php');
     <link href="../css/header.css" rel="stylesheet" type="text/css">
     <link href="../css/producto.css" rel="stylesheet" type="text/css">
     <link href="../css/footer.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -26,10 +28,6 @@ include('sesion.php');
 
     $producto_modelo = new Productos_modelo();
     $productos = $producto_modelo::cargar_producto($_GET['codigo']);
-
-include('header.php');
-    include('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'productos_modelo.php');
-    $productos = cargar_producto($_GET['codigo']);
     echo "<div class='contenedor'>";
     foreach ($productos as $producto) {
         $cod = $producto['Cod_producto'];
@@ -59,14 +57,13 @@ include('header.php');
                 <label class='sinIva'>$sinIVA_formateado €/Ud sin IVA</label>
                 <label class='entrega'><span class='check'>✓</span> Envío <span class='check'>✓</span> Recogida <span class='check'>✓</span> Almacén</label>
                 <div class='button'>
-                  <form class='fav' method='post' action='favoritos.php'>
-                  <input type='hidden' name='id_producto_fav' value='$cod'>
-                    <button class='favButton' name='anadir_fav' type='submit'>AÑADIR A FAVORITOS</button>
-                    </form>
-                  <form class='troll' method='post' action='agregar_favoritos.php'>
-                    <input type='hidden' name='id_producto' value='$cod'>
-                    <input type='hidden' name='cantidad' value='1'>
-                    <button class='trollButton' name='anadir' type='submit'>AÑADIR AL CARRITO</button>
+                <form class='fav' method='post' action='favoritos.php'>
+                <input type='hidden' name='id_producto_fav' value='{$producto['Cod_producto']}'>
+                  <button class='favButton' name='anadir_fav' type='submit'>🤍</button>
+                  </form>
+                  <form class='troll' method='post'>
+                    <input type = 'submit' class='trollButton' name='anadir' value='Añadir al carrito'><input name ='cod' type='hidden' value = '$cod'></input>
+                    <input name = 'unidades' type='number' min = '1' max='{$producto['Stock']}' value = '1'></input>
                   </form>
                 </div>
                 <label class='stock'><span class='stock-num'>$stock</span> unidades en Stock</label>
@@ -121,23 +118,11 @@ include('header.php');
             </div>
             <div class="contenido">
                 <a href="../php/AboutUs.php">About Us</a>
-                <a id="newsletter-link">Newsletter</a>
-
-                <div id="newsletter-overlay">
-                    <div id="newsletter-popup">
-                        <button id="close-popup">X</button>
-                        <h2>Suscríbete a nuestra Newsletter</h2>
-                        <p>Ingresa tu correo electrónico para recibir nuestras últimas noticias y ofertas:</p>
-                        <form>
-                            <input type="email" name="email" placeholder="Tu correo electrónico" required>
-                            <button type="submit">Suscribirse</button>
-                        </form>
-                    </div>
-                </div>
-                <script src="../javascript/newsletter.js"></script>
+                <a href="../php/Newsletter.php">Newsletter</a>
                 <a href="../php/InfoLegal.php">Información Legal</a>
             </div>
         </div>
     </footer>
 </body>
+
 </html>

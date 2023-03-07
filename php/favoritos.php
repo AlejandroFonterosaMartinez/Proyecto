@@ -1,5 +1,7 @@
 <?php
-include('sesion.php');
+use Config\Conectar;
+
+include('header.php');
 require_once('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
 $_SESSION['mensaje'] = "<div class='alert alert-success' role='alert'>Añadido a favoritos</div>";
 
@@ -37,12 +39,11 @@ $_SESSION['mensaje'] = "<div class='alert alert-success' role='alert'>Añadido a
 
 
 <body class="bg-light">
-<?php include("header.php"); ?>
     <div class="container-fluid">
         <?php
 
         if (isset($_POST['anadir_fav'])) {
-            header("Location: ../index.php ");
+            header("Location: " . $_SERVER['HTTP_REFERER']);
             if (!isset($_SESSION['favoritos'])) {
                 $_SESSION['favoritos'] = array();
             }

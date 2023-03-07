@@ -27,7 +27,7 @@ if (isset($_POST['anadir'])) {
     /* si existe el código sumamos las unidades */
     if (isset($_SESSION['carrito'][$cod])) {
         $_SESSION['carrito'][$cod] += $unidades;
-        echo "<div class='alert alert-info'  style='text-align:center' role='alert'>El producto ya está en el carrito. Las unidades se han actualizado.</div>";
+        echo "<div class='alert alert-info' style='text-align:center' role='alert'>El producto ya está en el carrito. Las unidades se han actualizado.</div>";
     } else {
         $_SESSION['carrito'][$cod] = $unidades;
         echo "<div class='alert alert-success' style='text-align:center' role='alert'>Producto añadido al carrito.</div>";

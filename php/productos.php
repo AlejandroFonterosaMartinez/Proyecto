@@ -3,10 +3,9 @@ use Models\Productos_modelo;
 
 include('../Model/productos_modelo.php');
 include('header.php');
-include('sesion.php');
+
 
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -19,16 +18,11 @@ include('sesion.php');
     <link href="../css/header.css" rel="stylesheet" type="text/css">
     <link href="../css/productos.css" rel="stylesheet" type="text/css">
     <link href="../css/footer.css" rel="stylesheet" type="text/css">
-    <link rel="shortcut icon" href="../imagenes/Logo.ico" type="image/x-icon" />
-    <link rel="icon" href="../imagenes/Logo.ico" type="image/x-icon" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
     <div class="contenido">
-<?php
-include('header.php'); ?>
-    <div class="contCats">
         <button id="toggleMenuCat"> ≡ </button>
         <div class="menuCat">
             <input type="button" class="categoria" value="Tejados Y Cubiertas" />
@@ -64,14 +58,14 @@ include('header.php'); ?>
                         </a>                
                         <label>$nom</label>
                         <label>$precio_formateado €/Ud</label>
-                        <div class='button'>
-                        <form class='fav' method='post' action='php/favoritos.php'>
+                        <div class='button'></a>
+                        <form class='fav' method='post' action='favoritos.php'>
           <input type='hidden' name='id_producto_fav' value='{$producto['Cod_producto']}'>
             <button class='favButton' name='anadir_fav' type='submit'>🤍</button>
             </form>
             <form class='troll' method='post'>
               <input type = 'submit' class='trollButton' name='anadir' value='Añadir al carrito'><input name ='cod' type='hidden' value = '$cod'></input>
-              <input name = 'unidades' type='number' min = '1' max='$stock' value = '1'>
+              <input name = 'unidades' type='number' min = '1' max='{$producto['Stock']}' value = '1'></input>
             </form>
                         </div>
                     </div>";
@@ -147,20 +141,7 @@ include('header.php'); ?>
             </div>
             <div class="contenido">
                 <a href="../php/AboutUs.php">About Us</a>
-                <a id="newsletter-link">Newsletter</a>
-
-                <div id="newsletter-overlay">
-                    <div id="newsletter-popup">
-                        <button id="close-popup">X</button>
-                        <h2>Suscríbete a nuestra Newsletter</h2>
-                        <p>Ingresa tu correo electrónico para recibir nuestras últimas noticias y ofertas:</p>
-                        <form>
-                            <input type="email" name="email" placeholder="Tu correo electrónico" required>
-                            <button type="submit">Suscribirse</button>
-                        </form>
-                    </div>
-                </div>
-                <script src="../javascript/newsletter.js"></script>
+                <a href="../php/Newsletter.php">Newsletter</a>
                 <a href="../php/InfoLegal.php">Información Legal</a>
             </div>
         </div>
