@@ -146,12 +146,10 @@ label .check {
 }
 
 .favButton:hover {
-  transition: background-color .8s;
   background-color: rgb(185, 17, 51);
 }
 
 .trollButton:hover {
-  transition: background-color .8s;
   background-color: #018273;
 }
 
@@ -201,4 +199,3 @@ label .check {
         margin-bottom: 2%;
     }
 }
-
