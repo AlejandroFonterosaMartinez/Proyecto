@@ -62,15 +62,22 @@
   color: #333;
 }
 
+input[type=number]::-webkit-inner-spin-button {
+  opacity: 1
+}
+
 
 @media (min-width: 1090px) {
+  #toggleMenuCat {
+    top: 13px; 
+  }
   .categoria {
     font-size: 1vw;
     height: 6vh;
   }
   
   #toggleMenuCat {
-    width: 20vw;
+    width: 3.5vw;
   }
   .menuCat {
     width: 20vw;
@@ -198,10 +205,12 @@
   .troll {
     display: flex;
     width: 70%;
+    cursor: pointer;
   }
   
   .fav {
     width: 15%;
+    cursor: pointer;
   }
   
   .trollButton {

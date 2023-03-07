@@ -100,7 +100,11 @@
   .trollButton:hover {
     background-color: #018273;
   }
-
+  
+  input[type=number]::-webkit-inner-spin-button {
+    opacity: 1
+  }
+  
 
   .errorMsg {
     display: flex;

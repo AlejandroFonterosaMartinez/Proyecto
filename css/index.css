@@ -208,10 +208,12 @@
 .troll {
   display: flex;
   width: 70%;
+  cursor: pointer;
 }
 
 .fav {
   width: 15%;
+  cursor: pointer;
 }
 
 .trollButton {

@@ -16,4 +16,5 @@ if (isset($_POST['submit'])) {
     session_start();
     setcookie("Usuario", $email, time() + 60 * 60 * 24 * 30, DIRECTORY_SEPARATOR);
     $_SESSION['correo'] = $email;
+    $_SESSION['rol']= [1];
 }

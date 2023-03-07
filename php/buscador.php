@@ -111,7 +111,7 @@ include('header.php');
                 <h3>Información y Bases Legales</h3>
             </div>
             <div class="contenido">
-                <a href="AboutUs.php">About Us</a>
+                <a href="aboutUs.php">About Us</a>
                 <a id="newsletter-link">Newsletter</a>
 
                 <div id="newsletter-overlay">
@@ -126,7 +126,7 @@ include('header.php');
                     </div>
                 </div>
                 <script src="../javascript/newsletter.js"></script>
-                <a href="InfoLegal.php">Información Legal</a>
+                <a href="infoLegal.php">Información Legal</a>
             </div>
         </div>
     </footer>

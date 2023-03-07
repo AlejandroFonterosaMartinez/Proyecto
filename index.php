@@ -222,12 +222,14 @@ if (isset($_POST['anadir'])) {
             </div>
         </div>
     </div>
+    <!--
     <button id="mainBtn">Admin.</button>
     <div id="submenu">
         <button>Administrar Usuarios</button>
         <button>Administrar Productos</button>
     </div>
     <script src="javascript/admin.js"></script>
+            -->
     <!-- Footer -->
     <footer>
         <!-- Contactanos -->

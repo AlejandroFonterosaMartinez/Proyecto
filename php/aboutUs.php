@@ -168,7 +168,7 @@
                 <h3>Información y Bases Legales</h3>
             </div>
             <div class="contenido">
-                <a href="../php/AboutUs.php">About Us</a>
+                <a href="../php/aboutUs.php">About Us</a>
                 <a id="newsletter-link">Newsletter</a>
 
                 <div id="newsletter-overlay">
@@ -183,7 +183,7 @@
                     </div>
                 </div>
                 <script src="../javascript/newsletter.js"></script>
-                <a href="../php/InfoLegal.php">Información Legal</a>
+                <a href="../php/infoLegal.php">Información Legal</a>
             </div>
         </div>
     </footer>
