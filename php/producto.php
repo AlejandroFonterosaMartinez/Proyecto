@@ -16,6 +16,11 @@ include('header.php');
     <link href="../css/header.css" rel="stylesheet" type="text/css">
     <link href="../css/producto.css" rel="stylesheet" type="text/css">
     <link href="../css/footer.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -52,14 +57,13 @@ include('header.php');
                 <label class='sinIva'>$sinIVA_formateado €/Ud sin IVA</label>
                 <label class='entrega'><span class='check'>✓</span> Envío <span class='check'>✓</span> Recogida <span class='check'>✓</span> Almacén</label>
                 <div class='button'>
-                  <form class='fav' method='post' action='favoritos.php'>
-                  <input type='hidden' name='id_producto_fav' value='$cod'>
-                    <button class='favButton' name='anadir_fav' type='submit'>AÑADIR A FAVORITOS</button>
-                    </form>
-                  <form class='troll' method='post' action='agregar_favoritos.php'>
-                    <input type='hidden' name='id_producto' value='$cod'>
-                    <input type='hidden' name='cantidad' value='1'>
-                    <button class='trollButton' name='anadir' type='submit'>AÑADIR AL CARRITO</button>
+                <form class='fav' method='post' action='favoritos.php'>
+                <input type='hidden' name='id_producto_fav' value='{$producto['Cod_producto']}'>
+                  <button class='favButton' name='anadir_fav' type='submit'>🤍</button>
+                  </form>
+                  <form class='troll' method='post'>
+                    <input name = 'unidades' type='number' min = '1' max='{$producto['Stock']}' value = '1'>
+                    <input type = 'submit' class='trollButton' name='anadir' value='Añadir al carrito'><input name ='cod' type='hidden' value = '$cod'></input>
                   </form>
                 </div>
                 <label class='stock'><span class='stock-num'>$stock</span> unidades en Stock</label>

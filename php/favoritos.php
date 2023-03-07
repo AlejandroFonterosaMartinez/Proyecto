@@ -43,7 +43,7 @@ $_SESSION['mensaje'] = "<div class='alert alert-success' role='alert'>Añadido a
         <?php
 
         if (isset($_POST['anadir_fav'])) {
-            header("Location: ../index.php ");
+            header("Location: " . $_SERVER['HTTP_REFERER']);
             if (!isset($_SESSION['favoritos'])) {
                 $_SESSION['favoritos'] = array();
             }
