@@ -27,7 +27,7 @@ if (isset($_POST['anadir'])) {
     /* si existe el código sumamos las unidades */
     if (isset($_SESSION['carrito'][$cod])) {
         $_SESSION['carrito'][$cod] += $unidades;
-        echo "<div class='alert alert-info' role='alert'>El producto ya está en el carrito. Las unidades se han actualizado.</div>";
+        echo "<div class='alert alert-info'  style='text-align:center' role='alert'>El producto ya está en el carrito. Las unidades se han actualizado.</div>";
     } else {
         $_SESSION['carrito'][$cod] = $unidades;
         echo "<div class='alert alert-success' style='text-align:center' role='alert'>Producto añadido al carrito.</div>";
@@ -41,6 +41,8 @@ if (isset($_POST['anadir'])) {
 <!-- Head -->
 
 <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
@@ -126,29 +128,23 @@ if (isset($_POST['anadir'])) {
         CATEGORÍAS
     </div>
     <div class="categorias">
-        <div class="item"><a class="itA" href="php/productos.php?categoria=4"><img
-                    src="imagenes/Menu/Arena.svg" />Arenas y
-                Gravas</a></div>
-        <div class="item"><a class="itA" href="php/productos.php?categoria=1"><img
-                    src="imagenes/Menu/Techo.svg" />Tejados Y
-                Cubiertas</a></div>
-        <div class="item"><a class="itA" href="php/productos.php?categoria=2"><img
-                    src="imagenes/Menu/Cemento.svg" />Cementos Y
-                Morteros</a></div>
-        <div class="item"><a class="itA" href="php/productos.php?categoria=6"><img
-                    src="imagenes/Menu/Madera.svg" />Madera</a></div>
-        <div class="item"><a class="itA" href="php/productos.php?categoria=7"><img
-                    src="imagenes/Menu/Hormigonera.svg" />Hormigoneras, carretillas...</a></div>
-        <div class="item"><a class="itA" href="php/productos.php?categoria=5"><img
-                    src="imagenes/Menu/Valla.svg" />Cercados y
-                Ocultación</a></div>
-        <div class="item"><a class="itA" href="php/productos.php?categoria=3"><img src="imagenes/Menu/Yeso.svg" />Yesos
-                Y
-                Escayolas</a></div>
-        <div class="item"><a class="itA" href="php/productos.php?categoria=9"><img
-                    src="imagenes/Menu/Eleconstruccion.svg" />Elementos de construcción</a></div>
-        <div class="item"><a class="itA" href="php/productos.php?categoria=8"><img
-                    src="imagenes/Menu/Aislante.svg" />Aislamientos</a></div>
+        <div class="item"><a href="php/productos.php?categoria=4"><img src="imagenes/Menu/Arena.svg" /></a>Arenas y
+            Gravas</div>
+        <div class="item"><a href="php/productos.php?categoria=1"><img src="imagenes/Menu/Techo.svg" /></a>Tejados Y
+            Cubiertas</div>
+        <div class="item"><a href="php/productos.php?categoria=2"><img src="imagenes/Menu/Cemento.svg" /></a>Cementos Y
+            Morteros</div>
+        <div class="item"><a href="php/productos.php?categoria=6"><img src="imagenes/Menu/Madera.svg" /></a>Madera</div>
+        <div class="item"><a href="php/productos.php?categoria=7"><img
+                    src="imagenes/Menu/Hormigonera.svg" /></a>Hormigoneras, carretillas...</div>
+        <div class="item"><a href="php/productos.php?categoria=5"><img src="imagenes/Menu/Valla.svg" /></a>Cercados y
+            Ocultación</div>
+        <div class="item"><a href="php/productos.php?categoria=3"><img src="imagenes/Menu/Yeso.svg" /></a>Yesos Y
+            Escayolas</div>
+        <div class="item"><a href="php/productos.php?categoria=9"><img
+                    src="imagenes/Menu/Eleconstruccion.svg" /></a>Elementos de construcción</div>
+        <div class="item"><a href="php/productos.php?categoria=8"><img
+                    src="imagenes/Menu/Aislante.svg" /></a>Aislamientos</div>
     </div>
     <!-- Productos destacados -->
     <div class="separador">
@@ -223,12 +219,6 @@ if (isset($_POST['anadir'])) {
             </div>
         </div>
     </div>
-    <button id="mainBtn">Admin.</button>
-    <div id="submenu">
-        <button>Administrar Usuarios</button>
-        <button>Administrar Productos</button>
-    </div>
-    <script src="javascript/admin.js"></script>
     <!-- Footer -->
     <footer>
         <!-- Contactanos -->
@@ -281,21 +271,7 @@ if (isset($_POST['anadir'])) {
             <!-- Info -->
             <div class="contenido">
                 <a href="php/aboutUs.php">About Us</a>
-                <a id="newsletter-link">Newsletter</a>
-
-                <div id="newsletter-overlay">
-                    <div id="newsletter-popup">
-                        <button id="close-popup">X</button>
-                        <h2>Suscríbete a nuestra Newsletter</h2>
-                        <p>Ingresa tu correo electrónico para recibir nuestras últimas noticias y ofertas:</p>
-                        <form>
-                            <input type="email" name="email" placeholder="Tu correo electrónico" required>
-                            <button type="submit">Suscribirse</button>
-                        </form>
-                    </div>
-                </div>
-
-                <script src="javascript/newsletter.js"></script>
+                <a href="php/Newsletter.php">Newsletter</a>
                 <a href="php/infoLegal.php">Información Legal</a>
             </div>
         </div>
