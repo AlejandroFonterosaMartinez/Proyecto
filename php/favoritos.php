@@ -39,6 +39,7 @@ $_SESSION['mensaje'] = "<div class='alert alert-success' role='alert'>Añadido a
 
 
 <body class="bg-light">
+<?php include("header.php"); ?>
     <div class="container-fluid">
         <?php
 

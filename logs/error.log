@@ -185,7 +185,13 @@ Stack trace:
 [04-Mar-2023 18:57:57 Europe/Berlin] PHP Warning:  Undefined variable $product_id in C:\xampp\htdocs\Proyecto\index.php on line 48
 [04-Mar-2023 18:57:57 Europe/Berlin] PHP Warning:  Undefined array key "cart" in C:\xampp\htdocs\Proyecto\index.php on line 48
 [04-Mar-2023 18:57:57 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: array_column(): Argument #1 ($array) must be of type array, null given in C:\xampp\htdocs\Proyecto\index.php:48
+[04-Mar-2023 05:07:04 Europe/Berlin] PHP Warning:  Undefined array key 0 in C:\xampp\htdocs\Proyecto\index.php on line 52
+[04-Mar-2023 05:07:04 Europe/Berlin] PHP Warning:  Undefined array key "cantidad" in C:\xampp\htdocs\Proyecto\index.php on line 52
+[04-Mar-2023 18:57:57 Europe/Berlin] PHP Warning:  Undefined variable $product_id in C:\xampp\htdocs\Proyecto\index.php on line 48
+[04-Mar-2023 18:57:57 Europe/Berlin] PHP Warning:  Undefined array key "cart" in C:\xampp\htdocs\Proyecto\index.php on line 48
+[04-Mar-2023 18:57:57 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: array_column(): Argument #1 ($array) must be of type array, null given in C:\xampp\htdocs\Proyecto\index.php:48
 Stack trace:
+#0 C:\xampp\htdocs\Proyecto\index.php(48): array_column(NULL, 'Cod_producto')
 #0 C:\xampp\htdocs\Proyecto\index.php(48): array_column(NULL, 'Cod_producto')
 #1 {main}
   thrown in C:\xampp\htdocs\Proyecto\index.php on line 48

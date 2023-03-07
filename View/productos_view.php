@@ -17,8 +17,8 @@ namespace View; ?>
             <button class='favButton' name='anadir_fav' type='submit'>🤍</button>
             </form>
             <form class='troll' method='post'>
-              <input name = 'unidades' type='number' min = '1' max='{$row['Stock']}' value = '1'>
               <input type = 'submit' class='trollButton' name='anadir' value='Añadir al carrito'><input name ='cod' type='hidden' value = '$cod'></input>
+              <input name = 'unidades' type='number' min = '1' max='{$row['Stock']}' value = '1'>
             </form>
           </div>
         </div>";
