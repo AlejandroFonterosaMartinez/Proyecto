@@ -1,7 +1,7 @@
 <?php
 namespace Models;
 
-include 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php';
+
 use Config\Conectar;
 
 class Perfil_modelo extends Conectar
