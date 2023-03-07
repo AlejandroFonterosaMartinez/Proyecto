@@ -1,15 +1,12 @@
 <?php
 include('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'productos_modelo.php');
 use Models\Productos_modelo;
-include('sesion.php');
 
-
+include('header.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,10 +23,6 @@ include('sesion.php');
 
     $producto_modelo = new Productos_modelo();
     $productos = $producto_modelo::cargar_producto($_GET['codigo']);
-
-include('header.php');
-    include('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'productos_modelo.php');
-    $productos = cargar_producto($_GET['codigo']);
     echo "<div class='contenedor'>";
     foreach ($productos as $producto) {
         $cod = $producto['Cod_producto'];
@@ -121,23 +114,11 @@ include('header.php');
             </div>
             <div class="contenido">
                 <a href="../php/AboutUs.php">About Us</a>
-                <a id="newsletter-link">Newsletter</a>
-
-                <div id="newsletter-overlay">
-                    <div id="newsletter-popup">
-                        <button id="close-popup">X</button>
-                        <h2>Suscríbete a nuestra Newsletter</h2>
-                        <p>Ingresa tu correo electrónico para recibir nuestras últimas noticias y ofertas:</p>
-                        <form>
-                            <input type="email" name="email" placeholder="Tu correo electrónico" required>
-                            <button type="submit">Suscribirse</button>
-                        </form>
-                    </div>
-                </div>
-                <script src="../javascript/newsletter.js"></script>
+                <a href="../php/Newsletter.php">Newsletter</a>
                 <a href="../php/InfoLegal.php">Información Legal</a>
             </div>
         </div>
     </footer>
 </body>
+
 </html>
