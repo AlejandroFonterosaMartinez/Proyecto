@@ -1,11 +1,11 @@
 /*Body*/
 body {
-    display: flex;
-    align-items: center;
-    background-image: url('../imagenes/Fondo/fondo-login.jpg');
-
     justify-content: center;
-    min-height: 100vh;
+    align-items: center;
+    background-color: #bedfec;
+    background-repeat: no-repeat;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    font-weight: bolder;
 }
 
 /*Contenedor formulario*/
@@ -13,17 +13,17 @@ body {
     margin: auto;
     width: 30%;
     background-color: #fff;
-    padding: 30px;
+    padding: 3%;
     border-radius: 10px;
     box-shadow: 0 0 20px 0 #ccc;
     text-align: center;
+    margin-top: 3.9%;
 }
 
-
-/*Titulo*/
-.form h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
+.alerta {
+    position: absolute;
+    width: 100%;
+    top: 0;
 }
 
 /*Inputs*/
@@ -32,7 +32,7 @@ body {
 .form input[type="password"],
 .form input[type="date"] {
     width: 100%;
-    padding: 12px 20px;
+    padding: 2% 5%;
     margin: 8px 0;
     box-sizing: border-box;
     border: none;
@@ -43,39 +43,38 @@ body {
 /*Boton submit*/
 .form input[type="submit"] {
     width: 100%;
-    padding: 12px 20px;
-    background-color: #4CAF50;
+    padding: 2% 5%;
+    background-color: #00b3aa;
     color: white;
     margin-top: 20px;
     border-radius: 5px;
     border: none;
     cursor: pointer;
 }
+
 .form input[type="submit"]:hover {
-    background-color: #45a049;
+    background-color: #018273;
 }
 
-/*Mensaje de error*/
-.form p {
-    margin: 8px 0;
-    color: red;
-}
-
-/*Mensaje de carga*/
-.form .loading {
-    margin: 8px 0;
-    color: green;
-}
 /*Labels*/
 .form label {
     font-size: 18px;
     display: block;
-    margin-bottom: 10px;
-
+    margin-bottom: 10px
 }
-/* Para otros dispositivos con distinta resolucion */
-@media only screen and(max-width: 600px) {
+
+@media (min-width: 700px) and (max-width: 1024px) {
     .form {
+        padding: 5%;
+        width: 60%;
+        margin-top: 8%;
+    }
+}
+
+@media (max-width: 768px) {
+    .form {
+        padding: 5%;
         width: 90%;
+        margin-top: 20%;
     }
 }

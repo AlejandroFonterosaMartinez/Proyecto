@@ -1,242 +1,345 @@
+header {
+  position: sticky;
+  display: flex;
+  top: 0;
+  left: 0;
+  padding: 0.2em;
+  z-index: 999;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilos para el contenedor principal */
+.containerH {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Estilos para el logo */
+.infoPag {
+  display: flex;
+  align-items: center;
+  color: #3a3a3a;
+  text-align: center;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: bolder;
+}
+
+.infoPag>a {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menuPers {
+  display: flex;
+  list-style-type: none;
+  position: relative;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.menuPers a {
+  width: 100%;
+  text-decoration: none;
+  margin: 0 0.1em 0 0.1em;
+  color: black;
+  display: flex;
+  align-items: center;
+}
+
+.cuenta:hover {
+  cursor: pointer;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.cuenta {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cuenta:hover .submenu {
+  visibility: visible;
+}
+
+/* Estilos para el submenu */
+.submenu {
+  visibility: hidden;
+  position: absolute;
+  top: 100%;
+  cursor: pointer;
+  padding: 1%;
+  background-color: #fff;
+  border-color: #ccc;
+  border-style: solid;
+  border-width: 0px 1px 1px 1px;
+  width: 22%;
+}
+
+.subdiv button:hover {
+  background-color: #00b3aa;
+}
+
+.subdiv button {
+  border: none;
+  width: 100%;
+  background-color: #fff;
+  color: black;
+}
+
+.subText {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: bolder;
+  width: 80%;
+}
+
+.buscador {
+  display: flex;
+}
+
+/* Estilos para el input de busqueda */
+.buscador input[type="text"] {
+  width: 65%;
+  border: none;
+  padding: 0.5em 0;
+  border-radius: 5px 0 0 5px;
+  margin-right: -4px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.buscador form {
+  margin-bottom: -0.2%;
+}
+
+/* Estilos para el boton de busqueda */
+.buscador button[type="submit"] {
+  width: 30%;
+  padding: 0.5em 1em;
+  border: none;
+  background-color: #018273;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.contador {
+  position: absolute;
+  top: 50%;
+  right: 20.2%;
+  background-color: #00b3aa;
+  border-radius: 50%;
+  font-size: 13px;
+  color: white;
+  text-align: center;
+  width: 2%;
+}
+
+.buscador button[type="submit"]:hover {
+  background-color: #00675b;
+  cursor: pointer;
+}
+
 /* Estilos para Pantallas de PC */
 @media (min-width: 1090px) {
-    header {
-        position: sticky;
-        display: flex;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background-color: #fff;
-        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
-    }
+  .cuenta {
+    white-space: nowrap;
+  }
+  .infoPag {
+    width: 30%;
+    font-size: larger;
+    font-weight: bolder;
+  }
 
-    /* Estilos para el contenedor principal */
-    .container {
-        display: flex;
-        align-items: center;
-        width: 100%;
-    }
+  .infoPag>a {
+    width: 50%;
+  }
 
-    .container>div {
-        width: 33%;
-        justify-content: center;
-    }
+  .buscador {
+    width: 30%;
+  }
 
-    /* Estilos para el logo */
-    .infoPag {
-        display: flex;
-        font-size: larger;
-        font-weight: bolder;
-        align-items: center;
-        color: #3a3a3a;
-    }
+  .infoPag img {
+    width: 18%;
+  }
 
-    .infoPag img {
-        width: 9%;
-    }
+  .menuPers {
+    height: 100%;
+    width: 40%;
+    justify-content: end;
+  }
 
-    .buscador {
-        display: flex;
-    }
+  .menuPers img {
+    width: 15%;
+  }
 
-    /* Estilos para el input de busqueda */
-    .buscador input[type="text"] {
-        padding: 0.5em;
-        border: none;
-        border-radius: 5px 0 0 5px;
-        margin-right: -1px;
-        width: 50%;
-    }
+  .menuPers>div {
+    width: 22%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
 
-    /* Estilos para el boton de busqueda */
-    .buscador button[type="submit"] {
-        padding: 0.5em 1em;
-        border: none;
-        background-color: #018273;
-        color: #fff;
-        border-radius: 0 5px 5px 0;
-    }
+  .buscador form {
+    width: 100%;
+  }
 
-    .menuPers {
-        display: flex;
+  .buscador input[type="text"] {
+    padding: 0.5em;
+    width: 65%;
+  }
 
-    }
-
-    .menuPers a {
-        width: 21%;
-        text-decoration: none;
-        margin: 0 0.1em 0 0.1em;
-        color: black;
-    }
-
-    .menuPers img {
-        width: 20%;
-        margin: 0 0.1em 0 0.1em;
-    }
-
+  .buscador button[type="submit"] {
+    width: 25%;
+  }
 }
 
 /* Estilos para tablet*/
 @media (min-width: 700px) and (max-width: 1090px) {
-    header {
-        position: sticky;
-        display: flex;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background-color: #fff;
-        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
-    }
+  .cuenta {
+    white-space: nowrap;
+  }
+  .infoPag {
+    width: 25%;
+    font-size: larger;
+    font-weight: bolder;
+  }
 
-    /* Estilos para el contenedor principal */
-    .container {
-        display: flex;
-        align-items: center;
-        width: 100%;
-        padding: 0.2em;
-    }
+  .infoPag>a {
+    width: 100%;
+    justify-content: start;
+  }
 
-    .infoPag {
-        width: 25%;
-    }
+  .buscador {
+    width: 35%;
+  }
 
-    .buscador {
-        width: 25%;
-    }
+  .buscador form {
+    width: 100%;
+  }
 
-    /* Estilos para el logo */
-    .infoPag {
-        display: flex;
-        font-size: larger;
-        font-weight: bolder;
-        align-items: center;
-        color: #3a3a3a;
-    }
+  .buscador input[type="text"] {
+    padding: 0.5em;
+  }
 
-    .infoPag img {
-        width: 12%;
-    }
+  .buscador button[type="submit"] {
+    width: 25%;
+  }
 
-    .buscador {
-        display: flex;
-    }
+  .infoPag img {
+    width: 20%;
+  }
 
-    /* Estilos para el input de busqueda */
-    .buscador input[type="text"] {
-        padding: 0.5em;
-        border: none;
-        border-radius: 5px 0 0 5px;
-        margin-right: -1px;
-    }
+  .menuPers {
+    height: 100%;
+    width: 40%;
+    justify-content: end;
+  }
 
-    /* Estilos para el boton de busqueda */
-    .buscador button[type="submit"] {
-        padding: 0.5em 1em;
-        border: none;
-        background-color: #018273;
-        color: #fff;
-        border-radius: 0 5px 5px 0;
-    }
+  .menuPers img {
+    width: 20%;
+  }
 
-    .menuPers {
-        display: flex;
-        width: 50%;
-        justify-content: end;
-        font-size: small;
-    }
+  .menuPers>div {
+    width: 33%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
 
-    .menuPers a {
-        width: 25%;
-        text-decoration: none;
-        margin: 0 0.1em 0 0.1em;
-        color: black;
-    }
+  .submenu {
+    width: 40%;
+  }
 
-    .menuPers img {
-        width: 20%;
-        margin: 0 0.1em 0 0.1em;
-    }
-
+  .contador {
+    width: 4%;
+    right: 29.5%;
+  }
 }
 
 /* Estilos para móvil */
 @media (max-width: 700px) {
-    header {
-        position: sticky;
-        display: flex;
-        top: 0.3em;
-        left: 0;
-        width: 100%;
-        background-color: #fff;
-        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
-    }
+  .containerH {
+    justify-content: space-between;
+    padding: 0.5em;
+  }
 
-    /* Estilos para el contenedor principal */
-    .container {
-        display: flex;
-        align-items: center;
-        width: 100%;
-        flex-wrap: wrap;
-        padding: 0.3em;
-    }
+  .infoPag {
+    width: 10%;
+    height: 100%;
+    font-size: 0%;
+    justify-content: center;
+  }
 
-    .buscador {
-        display: flex;
-        width: 70%;
-        justify-content: center;
-    }
+  .infoPag>a {
+    width: 100%;
+  }
 
-    /* Estilos para el logo */
-    .infoPag {
-        display: flex;
-        align-items: center;
-        color: #3a3a3a;
-        width: 15%;
-        font-size: 0%;
-        justify-content: center;
-    }
+  .menuPers {
+    justify-content: center;
+    width: 25%;
+    height: 100%;
+    margin-top: 0.5em;
+    font-size: 0%;
+  }
 
-    .infoPag img {
-        width: 60%;
-    }
+  .submenu {
+    width: 99%;
+    top: 100%;
 
-    /* Estilos para el input de busqueda */
-    .buscador input[type="text"] {
-        padding: 0.5em;
-        border: none;
-        border-radius: 5px 0 0 5px;
-        margin-right: -1px;
-    }
+    display: flex;
+    flex-direction: column;
+    height: 155%;
+  }
 
-    /* Estilos para el boton de busqueda */
-    .buscador button[type="submit"] {
-        padding: 0.5em 1em;
-        border: none;
-        background-color: #018273;
-        color: #fff;
-        border-radius: 0 5px 5px 0;
-    }
+  .subdiv {
+    height: 50%;
+    width: 100%;
+    display: flex;
+  }
 
-    .menuPers {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        margin-top: 0.4em;
-    }
+  .submenu img {
+    width: 15%;
+    margin-right: 2%;
+  }
 
-    .menuPers a {
-        width: 33%;
-        text-decoration: none;
-        margin: 0 0.1em 0 0.1em;
-        color: black;
-        justify-content: center;
-        display: flex;
-    }
+  .subText {
+    width: 80%;
+    font-size: 12px;
+    height: 100%;
+    display: contents;
+  }
 
-    .menuPers img {
-        width: 16%;
-        margin: 0 0.1em 0 0.1em;
-    }
+  .menuPers a {
+    display: flex;
+  }
 
+  .menuPers>div {
+    width: 30%;
+    height: 100%;
+    align-items: center;
+    display: flex;
+  }
+
+  .buscador {
+    width: 60%;
+    justify-content: center;
+  }
+
+  .contador {
+    width: 15%;
+  }
+}
+
+@media (max-width: 395px) {
+  .subText {
+    font-size: 11px;
+  }
 }
