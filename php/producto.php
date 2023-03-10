@@ -2,7 +2,7 @@
 include('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'productos_modelo.php');
 use Models\Productos_modelo;
 
-include('header.php');
+include('sesion.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +25,7 @@ include('header.php');
 
 <body>
     <?php
-
+    include('header.php');
     $producto_modelo = new Productos_modelo();
     $productos = $producto_modelo::cargar_producto($_GET['codigo']);
     echo "<div class='contenedor'>";
@@ -57,14 +57,14 @@ include('header.php');
                 <label class='sinIva'>$sinIVA_formateado €/Ud sin IVA</label>
                 <label class='entrega'><span class='check'>✓</span> Envío <span class='check'>✓</span> Recogida <span class='check'>✓</span> Almacén</label>
                 <div class='button'>
-                <form class='fav' method='post' action='favoritos.php'>
-                <input type='hidden' name='id_producto_fav' value='{$producto['Cod_producto']}'>
-                  <button class='favButton' name='anadir_fav' type='submit'>🤍</button>
-                  </form>
-                  <form class='troll' method='post'>
-                    <input type = 'submit' class='trollButton' name='anadir' value='Añadir al carrito'><input name ='cod' type='hidden' value = '$cod'></input>
-                    <input name = 'unidades' type='number' min = '1' max='{$producto['Stock']}' value = '1'>
-                  </form>
+                <form class='fav' method='post'>
+          <input type='hidden' name='id_producto_fav' value='{$producto['Cod_producto']}'>
+            <button class='favButton' name='anadir_fav' type='submit'>🤍</button>
+            </form>
+            <form class='troll' method='post'>
+              <input type = 'submit' class='trollButton' name='anadir' value='Añadir al carrito'><input name ='cod' type='hidden' value = '$cod'></input>
+              <input name = 'unidades' type='number' min = '1' max='{$producto['Stock']}' value = '1'>
+            </form>
                 </div>
                 <label class='stock'><span class='stock-num'>$stock</span> unidades en Stock</label>
             </div>

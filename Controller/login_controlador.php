@@ -8,6 +8,14 @@ require_once('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'login
 
 class Login_controlador
 {
+    /**
+     * Inicia sesión de usuario en el sistema.
+     *
+     * @param string $email Dirección de correo electrónico del usuario.
+     * @param string $password Contraseña del usuario.
+     *
+     * @return void
+     */
     public function login($email, $password)
     {
 

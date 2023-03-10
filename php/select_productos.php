@@ -1,5 +1,6 @@
 <?php
 use Config\Conectar;
+
 include('../Config/Conectar.php');
 
 
@@ -52,14 +53,14 @@ foreach ($resul as $row) {
     $texto .= "<label>" . $row["Nombre"] . "</label>";
     $texto .= "<label>" . $precio_formateado . "</label>";
     $texto .= "<div class='button'>
-    <form class='fav' method='post' action='favoritos.php'>
-                <input type='hidden' name='id_producto_fav' value='{$producto['Cod_producto']}'>
-                  <button class='favButton' name='anadir_fav' type='submit'>🤍</button>
-                  </form>
-                  <form class='troll' method='post'>
-                    <input type = 'submit' class='trollButton' name='anadir' value='Añadir al carrito'><input name ='cod' type='hidden' value = '$cod'></input>
-                    <input name = 'unidades' type='number' min = '1' max='{$producto['Stock']}' value = '1'>
-                  </form>
+    <form class='fav' method='post'>
+          <input type='hidden' name='id_producto_fav' value='{$row['Cod_producto']}'>
+            <button class='favButton' name='anadir_fav' type='submit'>🤍</button>
+            </form>
+            <form class='troll' method='post'>
+              <input type = 'submit' class='trollButton' name='anadir' value='Añadir al carrito'><input name ='cod' type='hidden' value = '$cod'></input>
+              <input name = 'unidades' type='number' min = '1' max='{$row['Stock']}' value = '1'>
+            </form>
     </div>";
     $texto .= "</div>";
 }

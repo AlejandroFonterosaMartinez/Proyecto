@@ -7,20 +7,20 @@ use Config\Conectar;
 class Registro_modelo extends Conectar
 {
     /**
-     * [Inserta en la base de datos el nombre apellidos fecha de nacimiento email y contraseña hasheada de la persona que se loguea]
+     * @brief  Inserta en la base de datos el nombre apellidos fecha de nacimiento email y contraseña hasheada de la persona que se loguea
      *
-     * @param   [string]  $nombre            [$nombre nombre del usuario]
-     * @param   [string]  $apellidos         [$apellidos apellidos del usuario]
-     * @param   [date]  $fecha_nacimiento  [$fecha_nacimiento fecha de nacimiento del usuario]
-     * @param   [email]  $email             [$email email del usuario]
-     * @param   [string]  $password          [$password contraseña del usuario]
+     * @param   string  $nombre            [$nombre nombre del usuario]
+     * @param   string  $apellidos         [$apellidos apellidos del usuario]
+     * @param   date  $fecha_nacimiento  [$fecha_nacimiento fecha de nacimiento del usuario]
+     * @param   string  $email             [$email email del usuario]
+     * @param   string  $password          [$password contraseña del usuario]
      *
-     * @return  [Si se inserta correctamente: Un mensaje de que se inserto bien.
-     *           Si no se insertar correctamente: Un mensaje de que no se inserto bien.]         
+     * @return  Si se inserta correctamente: Un mensaje de que se inserto bien.
+     *           Si no se insertar correctamente: Un mensaje de que no se inserto bien.        
      */
     public function register($nombre, $apellidos, $fecha_nacimiento, $email, $password)
     {
-     
+
         $password = password_hash($password, PASSWORD_DEFAULT);
 
         $id_rol = 1;
@@ -62,11 +62,11 @@ class Registro_modelo extends Conectar
         }
     }
     /**
-     * [calcularEdad funcion que calcula la edad introducida en fecha nacimiento]
+     * @brief funcion que calcula la edad introducida en fecha nacimiento
      *
-     * @param   [date]  $fecha_nacimiento  [$fecha_nacimiento edad del usuario]
+     * @param   date  $fecha_nacimiento  [$fecha_nacimiento edad del usuario]
      *
-     * @return  [date]                     [return la edad para que ser calculada.]
+     * @return  date                    [return la edad para que ser calculada.]
      */
     function calcularEdad($fecha_nacimiento)
     {

@@ -1,6 +1,6 @@
 <?php
 /* comprueba que el usuario haya abierto sesión o redirige */
-session_start();
+ include('sesion.php');
 $cod = $_POST['cod'];
 $unidades = $_POST['unidades'];
 /* si existe el código restamos las unidades, con mínimo de 0 */

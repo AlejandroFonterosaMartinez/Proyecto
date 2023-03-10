@@ -4,7 +4,7 @@ use Models\Correo_modelo;
 use Models\Productos_modelo;
 use Models\Login_modelo;
 
-session_start();
+include('sesion.php');
 require_once('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
 require_once('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'login_modelo.php');
 require_once('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'productos_modelo.php');

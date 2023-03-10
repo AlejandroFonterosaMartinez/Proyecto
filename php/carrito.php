@@ -4,7 +4,7 @@ use Models\Productos_modelo;
 
 require_once('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
 require_once('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'productos_modelo.php');
-include('header.php');
+include('sesion.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -27,6 +27,7 @@ include('header.php');
         crossorigin="anonymous"></script>
 </head>
 <?php
+include('header.php');
 $total = 0;
 if ($_SESSION['rol'] == 3) {
     echo "<div class='card'><div class='card-body'>

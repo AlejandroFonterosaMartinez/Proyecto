@@ -10,6 +10,16 @@ require '..' . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'phpmailer
 
 class Correo_modelo
 {
+    /**
+     * @brief Envía un correo electrónico a la dirección especificada.
+     *
+     * @param string $email Dirección de correo electrónico del destinatario.
+     * @param string $nombre Nombre del destinatario.
+     * @param string $subjet Asunto del correo electrónico.
+     * @param string $cuerpo Cuerpo del correo electrónico. Opcional, por defecto está vacío.
+     *
+     * @return void
+     */
     public static function enviar_correo($email, $nombre, $subjet, $cuerpo = "", )
     {
         $mail = new PHPMailer(true);

@@ -1,9 +1,9 @@
 <?php
 use Config\Conectar;
 
-include('header.php');
+include('sesion.php');
 require_once('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
-$_SESSION['mensaje'] = "<div class='alert alert-success' role='alert'>Añadido a favoritos</div>";
+
 
 
 ?>
@@ -35,23 +35,17 @@ $_SESSION['mensaje'] = "<div class='alert alert-success' role='alert'>Añadido a
         background-color: #00b3aa;
         color: #00b3aa;
     }
-</style>
 
+    #col-botones {
+        height: 50px;
+    }
+</style>
 
 <body class="bg-light">
     <div class="container-fluid">
-        <?php
 
-        if (isset($_POST['anadir_fav'])) {
-            header("Location: " . $_SERVER['HTTP_REFERER']);
-            if (!isset($_SESSION['favoritos'])) {
-                $_SESSION['favoritos'] = array();
-            }
-            // Comprobar si el producto ya está en favoritos
-            if (!in_array($_POST['id_producto_fav'], $_SESSION['favoritos'])) {
-                array_push($_SESSION['favoritos'], $_POST['id_producto_fav']);
-            }
-        }
+        <?php
+        include('header.php');
 
 
         if (isset($_SESSION['favoritos'])) {
@@ -72,37 +66,40 @@ $_SESSION['mensaje'] = "<div class='alert alert-success' role='alert'>Añadido a
             // Mostrar productos en favoritos
             if (count($favoritos) > 0) {
                 foreach ($favoritos as $producto) {
-                    echo "<table class='table'>";
-                    echo "<thead><tr><th>Imagen</th><th>Nombre</th><th>Descripción</th><th>Precio</th><th></th></tr></thead>";
-                    echo "<tbody>";
+                    $cod = $producto['Cod_producto'];
 
-                    echo "<tr><td class='col-1'><img class='img-thumbnail' src='../imagenes/Productos/{$producto['Cod_producto']}.png'></td><td>{$producto['nombre']}</td><td>{$producto['descripcion']}</td><td>{$producto['precio']}€</td>";
-                    echo "<td>";
+                    echo "<table class='table text-center'>";
+                    echo "<thead><tr><th class='col-1'>Imagen</th><th class='col-1'>Nombre</th><th class='col-1'>Descripción</th><th class='col-1'>Precio</th><th class='col-1'></th></tr></thead>";
+                    echo "<tbody>";
+                    echo "<tr><td class='col-1'><img class='img-thumbnail' src='../imagenes/Productos/{$producto['Cod_producto']}.png'></td><td class='col-1'>{$producto['nombre']}</td><td class='col-1'>{$producto['descripcion']}</td><td class='col-1'>{$producto['precio']}€</td>";
+                    echo "<td class='col-1'>";
                     // Formulario para eliminar el producto
-                    echo "<form method='post'>";
-                    echo "<input type='hidden' name='eliminar_fav' value='{$producto['Cod_producto']}' />";
+                    echo "<form method='post' action='eliminar_favorito.php'>";
+                    echo "<input id='col-botones' type='hidden' name='eliminar_fav' value='{$producto['Cod_producto']}' />";
                     echo "<button type='submit' class='btn btn-danger'>🗑️</button>";
-                    echo "";
-                    echo "<form method='post' class='troll'><input type='hidden' name='id_producto' value='{$producto['Cod_producto']}'>
-                    <input type='hidden' name='cantidad' value='1'>
-                    <button class='btn btn-custom' name='anadir' type='submit'>🛒</button>
-                  </form></form></form></td></tr>";
+                    echo "</form>";
+                    echo " <form class='troll' method='post'>
+                    <input name = 'unidades' type='hidden' min = '1'  value = '1'>
+                    <input type = 'submit' class='btn-custom btn' name='anadir' value='🛒'><input name ='cod' type='hidden' value = '$cod'></input>
+                    
+                  </form>
+                    </form></form></form></td></tr>";
+                    echo "</tbody>";
+                    echo "</table>";
                 }
-                echo "</tbody>";
-                echo "</table>";
             } else {
-                echo "No hay productos favoritos";
+                echo "<div class='alerta alert-error' style='text-align:center' role='alert'>No hay productos favoritos.</div>";
             }
 
         } else {
-            echo "No hay productos favoritos";
+            echo "<div class='alerta alert-error' style='text-align:center' role='alert'>No hay productos favoritos.</div>";
         }
         // Eliminar producto de favoritos
         if (isset($_POST['eliminar_fav'])) {
             $id_producto = $_POST['eliminar_fav'];
             // Buscar el índice del producto en el array de favoritos
             $indice = array_search($id_producto, $_SESSION['favoritos']);
-
+            $_POST['anadir_fav'] = [];
             if ($indice !== false) {
                 // Eliminar el producto del array
                 unset($_SESSION['favoritos'][$indice]);

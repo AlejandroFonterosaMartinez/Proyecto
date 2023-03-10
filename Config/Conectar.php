@@ -8,6 +8,11 @@ use \Exception;
 
 class Conectar
 {
+    /**
+     * @brief Método estático que establece la conexión a la base de datos.
+     *
+     * @return PDO Retorna un objeto PDO que representa la conexión a la base de datos.
+     */
     public static function conexion()
     {
         $charset = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'); // AÑADIR PARA LAS TILDES Y LOGIN
@@ -21,6 +26,12 @@ class Conectar
         }
         return $conexion;
     }
+    /**
+     * @brief Método que carga la configuración de la base de datos desde un archivo XML.
+     * @param  $xml Ruta del archivo XML de configuración.
+     * @param $xsd Ruta del archivo XSD que valida el archivo XML de configuración.
+     * @return array Retorna un array con los datos de conexión a la base de datos (nombre de la base de datos, dirección IP, usuario y contraseña).
+     */
     public function cargar_configuracion($xml, $validador)
     {
         $config = new \DOMDocument();

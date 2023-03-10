@@ -1,7 +1,7 @@
 <?php
 use Config\Conectar;
 
-include('header.php');
+include('sesion.php');
 ?>
 
 
@@ -19,11 +19,17 @@ include('header.php');
     <link href="../css/footer.css" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="../imagenes/Logo.ico" type="image/x-icon" />
     <link rel="icon" href="../imagenes/Logo.ico" type="image/x-icon" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
 </head>
 
 
 <body>
     <?php
+    include('header.php');
     // Conectar a la base de datos
     require_once('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
 
@@ -46,9 +52,10 @@ include('header.php');
             } else {
                 echo "<div class='productos'>";
                 foreach ($result as $row) {
+                    $cod = $row["Cod_producto"];
                     $precio_formateado = number_format($row["Precio"], 2);
-                    echo "<div class='producto'>";
-                    echo "<img src='../imagenes/Productos/" . $row["Cod_producto"] . ".png'>";
+                    echo " <a href='producto.php?codigo=" . $cod . "'><div class='producto'>";
+                    echo "<img src='../imagenes/Productos/" . $row["Cod_producto"] . ".png'></a>";
                     echo "<label>" . $row['Nombre'] . "</label>";
                     echo "<label>" . $precio_formateado . "€/Ud</label>";
                     echo "<div class='button'>";

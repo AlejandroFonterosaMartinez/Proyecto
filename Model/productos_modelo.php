@@ -14,10 +14,10 @@ class Productos_modelo
         $this->categorias = array();
     }
     /**
-     * get_productos realiza una consulta en la base de datos en la que destados = 1 para mostrar los productos destacados y los va devolviendo en un array 
-     *
-     * @return  [array] return array de productos
-     */
+    *@brief Obtiene todos los productos de la base de datos.
+    *@return array Un array con todos las productos obtenidas.
+    
+    */
     public function get_productos()
     {
         include 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php';
@@ -30,11 +30,11 @@ class Productos_modelo
 
 
     /**
-     * [cargar_producto description]
+     * @brief Obtiene los productos de la base de dato.
      *
-     * @param   [type]  $cod  [$cod description]
+     * @param string $cod El codigo del producto que se quiere obtener.
      *
-     * @return  [type]        [return description]
+     * @return \PDOStatement|false Devuelve un objeto \PDOStatement que contiene los productos o false si ocurre un error.
      */
     public static function cargar_producto($cod)
     {
@@ -45,12 +45,12 @@ class Productos_modelo
         return $resul;
     }
     /**
-     * [insertar_pedido description]
+     * @brief inserta un pedido en la base de datos y devuelve el código del pedido insertado.
      *
-     * @param   [type]  $carrito  [$carrito description]
-     * @param   [type]  $usuario  [$usuario description]
+     * @param   array  $carrito  Carrito de compras con los productos a insertar.
+     * @param   int  $usuario    Id del usuario que realiza el pedido.
      *
-     * @return  [type]            [return description]
+     * @return   int|false          El código del pedido insertado o FALSE si no se ha podido insertar.
      */
     public static function insertar_pedido($carrito, $usuario)
     {
@@ -95,11 +95,13 @@ class Productos_modelo
         }
     }
     /**
-     * [insertar_carrito description]
+     * 
+     * @brief Inserta productos en el carrito de compras
      *
-     * @param   [type]  $codigosProductos  [$codigosProductos description]
+     * @param array $codigosProductos Array con los códigos de productos a insertar
      *
-     * @return  [type]                     [return description]
+     * @return mixed Retorna FALSE si no encuentra resultados, o un array con los productos encontrados.
+     *
      */
     public static function insertar_carrito($codigosProductos)
     {
@@ -117,9 +119,12 @@ class Productos_modelo
 
         return $resul;
     }
-
-
-    // Categoria
+    /**
+    *@brief Obtiene todas las categorias de la base de datos.
+    *@return array Un array con todas las categorias obtenidas.
+    
+    *@throws \Exception Si ocurre algún error durante la consulta.
+    */
     public function get_categorias()
     {
         try {
@@ -133,21 +138,17 @@ class Productos_modelo
         }
 
     }
+
     /**
-     * [cargar_categorias description]
+     * @brief Obtiene los productos de una categoría específica.
      *
-     * @param   [type]  $cat  [$cat description]
+     * @param string $cat La categoría de la que se quieren obtener los productos.
      *
-     * @return  [type]        [return description]
+     * @return \PDOStatement|false Un objeto \PDOStatement que contiene los productos o false si ocurre un error.
      */
     public static function cargar_categorias($cat)
     {
         include('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
-        /*
-         * Devuelve un puntero con el código y nombre de las categorías de la BBDD
-         * o falso si se produjo un error
-         */
-
         $db = Conectar::conexion();
         $ins = "SELECT Cod_producto,Nombre,Precio,Stock FROM productos WHERE Categoria='$cat'";
         $resul = $db->query($ins);
