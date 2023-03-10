@@ -1,4 +1,4 @@
-<?php include("sesion.php"); ?>
+<?php include("sesion.php") ?>
 <!DOCTYPE html>
 <html>
 
@@ -13,11 +13,16 @@
     <link href="../css/footer.css" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="../imagenes/Logo.ico" type="image/x-icon" />
     <link rel="icon" href="../imagenes/Logo.ico" type="image/x-icon" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
 </head>
 
 
 <body>
-<?php include("header.php"); ?>
+    <?php include("header.php") ?>
     <div class="apartados">
         <div class="titulo">
             <h1>Quiénes somos</h1>
@@ -45,8 +50,7 @@
             <h2>Dónde encontrarnos</h2>
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2954.5831380854715!2d-8.711729584310444!3d42.22335335171603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd2f627a717effab%3A0x83f5f820f1916cc!2sAv.%20de%20Madrid%2C%20Vigo%2C%20Pontevedra!5e0!3m2!1ses!2ses!4v1668151872260!5m2!1ses!2ses"
-                allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
         <div class="apartado">
             <h2>Nuestros productos</h2>

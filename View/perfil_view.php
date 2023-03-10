@@ -1,3 +1,11 @@
+<?php
+namespace View;
+
+use Controllers\Perfil_controlador;
+
+
+?>
+
 <head>
     <meta charset="utf-8">
     <title>Editar perfil</title>

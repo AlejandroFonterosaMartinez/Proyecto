@@ -1,7 +1,13 @@
 <?php
-include('sesion.php'); ?>
+use Models\Productos_modelo;
+
+include('../Model/productos_modelo.php');
+include('sesion.php');
+
+
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -12,15 +18,17 @@ include('sesion.php'); ?>
     <link href="../css/header.css" rel="stylesheet" type="text/css">
     <link href="../css/productos.css" rel="stylesheet" type="text/css">
     <link href="../css/footer.css" rel="stylesheet" type="text/css">
-    <link rel="shortcut icon" href="../imagenes/Logo.ico" type="image/x-icon" />
-    <link rel="icon" href="../imagenes/Logo.ico" type="image/x-icon" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
-<?php
-include('header.php'); ?>
-    <div class="contCats">
+    <?php include('header.php'); ?>
+    <div class="contenido">
         <button id="toggleMenuCat"> ≡ </button>
         <div class="menuCat">
             <input type="button" class="categoria" value="Tejados Y Cubiertas" />
@@ -36,8 +44,9 @@ include('header.php'); ?>
         <script src="../javascript/menuLat.js"></script>
         <div class="mostrar">
             <?php
-            include('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'productos_modelo.php');
-            $productos = cargar_categorias($_GET['categoria']);
+
+            $cat_modelo = new Productos_modelo();
+            $productos = $cat_modelo::cargar_categorias($_GET['categoria']);
             echo "<div class='productos'>";
             foreach ($productos as $producto) {
                 $cod = $producto['Cod_producto'];
@@ -56,14 +65,14 @@ include('header.php'); ?>
                         <label>$nom</label>
                         <label>$precio_formateado €/Ud</label>
                         <div class='button'>
-                        <form class='fav' method='post' action='php/favoritos.php'>
-          <input type='hidden' name='id_producto_fav' value='{$producto['Cod_producto']}'>
-            <button class='favButton' name='anadir_fav' type='submit'>🤍</button>
-            </form>
-            <form class='troll' method='post'>
-              <input type = 'submit' class='trollButton' name='anadir' value='Añadir al carrito'><input name ='cod' type='hidden' value = '$cod'></input>
-              <input name = 'unidades' type='number' min = '1' max='$stock' value = '1'>
-            </form>
+                        <form class='fav' method='post'>
+                        <input type='hidden' name='id_producto_fav' value='{$producto['Cod_producto']}'>
+                          <button class='favButton' name='anadir_fav' type='submit'>🤍</button>
+                          </form>
+                          <form class='troll' method='post'>
+                            <input type = 'submit' class='trollButton' name='anadir' value='Añadir al carrito'><input name ='cod' type='hidden' value = '$cod'></input>
+                            <input name = 'unidades' type='number' min = '1' max='{$producto['Stock']}' value = '1'>
+                          </form>
                         </div>
                     </div>";
             }

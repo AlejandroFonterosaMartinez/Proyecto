@@ -1,3 +1,5 @@
+<?php
+namespace View; ?>
 <div class="contenedor_productos">
   <div class="owl-carousel owl-theme">
     <?php

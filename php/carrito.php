@@ -1,7 +1,10 @@
 <?php
+
+use Models\Productos_modelo;
+
 require_once('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
 require_once('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'productos_modelo.php');
-include("sesion.php");
+include('sesion.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -23,7 +26,6 @@ include("sesion.php");
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
 </head>
-<body>
 <?php
 include('header.php');
 $total = 0;
@@ -32,14 +34,14 @@ if ($_SESSION['rol'] == 3) {
             <div class='alert-warning alert'>  Debes iniciar sesión primero para realizar una compra.
             </div></div></div>";
 } elseif (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])) {
-    $productos = insertar_carrito(array_keys($_SESSION['carrito']));
+    $productos = Productos_modelo::insertar_carrito(array_keys($_SESSION['carrito']));
     if ($productos === FALSE) {
         echo "<div class='alert alert-danger' role='alert'>
         No hay productos en el carrito.
     </div>";
         exit;
     }
-    $productos = insertar_carrito(array_keys($_SESSION['carrito']));
+    $productos = Productos_modelo::insertar_carrito(array_keys($_SESSION['carrito']));
     if ($productos === FALSE) {
         echo "<div class='alert alert-danger' role='alert'>
         No hay productos en el carrito.
@@ -85,6 +87,11 @@ if ($_SESSION['rol'] == 3) {
             echo "</div>";
         }
     }
+    echo '<form action="vaciar_carrito.php" method="POST">
+    <div class="container">
+  <br><button class="btn btn-outline-danger ">Vaciar carrito</button>
+</div></form>
+';
     echo "</div>";
     echo "<div class='col-12 col-md-4'>";
     echo "<div class='card'>";
@@ -112,6 +119,7 @@ if ($_SESSION['rol'] == 3) {
     echo "</div>";
     echo "</div>";
     echo "</div>";
+
     echo "</div>";
 } else {
     echo "<div class='alert alert-danger' role='alert'>

@@ -1,16 +1,15 @@
 <?php
-include('../../../Config/Conectar.php');
+use Config\Conectar;
 
+require_once('..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
 $db = Conectar::conexion();
-
 $sql = "SELECT * FROM usuarios";
 $stmt = $db->prepare($sql);
 $stmt->execute();
-
 $contador = 1;
 $texto = "";
 while ($valores = $stmt->fetch(PDO::FETCH_ASSOC)) {
-    $texto .= "<tr id='fila" . $contador ."'>";
+    $texto .= "<tr id='fila" . $contador . "'>";
     $texto .= "<td readonly>" . $valores["id_usuario"] . "</td>";
     $texto .= "<td>" . $valores["Nombre"] . "</td>";
     $texto .= "<td>" . $valores["Apellidos"] . "</td>";
@@ -22,6 +21,6 @@ while ($valores = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $texto .= "</tr>";
     $contador++;
 }
-$output =$texto;
+$output = $texto;
 echo $output;
 ?>

@@ -1,3 +1,18 @@
+<?php
+use Config\Conectar;
+use Models\Correo_modelo;
+use Models\Productos_modelo;
+use Models\Login_modelo;
+
+include('sesion.php');
+require_once('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
+require_once('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'login_modelo.php');
+require_once('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'productos_modelo.php');
+require_once('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'correo_modelo.php');
+
+
+?>
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,15 +34,12 @@
         crossorigin="anonymous"></script>
 </head>
 <?php
-session_start();
-require_once('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
-require_once('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'login_modelo.php');
-require_once('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'productos_modelo.php');
-require_once('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'correo_modelo.php');
+
+
 // OBTENER NOMBRE DEL USUARIO
-$nombre = getNombreUsuario($_SESSION['correo']);
+$nombre = Login_modelo::getNombreUsuario($_SESSION['correo']);
 $cod_producto = $_SESSION['carrito'];
-$resul = insertar_pedido($_SESSION['carrito'], $_SESSION['usuario']);
+$resul = Productos_modelo::insertar_pedido($_SESSION['carrito'], $_SESSION['usuario']);
 $total = 0;
 if ($resul === FALSE) {
     echo "<div class='alert-warning alert' role='alert'> No se ha podido realizar el producto.</div>";
@@ -35,13 +47,13 @@ if ($resul === FALSE) {
 } else {
     $correo = $_SESSION['correo'];
     echo "<div class='alert-success alert'style='text-align:center' role='alert'> Pedido realizado con éxito. Se enviará un correo de confirmación a: <strong> $correo </strong>  </div>";
-    enviar_correo($correo, $nombre, "Pedido realizado", "Gracias " . $nombre . " por realizar el pedido en BricoTeis.");
+    Correo_modelo::enviar_correo($correo, $nombre, "Pedido realizado", "Gracias " . $nombre . " por realizar el pedido en BricoTeis.");
 
     $cons = Conectar::conexion()->query("SELECT productos.nombre, productos.precio, pedidosproductos.unidades 
     FROM productos 
     JOIN pedidosproductos ON productos.cod_producto = pedidosproductos.cod_producto 
     WHERE pedidosproductos.cod_pedido = $resul");
-    $productos = $cons->fetchAll(PDO::FETCH_ASSOC);
+    $productos = $cons->fetchAll(\PDO::FETCH_ASSOC);
     foreach ($productos as $producto) {
         $nom = $producto['nombre'];
         $precio = $producto['precio'];
@@ -50,11 +62,11 @@ if ($resul === FALSE) {
     }
     //Vacia el carrito pues o bien se hizo el pedido o bien hubo un error
     $_SESSION['carrito'] = [];
-    $_SESSION['count_cart'] = count($_SESSION['carrito']);
+    $_SESSION['cart_count'] = count($_SESSION['carrito']);
 
     // Actualiza el valor de count_cart a 0 después de vaciar el carrito
-    if ($_SESSION['count_cart'] === 0) {
-        $_SESSION['count_cart'] = 0;
+    if ($_SESSION['cart_count'] === 0) {
+        $_SESSION['cart_count'] = 0;
     }
 
 }
@@ -70,14 +82,14 @@ $total += ($total * 0.21) + 3;
 </script>
 
 <body id="pagina-imprimir">
-    
+
     <div class="container">
-    
+
 
         <div class="header">
             <img src="../imagenes/Logo.ico" alt="Logo" class="logo">
             <div class="info">
-            <button class="btn btn-light boton-imprimir" onclick="imprimir()">Imprimir🖨️</button><br><br>
+                <button class="btn btn-light boton-imprimir" onclick="imprimir()">Imprimir🖨️</button><br><br>
                 <p>BricoTeis SL</p>
                 <p>CIF: B12345678</p>
                 <p>Dirección: Teis, 12</p>
