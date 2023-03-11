@@ -546,3 +546,4 @@ Stack trace:
 #1 D:\xampp\htdocs\Proyecto\index.php(154): require_once('D:\\xampp\\htdocs...')
 #2 {main}
   thrown in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 24
+[11-Mar-2023 01:27:30 Europe/Berlin] PHP Warning:  Undefined array key "usuario" in C:\xampp\htdocs\Proyecto\index.php on line 296
