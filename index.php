@@ -1,3 +1,8 @@
+<?php
+use Models\Correo_modelo;
+
+require_once('Model' . DIRECTORY_SEPARATOR . 'correo_modelo.php');
+?>
 <!DOCTYPE html>
 <html>
 <script>
@@ -284,9 +289,12 @@ if (isset($_POST['anadir'])) {
                         <button id="close-popup">X</button>
                         <h2>Suscríbete a nuestra Newsletter</h2>
                         <p>Ingresa tu correo electrónico para recibir nuestras últimas noticias y ofertas:</p>
-                        <form>
+                        <form method="post">
                             <input type="email" name="email" placeholder="Tu correo electrónico" required>
-                            <button type="submit">Suscribirse</button>
+                            <button type="submit" name="sub">Suscribirse</button>
+                            <?php if (isset($_POST['sub'])) {
+                                Correo_modelo::enviar_correo($_POST['email'],$_SESSION['usuario'], "Gracias por subscribirte a nuestra newsletter " . $_POST['email']);
+                            } ?>
                         </form>
                     </div>
                 </div>

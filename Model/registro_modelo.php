@@ -4,18 +4,18 @@ namespace Models;
 
 use Config\Conectar;
 
-class Registro_modelo extends Conectar
+class Registro_modelo
 {
     /**
      * @brief  Inserta en la base de datos el nombre apellidos fecha de nacimiento email y contraseña hasheada de la persona que se loguea
      *
      * @param   string  $nombre            [$nombre nombre del usuario]
      * @param   string  $apellidos         [$apellidos apellidos del usuario]
-     * @param   date  $fecha_nacimiento  [$fecha_nacimiento fecha de nacimiento del usuario]
+     * @param   string  $fecha_nacimiento  [$fecha_nacimiento fecha de nacimiento del usuario]
      * @param   string  $email             [$email email del usuario]
      * @param   string  $password          [$password contraseña del usuario]
      *
-     * @return  Si se inserta correctamente: Un mensaje de que se inserto bien.
+     * @return  void se inserta correctamente: Un mensaje de que se inserto bien.
      *           Si no se insertar correctamente: Un mensaje de que no se inserto bien.        
      */
     public function register($nombre, $apellidos, $fecha_nacimiento, $email, $password)
@@ -26,7 +26,7 @@ class Registro_modelo extends Conectar
         $id_rol = 1;
         $trn_data = date("Y-m-d");
         $check_email = "SELECT * FROM usuarios WHERE Correo=:email";
-        $stmt = $this->conexion()->prepare($check_email);
+        $stmt = Conectar::conexion()->prepare($check_email);
         $stmt->bindParam(':email', $email);
         $stmt->execute();
         $check_email = $stmt->rowCount();
@@ -42,7 +42,7 @@ class Registro_modelo extends Conectar
             $query = "INSERT INTO usuarios (Nombre, Apellidos, Fecha_Nacimiento, Correo, Contraseña, Fecha_Registro,id_rol) 
                       VALUES (:nombre, :apellidos, :fecha_nacimiento, :email, :password, :trn_date,:id_rol)";
 
-            $stmt = $this->conexion()->prepare($query);
+            $stmt = Conectar::conexion()->prepare($query);
             $stmt->bindParam(':nombre', $nombre);
             $stmt->bindParam(':apellidos', $apellidos);
             $stmt->bindParam(':fecha_nacimiento', $fecha_nacimiento);
@@ -64,9 +64,9 @@ class Registro_modelo extends Conectar
     /**
      * @brief funcion que calcula la edad introducida en fecha nacimiento
      *
-     * @param   date  $fecha_nacimiento  [$fecha_nacimiento edad del usuario]
+     * @param   string  $fecha_nacimiento  [$fecha_nacimiento edad del usuario]
      *
-     * @return  date                    [return la edad para que ser calculada.]
+     * @return  int                    [return la edad para que ser calculada.]
      */
     function calcularEdad($fecha_nacimiento)
     {

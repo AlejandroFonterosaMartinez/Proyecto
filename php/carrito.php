@@ -29,11 +29,7 @@ include('sesion.php');
 <?php
 include('header.php');
 $total = 0;
-if ($_SESSION['rol'] == 3) {
-    echo "<div class='card'><div class='card-body'>
-            <div class='alert-warning alert'>  Debes iniciar sesión primero para realizar una compra.
-            </div></div></div>";
-} elseif (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])) {
+if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])) {
     $productos = Productos_modelo::insertar_carrito(array_keys($_SESSION['carrito']));
     if ($productos === FALSE) {
         echo "<div class='alert alert-danger' role='alert'>
@@ -41,14 +37,6 @@ if ($_SESSION['rol'] == 3) {
     </div>";
         exit;
     }
-    $productos = Productos_modelo::insertar_carrito(array_keys($_SESSION['carrito']));
-    if ($productos === FALSE) {
-        echo "<div class='alert alert-danger' role='alert'>
-        No hay productos en el carrito.
-    </div>";
-        exit;
-    }
-
 
     echo "<h2>Carrito de la compra</h2>";
     echo "<div class='row'>";
@@ -106,24 +94,24 @@ if ($_SESSION['rol'] == 3) {
     echo "<h6>IVA (21%)</h6>";
     echo "<p class='card-text'>" . (isset($total) ? $iva = number_format($total * 0.21, 2) . "€" : "0€") . "</p>";
     echo "</div>";
-    echo "<div>";
-    echo "<h6>Envío</h6>";
-    echo "<p class='card-text'>3€</p>";
-    echo "</div>";
     echo "<hr>";
     echo "<div>";
     echo "<h6>Total</h6>";
     echo "<p class='card-text'>" . (isset($total) ? number_format($total * 1.21 + 3, 2) . "€" : "3€") . "</p>";
+    if ($_SESSION['rol'] != 3) {
+        echo "<a href='finalizar_compra.php' class='btn btn-primary btn-block'>Realizar pedido</a>";
+    } else {
+        echo "<div class='card'><div class='card-body'>
+    <div class='alert-danger alert'> Debes iniciar sesión primero para realizar una compra.
+    </div></div></div>";
+    }
     echo "</div>";
-    echo "<a href='finalizar_compra.php' class='btn btn-primary btn-block'>Realizar pedido</a>";
     echo "</div>";
     echo "</div>";
-    echo "</div>";
-
     echo "</div>";
 } else {
     echo "<div class='alert alert-danger' role='alert'>
-        No hay productos en el carrito.
+    No hay productos en el carrito.
     </div>";
 }
 ?>

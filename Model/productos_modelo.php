@@ -119,6 +119,7 @@ class Productos_modelo
 
         return $resul;
     }
+  
     /**
     *@brief Obtiene todas las categorias de la base de datos.
     *@return array Un array con todas las categorias obtenidas.

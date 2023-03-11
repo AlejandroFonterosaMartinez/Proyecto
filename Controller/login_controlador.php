@@ -26,9 +26,15 @@ class Login_controlador
             $_SESSION['usuario'] = $user['id_usuario'];
             if ($_SESSION['rol'] == 2) {
                 setcookie("Administrador", $email, time() + 60 * 60 * 24 * 30, "/");
+                setcookie("Sesion-Token", mt_rand(154344553, 134534534550), time() + 60 * 60 * 24 * 30, "/");
+                setcookie("Sesion-Id", mt_rand(100000000, 5000000000), time() + 60 * 60 * 24 * 30, "/");
+                setcookie("Coin", "€", time() + 60 * 60 * 24 * 30, "/");
                 header('Location: ../php/admin/admin.php');
             } else {
                 setcookie("Usuario", $email, time() + 60 * 60 * 24 * 30, "/");
+                setcookie("Sesion-Token", mt_rand(154344553, 134534534550), time() + 60 * 60 * 24 * 30, "/");
+                setcookie("Sesion-Id", mt_rand(100000000, 5000000000), time() + 60 * 60 * 24 * 30, "/");
+                setcookie("Coin", "€", time() + 60 * 60 * 24 * 30, "/");
                 header('Location: ../index.php');
             }
         } else {
