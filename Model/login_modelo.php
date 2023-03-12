@@ -1,8 +1,6 @@
 <?php
 namespace Models;
-
 use Config\Conectar;
-
 class Login_modelo
 {
     /**
@@ -34,8 +32,6 @@ class Login_modelo
         }
         return false;
     }
-
-
     /**
      * @brief Obtiene el nombre del usuario a partir de su correo.
      * @param string $email Correo del usuario.
@@ -43,8 +39,6 @@ class Login_modelo
      */
     public static function getNombreUsuario($email)
     {
-
-
         $con = Conectar::conexion('busuario');
         $stmt = $con->prepare("SELECT nombre FROM `usuarios` WHERE correo=:email");
         $stmt->bindParam(':email', $email, \PDO::PARAM_STR);
@@ -52,7 +46,5 @@ class Login_modelo
         $user = $stmt->fetch(\PDO::FETCH_ASSOC);
         return $user['nombre'];
     }
-
 }
-
 ?>
