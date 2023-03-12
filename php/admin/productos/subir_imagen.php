@@ -26,10 +26,10 @@ if ($_FILES['file']['error'] == UPLOAD_ERR_OK) {
 			move_uploaded_file($tmp, "$fileDestination/$fileNameNew");
 			echo 'Subido';
 		} else {
-			echo "Archivo demasiado grande";
+			echo "<script>console.log(Archivo demasiado grande)</script>";
 		}
 	} else {
-		echo "Tipo no compatible";
+		echo "<script>console.log(Tipo no compatible)</script>";
 	}
 }
 
