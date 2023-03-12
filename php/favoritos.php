@@ -54,7 +54,8 @@ require_once('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Cone
             foreach ($_SESSION['favoritos'] as $id_producto) {
                 // Obtener información del producto de la base de datos
                 $query = "SELECT Cod_producto, nombre, precio,descripcion FROM productos WHERE Cod_producto = :id_producto";
-                $stmt = Conectar::conexion()->prepare($query);
+                $con = Conectar::conexion('busuario');
+                $stmt = $con->prepare($query);
                 $id_producto = intval($id_producto);
                 $stmt->bindParam(':id_producto', $id_producto, PDO::PARAM_INT);
                 $stmt->execute();

@@ -19,7 +19,7 @@ include(".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTO
 </head>
 <?php
 try {
-    $pdo = Conectar::conexion();
+    $pdo = Conectar::conexion('BTadmin');
 } catch (PDOException $e) {
     echo 'Error al conectarse a la base de datos: ' . $e->getMessage();
     exit;
@@ -100,7 +100,8 @@ echo '</div>';
 echo '</div>';
 echo '</div>';
 echo '</div>';
-
+echo '<a href="../admin.php"><button class="btn btn-secondary">
+Volver</button></a>';
 ?>
 <script>
     const cells = document.querySelectorAll(".calendar-cell");

@@ -4,7 +4,7 @@ namespace Models;
 
 use Config\Conectar;
 
-class Registro_modelo
+class Registro_modelo extends Conectar
 {
     /**
      * @brief  Inserta en la base de datos el nombre apellidos fecha de nacimiento email y contraseña hasheada de la persona que se loguea
@@ -26,7 +26,8 @@ class Registro_modelo
         $id_rol = 1;
         $trn_data = date("Y-m-d");
         $check_email = "SELECT * FROM usuarios WHERE Correo=:email";
-        $stmt = Conectar::conexion()->prepare($check_email);
+        $con = Conectar::conexion('busuario');
+        $stmt = $con->prepare($check_email);
         $stmt->bindParam(':email', $email);
         $stmt->execute();
         $check_email = $stmt->rowCount();
@@ -42,7 +43,8 @@ class Registro_modelo
             $query = "INSERT INTO usuarios (Nombre, Apellidos, Fecha_Nacimiento, Correo, Contraseña, Fecha_Registro,id_rol) 
                       VALUES (:nombre, :apellidos, :fecha_nacimiento, :email, :password, :trn_date,:id_rol)";
 
-            $stmt = Conectar::conexion()->prepare($query);
+            $con = Conectar::conexion('busuario');
+            $stmt = $con->prepare($query);
             $stmt->bindParam(':nombre', $nombre);
             $stmt->bindParam(':apellidos', $apellidos);
             $stmt->bindParam(':fecha_nacimiento', $fecha_nacimiento);

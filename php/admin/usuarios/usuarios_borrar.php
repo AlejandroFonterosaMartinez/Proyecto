@@ -6,7 +6,8 @@ require_once('..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DI
  * Devuelve un puntero con el código y nombre de las categorías de la BBDD
  * o falso si se produjo un error
  */
-$db = Conectar::conexion();
+
+$db = Conectar::conexion('BTadmin');
 $id = $_POST['id'];
 $sql = "DELETE FROM usuarios WHERE id_usuario = :id";
 $stmt = $db->prepare($sql);

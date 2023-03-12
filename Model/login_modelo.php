@@ -17,17 +17,21 @@ class Login_modelo
      */
     public function loguearUsuario($email, $password)
     {
-
-        $stmt = Conectar::conexion()->prepare("SELECT id_usuario,Correo, Contraseña, id_rol FROM `usuarios` WHERE Correo=:email");
+        $user = [];
+        $con = Conectar::conexion('busuario');
+        $stmt = $con->prepare("SELECT id_usuario, Correo, Contraseña, id_rol FROM `usuarios` WHERE Correo=:email");
         $stmt->bindParam(':email', $email, \PDO::PARAM_STR);
         $stmt->execute();
-
         $user = $stmt->fetch(\PDO::FETCH_ASSOC);
 
         if ($user && password_verify($password, $user['Contraseña'])) {
+            if ($user['id_rol'] == 2) {
+                $user['usuario_con'] = 'BTadmin';
+            } else {
+                $user['usuario_con'] = 'busuario';
+            }
             return $user;
         }
-
         return false;
     }
 
@@ -41,7 +45,8 @@ class Login_modelo
     {
 
 
-        $stmt = Conectar::conexion()->prepare("SELECT nombre FROM `usuarios` WHERE correo=:email");
+        $con = Conectar::conexion('busuario');
+        $stmt = $con->prepare("SELECT nombre FROM `usuarios` WHERE correo=:email");
         $stmt->bindParam(':email', $email, \PDO::PARAM_STR);
         $stmt->execute();
         $user = $stmt->fetch(\PDO::FETCH_ASSOC);

@@ -9,7 +9,7 @@ include('../Config/Conectar.php');
  * o falso si se produjo un error
  */
 
-$db = Conectar::conexion();
+$con = Conectar::conexion('busuario');
 $cat = $_POST['categoria'];
 switch ($cat) {
     case "Tejados Y Cubiertas":

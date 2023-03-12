@@ -21,7 +21,8 @@ class Productos_modelo
     public function get_productos()
     {
         include 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php';
-        $consulta = Conectar::conexion()->query("SELECT * FROM productos WHERE destacado=1");
+        $con = Conectar::conexion('busuario');
+        $consulta = $con->query("SELECT * FROM productos WHERE destacado=1");
         while ($row = $consulta->fetch(\PDO::FETCH_ASSOC)) {
             $this->productos[] = $row;
         }
@@ -39,7 +40,8 @@ class Productos_modelo
     public static function cargar_producto($cod)
     {
         include '../Config' . DIRECTORY_SEPARATOR . 'Conectar.php';
-        $db = Conectar::conexion();
+
+        $db = Conectar::conexion('busuario');
         $ins = "SELECT * FROM productos WHERE Cod_producto='$cod'";
         $resul = $db->query($ins);
         return $resul;
@@ -55,7 +57,7 @@ class Productos_modelo
     public static function insertar_pedido($carrito, $usuario)
     {
 
-        $bd = Conectar::conexion();
+        $bd = Conectar::conexion('busuario');
         $bd->beginTransaction();
         try {
             $hora = date("Y-m-d");
@@ -105,7 +107,7 @@ class Productos_modelo
      */
     public static function insertar_carrito($codigosProductos)
     {
-        $bd = Conectar::conexion();
+        $bd = Conectar::conexion('busuario');
         $placeholders = implode(',', array_fill(0, count($codigosProductos), '?'));
         $stmt = $bd->prepare("SELECT * FROM productos WHERE Cod_producto IN ($placeholders)");
 
@@ -119,7 +121,7 @@ class Productos_modelo
 
         return $resul;
     }
-  
+
     /**
     *@brief Obtiene todas las categorias de la base de datos.
     *@return array Un array con todas las categorias obtenidas.
@@ -129,7 +131,8 @@ class Productos_modelo
     public function get_categorias()
     {
         try {
-            $consulta = Conectar::conexion()->query("SELECT * FROM categorias");
+            $con = Conectar::conexion('busuario');
+            $consulta = $con->query("SELECT * FROM categorias");
             while ($row = $consulta->fetch(\PDO::FETCH_ASSOC)) {
                 $this->categorias[] = $row;
             }
@@ -150,7 +153,7 @@ class Productos_modelo
     public static function cargar_categorias($cat)
     {
         include('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
-        $db = Conectar::conexion();
+        $db = Conectar::conexion('busuario');
         $ins = "SELECT Cod_producto,Nombre,Precio,Stock FROM productos WHERE Categoria='$cat'";
         $resul = $db->query($ins);
         return $resul;

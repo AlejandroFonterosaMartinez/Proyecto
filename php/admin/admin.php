@@ -83,7 +83,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 2) {
                 <div class="module">
                     <div class="module-header d-flex justify-content-between align-items-center">
                         <h2>BricoTeis</h2>
-                        <a href="../../index.php"><button class="btn btn-secondary"></a>
+                        <a href="../../index.php"><button class="btn btn-secondary">
                         Volver</button></a>
                     </div>
                 </div>

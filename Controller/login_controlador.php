@@ -2,6 +2,7 @@
 namespace Controllers;
 
 use Models\Login_modelo;
+use Config\Conectar;
 
 require_once('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'login_modelo.php');
 
@@ -18,23 +19,22 @@ class Login_controlador
      */
     public function login($email, $password)
     {
-
         $user = (new Login_modelo)->loguearUsuario($email, $password);
         if (is_array($user)) {
             $_SESSION['correo'] = $email;
             $_SESSION['rol'] = $user['id_rol'];
             $_SESSION['usuario'] = $user['id_usuario'];
+            $usuario_cookie = "Usuario";
             if ($_SESSION['rol'] == 2) {
-                setcookie("Administrador", $email, time() + 60 * 60 * 24 * 30, "/");
-                setcookie("Sesion-Token", mt_rand(154344553, 134534534550), time() + 60 * 60 * 24 * 30, "/");
-                setcookie("Sesion-Id", mt_rand(100000000, 5000000000), time() + 60 * 60 * 24 * 30, "/");
-                setcookie("Coin", "€", time() + 60 * 60 * 24 * 30, "/");
+                $usuario_cookie = "Administrador";
+            }
+            setcookie($usuario_cookie, $email, time() + 60 * 60 * 24 * 30, "/");
+            setcookie("Sesion-Token", mt_rand(154344553, 134534534550), time() + 60 * 60 * 24 * 30, "/");
+            setcookie("Sesion-Id", mt_rand(100000000, 5000000000), time() + 60 * 60 * 24 * 30, "/");
+            setcookie("Coin", "€", time() + 60 * 60 * 24 * 30, "/");
+            if ($_SESSION['rol'] == 2) {
                 header('Location: ../php/admin/admin.php');
             } else {
-                setcookie("Usuario", $email, time() + 60 * 60 * 24 * 30, "/");
-                setcookie("Sesion-Token", mt_rand(154344553, 134534534550), time() + 60 * 60 * 24 * 30, "/");
-                setcookie("Sesion-Id", mt_rand(100000000, 5000000000), time() + 60 * 60 * 24 * 30, "/");
-                setcookie("Coin", "€", time() + 60 * 60 * 24 * 30, "/");
                 header('Location: ../index.php');
             }
         } else {

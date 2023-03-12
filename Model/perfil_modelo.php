@@ -8,7 +8,8 @@ class Perfil_modelo extends Conectar
 {
     public function obtenerUsuario($email)
     {
-        $stmt = Conectar::conexion()->prepare("SELECT usuarios.nombre, usuarios.apellidos, usuarios.correo, usuarios.fecha_nacimiento, usuarios.fecha_registro, usuarios.telefono, roles.descripcion
+        $con = Conectar::conexion('busuario');
+        $stmt = $con->prepare("SELECT usuarios.nombre, usuarios.apellidos, usuarios.correo, usuarios.fecha_nacimiento, usuarios.fecha_registro, usuarios.telefono, roles.descripcion
     FROM usuarios
     LEFT JOIN roles ON usuarios.id_rol = roles.id_rol
     WHERE correo='$email'");
@@ -25,7 +26,8 @@ class Perfil_modelo extends Conectar
      */
     public function actualizarNombre($email, $nombre, $apellidos)
     {
-        $stmt = Conectar::conexion()->prepare("UPDATE usuarios SET nombre = '$nombre', apellidos = '$apellidos' WHERE correo = '$email'");
+        $con = Conectar::conexion('busuario');
+        $stmt = $con->prepare("UPDATE usuarios SET nombre = '$nombre', apellidos = '$apellidos' WHERE correo = '$email'");
         $stmt->execute();
     }
     /**
@@ -36,7 +38,8 @@ class Perfil_modelo extends Conectar
      */
     public function actualizarTelefono($email, $telefono)
     {
-        $stmt = Conectar::conexion()->prepare("UPDATE usuarios SET telefono = '$telefono' WHERE correo = '$email'");
+        $con = Conectar::conexion('busuario');
+        $stmt = $con->prepare("UPDATE usuarios SET telefono = '$telefono' WHERE correo = '$email'");
         $stmt->execute();
     }
 }

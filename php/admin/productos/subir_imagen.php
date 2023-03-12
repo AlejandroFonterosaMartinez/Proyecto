@@ -2,7 +2,7 @@
 use Config\Conectar;
 
 require_once('..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
-$conn = Conectar::conexion();
+$conn = Conectar::conexion('BTadmin');
 // Consulta SELECT para obtener el último valor autoincrementable
 $query = "SELECT Cod_producto FROM productos ORDER BY Cod_producto DESC LIMIT 1";
 $stmt = $conn->query($query);

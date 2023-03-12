@@ -94,10 +94,7 @@ include('sesion.php');
                 })
                     .done(function (response) {
                         console.log(response);
-                        $("div.mostrar").html(response);
-                        //document.getElementsByClassName('botoncito').addEventListener('click',mostrar);
-                        //const editButtons = document.querySelectorAll(".btn-info");
-                        //editButtons.forEach(editBtn => editBtn.addEventListener("click", () => mostrar(editBtn.parentNode)));
+                        $("div.mostrar").html(response);       
 
                     });
             }
@@ -166,5 +163,4 @@ include('sesion.php');
         </div>
     </footer>
 </body>
-
 </html>

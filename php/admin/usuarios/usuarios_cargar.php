@@ -2,7 +2,7 @@
 use Config\Conectar;
 
 require_once('..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
-$db = Conectar::conexion();
+$db = Conectar::conexion('BTadmin');
 $sql = "SELECT * FROM usuarios";
 $stmt = $db->prepare($sql);
 $stmt->execute();

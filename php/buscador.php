@@ -39,7 +39,8 @@ include('sesion.php');
         $consulta = htmlspecialchars($_GET['query'], ENT_QUOTES, 'UTF-8');
 
         // Preparar la consulta con parámetros
-        $stmt = Conectar::conexion()->prepare("SELECT * FROM productos WHERE nombre LIKE :consulta");
+        $con = Conectar::conexion('busuario');
+        $stmt = $con->prepare("SELECT * FROM productos WHERE nombre LIKE :consulta");
 
         $consulta_param = "%" . $consulta . "%";
         $stmt->bindParam(':consulta', $consulta_param, PDO::PARAM_STR);
