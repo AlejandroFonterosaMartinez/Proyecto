@@ -43,6 +43,21 @@ switch ($cat) {
 $ins = "SELECT Cod_producto,Nombre,Precio,Stock FROM productos WHERE Categoria='$cat'";
 $resul = $con->query($ins);
 $texto = '';
+$categorias = array(
+    "1" => "Tejados Y Cubiertas",
+    "2" => "Cementos Y Morteros",
+    "3" => "Yesos Y Escayolas",
+    "4" => "Arenas y Gravas",
+    "5" => "Cercados y Ocultación",
+    "6" => "Madera",
+    "7" => "Hormigoneras, carretillas...",
+    "8" => "Aislamientos",
+    "9" => "Elementos de construcción"
+    );  
+  $valor_categoria = $cat;
+  $nombre_categoria = $categorias[$valor_categoria];
+  $texto .= "<div class='titCat'>$nombre_categoria</div>";
+  $texto .= "<div class='textCat'>Descubre nuestra amplia gama de $nombre_categoria, diseñados para satisfacer las necesidades de cualquier proyecto de construcción.</div>"; 
 $texto .= "<div class='productos'>";
 foreach ($resul as $row) {
     $cod = $row['Cod_producto'];

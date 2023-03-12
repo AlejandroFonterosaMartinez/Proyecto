@@ -589,3 +589,4 @@ Stack trace:
 #3 {main}
   thrown in C:\xampp\htdocs\Proyecto\Config\Conectar.php on line 15
 [12-Mar-2023 00:41:38 Europe/Berlin] PHP Warning:  DOMDocument::schemaValidate(): Element 'clave': This element is not expected. Expected is ( usuario ). in C:\xampp\htdocs\Proyecto\Config\Conectar.php on line 39
+[12-Mar-2023 17:11:16 Europe/Berlin] PHP Warning:  Undefined array key "id_rol" in C:\xampp\htdocs\Proyecto\index.php on line 185

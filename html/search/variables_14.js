@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['w_0',['w',['../jquery_8min_8js.html#a9721a992655f700bdc2e91ba68b71e26',1,'jquery.min.js']]],
-  ['watch_1',['watch',['../owl_8carousel_8min_8js.html#a2dbe85aef1aca34458ea04e6b7d15dad',1,'owl.carousel.min.js']]],
-  ['window_2',['window',['../owl_8carousel_8min_8js.html#a57d0de4fdf552d87baa11f7a9c2a75a0',1,'owl.carousel.min.js']]]
+  ['v_0',['v',['../jquery_8min_8js.html#afc3dd12de12777f6e20b4c93b7e7cb96',1,'jquery.min.js']]],
+  ['vallas_1',['vallas',['../about_us_8php.html#a6c926120c0a70683f19fb3dc47520c17',1,'aboutUs.php']]],
+  ['version_2',['VERSION',['../class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_p_h_p_mailer.html#a79ae6ea778fe4ad5fa5d6b1a1cebb26d',1,'PHPMailer\PHPMailer\PHPMailer\VERSION()'],['../class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_p_o_p3.html#affdd38db9638306a2f7bc9f09b5f357e',1,'PHPMailer\PHPMailer\POP3\VERSION()'],['../class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_s_m_t_p.html#adb37dc6e8c061cbac377ab9ee88226e2',1,'PHPMailer\PHPMailer\SMTP\VERSION()']]]
 ];

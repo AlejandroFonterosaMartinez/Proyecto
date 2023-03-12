@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.6"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: Referencia del Archivo javascript/carrusel.js</title>
+<title>Proyecto: Referencia del Archivo javascript/carrusel.js</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">Proyecto
    </div>
   </td>
  </tr>
@@ -73,13 +73,50 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#func-members">Funciones</a>  </div>
   <div class="headertitle"><div class="title">Referencia del Archivo carrusel.js</div></div>
 </div><!--header-->
 <div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:a4009f168477527aa6564c6938e503121"><td class="memItemLeft" align="right" valign="top"><a class="el" href="owl_8carousel_8min_8js.html#a57d0de4fdf552d87baa11f7a9c2a75a0">window</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="carrusel_8js.html#a4009f168477527aa6564c6938e503121">addEventListener</a> ('load', function() { const ANCHO_LIMITE=768;const IMAGENES=[ 'imagenes/Banner/Banner01.png', 'imagenes/Banner/Banner02.png', 'imagenes/Banner/Banner03.png'];const IMAGENES2=[ 'imagenes/Banner/BannerM01.png', 'imagenes/Banner/BannerM02.png', 'imagenes/Banner/BannerM03.png'];const TIEMPO_INTERVALO_MILESIMAS_SEG=2000;let posicionActual=0;let $imagen=document.querySelector('#imagenCarr');let intervalo;window.addEventListener(&quot;resize&quot;,()=&gt; { pasarFoto();});function pasarFoto() { <a class="el" href="admin_8php.html#af86b2ec54b461ebdbd8c9b99bd0731c1">if</a>(posicionActual &gt;=IMAGENES.length - 1) { posicionActual=0;} <a class="el" href="index_8php.html#ab49c071cbaa201a9a7ac605f5461c6a1">else</a> { posicionActual++;} renderizarImagen();} function renderizarImagen() { <a class="el" href="admin_8php.html#af86b2ec54b461ebdbd8c9b99bd0731c1">if</a>(window.innerWidth&lt;=ANCHO_LIMITE) { $imagen.style.backgroundImage=`url(${IMAGENES2[posicionActual]})`;} <a class="el" href="index_8php.html#ab49c071cbaa201a9a7ac605f5461c6a1">else</a> { $imagen.style.backgroundImage=`url(${IMAGENES[posicionActual]})`;} } renderizarImagen();intervalo=setInterval(pasarFoto, TIEMPO_INTERVALO_MILESIMAS_SEG);})</td></tr>
+<tr class="separator:a4009f168477527aa6564c6938e503121"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentación de las funciones</h2>
+<a id="a4009f168477527aa6564c6938e503121" name="a4009f168477527aa6564c6938e503121"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4009f168477527aa6564c6938e503121">&#9670;&#160;</a></span>addEventListener()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="newsletter_8js.html#adde1cde796b39276e5e515c7020ec6ef">closePopup</a> addEventListener </td>
+          <td>(</td>
+          <td class="paramtype">'load'&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">function() { const ANCHO_LIMITE=768;const IMAGENES=[ 'imagenes/Banner/Banner01.png', 'imagenes/Banner/Banner02.png', 'imagenes/Banner/Banner03.png'];const IMAGENES2=[ 'imagenes/Banner/BannerM01.png', 'imagenes/Banner/BannerM02.png', 'imagenes/Banner/BannerM03.png'];const TIEMPO_INTERVALO_MILESIMAS_SEG=2000;let posicionActual=0;let $imagen=document.querySelector('#imagenCarr');let intervalo;window.addEventListener(&quot;resize&quot;,()=&gt; { pasarFoto();});function pasarFoto() { <a class="el" href="admin_8php.html#af86b2ec54b461ebdbd8c9b99bd0731c1">if</a>(posicionActual &gt;=IMAGENES.length - 1) { posicionActual=0;} <a class="el" href="index_8php.html#ab49c071cbaa201a9a7ac605f5461c6a1">else</a> { posicionActual++;} renderizarImagen();} function renderizarImagen() { <a class="el" href="admin_8php.html#af86b2ec54b461ebdbd8c9b99bd0731c1">if</a>(window.innerWidth&lt;=ANCHO_LIMITE) { $imagen.style.backgroundImage=`url(${IMAGENES2[posicionActual]})`;} <a class="el" href="index_8php.html#ab49c071cbaa201a9a7ac605f5461c6a1">else</a> { $imagen.style.backgroundImage=`url(${IMAGENES[posicionActual]})`;} } renderizarImagen();intervalo=setInterval(pasarFoto, TIEMPO_INTERVALO_MILESIMAS_SEG);}&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generado el Jueves, 16 de Febrero de 2023 12:11:40 para My Project por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+Generado el Domingo, 12 de Marzo de 2023 19:09:04 para Proyecto por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
 </small></address>
 </body>
 </html>

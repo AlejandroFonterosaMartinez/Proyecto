@@ -23,7 +23,7 @@ include('sesion.php');
 
 <body>
     <?php include('header.php'); ?>
-    <div class="contenido">
+    <div class="contCats">
         <button id="toggleMenuCat"> ≡ </button>
         <div class="menuCat">
             <input type="button" class="categoria" value="Tejados Y Cubiertas" />
@@ -41,7 +41,21 @@ include('sesion.php');
             <?php
             $cat_modelo = new Productos_modelo();
             $productos = $cat_modelo::cargar_categorias($_GET['categoria']);
-            echo "Descubre nuestra amplia gama de ".$_GET['categoria'];
+            $categorias = array(
+                "1" => "Tejados Y Cubiertas",
+                "2" => "Cementos Y Morteros",
+                "3" => "Yesos Y Escayolas",
+                "4" => "Arenas y Gravas",
+                "5" => "Cercados y Ocultación",
+                "6" => "Madera",
+                "7" => "Hormigoneras, carretillas...",
+                "8" => "Aislamientose e impermeabilización",
+                "9" => "Elementos de construcción"
+              );
+              $valor_categoria = $_GET['categoria'];
+              $nombre_categoria = $categorias[$valor_categoria];
+              echo "<div class='titCat'>$nombre_categoria</div>";
+              echo "<div class='textCat'>Descubre nuestra amplia gama de $nombre_categoria, diseñados para satisfacer las necesidades de cualquier proyecto de construcción.</div>";                            
             echo "<div class='productos'>";
             foreach ($productos as $producto) {
                 $cod = $producto['Cod_producto'];

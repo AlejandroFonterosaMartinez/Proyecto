@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['user_0',['User',['../class_user.html',1,'']]],
-  ['userregistration_1',['UserRegistration',['../class_user_registration.html',1,'']]]
+  ['smtp_0',['SMTP',['../class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_s_m_t_p.html',1,'PHPMailer::PHPMailer']]]
 ];

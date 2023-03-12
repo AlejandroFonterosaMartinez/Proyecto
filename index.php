@@ -41,7 +41,7 @@ include("php/sesion.php");
                     <div class="cajaTexto">
                         <input type="text" name="query" name="query" placeholder="Buscar...">
                         <button type="submit">
-                            <div class="lupa"><img src="imagenes/Header/lupa.svg"/></div>
+                            <div class="lupa"><img src="imagenes/Header/lupa.svg" /></div>
                         </button>
                     </div>
                 </form>
@@ -181,14 +181,20 @@ include("php/sesion.php");
             </div>
         </div>
     </div>
-    <!--
-    <button id="mainBtn">Admin.</button>
-    <div id="submenu">
-        <button>Administrar Usuarios</button>
-        <button>Administrar Productos</button>
-    </div>
-    <script src="javascript/admin.js"></script>
-            -->
+
+    <?php
+    if ($_SESSION['rol'] == 2) {
+        echo '<button id="mainBtn">Admin.</button>
+        <div id="submenu">
+            <a href="php/admin/usuarios/editar_usuarios.html"><button>Administrar Usuarios</button></a>
+            <a href="php/admin/productos/editar_productos.html"><button>Administrar Productos</button></a>
+            <a href="php/admin/pedidos/visualizar_pedidos.php"><button>Administrar Pedidos</button></a>
+        </div>';
+        echo '<script src="javascript/admin.js"></script>';
+    }
+    ?>
+
+
     <!-- Footer -->
     <footer>
         <!-- Contactanos -->

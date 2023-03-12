@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['eco_2ephp_0',['eco.php',['../eco_8php.html',1,'']]]
+  ['buscador_2ephp_0',['buscador.php',['../buscador_8php.html',1,'']]]
 ];
