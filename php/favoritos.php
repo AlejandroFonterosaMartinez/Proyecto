@@ -89,11 +89,15 @@ require_once('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Cone
                     echo "</table>";
                 }
             } else {
-                echo "<div class='alerta alert-error' style='text-align:center' role='alert'>No hay productos favoritos.</div>";
+                echo "<div class='alert alert-danger' role='alert'>
+        No hay productos en favoritos.
+    </div>";
             }
 
         } else {
-            echo "<div class='alerta alert-error' style='text-align:center' role='alert'>No hay productos favoritos.</div>";
+            echo "<div class='alert alert-danger' role='alert'>
+            No hay productos en favoritos.
+        </div>";
         }
         // Eliminar producto de favoritos
         if (isset($_POST['eliminar_fav'])) {
