@@ -69,7 +69,7 @@ input[type=number]::-webkit-inner-spin-button {
 
 @media (min-width: 1090px) {
   #toggleMenuCat {
-    top: 13px; 
+    top: 50px; 
   }
   .categoria {
     font-size: 1vw;

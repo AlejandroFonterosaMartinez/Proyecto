@@ -6,11 +6,6 @@ include("php/sesion.php");
 <!-- Head -->
 
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
     <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -45,7 +40,9 @@ include("php/sesion.php");
                 <form action="php/buscador.php" method="get">
                     <div class="cajaTexto">
                         <input type="text" name="query" name="query" placeholder="Buscar...">
-                        <button type="submit">Buscar</button>
+                        <button type="submit">
+                            <div class="lupa"><img src="imagenes/Header/lupa.svg"/></div>
+                        </button>
                     </div>
                 </form>
             </div>
@@ -239,7 +236,7 @@ include("php/sesion.php");
         <!-- Redes -->
         <div class="redes">
             <div class="titulo">
-                <h3>Información y Bases Legales</h3>
+                <h3>Manténte al día</h3>
             </div>
             <!-- Info -->
             <div class="contenido">
@@ -260,8 +257,13 @@ include("php/sesion.php");
                     </div>
                 </div>
                 <script src="javascript/newsletter.js"></script>
-                <a href="php/infoLegal.php">Información Legal</a>
             </div>
+        </div>
+        <div class="legal">
+            <a href="php/infoLegal.php#privacidad">Política de privacidad</a>
+            <a href="php/infoLegal.php#datos">Recopilación y uso de datos</a>
+            <a href="php/infoLegal.php#cookies">Uso de cookies</a>
+            <a href="php/infoLegal.php#termsConds">Términos y condiciones</a>
         </div>
     </footer>
 </body>

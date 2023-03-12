@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0px;
 }
 .separador {
@@ -158,10 +158,11 @@
   text-decoration: none;
   display: inline-block;
   border-radius: 5px;
+  margin-top: 10%;
 }
 
 .textoRev button:hover {
-  transition: background-color .8s;
+  transition: background-color 0.8s;
   background-color: #018273;
 }
 
@@ -195,7 +196,8 @@
   display: flex;
 }
 
-.button button,.trollButton {
+.button button,
+.trollButton {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-weight: bolder;
   border: none;
@@ -206,7 +208,6 @@
   border-radius: 5px;
   margin: 1%;
 }
-
 
 .troll {
   display: flex;
@@ -231,16 +232,16 @@
 }
 
 .favButton:hover {
-  transition: background-color .8s;
+  transition: background-color 0.8s;
   background-color: rgb(185, 17, 51);
 }
 
 .trollButton:hover {
-  transition: background-color .8s;
+  transition: background-color 0.8s;
   background-color: #018273;
 }
 
-input[type=number] {
+input[type="number"] {
   border: none;
   border-bottom: 2px solid #018273;
   border-radius: 5px;
@@ -248,13 +249,13 @@ input[type=number] {
   color: #333;
 }
 
-input[type=number]:focus {
+input[type="number"]:focus {
   outline: none;
   border-bottom: 2px solid #00b3aa;
 }
 
-input[type=number]::-webkit-inner-spin-button {
-  opacity: 1
+input[type="number"]::-webkit-inner-spin-button {
+  opacity: 1;
 }
 
 .producto label {
@@ -305,6 +306,9 @@ input[type=number]::-webkit-inner-spin-button {
     width: 30%;
   }
 
+  .textoRev button {
+    margin-top: 3%;
+  }
 }
 
 /* Estilos para dispositivos móviles */
@@ -316,6 +320,10 @@ input[type=number]::-webkit-inner-spin-button {
 
   .item {
     flex: 0 0 30%;
+  }
+
+  .textoRev button {
+    margin-top: 3%;
   }
 
   .contenedorRevista {
@@ -365,7 +373,7 @@ input[type=number]::-webkit-inner-spin-button {
 
 #mainBtn:hover {
   background-color: #006156;
-  transition: background-color .8s;
+  transition: background-color 0.8s;
 }
 
 #submenu {
@@ -389,5 +397,5 @@ input[type=number]::-webkit-inner-spin-button {
 
 #submenu button:hover {
   background-color: #006156;
-  transition: background-color .8s;
+  transition: background-color 0.8s;
 }

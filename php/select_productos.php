@@ -41,7 +41,7 @@ switch ($cat) {
         break;
 }
 $ins = "SELECT Cod_producto,Nombre,Precio,Stock FROM productos WHERE Categoria='$cat'";
-$resul = $db->query($ins);
+$resul = $con->query($ins);
 $texto = '';
 $texto .= "<div class='productos'>";
 foreach ($resul as $row) {

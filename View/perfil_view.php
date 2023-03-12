@@ -54,6 +54,7 @@ use Controllers\Perfil_controlador;
                     <input type="text" class="form-control" readonly id="rol" name="rol" value="<?php echo $rol; ?>">
                 </div>
                 <div class="form-group text-center">
+                    <a href="../index.php"><input type="submit" class="btn btn-secondary" value="Volver atrás"></a>
                     <input type="submit" class="btn btn-primary" value="Guardar cambios">
                 </div>
             </form>

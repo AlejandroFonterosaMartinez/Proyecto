@@ -13,11 +13,6 @@
     <link href="../css/footer.css" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="../imagenes/Logo.ico" type="image/x-icon" />
     <link rel="icon" href="../imagenes/Logo.ico" type="image/x-icon" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
 </head>
 
 
@@ -27,7 +22,7 @@
         <div class="titulo">
             <h1>Información Legal</h1>
         </div>
-        <div class="apartado">
+        <div class="apartado" id="privacidad">
             <h2>Política de privacidad de BricoTeis SL</h2>
             <p>Nos comprometemos a proteger su privacidad y a garantizar que sus datos personales sean tratados de
                 manera
@@ -35,7 +30,7 @@
                 datos
                 personales.</p>
         </div>
-        <div class="apartado">
+        <div class="apartado" id="datos">
             <h2>Recopilación de datos</h2>
             <p>Recopilamos información sobre usted en varias ocasiones, como cuando se registra en nuestro sitio web,
                 realiza una compra o se suscribe a nuestro boletín informativo. La información que recogemos incluye su
@@ -74,7 +69,7 @@
                 evaluar y mejorar nuestras medidas de seguridad para asegurarnos de que su información esté siempre
                 protegida. </p>
         </div>
-        <div class="apartado">
+        <div class="apartado" id="cookies">
             <h2>Cookies</h2>
             <p>En nuestro sitio web, utilizamos cookies con el objetivo de mejorar su experiencia de navegación y
                 personalizar su experiencia en línea. Las cookies son pequeños archivos de texto que se guardan en su
@@ -85,7 +80,7 @@
                 fluida y personalizada. Puede configurar su navegador para rechazar las cookies si lo desea, pero tenga
                 en cuenta que esto puede afectar la funcionalidad de nuestro sitio web. </p>
         </div>
-        <div class="apartado">
+        <div class="apartado" id="termsConds">
             <h2>Términos y condiciones</h2>
             <p>Al usar nuestro sitio web, acepta nuestros términos y condiciones, que incluyen esta política de
                 privacidad.
@@ -144,7 +139,7 @@
         </div>
         <div class="redes">
             <div class="tituloFooter">
-                <h3>Información y Bases Legales</h3>
+            <h3>Manténte al día</h3>
             </div>
             <div class="contenido">
                 <a href="../php/aboutUs.php">About Us</a>
@@ -162,8 +157,13 @@
                     </div>
                 </div>
                 <script src="../javascript/newsletter.js"></script>
-                <a href="../php/infoLegal.php">Información Legal</a>
             </div>
+        </div>
+        <div class="legal">
+            <a href="#privacidad">Política de privacidad</a>
+            <a href="#datos">Recopilación y uso de datos</a>
+            <a href="#cookies">Uso de cookies</a>
+            <a href="#termsConds">Términos y condiciones</a>
         </div>
     </footer>
 </body>

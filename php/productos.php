@@ -19,11 +19,6 @@ include('sesion.php');
     <link href="../css/productos.css" rel="stylesheet" type="text/css">
     <link href="../css/footer.css" rel="stylesheet" type="text/css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -44,9 +39,9 @@ include('sesion.php');
         <script src="../javascript/menuLat.js"></script>
         <div class="mostrar">
             <?php
-
             $cat_modelo = new Productos_modelo();
             $productos = $cat_modelo::cargar_categorias($_GET['categoria']);
+            echo "Descubre nuestra amplia gama de ".$_GET['categoria'];
             echo "<div class='productos'>";
             foreach ($productos as $producto) {
                 $cod = $producto['Cod_producto'];
@@ -140,7 +135,7 @@ include('sesion.php');
         </div>
         <div class="redes">
             <div class="tituloFooter">
-                <h3>Información y Bases Legales</h3>
+            <h3>Manténte al día</h3>
             </div>
             <div class="contenido">
                 <a href="../php/aboutUs.php">About Us</a>
@@ -158,8 +153,13 @@ include('sesion.php');
                     </div>
                 </div>
                 <script src="../javascript/newsletter.js"></script>
-                <a href="../php/infoLegal.php">Información Legal</a>
             </div>
+        </div>
+        <div class="legal">
+            <a href="infoLegal.php#privacidad">Política de privacidad</a>
+            <a href="infoLegal.php#datos">Recopilación y uso de datos</a>
+            <a href="infoLegal.php#cookies">Uso de cookies</a>
+            <a href="infoLegal.php#termsConds">Términos y condiciones</a>
         </div>
     </footer>
 </body>
