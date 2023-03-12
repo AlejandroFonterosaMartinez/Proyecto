@@ -1,47 +1,8 @@
 <?php
-use Models\Correo_modelo;
-
-require_once('Model' . DIRECTORY_SEPARATOR . 'correo_modelo.php');
+include("php/sesion.php");
 ?>
 <!DOCTYPE html>
 <html>
-<script>
-    setTimeout(function () {
-        document.querySelector('.alerta').remove();
-    }, 1000);
-</script>
-<?php
-session_start();
-// AÑADIR A FAVORITOS
-if (isset($_SESSION['mensaje'])) {
-    echo '<div class="alerta" id="alerta" style="text-align:center;">' . $_SESSION['mensaje'] . '</div>';
-    unset($_SESSION['mensaje']);
-}
-// Verificar si el usuario está logueado
-if (!isset($_SESSION['correo'])) {
-    // Si el usuario no está logueado, establecer el rol en 3
-    $_SESSION['rol'] = 3;
-}
-// Errores
-ini_set('log_errors', 1);
-ini_set('error_log', 'logs/error.log');
-// Carrito
-if (isset($_POST['anadir'])) {
-    $cod = $_POST['cod'];
-    $unidades = (int) $_POST['unidades'];
-    /* si existe el código sumamos las unidades */
-    if (isset($_SESSION['carrito'][$cod])) {
-        $_SESSION['carrito'][$cod] += $unidades;
-        echo "<div class='alert alert-info' style='text-align:center' role='alert'>El producto ya está en el carrito. Las unidades se han actualizado.</div>";
-    } else {
-        $_SESSION['carrito'][$cod] = $unidades;
-        echo "<div class='alert alert-success' style='text-align:center' role='alert'>Producto añadido al carrito.</div>";
-    }
-    /* actualizamos el contador del carrito */
-    $_SESSION['cart_count'] = count($_SESSION['carrito']);
-}
-
-?>
 <!-- Head -->
 
 <head>
@@ -293,7 +254,7 @@ if (isset($_POST['anadir'])) {
                             <input type="email" name="email" placeholder="Tu correo electrónico" required>
                             <button type="submit" name="sub">Suscribirse</button>
                             <?php if (isset($_POST['sub'])) {
-                                Correo_modelo::enviar_correo($_POST['email'],$_SESSION['usuario'], "Gracias por subscribirte a nuestra newsletter " . $_POST['email']);
+                                Correo_modelo::enviar_correo($_POST['email'], $_SESSION['usuario'], "Gracias por subscribirte a nuestra newsletter " . $_POST['email']);
                             } ?>
                         </form>
                     </div>
