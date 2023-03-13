@@ -1,10 +1,6 @@
 var searchData=
 [
-  ['a_0',['a',['../jquery_8min_8js.html#a82ca4ee5dd63e58a2bb967077dc8b8fb',1,'a():&#160;jquery.min.js'],['../owl_8carousel_8min_8js.html#aa4d4888597588a84fd5b1184d00c91f3',1,'a():&#160;owl.carousel.min.js']]],
-  ['aboutus_2ephp_1',['aboutUs.php',['../about_us_8php.html',1,'']]],
-  ['admin_2ephp_2',['admin.php',['../admin_8php.html',1,'']]],
-  ['admin_5fborrar_2ephp_3',['admin_borrar.php',['../admin__borrar_8php.html',1,'']]],
-  ['admin_5fcargar_2ephp_4',['admin_cargar.php',['../admin__cargar_8php.html',1,'']]],
-  ['admin_5fguardar_2ephp_5',['admin_guardar.php',['../admin__guardar_8php.html',1,'']]],
-  ['autorefresh_6',['AutoRefresh',['../owl_8carousel_8min_8js.html#abb80a85d93bb7da7607d76c7ecb7d1b2',1,'owl.carousel.min.js']]]
+  ['_5f_5fconstruct_0',['__construct',['../class_models_1_1_productos__modelo.html#aa35b9d60358caf5ab27d1b561583e26c',1,'Models\Productos_modelo\__construct()'],['../class_composer_1_1_autoload_1_1_class_loader.html#acf5055f6dd20b2dee3720c915c9962e2',1,'Composer\Autoload\ClassLoader\__construct()'],['../class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_o_auth.html#a58d10691ef6d5f8576b302ac11d39756',1,'PHPMailer\PHPMailer\OAuth\__construct()'],['../class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_p_h_p_mailer.html#a29c8ddd01ae18fa75d02e14005efce22',1,'PHPMailer\PHPMailer\PHPMailer\__construct($exceptions=null)']]],
+  ['_5f_5fdestruct_1',['__destruct',['../class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_p_h_p_mailer.html#ae6d9332d9dab73c4745740248e117023',1,'PHPMailer::PHPMailer::PHPMailer']]],
+  ['_5fmime_5ftypes_2',['_mime_types',['../class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_p_h_p_mailer.html#a53ddd3a03dd163fbc8397005770304ce',1,'PHPMailer::PHPMailer::PHPMailer']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['productos_5fmodel_0',['Productos_model',['../class_productos__model.html',1,'']]]
+  ['installedversions_0',['InstalledVersions',['../class_composer_1_1_installed_versions.html',1,'Composer']]]
 ];

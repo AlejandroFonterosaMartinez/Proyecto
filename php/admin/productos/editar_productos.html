@@ -39,11 +39,10 @@
     <div class="añadir">
         <div>
             <H1>Agregar Productos</H1>
-            <div id="botones">
+            <div id="botones"><a href="../admin.php"><button class="btn btn-secondary">
+                        Volver</button></a>
                 <form method="post" enctype="multipart/form-data">
-                    <a href="../admin.php"><button class="btn btn-secondary">Volver</button></a>
                     <button type='submit' id="añadir" name="añadir" class='btn btn-outline-success'>Añadir</button>
-
             </div>
             <div class="tabla">
                 <table class="table table-striped">
@@ -61,10 +60,12 @@
                     </thead>
                     <tbody class="agregar">
                         <td>
+                            <?php include('funciones.php'); ?>
 
                             <input type="file" name="image" id="image" />
 
                         </td>
+                        </form>
                         <td><textarea id='textarea' cols='15' rows='10' class='texta'
                                 placeholder="Nombre producto"></textarea></td>
                         <td><textarea id='textarea' cols='20' rows='10' class='texta'
@@ -89,6 +90,7 @@
             <h1>Editar Productos</h1>
             <div id="botones">
                 <button type='button' id="cargar" name="cargar" class='btn btn-primary'>Cargar</button>
+
             </div>
 
 
@@ -126,9 +128,8 @@
             añadirbtn.addEventListener('click', function (e) {
                 e.preventDefault();
                 agregar();
+                crearImg();
             });
-
-
 
             function agregar() {
                 //console.log("La función guardar() se está ejecutando desde: ");
@@ -159,7 +160,7 @@
                         "destacado": textAreas[6].value
                     },
                     method: "POST",
-                    url: "productos_subir_imagen.php"
+                    url: "productos_crear.php"
                 })
                     .done(function (response) {
                         crearImg();
@@ -223,13 +224,15 @@
                     cargar();
                     editando--;
                     //Fmostrar(editBtn.parentNode);
-                }));
+                })
+                );
                 const btnSucess = document.querySelectorAll(".btn-success");
                 btnSucess.forEach(editBtn => editBtn.addEventListener("click", function (e) {
                     e.preventDefault;
                     console.log('dentro de boton guardar');
                     guardar(editBtn.parentNode);
-                }));
+                })
+                );
 
             }
 
@@ -246,13 +249,15 @@
                             e.preventDefault();
                             console.log('dentro de boton');
                             mostrar(editBtn.parentNode);
-                        }));
+                        })
+                        );
                         const botonesBorrar = document.querySelectorAll(".btn-danger");
                         botonesBorrar.forEach(deletBtn => deletBtn.addEventListener("click", function (e) {
                             e.preventDefault();
                             console.log('dentro de boton');
                             borrar(deletBtn.parentNode);
-                        }));
+                        })
+                        );
                         cargarbtn.innerHTML = "Actualizar";
                     });
                 console.log('ya esta cargado');
@@ -285,7 +290,7 @@
                 $.ajax({
                     data: formData,
                     method: "POST",
-                    url: "crear.php",
+                    url: "subir_imagen.php",
                     contentType: false,
                     processData: false
                 })
@@ -295,5 +300,7 @@
 
         </script>
 </body>
+
+</html>
 
 </html>

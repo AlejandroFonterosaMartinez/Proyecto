@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['usuario_5fcontrolador_2ephp_0',['usuario_controlador.php',['../usuario__controlador_8php.html',1,'']]],
-  ['usuario_5fmodelo_2ephp_1',['usuario_modelo.php',['../usuario__modelo_8php.html',1,'']]]
+  ['main_2ejs_0',['main.js',['../main_8js.html',1,'']]],
+  ['menulat_2ejs_1',['menuLat.js',['../menu_lat_8js.html',1,'']]]
 ];

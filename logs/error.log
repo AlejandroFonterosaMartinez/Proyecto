@@ -546,3 +546,47 @@ Stack trace:
 #1 D:\xampp\htdocs\Proyecto\index.php(154): require_once('D:\\xampp\\htdocs...')
 #2 {main}
   thrown in D:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 24
+[11-Mar-2023 23:48:24 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Config\Conectar::conexion(), 0 passed in C:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 24 and exactly 1 expected in C:\xampp\htdocs\Proyecto\Config\Conectar.php:21
+Stack trace:
+#0 C:\xampp\htdocs\Proyecto\Model\productos_modelo.php(24): Config\Conectar::conexion()
+#1 C:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(9): Models\Productos_modelo->get_productos()
+#2 C:\xampp\htdocs\Proyecto\index.php(158): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\Proyecto\Config\Conectar.php on line 21
+[11-Mar-2023 23:50:01 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Config\Conectar::conexion(), 0 passed in C:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 24 and exactly 1 expected in C:\xampp\htdocs\Proyecto\Config\Conectar.php:15
+Stack trace:
+#0 C:\xampp\htdocs\Proyecto\Model\productos_modelo.php(24): Config\Conectar::conexion()
+#1 C:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(9): Models\Productos_modelo->get_productos()
+#2 C:\xampp\htdocs\Proyecto\index.php(158): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\Proyecto\Config\Conectar.php on line 15
+[11-Mar-2023 23:50:01 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Config\Conectar::conexion(), 0 passed in C:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 24 and exactly 1 expected in C:\xampp\htdocs\Proyecto\Config\Conectar.php:15
+Stack trace:
+#0 C:\xampp\htdocs\Proyecto\Model\productos_modelo.php(24): Config\Conectar::conexion()
+#1 C:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(9): Models\Productos_modelo->get_productos()
+#2 C:\xampp\htdocs\Proyecto\index.php(158): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\Proyecto\Config\Conectar.php on line 15
+[11-Mar-2023 23:50:01 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Config\Conectar::conexion(), 0 passed in C:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 24 and exactly 1 expected in C:\xampp\htdocs\Proyecto\Config\Conectar.php:15
+Stack trace:
+#0 C:\xampp\htdocs\Proyecto\Model\productos_modelo.php(24): Config\Conectar::conexion()
+#1 C:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(9): Models\Productos_modelo->get_productos()
+#2 C:\xampp\htdocs\Proyecto\index.php(158): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\Proyecto\Config\Conectar.php on line 15
+[11-Mar-2023 23:50:01 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Config\Conectar::conexion(), 0 passed in C:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 24 and exactly 1 expected in C:\xampp\htdocs\Proyecto\Config\Conectar.php:15
+Stack trace:
+#0 C:\xampp\htdocs\Proyecto\Model\productos_modelo.php(24): Config\Conectar::conexion()
+#1 C:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(9): Models\Productos_modelo->get_productos()
+#2 C:\xampp\htdocs\Proyecto\index.php(158): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\Proyecto\Config\Conectar.php on line 15
+[11-Mar-2023 23:50:02 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Config\Conectar::conexion(), 0 passed in C:\xampp\htdocs\Proyecto\Model\productos_modelo.php on line 24 and exactly 1 expected in C:\xampp\htdocs\Proyecto\Config\Conectar.php:15
+Stack trace:
+#0 C:\xampp\htdocs\Proyecto\Model\productos_modelo.php(24): Config\Conectar::conexion()
+#1 C:\xampp\htdocs\Proyecto\Controller\productos_controlador.php(9): Models\Productos_modelo->get_productos()
+#2 C:\xampp\htdocs\Proyecto\index.php(158): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\Proyecto\Config\Conectar.php on line 15
+[12-Mar-2023 00:41:38 Europe/Berlin] PHP Warning:  DOMDocument::schemaValidate(): Element 'clave': This element is not expected. Expected is ( usuario ). in C:\xampp\htdocs\Proyecto\Config\Conectar.php on line 39
+[12-Mar-2023 17:11:16 Europe/Berlin] PHP Warning:  Undefined array key "id_rol" in C:\xampp\htdocs\Proyecto\index.php on line 185

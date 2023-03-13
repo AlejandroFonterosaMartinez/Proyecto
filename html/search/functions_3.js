@@ -1,8 +1,27 @@
 var searchData=
 [
-  ['c_0',['C',['../jquery_8min_8js.html#adb5f7878ff2c93b56217c17c2ced51f6',1,'jquery.min.js']]],
-  ['calcularedad_1',['calcularEdad',['../class_user_registration.html#a2b8c3daa56a1b0c5d153bbdbdd631dd4',1,'UserRegistration']]],
-  ['cargar_5fcategorias_2',['cargar_categorias',['../productos__modelo_8php.html#a0283860797da12ff4699263ebb1ef943',1,'productos_modelo.php']]],
-  ['cargar_5fconfiguracion_3',['cargar_configuracion',['../_conectar_8php.html#a443fe0e46bc0ae406661427a69430a81',1,'Conectar.php']]],
-  ['conexion_4',['conexion',['../class_conectar.html#a5649dabd70fd599340df50f72dddc303',1,'Conectar']]]
+  ['actualizarnombre_0',['actualizarNombre',['../class_models_1_1_perfil__modelo.html#a11488f16d22ac9b758f7e01328cfe567',1,'Models::Perfil_modelo']]],
+  ['actualizartelefono_1',['actualizarTelefono',['../class_models_1_1_perfil__modelo.html#ad5bf8b2b6fda1fbe506a826d79607d9c',1,'Models::Perfil_modelo']]],
+  ['add_2',['add',['../class_composer_1_1_autoload_1_1_class_loader.html#aa99f46d61bdf20b924a1bb08bfcb90bd',1,'Composer::Autoload::ClassLoader']]],
+  ['addaddress_3',['addAddress',['../class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_p_h_p_mailer.html#a50457698c839c62db6fdb842aaad0371',1,'PHPMailer::PHPMailer::PHPMailer']]],
+  ['addanaddress_4',['addAnAddress',['../class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_p_h_p_mailer.html#a9281f271c8a70ff129d09c9755958b98',1,'PHPMailer::PHPMailer::PHPMailer']]],
+  ['addattachment_5',['addAttachment',['../class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_p_h_p_mailer.html#a1eff2c62d74419dff5b7c0a2f7460e39',1,'PHPMailer::PHPMailer::PHPMailer']]],
+  ['addbcc_6',['addBCC',['../class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_p_h_p_mailer.html#a6d8e4f0c525e8826c0be498fd42dc990',1,'PHPMailer::PHPMailer::PHPMailer']]],
+  ['addcc_7',['addCC',['../class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_p_h_p_mailer.html#a2437fcf72726c5bc805a6ea834da7aeb',1,'PHPMailer::PHPMailer::PHPMailer']]],
+  ['addclassmap_8',['addClassMap',['../class_composer_1_1_autoload_1_1_class_loader.html#a246d6f628e6ae99bf0ce65b0212f833a',1,'Composer::Autoload::ClassLoader']]],
+  ['addcustomheader_9',['addCustomHeader',['../class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_p_h_p_mailer.html#a80d083218cb9ffce85f491cbf19a683b',1,'PHPMailer::PHPMailer::PHPMailer']]],
+  ['addembeddedimage_10',['addEmbeddedImage',['../class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_p_h_p_mailer.html#a68a009a0cb4d9af85dfa0e7068da3330',1,'PHPMailer::PHPMailer::PHPMailer']]],
+  ['addeventlistener_11',['addEventListener',['../admin_8js.html#adf25b8bcf525da086a950aceec229dfd',1,'addEventListener(&apos;click&apos;,()=&gt; { console.log(&apos;Se hizo clic en el botón principal&apos;);if(submenu.style.display===&apos;none&apos;) { submenu.style.display=&apos;block&apos;;} else { submenu.style.display=&apos;none&apos;;} }):&#160;admin.js'],['../carrusel_8js.html#a4009f168477527aa6564c6938e503121',1,'addEventListener(&apos;load&apos;, function() { const ANCHO_LIMITE=768;const IMAGENES=[ &apos;imagenes/Banner/Banner01.png&apos;, &apos;imagenes/Banner/Banner02.png&apos;, &apos;imagenes/Banner/Banner03.png&apos;];const IMAGENES2=[ &apos;imagenes/Banner/BannerM01.png&apos;, &apos;imagenes/Banner/BannerM02.png&apos;, &apos;imagenes/Banner/BannerM03.png&apos;];const TIEMPO_INTERVALO_MILESIMAS_SEG=2000;let posicionActual=0;let $imagen=document.querySelector(&apos;#imagenCarr&apos;);let intervalo;window.addEventListener(&quot;resize&quot;,()=&gt; { pasarFoto();});function pasarFoto() { if(posicionActual &gt;=IMAGENES.length - 1) { posicionActual=0;} else { posicionActual++;} renderizarImagen();} function renderizarImagen() { if(window.innerWidth&lt;=ANCHO_LIMITE) { $imagen.style.backgroundImage=`url(${IMAGENES2[posicionActual]})`;} else { $imagen.style.backgroundImage=`url(${IMAGENES[posicionActual]})`;} } renderizarImagen();intervalo=setInterval(pasarFoto, TIEMPO_INTERVALO_MILESIMAS_SEG);}):&#160;carrusel.js'],['../menu_lat_8js.html#a8d12a48deda11045d199a6684b8bc38b',1,'addEventListener(&quot;click&quot;, function() { menuCat.classList.toggle(&quot;active&quot;);if(menuCat.classList.contains(&quot;active&quot;)) { menuCat.style.left=0+&quot;px&quot;;} else { menuCat.style.left=&quot;-400px&quot;;} }):&#160;menuLat.js'],['../newsletter_8js.html#af47e62358f5e90956a4497a73519d978',1,'addEventListener(&apos;click&apos;, function(event) { event.preventDefault();newsletterOverlay.style.display=&apos;block&apos;;}):&#160;newsletter.js']]],
+  ['addorenqueueanaddress_12',['addOrEnqueueAnAddress',['../class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_p_h_p_mailer.html#aa86fcba6dc090d7d0993051b05401833',1,'PHPMailer::PHPMailer::PHPMailer']]],
+  ['addpsr4_13',['addPsr4',['../class_composer_1_1_autoload_1_1_class_loader.html#a8831c0a7bb01fa44b4cb7a72ec111cf1',1,'Composer::Autoload::ClassLoader']]],
+  ['addrappend_14',['addrAppend',['../class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_p_h_p_mailer.html#afa5abbb95aa34ed4fa291e7a9a48096c',1,'PHPMailer::PHPMailer::PHPMailer']]],
+  ['addreplyto_15',['addReplyTo',['../class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_p_h_p_mailer.html#a03b9a0738fa3dd153e150fd8c8347981',1,'PHPMailer::PHPMailer::PHPMailer']]],
+  ['addrformat_16',['addrFormat',['../class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_p_h_p_mailer.html#aec3fc10f7e3bfc9dbdaead473b3d806e',1,'PHPMailer::PHPMailer::PHPMailer']]],
+  ['addstringattachment_17',['addStringAttachment',['../class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_p_h_p_mailer.html#af426f939eb595a49ba39e74558f077d2',1,'PHPMailer::PHPMailer::PHPMailer']]],
+  ['addstringembeddedimage_18',['addStringEmbeddedImage',['../class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_p_h_p_mailer.html#aa329b7b65a55a32acdfceae30c1707a8',1,'PHPMailer::PHPMailer::PHPMailer']]],
+  ['alternativeexists_19',['alternativeExists',['../class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_p_h_p_mailer.html#a1a7ec7270ad4e8259c224251966f5867',1,'PHPMailer::PHPMailer::PHPMailer']]],
+  ['attachall_20',['attachAll',['../class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_p_h_p_mailer.html#a0c36e1bd1e5a83ad4edb4f7f3e0f211c',1,'PHPMailer::PHPMailer::PHPMailer']]],
+  ['attachmentexists_21',['attachmentExists',['../class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_p_h_p_mailer.html#acca8a7ac7f5c28bcd33825d1644c4296',1,'PHPMailer::PHPMailer::PHPMailer']]],
+  ['authenticate_22',['authenticate',['../class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_s_m_t_p.html#a70ebff41266b8b64c44ea535f1afb8cd',1,'PHPMailer::PHPMailer::SMTP']]],
+  ['authorise_23',['authorise',['../class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_p_o_p3.html#a1a5462a218993658c91b6df0c39e641e',1,'PHPMailer::PHPMailer::POP3']]]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.6"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: Referencia del Archivo php/select_productos.php</title>
+<title>Proyecto: Referencia del Archivo php/select_productos.php</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">Proyecto
    </div>
   </td>
  </tr>
@@ -81,18 +81,24 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a1fa3127fc82f96b1436d871ef02be319"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="select__productos_8php.html#a1fa3127fc82f96b1436d871ef02be319">$db</a> = <a class="el" href="class_conectar.html#a5649dabd70fd599340df50f72dddc303">Conectar::conexion</a>()</td></tr>
-<tr class="separator:a1fa3127fc82f96b1436d871ef02be319"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0debe10448ec56a57b5509648408a549"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="select__productos_8php.html#a0debe10448ec56a57b5509648408a549">$con</a> = Conectar::conexion('busuario')</td></tr>
+<tr class="separator:a0debe10448ec56a57b5509648408a549"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e05c34c5aba2b3a1fcaadefe6f172eb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="select__productos_8php.html#a9e05c34c5aba2b3a1fcaadefe6f172eb">$cat</a> = $_POST['categoria']</td></tr>
 <tr class="separator:a9e05c34c5aba2b3a1fcaadefe6f172eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1104a1d0f0e5cbdf716229842719d53b"><td class="memItemLeft" align="right" valign="top">switch($cat)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="select__productos_8php.html#a1104a1d0f0e5cbdf716229842719d53b">$ins</a> = &quot;SELECT Cod_producto,Nombre,Precio FROM productos WHERE Categoria='$cat'&quot;</td></tr>
+<tr class="memitem:a1104a1d0f0e5cbdf716229842719d53b"><td class="memItemLeft" align="right" valign="top">switch($cat)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="select__productos_8php.html#a1104a1d0f0e5cbdf716229842719d53b">$ins</a> = &quot;SELECT Cod_producto,Nombre,Precio,Stock FROM productos WHERE Categoria='$cat'&quot;</td></tr>
 <tr class="separator:a1104a1d0f0e5cbdf716229842719d53b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85400a4de635efc67d199bbdd4567e7c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="select__productos_8php.html#a85400a4de635efc67d199bbdd4567e7c">$resul</a> = $db-&gt;query($ins)</td></tr>
+<tr class="memitem:a85400a4de635efc67d199bbdd4567e7c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="select__productos_8php.html#a85400a4de635efc67d199bbdd4567e7c">$resul</a> = $con-&gt;query($ins)</td></tr>
 <tr class="separator:a85400a4de635efc67d199bbdd4567e7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98535f7d139dea724a16817c30a880ed"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="select__productos_8php.html#a98535f7d139dea724a16817c30a880ed">$texto</a> = ''</td></tr>
-<tr class="separator:a98535f7d139dea724a16817c30a880ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea137d17ffd46322d2eebc8ae912a7f2"><td class="memItemLeft" align="right" valign="top">foreach($resul as $valores)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="select__productos_8php.html#aea137d17ffd46322d2eebc8ae912a7f2">$output</a> = $texto</td></tr>
-<tr class="separator:aea137d17ffd46322d2eebc8ae912a7f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add27092b970f360997fd3a1ccb0101e4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="select__productos_8php.html#add27092b970f360997fd3a1ccb0101e4">$texto</a> = ''</td></tr>
+<tr class="separator:add27092b970f360997fd3a1ccb0101e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a1ae44f0e8e6dcbb0723eb952ef4431"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="select__productos_8php.html#a4a1ae44f0e8e6dcbb0723eb952ef4431">$categorias</a></td></tr>
+<tr class="separator:a4a1ae44f0e8e6dcbb0723eb952ef4431"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a986f6fc2effbd357c07f25344e26fc81"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="select__productos_8php.html#a986f6fc2effbd357c07f25344e26fc81">$valor_categoria</a> = $cat</td></tr>
+<tr class="separator:a986f6fc2effbd357c07f25344e26fc81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bfebb0ad11679d621374607b8c3a60e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="select__productos_8php.html#a8bfebb0ad11679d621374607b8c3a60e">$nombre_categoria</a> = $categorias[$valor_categoria]</td></tr>
+<tr class="separator:a8bfebb0ad11679d621374607b8c3a60e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73004ce9cd673c1bfafd1dc351134797"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="select__productos_8php.html#a73004ce9cd673c1bfafd1dc351134797">$output</a> = $texto</td></tr>
+<tr class="separator:a73004ce9cd673c1bfafd1dc351134797"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentación de las variables</h2>
 <a id="a9e05c34c5aba2b3a1fcaadefe6f172eb" name="a9e05c34c5aba2b3a1fcaadefe6f172eb"></a>
@@ -109,14 +115,39 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a1fa3127fc82f96b1436d871ef02be319" name="a1fa3127fc82f96b1436d871ef02be319"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1fa3127fc82f96b1436d871ef02be319">&#9670;&#160;</a></span>$db</h2>
+<a id="a4a1ae44f0e8e6dcbb0723eb952ef4431" name="a4a1ae44f0e8e6dcbb0723eb952ef4431"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a1ae44f0e8e6dcbb0723eb952ef4431">&#9670;&#160;</a></span>$categorias</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">$db = <a class="el" href="class_conectar.html#a5649dabd70fd599340df50f72dddc303">Conectar::conexion</a>()</td>
+          <td class="memname">$categorias</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valor inicial:</b><div class="fragment"><div class="line">= array(</div>
+<div class="line">    <span class="stringliteral">&quot;1&quot;</span> =&gt; <span class="stringliteral">&quot;Tejados Y Cubiertas&quot;</span>,</div>
+<div class="line">    <span class="stringliteral">&quot;2&quot;</span> =&gt; <span class="stringliteral">&quot;Cementos Y Morteros&quot;</span>,</div>
+<div class="line">    <span class="stringliteral">&quot;3&quot;</span> =&gt; <span class="stringliteral">&quot;Yesos Y Escayolas&quot;</span>,</div>
+<div class="line">    <span class="stringliteral">&quot;4&quot;</span> =&gt; <span class="stringliteral">&quot;Arenas y Gravas&quot;</span>,</div>
+<div class="line">    <span class="stringliteral">&quot;5&quot;</span> =&gt; <span class="stringliteral">&quot;Cercados y Ocultación&quot;</span>,</div>
+<div class="line">    <span class="stringliteral">&quot;6&quot;</span> =&gt; <span class="stringliteral">&quot;Madera&quot;</span>,</div>
+<div class="line">    <span class="stringliteral">&quot;7&quot;</span> =&gt; <span class="stringliteral">&quot;Hormigoneras, carretillas...&quot;</span>,</div>
+<div class="line">    <span class="stringliteral">&quot;8&quot;</span> =&gt; <span class="stringliteral">&quot;Aislamientos&quot;</span>,</div>
+<div class="line">    <span class="stringliteral">&quot;9&quot;</span> =&gt; <span class="stringliteral">&quot;Elementos de construcción&quot;</span></div>
+<div class="line">    )</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a0debe10448ec56a57b5509648408a549" name="a0debe10448ec56a57b5509648408a549"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0debe10448ec56a57b5509648408a549">&#9670;&#160;</a></span>$con</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">$con = Conectar::conexion('busuario')</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -130,21 +161,35 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">switch ( $cat) $ins = &quot;SELECT Cod_producto,Nombre,Precio FROM productos WHERE Categoria='$cat'&quot;</td>
+          <td class="memname">switch ( $cat) $ins = &quot;SELECT Cod_producto,Nombre,Precio,Stock FROM productos WHERE Categoria='$cat'&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="aea137d17ffd46322d2eebc8ae912a7f2" name="aea137d17ffd46322d2eebc8ae912a7f2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea137d17ffd46322d2eebc8ae912a7f2">&#9670;&#160;</a></span>$output</h2>
+<a id="a8bfebb0ad11679d621374607b8c3a60e" name="a8bfebb0ad11679d621374607b8c3a60e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bfebb0ad11679d621374607b8c3a60e">&#9670;&#160;</a></span>$nombre_categoria</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">foreach ( $resul as $valores) $output = $texto</td>
+          <td class="memname">$nombre_categoria = $categorias[$valor_categoria]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a73004ce9cd673c1bfafd1dc351134797" name="a73004ce9cd673c1bfafd1dc351134797"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73004ce9cd673c1bfafd1dc351134797">&#9670;&#160;</a></span>$output</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">$output = $texto</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -158,21 +203,35 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">$resul = $db-&gt;query($ins)</td>
+          <td class="memname">$resul = $con-&gt;query($ins)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a98535f7d139dea724a16817c30a880ed" name="a98535f7d139dea724a16817c30a880ed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a98535f7d139dea724a16817c30a880ed">&#9670;&#160;</a></span>$texto</h2>
+<a id="add27092b970f360997fd3a1ccb0101e4" name="add27092b970f360997fd3a1ccb0101e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add27092b970f360997fd3a1ccb0101e4">&#9670;&#160;</a></span>$texto</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">$texto = ''</td>
+          <td class="memname"><a class="el" href="producto_8php.html#a8dc6f24942980f21852ad24c3c32fcbe">foreach</a> ( $resul as $row) $texto = ''</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a986f6fc2effbd357c07f25344e26fc81" name="a986f6fc2effbd357c07f25344e26fc81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a986f6fc2effbd357c07f25344e26fc81">&#9670;&#160;</a></span>$valor_categoria</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">$valor_categoria = $cat</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -182,7 +241,7 @@ Variables</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generado el Jueves, 16 de Febrero de 2023 12:11:41 para My Project por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+Generado el Domingo, 12 de Marzo de 2023 19:09:05 para Proyecto por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
 </small></address>
 </body>
 </html>

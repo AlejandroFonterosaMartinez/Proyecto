@@ -1,8 +1,6 @@
 <?php
 namespace Models;
-
 use Config\Conectar;
-
 class Login_modelo
 {
     /**
@@ -17,21 +15,23 @@ class Login_modelo
      */
     public function loguearUsuario($email, $password)
     {
-
-        $stmt = Conectar::conexion()->prepare("SELECT id_usuario,Correo, Contraseña, id_rol FROM `usuarios` WHERE Correo=:email");
+        $user = [];
+        $con = Conectar::conexion('busuario');
+        $stmt = $con->prepare("SELECT id_usuario, Correo, Contraseña, id_rol FROM `usuarios` WHERE Correo=:email");
         $stmt->bindParam(':email', $email, \PDO::PARAM_STR);
         $stmt->execute();
-
         $user = $stmt->fetch(\PDO::FETCH_ASSOC);
 
         if ($user && password_verify($password, $user['Contraseña'])) {
+            if ($user['id_rol'] == 2) {
+                $user['usuario_con'] = 'BTadmin';
+            } else {
+                $user['usuario_con'] = 'busuario';
+            }
             return $user;
         }
-
         return false;
     }
-
-
     /**
      * @brief Obtiene el nombre del usuario a partir de su correo.
      * @param string $email Correo del usuario.
@@ -39,15 +39,12 @@ class Login_modelo
      */
     public static function getNombreUsuario($email)
     {
-
-
-        $stmt = Conectar::conexion()->prepare("SELECT nombre FROM `usuarios` WHERE correo=:email");
+        $con = Conectar::conexion('busuario');
+        $stmt = $con->prepare("SELECT nombre FROM `usuarios` WHERE correo=:email");
         $stmt->bindParam(':email', $email, \PDO::PARAM_STR);
         $stmt->execute();
         $user = $stmt->fetch(\PDO::FETCH_ASSOC);
         return $user['nombre'];
     }
-
 }
-
 ?>

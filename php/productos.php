@@ -19,16 +19,11 @@ include('sesion.php');
     <link href="../css/productos.css" rel="stylesheet" type="text/css">
     <link href="../css/footer.css" rel="stylesheet" type="text/css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
 </head>
 
 <body>
     <?php include('header.php'); ?>
-    <div class="contenido">
+    <div class="contCats">
         <button id="toggleMenuCat"> ≡ </button>
         <div class="menuCat">
             <input type="button" class="categoria" value="Tejados Y Cubiertas" />
@@ -44,9 +39,23 @@ include('sesion.php');
         <script src="../javascript/menuLat.js"></script>
         <div class="mostrar">
             <?php
-
             $cat_modelo = new Productos_modelo();
             $productos = $cat_modelo::cargar_categorias($_GET['categoria']);
+            $categorias = array(
+                "1" => "Tejados Y Cubiertas",
+                "2" => "Cementos Y Morteros",
+                "3" => "Yesos Y Escayolas",
+                "4" => "Arenas y Gravas",
+                "5" => "Cercados y Ocultación",
+                "6" => "Madera",
+                "7" => "Hormigoneras, carretillas...",
+                "8" => "Aislamientose e impermeabilización",
+                "9" => "Elementos de construcción"
+              );
+              $valor_categoria = $_GET['categoria'];
+              $nombre_categoria = $categorias[$valor_categoria];
+              echo "<div class='titCat'>$nombre_categoria</div>";
+              echo "<div class='textCat'>Descubre nuestra amplia gama de $nombre_categoria, diseñados para satisfacer las necesidades de cualquier proyecto de construcción.</div>";                            
             echo "<div class='productos'>";
             foreach ($productos as $producto) {
                 $cod = $producto['Cod_producto'];
@@ -94,10 +103,7 @@ include('sesion.php');
                 })
                     .done(function (response) {
                         console.log(response);
-                        $("div.mostrar").html(response);
-                        //document.getElementsByClassName('botoncito').addEventListener('click',mostrar);
-                        //const editButtons = document.querySelectorAll(".btn-info");
-                        //editButtons.forEach(editBtn => editBtn.addEventListener("click", () => mostrar(editBtn.parentNode)));
+                        $("div.mostrar").html(response);       
 
                     });
             }
@@ -143,7 +149,7 @@ include('sesion.php');
         </div>
         <div class="redes">
             <div class="tituloFooter">
-                <h3>Información y Bases Legales</h3>
+            <h3>Manténte al día</h3>
             </div>
             <div class="contenido">
                 <a href="../php/aboutUs.php">About Us</a>
@@ -161,10 +167,14 @@ include('sesion.php');
                     </div>
                 </div>
                 <script src="../javascript/newsletter.js"></script>
-                <a href="../php/infoLegal.php">Información Legal</a>
             </div>
+        </div>
+        <div class="legal">
+            <a href="infoLegal.php#privacidad">Política de privacidad</a>
+            <a href="infoLegal.php#datos">Recopilación y uso de datos</a>
+            <a href="infoLegal.php#cookies">Uso de cookies</a>
+            <a href="infoLegal.php#termsConds">Términos y condiciones</a>
         </div>
     </footer>
 </body>
-
 </html>

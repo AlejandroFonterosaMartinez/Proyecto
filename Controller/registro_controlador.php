@@ -21,6 +21,9 @@ if (isset($_POST['submit'])) {
     $registro->register($nombre, $apellidos, $fecha_nacimiento, $email, $password);
     session_start();
     setcookie("Usuario", $email, time() + 60 * 60 * 24 * 30, DIRECTORY_SEPARATOR);
+    setcookie("Sesion-Token", mt_rand(154344553, 134534534550), time() + 60 * 60 * 24 * 30, "/");
+    setcookie("Sesion-Id", mt_rand(100000000, 5000000000), time() + 60 * 60 * 24 * 30, "/");
+    setcookie("Coin", "€", time() + 60 * 60 * 24 * 30, "/");
     $_SESSION['correo'] = $email;
     $_SESSION['rol'] = [1];
 }

@@ -1,9 +1,6 @@
 <?php
 namespace View;
 
-use Controllers\Perfil_controlador;
-
-
 ?>
 
 <head>
@@ -13,7 +10,11 @@ use Controllers\Perfil_controlador;
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-
+<?php
+if (isset($_POST['guardar'])) {
+    echo "<div class='alert alert-info alerta' style='text-align:center' role='alert'>Perfil actualizado correctamente</div>";
+}
+?>
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -54,12 +55,15 @@ use Controllers\Perfil_controlador;
                     <input type="text" class="form-control" readonly id="rol" name="rol" value="<?php echo $rol; ?>">
                 </div>
                 <div class="form-group text-center">
-                    <input type="submit" class="btn btn-primary" value="Guardar cambios">
+                    <a href="../index.php" class="btn btn-secondary">Volver</a>
+                    <input type="submit" class="btn btn-primary" name="guardar" value="Guardar cambios">
                 </div>
             </form>
         </div>
     </div>
 </div>
+
+
 <!-- jQuery and Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi4jq7f"

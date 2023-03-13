@@ -1,50 +1,11 @@
+<?php
+include("php/sesion.php");
+?>
 <!DOCTYPE html>
 <html>
-<script>
-    setTimeout(function () {
-        document.querySelector('.alerta').remove();
-    }, 1000);
-</script>
-<?php
-session_start();
-// AÑADIR A FAVORITOS
-if (isset($_SESSION['mensaje'])) {
-    echo '<div class="alerta" id="alerta" style="text-align:center;">' . $_SESSION['mensaje'] . '</div>';
-    unset($_SESSION['mensaje']);
-}
-// Verificar si el usuario está logueado
-if (!isset($_SESSION['correo'])) {
-    // Si el usuario no está logueado, establecer el rol en 3
-    $_SESSION['rol'] = 3;
-}
-// Errores
-ini_set('log_errors', 1);
-ini_set('error_log', 'logs/error.log');
-// Carrito
-if (isset($_POST['anadir'])) {
-    $cod = $_POST['cod'];
-    $unidades = (int) $_POST['unidades'];
-    /* si existe el código sumamos las unidades */
-    if (isset($_SESSION['carrito'][$cod])) {
-        $_SESSION['carrito'][$cod] += $unidades;
-        echo "<div class='alert alert-info' style='text-align:center' role='alert'>El producto ya está en el carrito. Las unidades se han actualizado.</div>";
-    } else {
-        $_SESSION['carrito'][$cod] = $unidades;
-        echo "<div class='alert alert-success' style='text-align:center' role='alert'>Producto añadido al carrito.</div>";
-    }
-    /* actualizamos el contador del carrito */
-    $_SESSION['cart_count'] = count($_SESSION['carrito']);
-}
-
-?>
 <!-- Head -->
 
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
     <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -79,7 +40,9 @@ if (isset($_POST['anadir'])) {
                 <form action="php/buscador.php" method="get">
                     <div class="cajaTexto">
                         <input type="text" name="query" name="query" placeholder="Buscar...">
-                        <button type="submit">Buscar</button>
+                        <button type="submit">
+                            <div class="lupa"><img src="imagenes/Header/lupa.svg" /></div>
+                        </button>
                     </div>
                 </form>
             </div>
@@ -218,14 +181,20 @@ if (isset($_POST['anadir'])) {
             </div>
         </div>
     </div>
-    <!--
-    <button id="mainBtn">Admin.</button>
-    <div id="submenu">
-        <button>Administrar Usuarios</button>
-        <button>Administrar Productos</button>
-    </div>
-    <script src="javascript/admin.js"></script>
-            -->
+
+    <?php
+    if ($_SESSION['rol'] == 2) {
+        echo '<button id="mainBtn">Admin.</button>
+        <div id="submenu">
+            <a href="php/admin/usuarios/editar_usuarios.html"><button>Administrar Usuarios</button></a>
+            <a href="php/admin/productos/editar_productos.html"><button>Administrar Productos</button></a>
+            <a href="php/admin/pedidos/visualizar_pedidos.php"><button>Administrar Pedidos</button></a>
+        </div>';
+        echo '<script src="javascript/admin.js"></script>';
+    }
+    ?>
+
+
     <!-- Footer -->
     <footer>
         <!-- Contactanos -->
@@ -273,7 +242,7 @@ if (isset($_POST['anadir'])) {
         <!-- Redes -->
         <div class="redes">
             <div class="titulo">
-                <h3>Información y Bases Legales</h3>
+                <h3>Manténte al día</h3>
             </div>
             <!-- Info -->
             <div class="contenido">
@@ -284,15 +253,23 @@ if (isset($_POST['anadir'])) {
                         <button id="close-popup">X</button>
                         <h2>Suscríbete a nuestra Newsletter</h2>
                         <p>Ingresa tu correo electrónico para recibir nuestras últimas noticias y ofertas:</p>
-                        <form>
+                        <form method="post">
                             <input type="email" name="email" placeholder="Tu correo electrónico" required>
-                            <button type="submit">Suscribirse</button>
+                            <button type="submit" name="sub">Suscribirse</button>
+                            <?php if (isset($_POST['sub'])) {
+                                Correo_modelo::enviar_correo($_POST['email'], $_SESSION['usuario'], "Gracias por subscribirte a nuestra newsletter " . $_POST['email']);
+                            } ?>
                         </form>
                     </div>
                 </div>
                 <script src="javascript/newsletter.js"></script>
-                <a href="php/infoLegal.php">Información Legal</a>
             </div>
+        </div>
+        <div class="legal">
+            <a href="php/infoLegal.php#privacidad">Política de privacidad</a>
+            <a href="php/infoLegal.php#datos">Recopilación y uso de datos</a>
+            <a href="php/infoLegal.php#cookies">Uso de cookies</a>
+            <a href="php/infoLegal.php#termsConds">Términos y condiciones</a>
         </div>
     </footer>
 </body>

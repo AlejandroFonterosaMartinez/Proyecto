@@ -9,7 +9,7 @@ include('../Config/Conectar.php');
  * o falso si se produjo un error
  */
 
-$db = Conectar::conexion();
+$con = Conectar::conexion('busuario');
 $cat = $_POST['categoria'];
 switch ($cat) {
     case "Tejados Y Cubiertas":
@@ -41,8 +41,23 @@ switch ($cat) {
         break;
 }
 $ins = "SELECT Cod_producto,Nombre,Precio,Stock FROM productos WHERE Categoria='$cat'";
-$resul = $db->query($ins);
+$resul = $con->query($ins);
 $texto = '';
+$categorias = array(
+    "1" => "Tejados Y Cubiertas",
+    "2" => "Cementos Y Morteros",
+    "3" => "Yesos Y Escayolas",
+    "4" => "Arenas y Gravas",
+    "5" => "Cercados y Ocultación",
+    "6" => "Madera",
+    "7" => "Hormigoneras, carretillas...",
+    "8" => "Aislamientos",
+    "9" => "Elementos de construcción"
+    );  
+  $valor_categoria = $cat;
+  $nombre_categoria = $categorias[$valor_categoria];
+  $texto .= "<div class='titCat'>$nombre_categoria</div>";
+  $texto .= "<div class='textCat'>Descubre nuestra amplia gama de $nombre_categoria, diseñados para satisfacer las necesidades de cualquier proyecto de construcción.</div>"; 
 $texto .= "<div class='productos'>";
 foreach ($resul as $row) {
     $cod = $row['Cod_producto'];
@@ -51,7 +66,7 @@ foreach ($resul as $row) {
     $texto .= "<div class='producto'>";
     $texto .= "<img src='../imagenes/Productos/{$row['Cod_producto']}.png'></img>";
     $texto .= "<label>" . $row["Nombre"] . "</label>";
-    $texto .= "<label>" . $precio_formateado . "</label>";
+    $texto .= "<label>" . $precio_formateado . "€/Ud</label>";
     $texto .= "<div class='button'>
     <form class='fav' method='post'>
           <input type='hidden' name='id_producto_fav' value='{$row['Cod_producto']}'>

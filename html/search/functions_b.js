@@ -2,8 +2,8 @@ var searchData=
 [
   ['idnsupported_0',['idnSupported',['../class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_p_h_p_mailer.html#a6f89dbfadb825aaf98a4589da298a20e',1,'PHPMailer::PHPMailer::PHPMailer']]],
   ['inlineimageexists_1',['inlineImageExists',['../class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_p_h_p_mailer.html#a1bfcf7a9b594b407859fe0a8cdc2392a',1,'PHPMailer::PHPMailer::PHPMailer']]],
-  ['insertar_5fcarrito_2',['insertar_carrito',['../productos__modelo_8php.html#a441e52edc6b98db5870983dd3e790022',1,'productos_modelo.php']]],
-  ['insertar_5fpedido_3',['insertar_pedido',['../productos__modelo_8php.html#a8314b44b553f0f5d4e26f38701a1146c',1,'productos_modelo.php']]],
+  ['insertar_5fcarrito_2',['insertar_carrito',['../class_models_1_1_productos__modelo.html#ab5255b6e99387f65ebd58ecb1279ac2b',1,'Models::Productos_modelo']]],
+  ['insertar_5fpedido_3',['insertar_pedido',['../class_models_1_1_productos__modelo.html#a209d7f67da19111aafd7a44500aec7fe',1,'Models::Productos_modelo']]],
   ['insertbefore_4',['insertBefore',['../contactanos_8js.html#ab06410296fe91ac4c2b9db323dd8d331',1,'contactanos.js']]],
   ['isclassmapauthoritative_5',['isClassMapAuthoritative',['../class_composer_1_1_autoload_1_1_class_loader.html#abaf3d2e9cad5d740b6a29c44b36cf015',1,'Composer::Autoload::ClassLoader']]],
   ['iserror_6',['isError',['../class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_p_h_p_mailer.html#a4f473f38c0b61b399dd1331809c8097f',1,'PHPMailer::PHPMailer::PHPMailer']]],
