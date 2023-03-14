@@ -47,7 +47,7 @@ if ($resul === FALSE) {
 } else {
     $correo = $_SESSION['correo'];
     echo "<div class='alert-success alert'style='text-align:center' role='alert'> Pedido realizado con éxito. Se enviará un correo de confirmación a: <strong> $correo </strong>  </div>";
-    Correo_modelo::enviar_correo($correo, $nombre, "Pedido realizado", "Gracias " . $nombre . " por realizar el pedido en BricoTeis.");
+   // Correo_modelo::enviar_correo($correo, $nombre, "Pedido realizado", "Gracias " . $nombre . " por realizar el pedido en BricoTeis.");
     $con = Conectar::conexion('busuario');
     $cons = $con->query("SELECT productos.nombre, productos.precio, pedidosproductos.unidades 
     FROM productos 

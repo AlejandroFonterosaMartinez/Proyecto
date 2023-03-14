@@ -66,7 +66,7 @@ foreach ($resul as $row) {
     $texto .= "<div class='producto'>";
     $texto .= "<img src='../imagenes/Productos/{$row['Cod_producto']}.png'></img>";
     $texto .= "<label>" . $row["Nombre"] . "</label>";
-    $texto .= "<label>" . $precio_formateado . "</label>";
+    $texto .= "<label>" . $precio_formateado . "€/Ud</label>";
     $texto .= "<div class='button'>
     <form class='fav' method='post'>
           <input type='hidden' name='id_producto_fav' value='{$row['Cod_producto']}'>

@@ -40,6 +40,7 @@
         <div>
             <H1>Agregar Productos</H1>
             <div id="botones"><a href="../admin.php"><button class="btn btn-secondary">
+                        Volver</button></a><a href="../admin.php"><button class="btn btn-secondary">
                         Volver</button></a>
                 <form method="post" enctype="multipart/form-data">
                     <button type='submit' id="añadir" name="añadir" class='btn btn-outline-success'>Añadir</button>
@@ -61,10 +62,12 @@
                     <tbody class="agregar">
                         <td>
                             <?php include('funciones.php'); ?>
+                            <?php include('funciones.php'); ?>
 
                             <input type="file" name="image" />
 
                         </td>
+                        </form>
                         </form>
                         <td><textarea id='textarea' cols='15' rows='10' class='texta'
                                 placeholder="Nombre producto"></textarea></td>
@@ -90,6 +93,7 @@
             <h1>Editar Productos</h1>
             <div id="botones">
                 <button type='button' id="cargar" name="cargar" class='btn btn-primary'>Cargar</button>
+
 
             </div>
 
@@ -128,6 +132,7 @@
             añadirbtn.addEventListener('click', function (e) {
                 e.preventDefault();
                 agregar();
+                crearImg();
             });
 
             function agregar() {
@@ -159,7 +164,7 @@
                         "destacado": textAreas[6].value
                     },
                     method: "POST",
-                    url: "productos_subir_imagen.php"
+                    url: "productos_crear.php"
                 })
                     .done(function (response) {
                         crearImg();
@@ -251,6 +256,7 @@
                     editando--;
                     //Fmostrar(editBtn.parentNode);
                 })
+                
                 );
                 const btnSucess = document.querySelectorAll(".btn-success");
                 btnSucess.forEach(editBtn => editBtn.addEventListener("click", function (e) {
@@ -258,6 +264,7 @@
                     console.log('dentro de boton guardar');
                     guardar(editBtn.parentNode);
                 })
+                
                 );
 
             }
@@ -276,6 +283,7 @@
                             console.log('dentro de boton');
                             mostrar(editBtn.parentNode);
                         })
+                        
                         );
                         const botonesBorrar = document.querySelectorAll(".btn-danger");
                         botonesBorrar.forEach(deletBtn => deletBtn.addEventListener("click", function (e) {
@@ -283,6 +291,7 @@
                             console.log('dentro de boton');
                             borrar(deletBtn.parentNode);
                         })
+                        
                         );
                         cargarbtn.innerHTML = "Actualizar";
                     });
@@ -305,8 +314,28 @@
 
             }
 
+            function crearImg() {
+
+                var formData = new FormData();
+                var files = document.getElementById('image').files[0];
+                formData.append('file', files);
+
+
+
+                $.ajax({
+                    data: formData,
+                    method: "POST",
+                    url: "subir_imagen.php",
+                    contentType: false,
+                    processData: false
+                })
+                    .done(function (response) {
+                    });
+            }
+
         </script>
 </body>
 
 </html>
+
 </html>

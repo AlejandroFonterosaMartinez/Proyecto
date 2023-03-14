@@ -1,5 +1,6 @@
 <?php
-include("php/sesion.php");
+use Models\Correo_modelo;
+include("View/sesion.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -37,7 +38,7 @@ include("php/sesion.php");
             </div>
             <!-- Buscador -->
             <div class="buscador">
-                <form action="php/buscador.php" method="get">
+                <form action="View/buscador.php" method="get">
                     <div class="cajaTexto">
                         <input type="text" name="query" name="query" placeholder="Buscar...">
                         <button type="submit">
@@ -57,9 +58,9 @@ include("php/sesion.php");
                              <div class="subdiv"><button><a href="View' . DIRECTORY_SEPARATOR . 'login_view.php"><img src="imagenes/Header/01Menu/entrance.svg" /><div class="subText">INICIAR SESIÓN</div></a></button></div>
                          </div>
                      </div>
-                     <div><a href="php' . DIRECTORY_SEPARATOR . 'favoritos.php"><img src="imagenes/Header/01Menu/heart.svg"/>Favoritos</a></div>
-    <div class="carrito"><a href ="php' . DIRECTORY_SEPARATOR . 'carrito.php"><img src="imagenes/Header/01Menu/shopping-cart.svg"/>Carrito</a>';
-                    require('php' . DIRECTORY_SEPARATOR . 'contador_carrito.php');
+                     <div><a href="View' . DIRECTORY_SEPARATOR . 'favoritos.php"><img src="imagenes/Header/01Menu/heart.svg"/>Favoritos</a></div>
+    <div class="carrito"><a href ="View' . DIRECTORY_SEPARATOR . 'carrito.php"><img src="imagenes/Header/01Menu/shopping-cart.svg"/>Carrito</a>';
+                    require('View' . DIRECTORY_SEPARATOR . 'contador_carrito.php');
                     ;
                     '</div>';
                 } else {
@@ -67,15 +68,15 @@ include("php/sesion.php");
                     <div class="submenu">
                     <div class="subdiv"><button><a href="Controller' . DIRECTORY_SEPARATOR . 'perfil_controlador.php"><img src="imagenes/Header/01Menu/edit.svg" /><div class="subText">EDITAR PERFIL</div></button></a>
                     </div>
-                    <div class="subdiv"><button><a href="php' . DIRECTORY_SEPARATOR . 'logout.php"><img src="imagenes/Header/01Menu/exit.svg" /><div class="subText">CERRAR SESIÓN</div></a></button> ';
+                    <div class="subdiv"><button><a href="View' . DIRECTORY_SEPARATOR . 'logout.php"><img src="imagenes/Header/01Menu/exit.svg" /><div class="subText">CERRAR SESIÓN</div></a></button> ';
                     echo '</div>
                     </div>
                 </div>
-                <div><a href="php' . DIRECTORY_SEPARATOR . 'favoritos.php"><img src="imagenes/Header/01Menu/heart.svg"/>Favoritos</a></div>
-                <div class="carrito"><a href ="php' . DIRECTORY_SEPARATOR . 'carrito.php"><img src="imagenes/Header/01Menu/shopping-cart.svg"/>Carrito</a>
+                <div><a href="View' . DIRECTORY_SEPARATOR . 'favoritos.php"><img src="imagenes/Header/01Menu/heart.svg"/>Favoritos</a></div>
+                <div class="carrito"><a href ="View' . DIRECTORY_SEPARATOR . 'carrito.php"><img src="imagenes/Header/01Menu/shopping-cart.svg"/>Carrito</a>
                 <div class="subcarrito">
                 </div>';
-                    require('php' . DIRECTORY_SEPARATOR . 'contador_carrito.php');
+                    require('View' . DIRECTORY_SEPARATOR . 'contador_carrito.php');
                     '</div>';
                 } ?>
             </div>
@@ -90,22 +91,22 @@ include("php/sesion.php");
         CATEGORÍAS
     </div>
     <div class="categorias">
-        <div class="item"><a href="php/productos.php?categoria=4"><img src="imagenes/Menu/Arena.svg" /></a>Arenas y
+        <div class="item"><a href="View/productos.php?categoria=4"><img src="imagenes/Menu/Arena.svg" /></a>Arenas y
             Gravas</div>
-        <div class="item"><a href="php/productos.php?categoria=1"><img src="imagenes/Menu/Techo.svg" /></a>Tejados Y
+        <div class="item"><a href="View/productos.php?categoria=1"><img src="imagenes/Menu/Techo.svg" /></a>Tejados Y
             Cubiertas</div>
-        <div class="item"><a href="php/productos.php?categoria=2"><img src="imagenes/Menu/Cemento.svg" /></a>Cementos Y
+        <div class="item"><a href="View/productos.php?categoria=2"><img src="imagenes/Menu/Cemento.svg" /></a>Cementos Y
             Morteros</div>
-        <div class="item"><a href="php/productos.php?categoria=6"><img src="imagenes/Menu/Madera.svg" /></a>Madera</div>
-        <div class="item"><a href="php/productos.php?categoria=7"><img
+        <div class="item"><a href="View/productos.php?categoria=6"><img src="imagenes/Menu/Madera.svg" /></a>Madera</div>
+        <div class="item"><a href="View/productos.php?categoria=7"><img
                     src="imagenes/Menu/Hormigonera.svg" /></a>Hormigoneras, carretillas...</div>
-        <div class="item"><a href="php/productos.php?categoria=5"><img src="imagenes/Menu/Valla.svg" /></a>Cercados y
+        <div class="item"><a href="View/productos.php?categoria=5"><img src="imagenes/Menu/Valla.svg" /></a>Cercados y
             Ocultación</div>
-        <div class="item"><a href="php/productos.php?categoria=3"><img src="imagenes/Menu/Yeso.svg" /></a>Yesos Y
+        <div class="item"><a href="View/productos.php?categoria=3"><img src="imagenes/Menu/Yeso.svg" /></a>Yesos Y
             Escayolas</div>
-        <div class="item"><a href="php/productos.php?categoria=9"><img
+        <div class="item"><a href="View/productos.php?categoria=9"><img
                     src="imagenes/Menu/Eleconstruccion.svg" /></a>Elementos de construcción</div>
-        <div class="item"><a href="php/productos.php?categoria=8"><img
+        <div class="item"><a href="View/productos.php?categoria=8"><img
                     src="imagenes/Menu/Aislante.svg" /></a>Aislamientos</div>
     </div>
     <!-- Productos destacados -->
@@ -186,9 +187,9 @@ include("php/sesion.php");
     if ($_SESSION['rol'] == 2) {
         echo '<button id="mainBtn">Admin.</button>
         <div id="submenu">
-            <a href="php/admin/usuarios/editar_usuarios.html"><button>Administrar Usuarios</button></a>
-            <a href="php/admin/productos/editar_productos.html"><button>Administrar Productos</button></a>
-            <a href="php/admin/pedidos/visualizar_pedidos.php"><button>Administrar Pedidos</button></a>
+            <a href="View/admin/usuarios/editar_usuarios.html"><button>Administrar Usuarios</button></a>
+            <a href="View/admin/productos/editar_productos.html"><button>Administrar Productos</button></a>
+            <a href="View/admin/pedidos/visualizar_pedidos.php"><button>Administrar Pedidos</button></a>
         </div>';
         echo '<script src="javascript/admin.js"></script>';
     }
@@ -219,7 +220,7 @@ include("php/sesion.php");
                 <h3>Proyecto Ecológico</h3>
             </div>
             <div class="contenido">
-                <a href="php/eco.php">
+                <a href="View/eco.php">
                     <img src="imagenes/Footer/ECO/Agua.svg" />
                     <img src="imagenes/Footer/ECO/Reciclaje.svg" />
                     <img src="imagenes/Footer/ECO/Renovable.svg" />
@@ -246,7 +247,7 @@ include("php/sesion.php");
             </div>
             <!-- Info -->
             <div class="contenido">
-                <a href="php/aboutUs.php">About Us</a>
+                <a href="View/aboutUs.php">About Us</a>
                 <a id="newsletter-link">Newsletter</a>
                 <div id="newsletter-overlay">
                     <div id="newsletter-popup">
@@ -266,10 +267,10 @@ include("php/sesion.php");
             </div>
         </div>
         <div class="legal">
-            <a href="php/infoLegal.php#privacidad">Política de privacidad</a>
-            <a href="php/infoLegal.php#datos">Recopilación y uso de datos</a>
-            <a href="php/infoLegal.php#cookies">Uso de cookies</a>
-            <a href="php/infoLegal.php#termsConds">Términos y condiciones</a>
+            <a href="View/infoLegal.php#privacidad">Política de privacidad</a>
+            <a href="View/infoLegal.php#datos">Recopilación y uso de datos</a>
+            <a href="View/infoLegal.php#cookies">Uso de cookies</a>
+            <a href="View/infoLegal.php#termsConds">Términos y condiciones</a>
         </div>
     </footer>
 </body>
