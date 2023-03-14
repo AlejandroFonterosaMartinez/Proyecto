@@ -128,7 +128,7 @@ include('sesion.php');
                 <h3>Proyecto Ecológico</h3>
             </div>
             <div class="contenido">
-                <a href="../php/eco.php">
+                <a href="eco.php">
                     <img src="../imagenes/Footer/ECO/Agua.svg" />
                     <img src="../imagenes/Footer/ECO/Reciclaje.svg" />
                     <img src="../imagenes/Footer/ECO/Renovable.svg" />
@@ -152,7 +152,7 @@ include('sesion.php');
             <h3>Manténte al día</h3>
             </div>
             <div class="contenido">
-                <a href="../php/aboutUs.php">About Us</a>
+                <a href="aboutUs.php">About Us</a>
                 <a id="newsletter-link">Newsletter</a>
 
                 <div id="newsletter-overlay">

@@ -1,7 +1,7 @@
 <?php
 use Config\Conectar;
 
-include('../Config/Conectar.php');
+include('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
 
 
 /*
@@ -53,11 +53,11 @@ $categorias = array(
     "7" => "Hormigoneras, carretillas...",
     "8" => "Aislamientos",
     "9" => "Elementos de construcción"
-    );  
-  $valor_categoria = $cat;
-  $nombre_categoria = $categorias[$valor_categoria];
-  $texto .= "<div class='titCat'>$nombre_categoria</div>";
-  $texto .= "<div class='textCat'>Descubre nuestra amplia gama de $nombre_categoria, diseñados para satisfacer las necesidades de cualquier proyecto de construcción.</div>"; 
+);
+$valor_categoria = $cat;
+$nombre_categoria = $categorias[$valor_categoria];
+$texto .= "<div class='titCat'>$nombre_categoria</div>";
+$texto .= "<div class='textCat'>Descubre nuestra amplia gama de $nombre_categoria, diseñados para satisfacer las necesidades de cualquier proyecto de construcción.</div>";
 $texto .= "<div class='productos'>";
 foreach ($resul as $row) {
     $cod = $row['Cod_producto'];
