@@ -18,11 +18,12 @@ namespace View; ?>
             </form>
             <form class='troll' method='post'>
               <input type = 'submit' class='trollButton' name='anadir' value='Añadir al carrito'><input name ='cod' type='hidden' value = '$cod'></input>
-              <input name = 'unidades' type='number' min = '1' max='{$row['Stock']}' value = '1'>
+              <input name = 'unidades' type='number' min = '1' max='{$row['Stock']}' value = '1' onkeydown='return false'>
             </form>
           </div>
         </div>";
     }
     ?>
+    <script src="../javascript/cantidadProd.js"></script>
   </div>
 </div>

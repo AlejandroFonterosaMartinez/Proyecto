@@ -61,16 +61,17 @@ if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])) {
 
             echo " <div class='btn-group-vertical'>
             <form class='troll' method='post'>
-                <input name='unidades' type='number' min='1' max='{$producto['Stock']}' value='1'>
+                <input name='unidades' type='number' min='1' max='{$producto['Stock']}' value='1' onkeydown='return false'>
                 <input type='submit' class='btn btn-warning' name='anadir' value='Añadir'>
                 <input name='cod' type='hidden' value='$cod'>
             </form>
             <form action='eliminar_producto.php' method='POST'>
-                <input name='unidades' type='number' min='1' max='$unidades' value='1'>
+                <input name='unidades' type='number' min='1' max='$unidades' value='1' onkeydown='return false'>
                 <input type='submit' value='Eliminar' class='btn btn-danger'>
                 <input name='cod' type='hidden' value='$cod'>
             </form>
-        </div>";
+        </div>
+        ";
             echo "</div>";
             echo "</div>";
         }
@@ -115,6 +116,7 @@ if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])) {
     </div>";
 }
 ?>
+<script src="../javascript/cantidadProd.js"></script>
 </body>
 
 </html>

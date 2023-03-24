@@ -119,6 +119,7 @@ include("View/sesion.php");
     <script src="javascript/jquery.min.js"></script>
     <script src="javascript/owl.carousel.min.js"></script>
     <script src="javascript/main.js"></script>
+    <script src="javascript/cantidadProd.js"></script>
     <div class="separador">
         NUESTRA REVISTA
     </div>

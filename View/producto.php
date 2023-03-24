@@ -58,7 +58,7 @@ include('sesion.php');
             </form>
             <form class='troll' method='post'>
               <input type = 'submit' class='trollButton' name='anadir' value='Añadir al carrito'><input name ='cod' type='hidden' value = '$cod'></input>
-              <input name = 'unidades' class='uds' type='number' min = '1' max='{$producto['Stock']}' value = '1'>
+              <input name = 'unidades' class='uds' type='number' min = '1' max='{$producto['Stock']}' value = '1' onkeydown='return false'>
             </form>
                 </div>
                 <label class='stock'><span class='stock-num'>$stock</span> unidades en Stock</label>
@@ -69,6 +69,7 @@ include('sesion.php');
     echo "</div>";
 
     ?>
+    <script src="../javascript/cantidadProd.js"></script>
     <footer>
         <div class="redes">
             <div class="tituloFooter">
