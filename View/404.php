@@ -8,10 +8,10 @@
 </head>
 
 <body>
-    <canvas id="canvas"></canvas>
+    <canvas id="myCanvas" width="100vw" height="100vh"></canvas>
     <div class="content">
         <h1>404</h1>
-        <p>PAGINA NO ENCONTRADA</p>
+        <p>PÁGINA NO ENCONTRADA</p>
     </div>
     <script src="../javascript/canvas.js"></script>
 </body>
