@@ -33,7 +33,7 @@ class Login_controlador
             setcookie("Sesion-Id", mt_rand(100000000, 5000000000), time() + 60 * 60 * 24 * 30, "/");
             setcookie("Coin", "€", time() + 60 * 60 * 24 * 30, "/");
             if ($_SESSION['rol'] == 2) {
-                header('Location: ../php/admin/admin.php');
+                header('Location: ../View/admin/admin.php');
             } else {
                 header('Location: ../index.php');
             }

@@ -1,55 +1,12 @@
 <?php
 use Models\Correo_modelo;
-
-require_once('Model' . DIRECTORY_SEPARATOR . 'correo_modelo.php');
+include("View/sesion.php");
 ?>
 <!DOCTYPE html>
 <html>
-<script>
-    setTimeout(function () {
-        document.querySelector('.alerta').remove();
-    }, 1000);
-</script>
-<?php
-session_start();
-// AÑADIR A FAVORITOS
-if (isset($_SESSION['mensaje'])) {
-    echo '<div class="alerta" id="alerta" style="text-align:center;">' . $_SESSION['mensaje'] . '</div>';
-    unset($_SESSION['mensaje']);
-}
-// Verificar si el usuario está logueado
-if (!isset($_SESSION['correo'])) {
-    // Si el usuario no está logueado, establecer el rol en 3
-    $_SESSION['rol'] = 3;
-}
-// Errores
-ini_set('log_errors', 1);
-ini_set('error_log', 'logs/error.log');
-// Carrito
-if (isset($_POST['anadir'])) {
-    $cod = $_POST['cod'];
-    $unidades = (int) $_POST['unidades'];
-    /* si existe el código sumamos las unidades */
-    if (isset($_SESSION['carrito'][$cod])) {
-        $_SESSION['carrito'][$cod] += $unidades;
-        echo "<div class='alert alert-info' style='text-align:center' role='alert'>El producto ya está en el carrito. Las unidades se han actualizado.</div>";
-    } else {
-        $_SESSION['carrito'][$cod] = $unidades;
-        echo "<div class='alert alert-success' style='text-align:center' role='alert'>Producto añadido al carrito.</div>";
-    }
-    /* actualizamos el contador del carrito */
-    $_SESSION['cart_count'] = count($_SESSION['carrito']);
-}
-
-?>
 <!-- Head -->
 
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
     <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -58,7 +15,6 @@ if (isset($_POST['anadir'])) {
     <link href="css/general.css" rel="stylesheet" type="text/css">
     <link href="css/carrusel.css" rel="stylesheet" type="text/css">
     <link href="css/header.css" rel="stylesheet" type="text/css">
-
     <link href="css/index.css" rel="stylesheet" type="text/css">
     <link href="css/footer.css" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="imagenes/Logo.ico" type="image/x-icon" />
@@ -67,7 +23,6 @@ if (isset($_POST['anadir'])) {
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
 </head>
 <!-- Body -->
-
 <body>
     <!-- Header -->
     <header>
@@ -81,10 +36,12 @@ if (isset($_POST['anadir'])) {
             </div>
             <!-- Buscador -->
             <div class="buscador">
-                <form action="php/buscador.php" method="get">
+                <form action="View/buscador.php" method="get">
                     <div class="cajaTexto">
                         <input type="text" name="query" name="query" placeholder="Buscar...">
-                        <button type="submit">Buscar</button>
+                        <button type="submit">
+                            <div class="lupa"><img src="imagenes/Header/lupa.svg" /></div>
+                        </button>
                     </div>
                 </form>
             </div>
@@ -99,9 +56,9 @@ if (isset($_POST['anadir'])) {
                              <div class="subdiv"><button><a href="View' . DIRECTORY_SEPARATOR . 'login_view.php"><img src="imagenes/Header/01Menu/entrance.svg" /><div class="subText">INICIAR SESIÓN</div></a></button></div>
                          </div>
                      </div>
-                     <div><a href="php' . DIRECTORY_SEPARATOR . 'favoritos.php"><img src="imagenes/Header/01Menu/heart.svg"/>Favoritos</a></div>
-    <div class="carrito"><a href ="php' . DIRECTORY_SEPARATOR . 'carrito.php"><img src="imagenes/Header/01Menu/shopping-cart.svg"/>Carrito</a>';
-                    require('php' . DIRECTORY_SEPARATOR . 'contador_carrito.php');
+                     <div><a href="View' . DIRECTORY_SEPARATOR . 'favoritos.php"><img src="imagenes/Header/01Menu/heart.svg"/>Favoritos</a></div>
+    <div class="carrito"><a href ="View' . DIRECTORY_SEPARATOR . 'carrito.php"><img src="imagenes/Header/01Menu/shopping-cart.svg"/>Carrito</a>';
+                    require('View' . DIRECTORY_SEPARATOR . 'contador_carrito.php');
                     ;
                     '</div>';
                 } else {
@@ -109,15 +66,15 @@ if (isset($_POST['anadir'])) {
                     <div class="submenu">
                     <div class="subdiv"><button><a href="Controller' . DIRECTORY_SEPARATOR . 'perfil_controlador.php"><img src="imagenes/Header/01Menu/edit.svg" /><div class="subText">EDITAR PERFIL</div></button></a>
                     </div>
-                    <div class="subdiv"><button><a href="php' . DIRECTORY_SEPARATOR . 'logout.php"><img src="imagenes/Header/01Menu/exit.svg" /><div class="subText">CERRAR SESIÓN</div></a></button> ';
+                    <div class="subdiv"><button><a href="View' . DIRECTORY_SEPARATOR . 'logout.php"><img src="imagenes/Header/01Menu/exit.svg" /><div class="subText">CERRAR SESIÓN</div></a></button> ';
                     echo '</div>
                     </div>
                 </div>
-                <div><a href="php' . DIRECTORY_SEPARATOR . 'favoritos.php"><img src="imagenes/Header/01Menu/heart.svg"/>Favoritos</a></div>
-                <div class="carrito"><a href ="php' . DIRECTORY_SEPARATOR . 'carrito.php"><img src="imagenes/Header/01Menu/shopping-cart.svg"/>Carrito</a>
+                <div><a href="View' . DIRECTORY_SEPARATOR . 'favoritos.php"><img src="imagenes/Header/01Menu/heart.svg"/>Favoritos</a></div>
+                <div class="carrito"><a href ="View' . DIRECTORY_SEPARATOR . 'carrito.php"><img src="imagenes/Header/01Menu/shopping-cart.svg"/>Carrito</a>
                 <div class="subcarrito">
                 </div>';
-                    require('php' . DIRECTORY_SEPARATOR . 'contador_carrito.php');
+                    require('View' . DIRECTORY_SEPARATOR . 'contador_carrito.php');
                     '</div>';
                 } ?>
             </div>
@@ -132,22 +89,22 @@ if (isset($_POST['anadir'])) {
         CATEGORÍAS
     </div>
     <div class="categorias">
-        <div class="item"><a href="php/productos.php?categoria=4"><img src="imagenes/Menu/Arena.svg" /></a>Arenas y
+        <div class="item"><a href="View/productos.php?categoria=4"><img src="imagenes/Menu/Arena.svg" /></a>Arenas y
             Gravas</div>
-        <div class="item"><a href="php/productos.php?categoria=1"><img src="imagenes/Menu/Techo.svg" /></a>Tejados Y
+        <div class="item"><a href="View/productos.php?categoria=1"><img src="imagenes/Menu/Techo.svg" /></a>Tejados Y
             Cubiertas</div>
-        <div class="item"><a href="php/productos.php?categoria=2"><img src="imagenes/Menu/Cemento.svg" /></a>Cementos Y
+        <div class="item"><a href="View/productos.php?categoria=2"><img src="imagenes/Menu/Cemento.svg" /></a>Cementos Y
             Morteros</div>
-        <div class="item"><a href="php/productos.php?categoria=6"><img src="imagenes/Menu/Madera.svg" /></a>Madera</div>
-        <div class="item"><a href="php/productos.php?categoria=7"><img
+        <div class="item"><a href="View/productos.php?categoria=6"><img src="imagenes/Menu/Madera.svg" /></a>Madera</div>
+        <div class="item"><a href="View/productos.php?categoria=7"><img
                     src="imagenes/Menu/Hormigonera.svg" /></a>Hormigoneras, carretillas...</div>
-        <div class="item"><a href="php/productos.php?categoria=5"><img src="imagenes/Menu/Valla.svg" /></a>Cercados y
+        <div class="item"><a href="View/productos.php?categoria=5"><img src="imagenes/Menu/Valla.svg" /></a>Cercados y
             Ocultación</div>
-        <div class="item"><a href="php/productos.php?categoria=3"><img src="imagenes/Menu/Yeso.svg" /></a>Yesos Y
+        <div class="item"><a href="View/productos.php?categoria=3"><img src="imagenes/Menu/Yeso.svg" /></a>Yesos Y
             Escayolas</div>
-        <div class="item"><a href="php/productos.php?categoria=9"><img
+        <div class="item"><a href="View/productos.php?categoria=9"><img
                     src="imagenes/Menu/Eleconstruccion.svg" /></a>Elementos de construcción</div>
-        <div class="item"><a href="php/productos.php?categoria=8"><img
+        <div class="item"><a href="View/productos.php?categoria=8"><img
                     src="imagenes/Menu/Aislante.svg" /></a>Aislamientos</div>
     </div>
     <!-- Productos destacados -->
@@ -160,6 +117,7 @@ if (isset($_POST['anadir'])) {
     <script src="javascript/jquery.min.js"></script>
     <script src="javascript/owl.carousel.min.js"></script>
     <script src="javascript/main.js"></script>
+    <script src="javascript/cantidadProd.js"></script>
     <div class="separador">
         NUESTRA REVISTA
     </div>
@@ -223,14 +181,18 @@ if (isset($_POST['anadir'])) {
             </div>
         </div>
     </div>
-    <!--
-    <button id="mainBtn">Admin.</button>
-    <div id="submenu">
-        <button>Administrar Usuarios</button>
-        <button>Administrar Productos</button>
-    </div>
-    <script src="javascript/admin.js"></script>
-            -->
+
+    <?php
+    if ($_SESSION['rol'] == 2) {
+        echo '<button id="mainBtn">Admin.</button>
+        <div id="submenu">
+            <a href="View/admin/usuarios/editar_usuarios.html"><button>Administrar Usuarios</button></a>
+            <a href="View/admin/productos/editar_productos.html"><button>Administrar Productos</button></a>
+            <a href="View/admin/pedidos/visualizar_pedidos.php"><button>Administrar Pedidos</button></a>
+        </div>';
+        echo '<script src="javascript/admin.js"></script>';
+    }
+    ?>+
     <!-- Footer -->
     <footer>
         <!-- Contactanos -->
@@ -255,7 +217,7 @@ if (isset($_POST['anadir'])) {
                 <h3>Proyecto Ecológico</h3>
             </div>
             <div class="contenido">
-                <a href="php/eco.php">
+                <a href="View/eco.php">
                     <img src="imagenes/Footer/ECO/Agua.svg" />
                     <img src="imagenes/Footer/ECO/Reciclaje.svg" />
                     <img src="imagenes/Footer/ECO/Renovable.svg" />
@@ -278,11 +240,11 @@ if (isset($_POST['anadir'])) {
         <!-- Redes -->
         <div class="redes">
             <div class="titulo">
-                <h3>Información y Bases Legales</h3>
+                <h3>Manténte al día</h3>
             </div>
             <!-- Info -->
             <div class="contenido">
-                <a href="php/aboutUs.php">About Us</a>
+                <a href="View/aboutUs.php">About Us</a>
                 <a id="newsletter-link">Newsletter</a>
                 <div id="newsletter-overlay">
                     <div id="newsletter-popup">
@@ -293,14 +255,19 @@ if (isset($_POST['anadir'])) {
                             <input type="email" name="email" placeholder="Tu correo electrónico" required>
                             <button type="submit" name="sub">Suscribirse</button>
                             <?php if (isset($_POST['sub'])) {
-                                Correo_modelo::enviar_correo($_POST['email'],$_SESSION['usuario'], "Gracias por subscribirte a nuestra newsletter " . $_POST['email']);
+                                Correo_modelo::enviar_correo($_POST['email'], $_SESSION['usuario'], "Gracias por subscribirte a nuestra newsletter " . $_POST['email']);
                             } ?>
                         </form>
                     </div>
                 </div>
                 <script src="javascript/newsletter.js"></script>
-                <a href="php/infoLegal.php">Información Legal</a>
             </div>
+        </div>
+        <div class="legal">
+            <a href="View/infoLegal.php#privacidad">Política de privacidad</a>
+            <a href="View/infoLegal.php#datos">Recopilación y uso de datos</a>
+            <a href="View/infoLegal.php#cookies">Uso de cookies</a>
+            <a href="View/infoLegal.php#termsConds">Términos y condiciones</a>
         </div>
     </footer>
 </body>

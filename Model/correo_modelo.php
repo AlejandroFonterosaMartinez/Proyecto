@@ -20,7 +20,7 @@ class Correo_modelo
      *
      * @return void
      */
-    public static function enviar_correo($email, $nombre, $subjet, $cuerpo = "", )
+    public static function enviar_correo($email, $nombre, $subjet, $cuerpo = "")
     {
         $mail = new PHPMailer(true);
         try {
@@ -32,12 +32,12 @@ class Correo_modelo
             $mail->SMTPAuth = true;
             $mail->Host = 'b21-daw2d-iesteis-gal.correoseguro.dinaserver.com'; //Set the SMTP server to send through
             $mail->SMTPAuth = true; //Enable SMTP authentication
-            $mail->Username = 'enviarcorreo@b21.daw2d.iesteis.gal'; //SMTP username
+            $mail->Username = 'bteis@b21.daw2d.iesteis.gal'; //SMTP username
             $mail->Password = 'Messi11.'; //SMTP password
             $mail->SMTPSecure = 'tls'; //Enable implicit TLS encryption
             $mail->Port = 587; //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 //Recipients
-            $mail->setFrom('enviarcorreo@b21.daw2d.iesteis.gal', 'BricoTeis SL');
+            $mail->setFrom('bricoteis@b21.daw2d.iesteis.gal', 'BricoTeis SL');
             $mail->addAddress($email, $nombre); //Add a recipient
 //Content
             $mail->isHTML(true); //Set email format to HTML

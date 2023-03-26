@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['smtp_0',['SMTP',['../class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_s_m_t_p.html',1,'PHPMailer::PHPMailer']]]
+  ['registro_5fmodelo_0',['Registro_modelo',['../class_models_1_1_registro__modelo.html',1,'Models']]]
 ];
