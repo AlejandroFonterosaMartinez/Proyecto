@@ -1,28 +1,21 @@
 <?php
+// En el controlador de la solicitud de cambio de contraseña
+
 use Models\Correo_modelo;
+use Models\CambiarPasswordModelo;
 
-include('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
-use Config\Conectar;
-
+include('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'cambiopsw_modelo.php');
 include('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'correo_modelo.php');
-include("sesion.php");
+
+
 if (isset($_POST['correopsw'])) {
     $email = filter_var($_POST['correopsw'], FILTER_SANITIZE_EMAIL);
-    $con = Conectar::conexion('busuario');
 
-    // Preparar la consulta SQL utilizando marcadores de posición
-    $sql = "SELECT id_usuario FROM usuarios WHERE Correo = :email";
-    $stmt = $con->prepare($sql);
-    $stmt->bindParam(':email', $email);
-    $stmt->execute();
-
-    // Obtener el resultado de la consulta
-    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    // Obtener el token a través del correo electrónico
+    $token = CambiarPasswordModelo::obtener_token_por_correo($email);
 
     // Verificar si se encontró un usuario con el correo electrónico proporcionado
-    if ($row) {
-        $token = $row['id_usuario'];
-
+    if ($token !== false) {
         // Verificar que la dirección de correo electrónico sea válida
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $link = "http://localhost/Proyecto/View/cambiopsw_view.php?token=" . $token;
@@ -39,7 +32,6 @@ if (isset($_POST['correopsw'])) {
         exit();
     }
 }
-
 ?>
 <!DOCTYPE html>
 <link style="text/css" rel="stylesheet" href="../css/cambio.css" />
@@ -77,6 +69,8 @@ if (isset($_POST['correopsw'])) {
         }, 10000); // tiempo en milisegundos (10 segundos)
     </script>
 </body>
+
 </html>
 </head>
+
 <body>

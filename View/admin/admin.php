@@ -51,7 +51,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 2) {
                 <div class="module">
                     <div class="module-header d-flex justify-content-between align-items-center">
                         <h2>Productos</h2>
-                        <a href="productos/editar_productos.html"><button class="btn btn-primary">Modificar</button></a>
+                        <a href="productos/editar_productos.php"><button class="btn btn-primary">Modificar</button></a>
                     </div>
                 </div>
             </div>

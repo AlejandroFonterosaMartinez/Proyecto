@@ -8,7 +8,7 @@ namespace View; ?>
       $precio_formateado = number_format($row["Precio"], 2);
       echo "<div class='producto'>
         <a href='View/producto.php?codigo=" . $row['Cod_producto'] . "'>
-          <img src='imagenes/Productos/{$row['Cod_producto']}.png'></img></a>
+        <img src='imagenes/Productos/Categorias/{$row['Categoria']}/$cod.png'></img></a>
           <label>{$row['Nombre']}</label>
           <label>{$precio_formateado}€/Ud.</label>
           <div class='button'>

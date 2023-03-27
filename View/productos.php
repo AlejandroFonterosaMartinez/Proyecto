@@ -34,7 +34,7 @@ include('sesion.php');
             <input type="button" class="categoria" value="Cercados y Ocultación" />
             <input type="button" class="categoria" value="Yesos Y Escayolas" />
             <input type="button" class="categoria" value="Elementos de construcción" />
-            <input type="button" class="categoria" value="Aislamientos" />
+            <input type="button" class="categoria" value="Aislamientos e impermeabilización" />
         </div>
         <script src="../javascript/menuLat.js"></script>
         <div class="mostrar">
@@ -69,7 +69,7 @@ include('sesion.php');
                  */
                 echo "<div class='producto'>
                         <a href='producto.php?codigo=" . $cod . "'>
-                        <img src='../imagenes/Productos/{$cod}.png'></img>   
+                        <img src='../imagenes/Productos/Categorias/{$producto['Categoria']}/{$cod}.png'></img>   
                         </a>                
                         <label>$nom</label>
                         <label>$precio_formateado €/Ud</label>

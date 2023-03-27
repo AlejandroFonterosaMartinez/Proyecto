@@ -1,7 +1,8 @@
 <?php
+
 include("sesion.php");
-include('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
-use Config\Conectar;
+include('..' . DIRECTORY_SEPARATOR . 'Controller' . DIRECTORY_SEPARATOR . 'cambiopsw_controlador.php');
+use Controlador\CambiarPasswordControlador;
 
 if (isset($_GET['token'])) {
     $token = $_GET['token'];
@@ -11,42 +12,10 @@ if (isset($_GET['token'])) {
             $nueva_password = $_POST['nueva_password'];
             $confirmar_password = $_POST['confirmar_password'];
 
-            // Obtener la contraseña actual del usuario
-            $con = Conectar::conexion('busuario');
-            $sql = "SELECT Contraseña FROM usuarios WHERE id_usuario = :id_usuario";
-            $stmt = $con->prepare($sql);
-            $stmt->bindParam(":id_usuario", $token);
-            $stmt->execute();
-            $row = $stmt->fetch(PDO::FETCH_ASSOC);
-            $contraseña_actual = $row['Contraseña'];
-
-            if ($nueva_password == $confirmar_password) {
-                // Verificar si la contraseña actual es diferente de la nueva contraseña
-                if (password_verify($nueva_password, $contraseña_actual)) {
-                    echo "La nueva contraseña no puede ser la misma que la contraseña actual";
-                    exit();
-                }
-
-                // Actualizar la contraseña del usuario
-                $hashed_password = password_hash($nueva_password, PASSWORD_DEFAULT);
-                $sql = "UPDATE usuarios SET Contraseña = :pass WHERE id_usuario = :id_usuario";
-                $stmt = $con->prepare($sql);
-                $stmt->bindParam(":pass", $hashed_password);
-                $stmt->bindParam(":id_usuario", $token);
-                $stmt->execute();
-
-                echo "<script> alert('Contraseña cambiada con éxito')</script>";
-                header("Location: login_view.php");
-                exit();
-            } else {
-                // Las contraseñas no coinciden
-                echo "Las contraseñas no coinciden";
-                exit();
-            }
+            CambiarPasswordControlador::cambiarPassword($token, $nueva_password, $confirmar_password);
         }
     }
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="es">

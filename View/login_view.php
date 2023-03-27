@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <!-- agregar un div para ocultar/mostrar el formulario de cambio de contraseña -->
         <div id="form-olvido" style="display: none">
-            <form action="enviar_correopsw.php" method="POST">
+            <form action="../Controller/enviar_correopsw_controlador.php" method="POST">
                 <div class="form-group">
                     <label for="correo">Correo electrónico</label>
                     <input type="email" class="form-control" id="correopsw" name="correopsw" required>
