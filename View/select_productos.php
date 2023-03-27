@@ -11,36 +11,9 @@ include('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.
 
 $con = Conectar::conexion('busuario');
 $cat = $_POST['categoria'];
-switch ($cat) {
-    case "Tejados Y Cubiertas":
-        $cat = 1;
-        break;
-    case "Cementos Y Morteros":
-        $cat = 2;
-        break;
-    case "Yesos Y Escayolas":
-        $cat = 3;
-        break;
-    case "Arenas y Gravas":
-        $cat = 4;
-        break;
-    case "Cercados y Ocultación":
-        $cat = 5;
-        break;
-    case "Madera":
-        $cat = 6;
-        break;
-    case "Hormigoneras, carretillas...":
-        $cat = 7;
-        break;
-    case "Aislamientos":
-        $cat = 8;
-        break;
-    case "Elementos de construcción":
-        $cat = 9;
-        break;
-}
-$ins = "SELECT Cod_producto,Nombre,Precio,Stock,Categoria FROM productos WHERE Categoria='$cat'";
+$ins = "SELECT *
+        FROM productos
+        WHERE Categoria = (SELECT Cod_categoria FROM categorias WHERE Nombre = '$cat');";
 $resul = $con->query($ins);
 $texto = '';
 $categorias = array(
@@ -54,10 +27,8 @@ $categorias = array(
     "8" => "Aislamientos",
     "9" => "Elementos de construcción"
 );
-$valor_categoria = $cat;
-$nombre_categoria = $categorias[$valor_categoria];
-$texto .= "<div class='titCat'>$nombre_categoria</div>";
-$texto .= "<div class='textCat'>Descubre nuestra amplia gama de $nombre_categoria, diseñados para satisfacer las necesidades de cualquier proyecto de construcción.</div>";
+$texto .= "<div class='titCat'>$cat</div>";
+$texto .= "<div class='textCat'>Descubre nuestra amplia gama de $cat, diseñados para satisfacer las necesidades de cualquier proyecto de construcción.</div>";
 $texto .= "<div class='productos'>";
 foreach ($resul as $row) {
     $cod = $row['Cod_producto'];

@@ -34,7 +34,7 @@ include('sesion.php');
             <input type="button" class="categoria" value="Cercados y Ocultación" />
             <input type="button" class="categoria" value="Yesos Y Escayolas" />
             <input type="button" class="categoria" value="Elementos de construcción" />
-            <input type="button" class="categoria" value="Aislamientos" />
+            <input type="button" class="categoria" value="Aislamientos e impermeabilización" />
         </div>
         <script src="../javascript/menuLat.js"></script>
         <div class="mostrar">
