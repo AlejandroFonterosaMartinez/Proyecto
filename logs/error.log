@@ -590,3 +590,11 @@ Stack trace:
   thrown in C:\xampp\htdocs\Proyecto\Config\Conectar.php on line 15
 [12-Mar-2023 00:41:38 Europe/Berlin] PHP Warning:  DOMDocument::schemaValidate(): Element 'clave': This element is not expected. Expected is ( usuario ). in C:\xampp\htdocs\Proyecto\Config\Conectar.php on line 39
 [12-Mar-2023 17:11:16 Europe/Berlin] PHP Warning:  Undefined array key "id_rol" in C:\xampp\htdocs\Proyecto\index.php on line 185
+[27-Mar-2023 21:18:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Models\Correo_modelo" not found in D:\XAMPP\htdocs\Proyecto\index.php:258
+Stack trace:
+#0 {main}
+  thrown in D:\XAMPP\htdocs\Proyecto\index.php on line 258
+[27-Mar-2023 21:19:23 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Models\Correo_modelo" not found in D:\XAMPP\htdocs\Proyecto\index.php:258
+Stack trace:
+#0 {main}
+  thrown in D:\XAMPP\htdocs\Proyecto\index.php on line 258

@@ -51,7 +51,12 @@ if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])) {
             $total += $unidades * $precio;
             echo "<div class='row border rounded mb-3'>";
             echo "<div class='col-3'>";
-            echo "<img src='../imagenes/Productos/{$cod}.png' class='img-fluid'>";
+
+            if ($cod == 47) {
+                echo "<img src='../imagenes/Productos/Categorias/9/47.png' class='img-fluid'>";
+            } else {
+                echo "<img src='../imagenes/Productos/Categorias/{$producto['Categoria']}/$cod.png' class='img-fluid'>";
+            }
             echo "</div>";
             echo "<div class='col-9'>";
             echo "<h4 class='card-title'>$nom</h4><br>";

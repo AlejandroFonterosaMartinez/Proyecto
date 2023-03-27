@@ -44,7 +44,7 @@ include('sesion.php');
                 <label class='descProd'>$desc</label>
                 </div>
                 <div class='imgProd'>    
-                <img src='../imagenes/Productos/{$cod}.png'></img>    
+                <img src='../imagenes/Productos/Categorias/{$producto['Categoria']}/$cod.png'></img> 
         </div>
         <div class='detProd'>   
           <div class='cajaProd'>                    

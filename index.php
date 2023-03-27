@@ -122,7 +122,7 @@ include("View/sesion.php");
         NUESTRA REVISTA
     </div>
     <div class="contenedorRevista">
-        <img src="imagenes/Productos/47.png" />
+    <img src='imagenes/Productos/Categorias/9/47.png'></img>
         <div class="textoRev">
             <h2>La Revista Nº1 de construcción</h2>
             <p>Descubre las últimas tendencias y novedades en construcción con la revista líder en el mercado.
@@ -255,7 +255,7 @@ include("View/sesion.php");
                             <input type="email" name="email" placeholder="Tu correo electrónico" required>
                             <button type="submit" name="sub">Suscribirse</button>
                             <?php if (isset($_POST['sub'])) {
-                                Correo_modelo::enviar_correo($_POST['email'], $_SESSION['usuario'], "Gracias por subscribirte a nuestra newsletter " . $_POST['email']);
+                                Correo_modelo::enviar_correo($_POST['email'], $_SESSION['usuario'], "Gracias por subscribirte a nuestra newsletter" . $_POST['email']);
                             } ?>
                         </form>
                     </div>
