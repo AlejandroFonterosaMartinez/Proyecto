@@ -40,7 +40,7 @@ switch ($cat) {
         $cat = 9;
         break;
 }
-$ins = "SELECT Cod_producto,Nombre,Precio,Stock FROM productos WHERE Categoria='$cat'";
+$ins = "SELECT Cod_producto,Nombre,Precio,Stock,Categoria FROM productos WHERE Categoria='$cat'";
 $resul = $con->query($ins);
 $texto = '';
 $categorias = array(
@@ -64,7 +64,7 @@ foreach ($resul as $row) {
     $stock = $row['Stock'];
     $precio_formateado = number_format($row["Precio"], 2);
     $texto .= "<div class='producto'>";
-    $texto .= "<img src='../imagenes/Productos/{$row['Cod_producto']}.png'></img>";
+    $texto .= "<img src='../imagenes/Productos/Categorias/{$row['Categoria']}/{$row['Cod_producto']}.png'></img>";
     $texto .= "<label>" . $row["Nombre"] . "</label>";
     $texto .= "<label>" . $precio_formateado . "€/Ud</label>";
     $texto .= "<div class='button'>

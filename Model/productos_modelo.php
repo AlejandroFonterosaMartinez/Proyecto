@@ -154,7 +154,7 @@ class Productos_modelo
     {
         include('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
         $db = Conectar::conexion('busuario');
-        $ins = "SELECT Cod_producto,Nombre,Precio,Stock FROM productos WHERE Categoria='$cat'";
+        $ins = "SELECT Cod_producto,Nombre,Precio,Stock,Categoria FROM productos WHERE Categoria='$cat'";
         $resul = $db->query($ins);
         return $resul;
     }
