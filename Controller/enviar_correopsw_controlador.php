@@ -18,7 +18,7 @@ if (isset($_POST['correopsw'])) {
     if ($token !== false) {
         // Verificar que la dirección de correo electrónico sea válida
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $link = "http://localhost/Proyecto/View/cambiopsw_view.php?token=" . $token;
+            $link = "http://bteis.b21.daw2d.iesteis.gal/View/cambiopsw_view.php?token=" . $token;
             // Enviar el correo electrónico
             Correo_modelo::enviar_correo($email, "", "Solicitud cambio de contraseña en BricoTeis SL", "Haga clic en el siguiente enlace para cambiar su contraseña: " . $link);
         } else {
