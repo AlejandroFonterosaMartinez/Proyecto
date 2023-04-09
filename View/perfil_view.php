@@ -46,6 +46,7 @@ namespace View;
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <?php
+
 if (isset($_POST['guardar'])) {
     // Obtener la ubicación temporal del archivo subido
     $imagen_temp = $_FILES['imagen']['tmp_name'];
@@ -62,13 +63,17 @@ if (isset($_POST['guardar'])) {
         }
     }
 
-    // Aquí puedes agregar el código para actualizar la información del usuario en la base de datos
-
     echo "<div class='alert alert-info alerta' style='text-align:center' role='alert'>Perfil actualizado correctamente</div>";
 }
 
-
+// Verificar si el usuario ya tiene una imagen y mostrarla
+$id_usuario = $_SESSION['usuario'];
+$imagen_ruta = '../imagenes/Usuarios/' . $id_usuario . '.jpg';
+if (file_exists($imagen_ruta)) {
+    $imagen = $imagen_ruta;
+}
 ?>
+
 
 <head>
     <meta charset="utf-8">
@@ -85,14 +90,12 @@ if (isset($_POST['guardar'])) {
                 <div class="d-flex justify-content-start mb-3">
                     <div class="position-relative">
                         <div onclick="clickImagen()" style="cursor: pointer;">
-                            <img src="<?php echo $imagen; ?>" width="100" height="100" class="rounded-circle"
-                                id="imagen-perfil">
-
+                            <img src="<?php echo $imagen ? $imagen : '../imagenes/imagen_mas.png'; ?>" width="100"
+                                height="100" class="rounded-circle" id="imagen-perfil">
                         </div>
                         <input type="file" class="position-absolute w-100 h-100" style="opacity: 0; cursor: pointer;"
                             name="imagen" id="input-imagen" onchange="previewImagen()">
                     </div>
-
                 </div>
                 <div class="form-group">
                     <label for="nombre">Nombre:</label>
