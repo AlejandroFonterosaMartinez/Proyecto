@@ -73,8 +73,6 @@ if (file_exists($imagen_ruta)) {
     $imagen = $imagen_ruta;
 }
 ?>
-
-
 <head>
     <meta charset="utf-8">
     <title>Editar perfil</title>
@@ -135,11 +133,6 @@ if (file_exists($imagen_ruta)) {
                 <div class="form-group">
                     <label for="rol">Rol:</label>
                     <input type="text" class="form-control" readonly id="rol" name="rol" value="<?php echo $rol; ?>">
-                </div>
-                <div class="form-group">
-                    <label for="direccion">Dirección:</label>
-                    <input type="text" class="form-control" id="direccion" name="direccion"
-                        value="<?php echo isset($_POST['direccion']) ? $_POST['direccion'] : (isset($valores['direccion']) ? $valores['direccion'] : ''); ?>">
                 </div>
                 <div class="form-group text-center">
                     <a href="../index.php" class="btn btn-secondary">Volver</a>
