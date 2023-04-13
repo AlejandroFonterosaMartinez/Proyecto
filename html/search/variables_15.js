@@ -1,7 +1,0 @@
-var searchData=
-[
-  ['w_0',['w',['../jquery_8min_8js.html#a9721a992655f700bdc2e91ba68b71e26',1,'jquery.min.js']]],
-  ['watch_1',['watch',['../owl_8carousel_8min_8js.html#a2dbe85aef1aca34458ea04e6b7d15dad',1,'owl.carousel.min.js']]],
-  ['while_2',['while',['../visualizar__pedidos_8php.html#a1074bee500b68d409520cdf297a800db',1,'visualizar_pedidos.php']]],
-  ['window_3',['window',['../owl_8carousel_8min_8js.html#a57d0de4fdf552d87baa11f7a9c2a75a0',1,'owl.carousel.min.js']]]
-];
