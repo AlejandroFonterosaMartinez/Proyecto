@@ -110,17 +110,6 @@ if (file_exists($imagen_ruta)) {
                         value="<?php echo $correo; ?>">
                 </div>
                 <div class="form-group">
-                    <label for="telefono">Teléfono:</label>
-                    <input type="text" class="form-control" id="telefono"
-                        value="<?php echo isset($_POST['telefono']) ? $_POST['telefono'] : (isset($valores['telefono']) ? $valores['telefono'] : 'Introduzca TLF'); ?>"
-                        name="telefono">
-                </div>
-                <div class="form-group">
-                    <label for="direccion">Dirección:</label>
-                    <input type="text" class="form-control" id="direccion" name="direccion"
-                        value="<?php echo isset($_POST['direccion']) ? $_POST['direccion'] : (isset($valores['direccion']) ? $valores['direccion'] : ''); ?>">
-                </div>
-                <div class="form-group">
                     <label for="fecha_nacimiento">Fecha de nacimiento:</label>
                     <input type="text" class="form-control" readonly id="fecha_nacimiento" name="fecha_nacimiento"
                         value="<?php echo $fecha_nacimiento; ?>">

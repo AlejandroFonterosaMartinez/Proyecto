@@ -30,16 +30,5 @@ class Perfil_modelo extends Conectar
         $stmt = $con->prepare("UPDATE usuarios SET nombre = '$nombre', apellidos = '$apellidos' WHERE correo = '$email'");
         $stmt->execute();
     }
-    /**
-     * @brief Actualiza el teléfono de un usuario a partir de su correo electrónico
-     * @param string $email Correo electrónico del usuario
-     * @param string $telefono Nuevo teléfono del usuario
-     * @return void
-     */
-    public function actualizarTelefono($email, $telefono)
-    {
-        $con = Conectar::conexion('busuario');
-        $stmt = $con->prepare("UPDATE usuarios SET telefono = '$telefono' WHERE correo = '$email'");
-        $stmt->execute();
-    }
+
 }

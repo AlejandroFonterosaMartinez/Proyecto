@@ -1,5 +1,6 @@
 <?php
 use Models\Correo_modelo;
+
 include("View/sesion.php");
 ?>
 <!DOCTYPE html>
@@ -23,6 +24,7 @@ include("View/sesion.php");
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
 </head>
 <!-- Body -->
+
 <body>
     <!-- Header -->
     <header>
@@ -47,36 +49,43 @@ include("View/sesion.php");
             </div>
             <!-- Usuario, carrito, favoritos -->
             <div class="menuPers">
-                <?php if (!isset($_SESSION['correo'])) {
+                <?php
+                // Obtener la URL de la foto de perfil del usuario
+                if (isset($_SESSION['usuario'])) {
+                    $foto_perfil = "imagenes/Usuarios/" . $_SESSION['usuario'] . ".jpg";
+                    if (!file_exists($foto_perfil)) {
+                        $foto_perfil = "imagenes/Header/01Menu/user.svg"; // Ruta de imagen predeterminada
+                    }
+                }
+
+                if (!isset($_SESSION['correo'])) {
                     echo '
-                     <div class="cuenta"><img src="imagenes/Header/01Menu/user.svg" />Mi cuenta
-                         <div class="submenu">
-                         <div class="subdiv"><button><a href="View' . DIRECTORY_SEPARATOR . 'registro_view.php"><img src="imagenes/Header/01Menu/register.svg" /><div class="subText">REGISTRARSE</div></a></button>
-                             </div>
-                             <div class="subdiv"><button><a href="View' . DIRECTORY_SEPARATOR . 'login_view.php"><img src="imagenes/Header/01Menu/entrance.svg" /><div class="subText">INICIAR SESIÓN</div></a></button></div>
-                         </div>
-                     </div>
-                     <div><a href="View' . DIRECTORY_SEPARATOR . 'favoritos.php"><img src="imagenes/Header/01Menu/heart.svg"/>Favoritos</a></div>
-    <div class="carrito"><a href ="View' . DIRECTORY_SEPARATOR . 'carrito.php"><img src="imagenes/Header/01Menu/shopping-cart.svg"/>Carrito</a>';
-                    require('View' . DIRECTORY_SEPARATOR . 'contador_carrito.php');
-                    ;
-                    '</div>';
-                } else {
-                    echo '<div class="cuenta"><img src="imagenes/Header/01Menu/user.svg" />' . $_SESSION['correo'] . '
-                    <div class="submenu">
-                    <div class="subdiv"><button><a href="Controller' . DIRECTORY_SEPARATOR . 'perfil_controlador.php"><img src="imagenes/Header/01Menu/edit.svg" /><div class="subText">EDITAR PERFIL</div></button></a>
-                    </div>
-                    <div class="subdiv"><button><a href="View' . DIRECTORY_SEPARATOR . 'logout.php"><img src="imagenes/Header/01Menu/exit.svg" /><div class="subText">CERRAR SESIÓN</div></a></button> ';
-                    echo '</div>
-                    </div>
+            <div class="cuenta"><img src="imagenes/Header/01Menu/user.svg" />Mi cuenta
+                <div class="submenu">
+                    <div class="subdiv"><button><a href="View' . DIRECTORY_SEPARATOR . 'registro_view.php"><img src="imagenes/Header/01Menu/register.svg" /><div class="subText">REGISTRARSE</div></a></button></div>
+                    <div class="subdiv"><button><a href="View' . DIRECTORY_SEPARATOR . 'login_view.php"><img src="imagenes/Header/01Menu/entrance.svg" /><div class="subText">INICIAR SESIÓN</div></a></button></div>
                 </div>
-                <div><a href="View' . DIRECTORY_SEPARATOR . 'favoritos.php"><img src="imagenes/Header/01Menu/heart.svg"/>Favoritos</a></div>
-                <div class="carrito"><a href ="View' . DIRECTORY_SEPARATOR . 'carrito.php"><img src="imagenes/Header/01Menu/shopping-cart.svg"/>Carrito</a>
-                <div class="subcarrito">
-                </div>';
+            </div>
+            <div><a href="View' . DIRECTORY_SEPARATOR . 'favoritos.php"><img src="imagenes/Header/01Menu/heart.svg"/>Favoritos</a></div>
+            <div class="carrito"><a href ="View' . DIRECTORY_SEPARATOR . 'carrito.php"><img src="imagenes/Header/01Menu/shopping-cart.svg"/>Carrito</a>';
                     require('View' . DIRECTORY_SEPARATOR . 'contador_carrito.php');
-                    '</div>';
-                } ?>
+                    echo '</div>';
+                } else {
+                    echo '<div class="cuenta" id="cuenta"><img src="' . $foto_perfil . '"/>' . $_SESSION['correo'] . '
+            <div class="submenu">
+                <div class="subdiv"><button><a href="Controller' . DIRECTORY_SEPARATOR . 'perfil_controlador.php"><img src="imagenes/Header/01Menu/edit.svg" /><div class="subText">EDITAR PERFIL</div></button></a></div>
+                <div class="subdiv"><button><a href="View' . DIRECTORY_SEPARATOR . 'logout.php"><img src="imagenes/Header/01Menu/exit.svg" /><div class="subText">CERRAR SESIÓN</div></a></button></div>
+            </div>
+        </div>
+        <div><a href="View' . DIRECTORY_SEPARATOR . 'favoritos.php"><img src="imagenes/Header/01Menu/heart.svg"/>Favoritos</a></div>
+        <div class="carrito"><a href ="View' . DIRECTORY_SEPARATOR . 'carrito.php"><img src="imagenes/Header/01Menu/shopping-cart.svg"/>Carrito</a>
+            <div class="subcarrito">
+            </div>';
+                    require('View' . DIRECTORY_SEPARATOR . 'contador_carrito.php');
+                    echo '</div>';
+                }
+                ?>
+
             </div>
     </header>
     <!-- Carrousel de banners -->
@@ -95,7 +104,8 @@ include("View/sesion.php");
             Cubiertas</div>
         <div class="item"><a href="View/productos.php?categoria=2"><img src="imagenes/Menu/Cemento.svg" /></a>Cementos Y
             Morteros</div>
-        <div class="item"><a href="View/productos.php?categoria=6"><img src="imagenes/Menu/Madera.svg" /></a>Madera</div>
+        <div class="item"><a href="View/productos.php?categoria=6"><img src="imagenes/Menu/Madera.svg" /></a>Madera
+        </div>
         <div class="item"><a href="View/productos.php?categoria=7"><img
                     src="imagenes/Menu/Hormigonera.svg" /></a>Hormigoneras, carretillas...</div>
         <div class="item"><a href="View/productos.php?categoria=5"><img src="imagenes/Menu/Valla.svg" /></a>Cercados y
@@ -122,7 +132,7 @@ include("View/sesion.php");
         NUESTRA REVISTA
     </div>
     <div class="contenedorRevista">
-    <img src='imagenes/Productos/Categorias/9/47.png'></img>
+        <img src='imagenes/Productos/Categorias/9/47.png'></img>
         <div class="textoRev">
             <h2>La Revista Nº1 de construcción</h2>
             <p>Descubre las últimas tendencias y novedades en construcción con la revista líder en el mercado.
