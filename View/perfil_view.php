@@ -55,6 +55,13 @@ if (isset($_POST['guardar'])) {
     if ($imagen_temp) {
         // Obtener el nombre del archivo
         $imagen_nombre = $id_usuario . '.jpg';
+        // Ruta de la imagen existente
+        $imagen_ruta = '../imagenes/Usuarios/' . $imagen_nombre;
+        // Verificar si la imagen ya existe
+        if (file_exists($imagen_ruta)) {
+            // Eliminar la imagen existente
+            unlink($imagen_ruta);
+        }
         // Mover el archivo a la carpeta deseada en el servidor
         $destino = '../imagenes/Usuarios/' . $imagen_nombre;
         if (move_uploaded_file($imagen_temp, $destino)) {
@@ -66,6 +73,7 @@ if (isset($_POST['guardar'])) {
     echo "<div class='alert alert-info alerta' style='text-align:center' role='alert'>Perfil actualizado correctamente</div>";
 }
 
+
 // Verificar si el usuario ya tiene una imagen y mostrarla
 $id_usuario = $_SESSION['usuario'];
 $imagen_ruta = '../imagenes/Usuarios/' . $id_usuario . '.jpg';
@@ -73,6 +81,7 @@ if (file_exists($imagen_ruta)) {
     $imagen = $imagen_ruta;
 }
 ?>
+
 <head>
     <meta charset="utf-8">
     <title>Editar perfil</title>

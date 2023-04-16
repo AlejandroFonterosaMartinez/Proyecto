@@ -26,4 +26,6 @@ if (isset($_POST['submit'])) {
     setcookie("Coin", "€", time() + 60 * 60 * 24 * 30, "/");
     $_SESSION['correo'] = $email;
     $_SESSION['rol'] = [1];
+} else {
+    header('Location: ' . DIRECTORY_SEPARATOR . 'index.php');
 }

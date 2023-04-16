@@ -31,6 +31,12 @@ if (isset($_SESSION['correo'])) {
         // Actualizamos el nombre y apellidos del usuario
         $perfil->actualizarNombre($email, $nombre, $apellidos);
     }
+
+    if (isset($_POST['telefono'])) {
+        $telefono = $_POST['telefono'];
+      
+    }
+
 } else {
     echo "Por favor, inicia sesión";
     header("Location:.." . DIRECTORY_SEPARATOR . "index.php");

@@ -9,7 +9,7 @@ class Perfil_modelo extends Conectar
     public function obtenerUsuario($email)
     {
         $con = Conectar::conexion('busuario');
-        $stmt = $con->prepare("SELECT usuarios.nombre, usuarios.apellidos, usuarios.correo, usuarios.fecha_nacimiento, usuarios.fecha_registro, usuarios.telefono, roles.descripcion
+        $stmt = $con->prepare("SELECT usuarios.nombre, usuarios.apellidos, usuarios.correo, usuarios.fecha_nacimiento, usuarios.fecha_registro, roles.descripcion
     FROM usuarios
     LEFT JOIN roles ON usuarios.id_rol = roles.id_rol
     WHERE correo='$email'");
