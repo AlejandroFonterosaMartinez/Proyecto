@@ -26,7 +26,7 @@ include('sesion.php');
     <div class="contCats">
         <button id="toggleMenuCat"> ≡ </button>
         <div class="menuCat">
-            <input type="button" class="categoria" value="Tejados Y Cubiertas" />
+            <input type="button" class="categoria" value="$categoria" />
             <input type="button" class="categoria" value="Arenas y Gravas" />
             <input type="button" class="categoria" value="Cementos Y Morteros" />
             <input type="button" class="categoria" value="Madera" />
@@ -51,11 +51,11 @@ include('sesion.php');
                 "7" => "Hormigoneras, carretillas...",
                 "8" => "Aislamientose e impermeabilización",
                 "9" => "Elementos de construcción"
-              );
-              $valor_categoria = $_GET['categoria'];
-              $nombre_categoria = $categorias[$valor_categoria];
-              echo "<div class='titCat'>$nombre_categoria</div>";
-              echo "<div class='textCat'>Descubre nuestra amplia gama de $nombre_categoria, diseñados para satisfacer las necesidades de cualquier proyecto de construcción.</div>";                            
+            );
+            $valor_categoria = $_GET['categoria'];
+            $nombre_categoria = $categorias[$valor_categoria];
+            echo "<div class='titCat'>$nombre_categoria</div>";
+            echo "<div class='textCat'>Descubre nuestra amplia gama de $nombre_categoria, diseñados para satisfacer las necesidades de cualquier proyecto de construcción.</div>";
             echo "<div class='productos'>";
             foreach ($productos as $producto) {
                 $cod = $producto['Cod_producto'];
@@ -68,9 +68,9 @@ include('sesion.php');
                  * que debemos añadir al carro del la compra. El formulario llama al fichero anadir.php
                  */
                 echo "<div class='producto'>
-                        <a href='producto.php?codigo=" . $cod . "'>
+                <a href='producto.php?codigo=" . $producto['Cod_producto'] . "'>
                         <img src='../imagenes/Productos/Categorias/{$producto['Categoria']}/{$cod}.png'></img>   
-                        </a>                
+                        </a>   
                         <label>$nom</label>
                         <label>$precio_formateado €/Ud</label>
                         <div class='button'>
@@ -104,7 +104,7 @@ include('sesion.php');
                 })
                     .done(function (response) {
                         console.log(response);
-                        $("div.mostrar").html(response);       
+                        $("div.mostrar").html(response);
 
                     });
             }
@@ -150,7 +150,7 @@ include('sesion.php');
         </div>
         <div class="redes">
             <div class="tituloFooter">
-            <h3>Manténte al día</h3>
+                <h3>Manténte al día</h3>
             </div>
             <div class="contenido">
                 <a href="aboutUs.php">About Us</a>
@@ -178,4 +178,5 @@ include('sesion.php');
         </div>
     </footer>
 </body>
+
 </html>

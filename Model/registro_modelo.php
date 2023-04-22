@@ -48,21 +48,29 @@ class Registro_modelo extends Conectar
             $stmt->bindParam(':nombre', $nombre);
             $stmt->bindParam(':apellidos', $apellidos);
             $stmt->bindParam(':fecha_nacimiento', $fecha_nacimiento);
-            +
-                $stmt->bindParam(':email', $email);
+            +$stmt->bindParam(':email', $email);
             $stmt->bindParam(':password', $password);
             $stmt->bindParam(':trn_date', $trn_data);
             $stmt->bindParam(':id_rol', $id_rol);
-
             if ($stmt->execute()) {
                 echo '<div class="alerta alert alert-success" role="alert" style="text-align:center;">Registro completado!</div>';
                 echo "<script>setTimeout(function(){ window.location.href = '../index.php'; }, 1000);</script>";
             } else {
-
                 echo '<div class="alerta alert alert-danger" role="alert" style="text-align:center;">Ha ocurrido un error al intentar registrarse. Por favor, inténtelo de nuevo más tarde.</div>';
             }
         }
     }
+    function getIdUsuario($email)
+    {
+        $query = "SELECT id_usuario FROM usuarios WHERE Correo=:email";
+        $con = Conectar::conexion('busuario');
+        $stmt = $con->prepare($query);
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+        $id_usuario = $stmt->fetchColumn();
+        return $id_usuario;
+    }
+
     /**
      * @brief funcion que calcula la edad introducida en fecha nacimiento
      *

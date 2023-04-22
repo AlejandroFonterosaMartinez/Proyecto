@@ -34,7 +34,7 @@ include("View/sesion.php");
                 <div class="infoPag">
                     <a href="index.php">
                         <img src="imagenes/Header/Logo.svg" />
-                        BricoTeis SL          
+                        BricoTeis SL
                     </a>
                     <button id="btn" title="Accesibilidad"><img src="imagenes/Header/ojo.png" /></button>
                 </div>
