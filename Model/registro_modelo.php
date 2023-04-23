@@ -60,6 +60,21 @@ class Registro_modelo extends Conectar
             }
         }
     }
+    function comprobarEmail($email)
+    {
+        $query = "SELECT Correo FROM usuarios WHERE Correo=:email";
+        $con = Conectar::conexion('busuario');
+        $stmt = $con->prepare($query);
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+        $correo = $stmt->fetchColumn();
+        if ($correo == $email) {
+            return true; // El correo electrónico ya existe en la base de datos
+        } else {
+            return false; // El correo electrónico no existe en la base de datos
+        }
+    }
+
     function getIdUsuario($email)
     {
         $query = "SELECT id_usuario FROM usuarios WHERE Correo=:email";
