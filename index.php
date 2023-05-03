@@ -202,7 +202,7 @@ include("View/sesion.php");
             echo '<button id="mainBtn">Admin.</button>
         <div id="submenu">
             <a href="View/admin/usuarios/editar_usuarios.html"><button>Administrar Usuarios</button></a>
-            <a href="View/admin/productos/editar_productos.html"><button>Administrar Productos</button></a>
+            <a href="View/admin/productos/editar_productos.php"><button>Administrar Productos</button></a>
             <a href="View/admin/pedidos/visualizar_pedidos.php"><button>Administrar Pedidos</button></a>
         </div>';
             echo '<script src="javascript/admin.js"></script>';

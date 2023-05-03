@@ -14,7 +14,6 @@ while ($valores = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $texto .= "<td>" . $valores["Nombre"] . "</td>";
     $texto .= "<td>" . $valores["Apellidos"] . "</td>";
     $texto .= "<td>" . $valores["Correo"] . "</td>";
-    $texto .= "<td>" . $valores["Telefono"] . "</td>";
     $texto .= "<td>" . $valores["id_rol"] . "</td>";
     $texto .= "<td><button type='button' id='btn' class='btn btn-info'>Editar</button></td>";
     $texto .= "<td><button type='button' class='btn btn-danger'>Borrar</button></td>";

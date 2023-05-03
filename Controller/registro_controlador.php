@@ -19,8 +19,7 @@ if (isset($_POST['submit'])) {
     $usuario_encontrado = $usuario->getIdUsuario($email);
     if ($usuario_encontrado) {
         // EL CORREO YA ESTÁ REGISTRADO, NO SE ENVÍA EL CORREO DE REGISTRO Y SE MUESTRA UN MENSAJE DE ERROR
-        header('Location: registro_view.php');
-        echo '<div class="alerta alert alert-danger" role="alert" style="text-align:center;"> El correo ya esta en uso</div>';
+        echo '<div class="alert alert-danger" role="alert">El correo ya está en uso, por favor utilice otro correo para registrarse.</div>';
         exit;
     } else {
         // EL CORREO NO ESTÁ REGISTRADO, SE ENVÍA EL CORREO DE REGISTRO Y SE REGISTRA EL USUARIO

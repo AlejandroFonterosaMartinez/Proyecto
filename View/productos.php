@@ -26,7 +26,7 @@ include('sesion.php');
     <div class="contCats">
         <button id="toggleMenuCat"> ≡ </button>
         <div class="menuCat">
-            <input type="button" class="categoria" value="$categoria" />
+            <input type="button" class="categoria" value="Categoria" />
             <input type="button" class="categoria" value="Arenas y Gravas" />
             <input type="button" class="categoria" value="Cementos Y Morteros" />
             <input type="button" class="categoria" value="Madera" />
