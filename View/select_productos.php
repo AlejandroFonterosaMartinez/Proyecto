@@ -16,17 +16,6 @@ $ins = "SELECT *
         WHERE Categoria = (SELECT Cod_categoria FROM categorias WHERE Nombre = '$cat');";
 $resul = $con->query($ins);
 $texto = '';
-$categorias = array(
-    "1" => "Tejados Y Cubiertas",
-    "2" => "Cementos Y Morteros",
-    "3" => "Yesos Y Escayolas",
-    "4" => "Arenas y Gravas",
-    "5" => "Cercados y Ocultación",
-    "6" => "Madera",
-    "7" => "Hormigoneras, carretillas...",
-    "8" => "Aislamientos",
-    "9" => "Elementos de construcción"
-);
 $texto .= "<div class='titCat'>$cat</div>";
 $texto .= "<div class='textCat'>Descubre nuestra amplia gama de $cat, diseñados para satisfacer las necesidades de cualquier proyecto de construcción.</div>";
 $texto .= "<div class='productos'>";
@@ -35,7 +24,8 @@ foreach ($resul as $row) {
     $stock = $row['Stock'];
     $precio_formateado = number_format($row["Precio"], 2);
     $texto .= "<div class='producto'>";
-    $texto .= "<img src='../imagenes/Productos/Categorias/{$row['Categoria']}/{$row['Cod_producto']}.png'></img>";
+    $texto.= "<a href='producto.php?codigo=" . $row['Cod_producto'] . "'>";
+    $texto .= "<img src='../imagenes/Productos/Categorias/{$row['Categoria']}/{$row['Cod_producto']}.png'></img></a>  ";
     $texto .= "<label>" . $row["Nombre"] . "</label>";
     $texto .= "<label>" . $precio_formateado . "€/Ud</label>";
     $texto .= "<div class='button'>
