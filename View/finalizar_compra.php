@@ -18,6 +18,8 @@ require_once('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'corre
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Finalizar pedido</title>
+    <link rel="shortcut icon" href="../imagenes/Logo.ico" type="image/x-icon" />
+    <link rel="icon" href="../imagenes/Logo.ico" type="image/x-icon" />
     <link href="../css/finalizar_compra.css" rel="stylesheet" type="text/css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -41,19 +43,70 @@ $nombre = Login_modelo::getNombreUsuario($_SESSION['correo']);
 $cod_producto = $_SESSION['carrito'];
 $resul = Productos_modelo::insertar_pedido($_SESSION['carrito'], $_SESSION['usuario']);
 $total = 0;
-if ($resul === FALSE) {
-    echo "<div class='alert-warning alert' role='alert'> No se ha podido realizar el producto.</div>";
-    header("LOCATION:" . $_SERVER['HTTP_REFERER'] . "");
+$con = Conectar::conexion('busuario');
+$cons = $con->query("SELECT productos.Categoria, productos.cod_producto, productos.nombre, productos.precio, pedidosproductos.unidades 
+FROM productos 
+JOIN pedidosproductos ON productos.cod_producto = pedidosproductos.cod_producto 
+WHERE pedidosproductos.cod_pedido = $resul");
+$productos = $cons->fetchAll(\PDO::FETCH_ASSOC);
+if ($cons === FALSE) {
+    echo "<div  class='alert-warning alert' role='alert'> No se ha podido realizar el producto.</div>";
+    header("LOCATION:" . $_SERVER['HTTP_REFERER']);
 } else {
     $correo = $_SESSION['correo'];
-    echo "<div class='alert-success alert'style='text-align:center' role='alert'> Pedido realizado con éxito. Se enviará un correo de confirmación a: <strong> $correo </strong>  </div>";
-    Correo_modelo::enviar_correo($correo, $nombre, "Pedido realizado", "Gracias " . $nombre . " por realizar el pedido en BricoTeis.");
-    $con = Conectar::conexion('busuario');
-    $cons = $con->query("SELECT productos.nombre, productos.precio, pedidosproductos.unidades 
-    FROM productos 
-    JOIN pedidosproductos ON productos.cod_producto = pedidosproductos.cod_producto 
-    WHERE pedidosproductos.cod_pedido = $resul");
-    $productos = $cons->fetchAll(\PDO::FETCH_ASSOC);
+    $cuerpo = "Gracias " . $nombre . " por realizar el pedido en BricoTeis. Sus productos: ";
+    $total = 0;
+
+    $cuerpo = '<html> 
+    <head> 
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    </head> 
+    <body style="font-family:Helvetica;" align="center"> 
+    
+        <div id="div_solic" align="left" style="max-width:900px;background-color:#f9f9f9;">
+            <div align="left" style="display:block;max-width:900px;width:fit-content;background-color:#f9f9f9;padding-bottom:30px;">
+                <table style="margin-left:11px;max-width:900px;width:100%;border-bottom:2px solid #2F5496;background-color:#f9f9f9;" border="0">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Unidades</th>
+                        </tr>
+                    </thead>';
+
+    foreach ($productos as $producto) {
+        $categoria = $producto['Categoria'];
+        $cod = $producto['cod_producto'];
+        $nom = $producto['nombre'];
+        $precio = $producto['precio'];
+        $unidades = $producto['unidades'];
+        $total += ($precio * $unidades);
+
+        $cuerpo .= "<tr>
+                    <td style='text-align: center;'>{$nom}</td>
+                    <td style='text-align: center;color:green;'>{$precio} €</td>
+                    <td style='text-align: center;color:blue;'>{$unidades}</td>
+                </tr>
+                ";
+
+    }
+
+    $cuerpo .= '<p STYLE="color:red;"> TOTAL: ' . $total . ' €</p></table>
+
+    <footer style="text-align: center; font-size: 12px; color: #555;">
+    <p>
+      BricoTeis &copy; 2023 | Teléfono: +00 000 000| 
+      <a href="mailto:bricoteis@b21.daw2d.iesteis.gal">bricoteis@b21.daw2d.iesteis.gal</a>
+    </p>
+  </footer>
+  
+    </body>
+</html>';
+
+    echo "<div class='alert-success alert' style='text-align:center' role='alert'> Pedido realizado con éxito. Se enviará un correo de confirmación a: <strong> $correo </strong> </div>";
+    Correo_modelo::enviar_correo($correo, $nombre, "Pedido realizado.", $cuerpo);
+
+
     foreach ($productos as $producto) {
         $nom = $producto['nombre'];
         $precio = $producto['precio'];
@@ -77,6 +130,7 @@ $total += ($total * 0.21) + 3;
 <html lang="es">
 <script>
     function imprimir() {
+
         window.print();
     }
 </script>

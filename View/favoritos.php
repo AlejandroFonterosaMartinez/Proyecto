@@ -53,7 +53,7 @@ require_once('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Cone
             $favoritos = array();
             foreach ($_SESSION['favoritos'] as $id_producto) {
                 // Obtener información del producto de la base de datos
-                $query = "SELECT Cod_producto, nombre, precio,descripcion FROM productos WHERE Cod_producto = :id_producto";
+                $query = "SELECT Cod_producto, nombre,Categoria, precio,descripcion FROM productos WHERE Cod_producto = :id_producto";
                 $con = Conectar::conexion('busuario');
                 $stmt = $con->prepare($query);
                 $id_producto = intval($id_producto);
@@ -72,7 +72,7 @@ require_once('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Cone
                     echo "<table class='table text-center'>";
                     echo "<thead><tr><th class='col-1'>Imagen</th><th class='col-1'>Nombre</th><th class='col-1'>Descripción</th><th class='col-1'>Precio</th><th class='col-1'></th></tr></thead>";
                     echo "<tbody>";
-                    echo "<tr><td class='col-1'><img class='img-thumbnail' src='../imagenes/Productos/{$producto['Cod_producto']}.png'></td><td class='col-1'>{$producto['nombre']}</td><td class='col-1'>{$producto['descripcion']}</td><td class='col-1'>{$producto['precio']}€</td>";
+                    echo "<tr><td class='col-1'><img class='img-fluid' style='width:150px;' src='../imagenes/Productos/Categorias/{$producto['Categoria']}/$cod.png'></img> </td><td class='col-1'>{$producto['nombre']}</td><td class='col-1'>{$producto['descripcion']}</td><td class='col-1'>{$producto['precio']}€</td>";
                     echo "<td class='col-1'>";
                     // Formulario para eliminar el producto
                     echo "<form method='post' action='eliminar_favorito.php'>";

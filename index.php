@@ -201,6 +201,7 @@ include("View/sesion.php");
         if ($_SESSION['rol'] == 2) {
             echo '<button id="mainBtn">Admin.</button>
         <div id="submenu">
+        <a href="View/admin/admin.php"><button>Dashboard</button></a>
             <a href="View/admin/usuarios/editar_usuarios.html"><button>Administrar Usuarios</button></a>
             <a href="View/admin/productos/editar_productos.php"><button>Administrar Productos</button></a>
             <a href="View/admin/pedidos/visualizar_pedidos.php"><button>Administrar Pedidos</button></a>
