@@ -34,6 +34,10 @@ require_once('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'corre
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+        integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </head>
 <?php
 
@@ -65,7 +69,7 @@ if ($cons === FALSE) {
     
         <div id="div_solic" align="left" style="max-width:900px;background-color:#f9f9f9;">
             <div align="left" style="display:block;max-width:900px;width:fit-content;background-color:#f9f9f9;padding-bottom:30px;">
-                <table style="margin-left:11px;max-width:900px;width:100%;border-bottom:2px solid #2F5496;background-color:#f9f9f9;" border="0">
+                <table id="tablaFactura" style="margin-left:11px;max-width:900px;width:100%;border-bottom:2px solid #2F5496;background-color:#f9f9f9;" border="0">
                     <thead>
                         <tr>
                             <th>Nombre</th>
@@ -103,7 +107,7 @@ if ($cons === FALSE) {
     </body>
 </html>';
 
-    echo "<div class='alert-success alert' style='text-align:center' role='alert'> Pedido realizado con éxito. Se enviará un correo de confirmación a: <strong> $correo </strong> </div>";
+    echo "<div class='alert-success alert' id='alert-suc' style='text-align:center' role='alert'> Pedido realizado con éxito. Se enviará un correo de confirmación a: <strong> $correo </strong> </div>";
     Correo_modelo::enviar_correo($correo, $nombre, "Pedido realizado.", $cuerpo);
 
 
@@ -128,22 +132,17 @@ $total += ($total * 0.21) + 3;
 ?>
 <!DOCTYPE html>
 <html lang="es">
-<script>
-    function imprimir() {
 
-        window.print();
-    }
-</script>
 
 <body id="pagina-imprimir">
 
-    <div class="container">
+    <div class="container" id="descargar">
 
 
         <div class="header">
             <img src="../imagenes/Logo.ico" alt="Logo" class="logo">
             <div class="info">
-                <button class="btn btn-light boton-imprimir" onclick="imprimir()">Imprimir🖨️</button><br><br>
+                <button id="download-button" class="btn btn-light boton-imprimir">Descargar factura 💾</button>
                 <p>BricoTeis SL</p>
                 <p>CIF: B12345678</p>
                 <p>Dirección: Teis, 12</p>
@@ -172,6 +171,7 @@ $total += ($total * 0.21) + 3;
                 <th class="text-center">Precio unitario</th>
                 <th class="text-center">Unidades</th>
                 <th class="text-center">Total<div class='small'>Iva + envío incluido</div>
+
                 </th>
             </tr>
             <?php foreach ($productos as $producto): ?>
@@ -206,11 +206,41 @@ $total += ($total * 0.21) + 3;
             <p>Este documento es una factura electrónica y tiene la misma validez legal que una factura en papel.
             </p>
             <p>Powered by BricoTeis SL</p>
+            <div class="boton-imprimir">
+                <a href="../index.php"><button class='btn-warning btn'>Volver</button></a>
+            </div>
         </div>
+        <br>
+        <br>
     </div>
-    <div class="boton-imprimir">
-        <a href="../index.php"><button class='btn-warning btn'>Volver</button></a>
-    </div>
+
 </body>
 
 </html>
+
+
+<script>
+    const guardarpdf = document.getElementById('download-button');
+
+    function generarpdf() {
+        const element = document.getElementById('descargar');
+        const fechaHoy = new Date().toISOString().slice(0, 10); // Obtener la fecha de hoy en formato YYYY-MM-DD
+        const nombreArchivo = 'factura_' + fechaHoy + '.pdf'; // Generar el nombre del archivo con la fecha de hoy
+
+        html2pdf().from(element).save(nombreArchivo);
+        document.getElementById('download-button').style.display = 'none';
+    }
+
+    guardarpdf.addEventListener('click', generarpdf);
+
+    // Obtener el elemento del div
+    const alertSuc = document.getElementById('alert-suc');
+
+    // Función para ocultar el div
+    function ocultarDiv() {
+        alertSuc.style.visibility = 'hidden';
+    }
+
+    // Programar el ocultamiento después de 5 segundos (5000 milisegundos)
+    setTimeout(ocultarDiv, 5000);
+</script>
