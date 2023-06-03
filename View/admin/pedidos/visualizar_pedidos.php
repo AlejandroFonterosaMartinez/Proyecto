@@ -16,7 +16,19 @@ include(".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTO
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/esm/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- Agregamos nuestros estilos personalizados -->
+    <style>
+    .pedido-info2 {
+        display: none;
+    }
+
+    .pedido-info2.visible {
+        display: block;
+    }
+</style>
+
+
 </head>
+
 <?php
 try {
     $pdo = Conectar::conexion('BTadmin');
@@ -45,7 +57,7 @@ echo '<div class="row">';
 echo '<div class="col-12">';
 echo '<div class="module">';
 echo '<div class="module-header d-flex justify-content-between align-items-center">';
-echo '<h2>Calendario de pedidos - '.$month.'/'. $year.'</h2>';
+echo '<h2>Calendario de pedidos - ' . $month . '/' . $year . '</h2><br><br><br>';
 echo '</div>';
 echo '<div class="module-body">';
 echo '<table class="calendar-table">';
@@ -61,30 +73,36 @@ echo '</tr>';
 // Botón para el mes anterior
 $prev_month = ($month == 1) ? 12 : $month - 1;
 $prev_year = ($month == 1) ? $year - 1 : $year;
-echo '<button id="prevMonthBtn" class="butone" onclick="location.href=\'?month='.$prev_month.'&year='.$prev_year.'\'">Mes Anterior</button>';
+echo '<button id="prevMonthBtn" class="butone" onclick="location.href=\'?month=' . $prev_month . '&year=' . $prev_year . '\'">Mes Anterior</button>';
 // Botón para el mes siguiente
 $next_month = ($month == 12) ? 1 : $month + 1;
 $next_year = ($month == 12) ? $year + 1 : $year;
-echo '<button id="nextMonthBtn" class="butone" onclick="location.href=\'?month='.$next_month.'&year='.$next_year.'\'">Mes Siguiente</button>';
+echo '<button id="nextMonthBtn" class="butone" onclick="location.href=\'?month=' . $next_month . '&year=' . $next_year . '\'">Mes Siguiente</button><br><br><br>';
 $fecha_actual = strtotime("$year-$month-01");
 $ultimo_dia_del_mes = strtotime('last day of this month', $fecha_actual);
 $dia_actual = 1;
-
 while ($fecha_actual <= $ultimo_dia_del_mes) {
     echo '<tr>';
     for ($i = 0; $i < 7; $i++) {
         $fecha_actual_str = date('Y-m-d', $fecha_actual);
         $tiene_pedido = isset($eventos[$fecha_actual_str]);
         $clase = $tiene_pedido ? 'has-pedidos' : 'no-pedidos';
-        echo '<td data-date="' . $fecha_actual_str . '" class="calendar-cell ' . $clase . '">' . $dia_actual;
+        echo '<td data-date="' . $fecha_actual_str . '" class="calendar-cell ' . $clase . '">';
+
         if ($tiene_pedido) {
-            echo '<div class="pedido-info">';
+            echo '<div class="pedido-info2">';
             foreach ($eventos[$fecha_actual_str] as $evento) {
-                echo '<div class="pedido-info-item">';
+                echo '<div class="pedido-info-item2">';
+                echo '<form method="POST" action="detalles_pedido.php">';
+                echo '<input type="hidden" name="numero_pedido" value="' . $evento['numero_pedido'] . '">';
+                echo '<input type="hidden" name="nombre_cliente" value="' . $evento['nombre_cliente'] . '">';
                 echo '<span class="cliente">Cliente: ' . $evento['nombre_cliente'] . '</span><br>';
-                echo '<span class="pedido">Pedido: ' . $evento['numero_pedido'] . '</span>';
+                echo '<span class="pedido">Pedido: ' . $evento['numero_pedido'] . '</span><br>';
+                echo '<button type="submit" value=""  style="height:15%;"class="butone">Ver detalles</button>';
+                echo '</form>';
                 echo '</div>';
             }
+            
             echo '</div>';
         }
 
@@ -100,16 +118,15 @@ echo '</div>';
 echo '</div>';
 echo '</div>';
 echo '</div>';
-echo '<a href="../admin.php"><button class="btn btn-secondary">
-Volver</button></a>';
+echo '<a href="../admin.php"><button class="btn btn-secondary">Volver</button></a>';
 ?>
 <script>
     const cells = document.querySelectorAll(".calendar-cell");
     cells.forEach(cell => {
         cell.addEventListener("click", () => {
-            const pedidos = cell.querySelector(".pedido-info");
+            const pedidos = cell.querySelector(".pedido-info2");
             if (pedidos) {
-                pedidos.classList.add("visible");
+                pedidos.classList.toggle("visible");
                 const backdrop = document.createElement("div");
                 backdrop.classList.add("backdrop");
                 document.body.appendChild(backdrop);
@@ -120,34 +137,4 @@ Volver</button></a>';
             }
         })
     })
-    // Obtener los botones de mes anterior y mes siguiente
-    const prevMonthBtn = document.querySelector("#prevMonthBtn");
-    const nextMonthBtn = document.querySelector("#nextMonthBtn");
-
-    // Manejar el evento "click" de los botones
-    prevMonthBtn.addEventListener("click", () => {
-        // Obtener el mes y el año actual
-        const currentMonth = parseInt("<?php echo $month ?>");
-        const currentYear = parseInt("<?php echo $year ?>");
-
-        // Obtener el mes y el año del mes anterior
-        const prevMonth = currentMonth == 1 ? 12 : currentMonth - 1;
-        const prevYear = currentMonth == 1 ? currentYear - 1 : currentYear;
-
-        // Redirigir a la página del mes anterior
-        window.location.href = `visualizar_pedidos.php?month=${prevMonth}&year=${prevYear}`;
-    });
-
-    nextMonthBtn.addEventListener("click", () => {
-        // Obtener el mes y el año actual
-        const currentMonth = parseInt("<?php echo $month ?>");
-        const currentYear = parseInt("<?php echo $year ?>");
-
-        // Obtener el mes y el año del mes siguiente
-        const nextMonth = currentMonth == 12 ? 1 : currentMonth + 1;
-        const nextYear = currentMonth == 12 ? currentYear + 1 : currentYear;
-
-        // Redirigir a la página del mes siguiente
-        window.location.href = `visualizar_pedidos.php?month=${nextMonth}&year=${nextYear}`;
-    });
 </script>

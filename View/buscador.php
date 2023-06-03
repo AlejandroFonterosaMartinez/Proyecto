@@ -19,6 +19,11 @@ include('sesion.php');
     <link href="../css/footer.css" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="../imagenes/Logo.ico" type="image/x-icon" />
     <link rel="icon" href="../imagenes/Logo.ico" type="image/x-icon" />
+    <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link href="../css/index.css" rel="stylesheet" type="text/css">
 </head>
 
 
@@ -50,24 +55,23 @@ include('sesion.php');
                 foreach ($result as $row) {
                     $cod = $row["Cod_producto"];
                     $precio_formateado = number_format($row["Precio"], 2);
-                    echo " <a href='producto.php?codigo=" . $cod . "'><div class='producto'>";
-                    echo "<img src='../imagenes/Productos/" . $row["Cod_producto"] . ".png'></a>";
-                    echo "<label>" . $row['Nombre'] . "</label>";
-                    echo "<label>" . $precio_formateado . "€/Ud</label>";
-                    echo "<div class='button'>";
-                    echo "  <form class='fav' method='post' action='favoritos.php'>
-                    <input type='hidden' name='id_producto_fav' value='{$row['Cod_producto']}'>
-                      <button class='favButton' name='anadir_fav' type='submit'>🤍</button>
-                      </form>
-                      <form class='troll' method='post'>
-                        <input type='hidden' name='id_producto' value='{$row['Cod_producto']}'>
-                        <input type='hidden' name='cantidad' value='1'>
-                        <button class='trollButton' name='anadir' type='submit'>AÑADIR AL CARRITO</button>
-                      </form>";
-                    echo "</div>";
-                    echo "</div>";
-                }
-                echo "</div>";
+                    echo "<div class='producto'>
+        <a href='View/producto.php?codigo=" . $row['Cod_producto'] . "'>
+        <img src='../imagenes/Productos/Categorias/{$row['Categoria']}/$cod.png'></img></a>
+          <label>{$row['Nombre']}</label>
+          <label>{$precio_formateado}€/Ud.</label>
+          <div class='button'>
+          <form class='fav' method='post' action='View/favoritos.php'>
+          <input type='hidden' name='id_producto_fav' value='{$row['Cod_producto']}'>
+            <button class='favButton' name='anadir_fav' type='submit'>🤍</button>
+            </form>
+            <form class='troll' method='post'>
+              <input type = 'submit' class='trollButton' name='anadir' value='Añadir al carrito'><input name ='cod' type='hidden' value = '$cod'></input>
+              <input name = 'unidades' type='number' min = '1' max='{$row['Stock']}' value = '1' onkeydown='return false'>
+            </form>
+          </div>
+        </div>";
+    }
             }
         } else {
             echo "Error al ejecutar la consulta.";

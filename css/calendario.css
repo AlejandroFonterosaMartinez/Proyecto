@@ -4,7 +4,7 @@ calendar-table { width: 100%; border-collapse: collapse; }
 .calendar-header { font-size: 18px; font-weight: bold; padding: 10px; text-align: center; }
 .calendar-cell { width: 14.28%; height: 100px; vertical-align: top; position: relative; border: 1px solid #ccc; }
 .no-pedidos { background-color: #fff; }
-.has-pedidos { background-color: #f0f0f0; cursor: pointer; }
+.has-pedidos { background-color: #d4e9e0; cursor: pointer; }
 .pedido-info { display: none; position: absolute; top: 25px; left: 0; right: 0; padding: 10px; background-color: #fff; border: 1px solid #ccc; z-index: 1; }
 .calendar-cell:hover .pedido-info { display: block; }
 .cliente { font-weight: bold; }

@@ -207,7 +207,7 @@ $total += ($total * 0.21) + 3;
             </p>
             <p>Powered by BricoTeis SL</p>
             <div class="boton-imprimir">
-                <a href="../index.php"><button class='btn-warning btn'>Volver</button></a>
+                <a href="../index.php"><button class='btn-warning btn' id="volveratras">Volver</button></a>
             </div>
         </div>
         <br>
@@ -223,24 +223,28 @@ $total += ($total * 0.21) + 3;
     const guardarpdf = document.getElementById('download-button');
 
     function generarpdf() {
-        const element = document.getElementById('descargar');
-        const fechaHoy = new Date().toISOString().slice(0, 10); // Obtener la fecha de hoy en formato YYYY-MM-DD
-        const nombreArchivo = 'factura_' + fechaHoy + '.pdf'; // Generar el nombre del archivo con la fecha de hoy
+    const element = document.getElementById('descargar');
+    const fechaHoy = new Date().toISOString().slice(0, 10);
+    const nombreArchivo = 'factura_' + fechaHoy + '.pdf';
 
-        html2pdf().from(element).save(nombreArchivo);
-        document.getElementById('download-button').style.display = 'none';
-    }
+    html2pdf().from(element).save(nombreArchivo);
+    document.getElementById('download-button').style.visibility = 'hidden';
+    
+    // Almacenar el estado de visibilidad de los botones en el almacenamiento local
+    localStorage.setItem('botonesVisibles', 'false');
+}
+
 
     guardarpdf.addEventListener('click', generarpdf);
 
     // Obtener el elemento del div
     const alertSuc = document.getElementById('alert-suc');
+    
 
     // Función para ocultar el div
     function ocultarDiv() {
         alertSuc.style.visibility = 'hidden';
     }
-
     // Programar el ocultamiento después de 5 segundos (5000 milisegundos)
     setTimeout(ocultarDiv, 5000);
 </script>
