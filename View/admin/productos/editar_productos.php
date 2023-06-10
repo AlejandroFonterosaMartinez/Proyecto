@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang=en>
-
 <head>
     <meta charset=utf-8>
     <title>PHP Function in JavaScript Demo</title>
@@ -27,6 +26,18 @@
             padding: 10px;
             box-sizing: border-box;
         }
+        h1{
+            text-align: center;
+            animation: 1s ease-out 0s 1 slideInFromLeft;
+        }
+        @keyframes slideInFromLeft {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
     </style>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -37,9 +48,8 @@
 
 <body>
     <div class="añadir">
-
         <H1>Agregar Productos</H1>
-        <div id="botones"><a href="../admin.php"><button class="btn btn-secondary">
+        <div id="botones" class="btn-group"><a href="../admin.php"><button style="margin-right:5px;" class="btn btn-secondary">
                     Volver</button></a>
             <form method="post" enctype="multipart/form-data">
                 <button type='submit' id="añadir" name="añadir" class='btn btn-outline-success'>Añadir</button>

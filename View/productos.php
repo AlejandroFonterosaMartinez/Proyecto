@@ -69,7 +69,7 @@ include('sesion.php');
                  */
                 echo "<div class='producto'>
                 <a href='producto.php?codigo=" . $producto['Cod_producto'] . "'>
-                        <img src='../imagenes/Productos/Categorias/{$producto['Categoria']}/{$cod}.png'></img>   
+                        <img  src='../imagenes/Productos/Categorias/{$producto['Categoria']}/{$cod}.png'></img>   
                         </a>   
                         <label>$nom</label>
                         <label>$precio_formateado €/Ud</label>

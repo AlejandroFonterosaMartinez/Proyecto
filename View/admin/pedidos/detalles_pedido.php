@@ -20,6 +20,7 @@ include(".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTO
             color: #333;
             margin-bottom: 20px;
         }
+        
 
         /* Estilos para la tabla */
         .tabla-pedidos {

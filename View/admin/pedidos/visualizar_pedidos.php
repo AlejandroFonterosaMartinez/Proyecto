@@ -3,6 +3,7 @@
 use Config\Conectar;
 
 include(".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "Config" . DIRECTORY_SEPARATOR . "Conectar.php");
+
 ?>
 
 <head>
@@ -24,6 +25,18 @@ include(".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTO
     .pedido-info2.visible {
         display: block;
     }
+    h1{
+            text-align: center;
+            animation: 1s ease-out 0s 1 slideInFromLeft;
+        }
+        @keyframes slideInFromLeft {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
 </style>
 
 
@@ -57,7 +70,7 @@ echo '<div class="row">';
 echo '<div class="col-12">';
 echo '<div class="module">';
 echo '<div class="module-header d-flex justify-content-between align-items-center">';
-echo '<h2>Calendario de pedidos - ' . $month . '/' . $year . '</h2><br><br><br>';
+echo '<h1>Calendario de pedidos - ' . $month . '/' . $year . '</h1><br><br><br>';
 echo '</div>';
 echo '<div class="module-body">';
 echo '<table class="calendar-table">';

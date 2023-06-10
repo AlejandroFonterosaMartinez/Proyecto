@@ -56,7 +56,7 @@ include('sesion.php');
                     $cod = $row["Cod_producto"];
                     $precio_formateado = number_format($row["Precio"], 2);
                     echo "<div class='producto'>
-        <a href='View/producto.php?codigo=" . $row['Cod_producto'] . "'>
+        <a href='producto.php?codigo=" . $row['Cod_producto'] . "'>
         <img src='../imagenes/Productos/Categorias/{$row['Categoria']}/$cod.png'></img></a>
           <label>{$row['Nombre']}</label>
           <label>{$precio_formateado}€/Ud.</label>
