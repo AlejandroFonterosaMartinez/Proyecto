@@ -3,7 +3,7 @@ use Config\Conectar;
 
 require_once('..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
 $db = Conectar::conexion('BTadmin');
-$sql = "SELECT Cod_producto,Nombre,Descripcion,Precio,Stock,Categoria,Descripcion_detallada,Destacado FROM productos WHERE Categoria =". $_POST['categoria'] ."";
+$sql = "SELECT Cod_producto,Nombre,Descripcion,Precio,Stock,Categoria,Descripcion_detallada,Destacado,Habilitado FROM productos WHERE Categoria =". $_POST['categoria'] ."";
 $stmt = $db->prepare($sql);
 if (!$stmt) {
     die("Error al preparar la consulta SQL.");
@@ -20,13 +20,17 @@ while ($valores = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $texto .= "<td>" . $valores["Stock"] . "</td>";
     $texto .= "<td>" . $valores["Categoria"] . "</td>";
     $texto .= "<td>" . $valores["Descripcion_detallada"] . "</td>";
-    if ($valores["Destacado"] == 1) {
-        $texto .= "<td>SI</td>";
-    } else {
-        $texto .= "<td>NO</td>";
+    if($valores['Destacado'] == 0){
+        $texto .= "<td><button type='button' class='btn btn-outline-info'>Añadir</button></td>";
+    }else{
+        $texto .= "<td><button type='button' class='btn btn-outline-danger'>Quitar</button></td>";
     }
     $texto .= "<td><button type='button' id='btn' class='btn btn-info'>Editar</button></td>";
-    $texto .= "<td><button type='button' class='btn btn-danger'>Borrar</button></td>";
+    if($valores['Habilitado'] == 0){
+        $texto .= "<td><button type='button' class='btn btn-outline-warning'>Habilitar</button></td>";
+    }else{
+        $texto .= "<td><button type='button' class='btn btn-danger'>Deshabilitar</button></td>";
+    }
     $texto .= "</tr>";
     $contador++;
 }

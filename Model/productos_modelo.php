@@ -42,7 +42,7 @@ class Productos_modelo
         include '../Config' . DIRECTORY_SEPARATOR . 'Conectar.php';
 
         $db = Conectar::conexion('busuario');
-        $ins = "SELECT * FROM productos WHERE Cod_producto='$cod'";
+        $ins = "SELECT * FROM productos WHERE Cod_producto='$cod' AND Habilitado=1";
         $resul = $db->query($ins);
         return $resul;
     }
@@ -154,7 +154,7 @@ class Productos_modelo
     {
         include('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
         $db = Conectar::conexion('busuario');
-        $ins = "SELECT Cod_producto,Nombre,Precio,Stock,Categoria FROM productos WHERE Categoria='$cat'";
+        $ins = "SELECT Cod_producto,Nombre,Precio,Stock,Categoria FROM productos WHERE Categoria='$cat'AND Habilitado=1";
         $resul = $db->query($ins);
         return $resul;
     }

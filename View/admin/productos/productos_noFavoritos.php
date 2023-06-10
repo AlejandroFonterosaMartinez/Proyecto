@@ -8,7 +8,7 @@ require_once('..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DI
  */
 $db = Conectar::conexion('BTadmin');
 $cod = $_POST['cod'];
-$sql = "DELETE FROM productos WHERE Cod_producto = :cod";
+$sql = "UPDATE productos Set Destacado = 0 WHERE Cod_producto = :cod";
 $stmt = $db->prepare($sql);
 $stmt->bindParam(':cod', $cod);
 $stmt->execute();
