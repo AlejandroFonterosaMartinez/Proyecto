@@ -8,12 +8,14 @@
         </div>
         <!-- Buscador -->
         <div class="buscador">
-            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
+            <!-- <form action=" <?php // echo $_SERVER['PHP_SELF']; ?>" method="get"> -->
+            <form action="" method="get">
                 <div class="cajaTexto">
                     <input type="text" name="query" name="query" placeholder="Buscar...">
-                    <button type="submit">
+                    <button type="submit" name="buscador" id="buscador">
                         <div class="lupa"><img src="../imagenes/Header/lupa.svg" /></div>
                     </button>
+
                 </div>
             </form>
         </div>
@@ -50,3 +52,13 @@
             } ?>
         </div>
 </header>
+
+<script>
+var buscar = document.getElementById('buscador');
+
+buscar.addEventListener('click', function(e) {
+    e.preventDefault();
+    //console.log('hola');
+    window.location.replace("http://localhost/Proyecto/php/buscador.php");
+})
+</script>
