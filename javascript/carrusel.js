@@ -1,4 +1,4 @@
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
   const ANCHO_LIMITE = 768; // Define el ancho límite en el que se cambian las imágenes
   const IMAGENES = [
     'imagenes/Banner/Banner01.png',

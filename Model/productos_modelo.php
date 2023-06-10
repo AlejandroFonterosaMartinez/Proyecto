@@ -21,7 +21,8 @@ class Productos_modelo
     public function get_productos()
     {
         include 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php';
-        $consulta = Conectar::conexion()->query("SELECT * FROM productos WHERE destacado=1");
+        $con = Conectar::conexion('busuario');
+        $consulta = $con->query("SELECT * FROM productos WHERE destacado=1");
         while ($row = $consulta->fetch(\PDO::FETCH_ASSOC)) {
             $this->productos[] = $row;
         }
@@ -39,7 +40,8 @@ class Productos_modelo
     public static function cargar_producto($cod)
     {
         include '../Config' . DIRECTORY_SEPARATOR . 'Conectar.php';
-        $db = Conectar::conexion();
+
+        $db = Conectar::conexion('busuario');
         $ins = "SELECT * FROM productos WHERE Cod_producto='$cod'";
         $resul = $db->query($ins);
         return $resul;
@@ -55,7 +57,7 @@ class Productos_modelo
     public static function insertar_pedido($carrito, $usuario)
     {
 
-        $bd = Conectar::conexion();
+        $bd = Conectar::conexion('busuario');
         $bd->beginTransaction();
         try {
             $hora = date("Y-m-d");
@@ -105,7 +107,7 @@ class Productos_modelo
      */
     public static function insertar_carrito($codigosProductos)
     {
-        $bd = Conectar::conexion();
+        $bd = Conectar::conexion('busuario');
         $placeholders = implode(',', array_fill(0, count($codigosProductos), '?'));
         $stmt = $bd->prepare("SELECT * FROM productos WHERE Cod_producto IN ($placeholders)");
 
@@ -119,6 +121,7 @@ class Productos_modelo
 
         return $resul;
     }
+
     /**
     *@brief Obtiene todas las categorias de la base de datos.
     *@return array Un array con todas las categorias obtenidas.
@@ -128,7 +131,8 @@ class Productos_modelo
     public function get_categorias()
     {
         try {
-            $consulta = Conectar::conexion()->query("SELECT * FROM categorias");
+            $con = Conectar::conexion('busuario');
+            $consulta = $con->query("SELECT * FROM categorias");
             while ($row = $consulta->fetch(\PDO::FETCH_ASSOC)) {
                 $this->categorias[] = $row;
             }
@@ -149,9 +153,136 @@ class Productos_modelo
     public static function cargar_categorias($cat)
     {
         include('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
-        $db = Conectar::conexion();
-        $ins = "SELECT Cod_producto,Nombre,Precio,Stock FROM productos WHERE Categoria='$cat'";
+        $db = Conectar::conexion('busuario');
+        $ins = "SELECT Cod_producto,Nombre,Precio,Stock,Categoria FROM productos WHERE Categoria='$cat'";
         $resul = $db->query($ins);
         return $resul;
     }
+
+
+    public function calcularTotalPedidosMes($mes, $ango)
+    {
+        include('../..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
+        $db = Conectar::conexion('busuario');
+        // Calcular total de pedidos en un mes y año determinados
+        $query = "SELECT SUM(p.Precio * pp.Unidades) AS Total
+                  FROM pedidosproductos pp
+                  INNER JOIN productos p ON pp.Cod_producto = p.Cod_producto
+                  INNER JOIN pedidos pe ON pp.Cod_pedido = pe.Cod_pedido
+                  WHERE MONTH(pe.Fecha) = :mes AND YEAR(pe.Fecha) = :ango";
+        try {
+            $statement = $db->prepare($query);
+            $statement->bindParam(':mes', $mes, \PDO::PARAM_INT);
+            $statement->bindParam(':ango', $ango, \PDO::PARAM_INT);
+            $statement->execute();
+            $total = $statement->fetchColumn();
+            // Si el total es null, establecerlo como 0
+            $total = $total ? $total : 0;
+
+            return number_format($total, 2) . "€";
+        } catch (\PDOException $e) {
+            return "Error en la consulta: " . $e->getMessage();
+        }
+
+    }
+
+    public function calcularTotalPedidosAnio($anio)
+    {
+
+        $db = Conectar::conexion('busuario');
+        // Calcular total de pedidos en un año determinado
+        $query = "SELECT SUM(p.Precio * pp.Unidades) AS Total
+                  FROM pedidosproductos pp
+                  INNER JOIN productos p ON pp.Cod_producto = p.Cod_producto
+                  INNER JOIN pedidos pe ON pp.Cod_pedido = pe.Cod_pedido
+                  WHERE YEAR(pe.Fecha) = :anio";
+        try {
+            $statement = $db->prepare($query);
+            $statement->bindParam(':anio', $anio, \PDO::PARAM_INT);
+            $statement->execute();
+            $total = $statement->fetchColumn();
+            // Si el total es null, establecerlo como 0
+            $total = $total ? $total : 0;
+
+            return number_format($total, 2) . "€";
+        } catch (\PDOException $e) {
+            return "Error en la consulta: " . $e->getMessage();
+        }
+
+    }
+    public function crearGraficaBarras($labels, $data, $chartId)
+    {
+        $grafica = '<canvas id="' . $chartId . '"></canvas>';
+        $grafica .= '<script>
+                        var ctx = document.getElementById("' . $chartId . '").getContext("2d");
+                        var myChart = new Chart(ctx, {
+                            type: "bar",
+                            data: {
+                                labels: ' . json_encode($labels) . ',
+                                datasets: [{
+                                    label: "Ganancias Anuales",
+                                    data: ' . json_encode($data) . ',
+                                    backgroundColor: "rgba(75, 192, 192, 0.2)",
+                                    borderColor: "rgba(75, 192, 192, 1)",
+                                    borderWidth: 3
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    y: {
+                                        beginAtZero: true
+                                    }
+                                }
+                            }
+                        });
+                    </script>';
+
+        return $grafica;
+    }
+
+    public function generarGraficaGananciasAnuales($ango)
+    {
+        $con = Conectar::conexion('busuario');
+
+        // Calcular las ganancias mensuales del año especificado
+        $query = "SELECT MONTH(pe.Fecha) AS Mes, SUM(p.Precio * pp.Unidades) AS Ganancias
+                  FROM pedidosproductos pp
+                  INNER JOIN productos p ON pp.Cod_producto = p.Cod_producto
+                  INNER JOIN pedidos pe ON pp.Cod_pedido = pe.Cod_pedido
+                  WHERE YEAR(pe.Fecha) = 2023
+                  GROUP BY MONTH(pe.Fecha)";
+
+        try {
+            $statement = $con->prepare($query); 
+            $statement->execute();
+            $resultados = $statement->fetchAll(\PDO::FETCH_ASSOC);
+
+            // Crear los datos para la gráfica
+            $labels = [];
+            $data = [];
+
+            foreach ($resultados as $resultado) {
+                $mes = $resultado['Mes'];
+                $ganancias = $resultado['Ganancias'];
+
+                $labels[] = date("F", mktime(0, 0, 0, $mes, 1)); // Obtener el nombre del mes
+                $data[] = $ganancias;
+            }
+
+            // Cerrar la conexión
+            $con = null;
+
+            // Generar la gráfica de barras
+            $chartId = 'ganancias-anuales- 2023';
+            $grafica = $this->crearGraficaBarras($labels, $data, $chartId);
+
+            // Devolver la gráfica generada
+            return $grafica;
+        } catch (\PDOException $e) {
+            echo "Error en la consulta: " . $e->getMessage();
+        }
+    }
+
+
+
 }

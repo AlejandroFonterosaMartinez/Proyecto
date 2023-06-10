@@ -1,11 +1,11 @@
 <?php
-
 namespace View;
 
 use Controllers\Login_controlador;
 
 include('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
 include('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'login_modelo.php');
+
 include('..' . DIRECTORY_SEPARATOR . 'Controller' . DIRECTORY_SEPARATOR . 'login_controlador.php');
 $login_controlador = new Login_controlador();
 session_start();
@@ -14,10 +14,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -48,6 +46,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="submit" name="submit" value="Iniciar Sesion" class="btn btn-primary" />
         </form>
         <p>Todavía sin una cuenta? <a href='registro_view.php'>Registrate aquí</a></p>
+        <a href="#" onclick="mostrarFormulario()">¿Olvidaste tu contraseña?</a>
+
+        <!-- agregar un div para ocultar/mostrar el formulario de cambio de contraseña -->
+        <div id="form-olvido" style="display: none">
+            <form action="../Controller/enviar_correopsw_controlador.php" method="POST">
+                <div class="form-group">
+                    <label for="correo">Correo electrónico</label>
+                    <input type="email" class="form-control" id="correopsw" name="correopsw" required>
+                </div>
+                <button type="submit" name="cambiopsw" class="btn btn-primary">Enviar correo</button>
+            </form>
+        </div>
+        <script>
+            function mostrarFormulario() {
+                document.getElementById("form-olvido").style.display = "block";
+            }
+        </script>
     </div>
     </div>
     </div>
