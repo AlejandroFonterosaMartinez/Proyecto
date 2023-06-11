@@ -254,7 +254,7 @@ include("View/sesion.php");
                     <img src="imagenes/Footer/Pago/Visa.svg" />
                 </div>
             </div>
-            <!-- Redes -->
+           
             <div class="redes">
                 <div class="titulo">
                     <h3>Manténte al día</h3>
