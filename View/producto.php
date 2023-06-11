@@ -23,6 +23,7 @@ include('sesion.php');
 <body>
     <div class="colorful">
         <?php
+        
         include('header.php');
         $producto_modelo = new Productos_modelo();
         $productos = $producto_modelo::cargar_producto($_GET['codigo']);
@@ -134,6 +135,8 @@ include('sesion.php');
                         </div>
                         <script src="../javascript/newsletter.js"></script>
                     </div>
+                </div>
+            </div>
                     <div class="legal">
                         <a href="infoLegal.php#privacidad">Política de privacidad</a>
                         <a href="infoLegal.php#datos">Recopilación y uso de datos</a>

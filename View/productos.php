@@ -24,54 +24,54 @@ include('sesion.php');
 </head>
 
 <body>
-<div class="colorful">
-    <?php include('header.php'); ?>
-    <script src="../javascript/vision.js"></script> 
-    <div class="contCats">
-        <button id="toggleMenuCat"> ≡ </button>
-        <div class="menuCat">
-            <!-- <input readonly type="button" class="categoria" value="Categoria" /> -->
-            <input type="button" class="categoria" value="Arenas y Gravas" />
-            <input type="button" class="categoria" value="Cementos Y Morteros" />
-            <input type="button" class="categoria" value="Madera" />
-            <input type="button" class="categoria" value="Hormigoneras, carretillas..." />
-            <input type="button" class="categoria" value="Cercados y Ocultación" />
-            <input type="button" class="categoria" value="Yesos Y Escayolas" />
-            <input type="button" class="categoria" value="Elementos de construcción" />
-            <input type="button" class="categoria" value="Aislamientos e impermeabilización" />
-        </div>
-        <script src="../javascript/menuLat.js"></script>
-        <div class="mostrar">
-            <?php
-            $cat_modelo = new Productos_modelo();
-            $productos = $cat_modelo::cargar_categorias($_GET['categoria']);
-            $categorias = array(
-                "1" => "Tejados Y Cubiertas",
-                "2" => "Cementos Y Morteros",
-                "3" => "Yesos Y Escayolas",
-                "4" => "Arenas y Gravas",
-                "5" => "Cercados y Ocultación",
-                "6" => "Madera",
-                "7" => "Hormigoneras, carretillas...",
-                "8" => "Aislamientose e impermeabilización",
-                "9" => "Elementos de construcción"
-            );
-            $valor_categoria = $_GET['categoria'];
-            $nombre_categoria = $categorias[$valor_categoria];
-            echo "<div class='titCat'>$nombre_categoria</div>";
-            echo "<div class='textCat'>Descubre nuestra amplia gama de $nombre_categoria, diseñados para satisfacer las necesidades de cualquier proyecto de construcción.</div>";
-            echo "<div class='productos'>";
-            foreach ($productos as $producto) {
-                $cod = $producto['Cod_producto'];
-                $nom = $producto['Nombre'];
-                $pre = $producto['Precio'];
-                $stock = $producto['Stock'];
-                $precio_formateado = number_format($pre, 2);
-                /*
-                 * Dentro del formulario hay un campo oculto para enviar el código del producto
-                 * que debemos añadir al carro del la compra. El formulario llama al fichero anadir.php
-                 */
-                echo "<div class='producto'>
+    <div class="colorful">
+        <?php include('header.php'); ?>
+        <script src="../javascript/vision.js"></script>
+        <div class="contCats">
+            <button id="toggleMenuCat"> ≡ </button>
+            <div class="menuCat">
+                <!-- <input readonly type="button" class="categoria" value="Categoria" /> -->
+                <input type="button" class="categoria" value="Arenas y Gravas" />
+                <input type="button" class="categoria" value="Cementos Y Morteros" />
+                <input type="button" class="categoria" value="Madera" />
+                <input type="button" class="categoria" value="Hormigoneras, carretillas..." />
+                <input type="button" class="categoria" value="Cercados y Ocultación" />
+                <input type="button" class="categoria" value="Yesos Y Escayolas" />
+                <input type="button" class="categoria" value="Elementos de construcción" />
+                <input type="button" class="categoria" value="Aislamientos e impermeabilización" />
+            </div>
+            <script src="../javascript/menuLat.js"></script>
+            <div class="mostrar">
+                <?php
+                $cat_modelo = new Productos_modelo();
+                $productos = $cat_modelo::cargar_categorias($_GET['categoria']);
+                $categorias = array(
+                    "1" => "Tejados Y Cubiertas",
+                    "2" => "Cementos Y Morteros",
+                    "3" => "Yesos Y Escayolas",
+                    "4" => "Arenas y Gravas",
+                    "5" => "Cercados y Ocultación",
+                    "6" => "Madera",
+                    "7" => "Hormigoneras, carretillas...",
+                    "8" => "Aislamientose e impermeabilización",
+                    "9" => "Elementos de construcción"
+                );
+                $valor_categoria = $_GET['categoria'];
+                $nombre_categoria = $categorias[$valor_categoria];
+                echo "<div class='titCat'>$nombre_categoria</div>";
+                echo "<div class='textCat'>Descubre nuestra amplia gama de $nombre_categoria, diseñados para satisfacer las necesidades de cualquier proyecto de construcción.</div>";
+                echo "<div class='productos'>";
+                foreach ($productos as $producto) {
+                    $cod = $producto['Cod_producto'];
+                    $nom = $producto['Nombre'];
+                    $pre = $producto['Precio'];
+                    $stock = $producto['Stock'];
+                    $precio_formateado = number_format($pre, 2);
+                    /*
+                     * Dentro del formulario hay un campo oculto para enviar el código del producto
+                     * que debemos añadir al carro del la compra. El formulario llama al fichero anadir.php
+                     */
+                    echo "<div class='producto'>
                 <a href='producto.php?codigo=" . $producto['Cod_producto'] . "'>
                         <img src='../imagenes/Productos/Categorias/{$producto['Categoria']}/{$cod}.png'></img>   
                         </a>   
@@ -88,77 +88,77 @@ include('sesion.php');
                           </form>
                         </div>
                     </div>";
-            }
-            echo "</div>";
-            ?>
-            <script src="../javascript/cantidadProd.js"></script>
-        </div>
-        <script>
-            const editButtons = document.querySelectorAll(".categoria");
-            editButtons.forEach(editBtn => editBtn.addEventListener("click", () => select_productos(editBtn.value)));
+                }
+                echo "</div>";
+                ?>
+                <script src="../javascript/cantidadProd.js"></script>
+            </div>
+            <script>
+                const editButtons = document.querySelectorAll(".categoria");
+                editButtons.forEach(editBtn => editBtn.addEventListener("click", () => select_productos(editBtn.value)));
 
-            function select_productos(value) {
-                console.log(value);
-                $.ajax({
-                    data: {
-                        "categoria": value
-                    },
-                    method: "POST",
-                    url: "select_productos.php"
-                })
-                    .done(function (response) {
-                        console.log(response);
-                        $("div.mostrar").html(response);
+                function select_productos(value) {
+                    console.log(value);
+                    $.ajax({
+                        data: {
+                            "categoria": value
+                        },
+                        method: "POST",
+                        url: "select_productos.php"
+                    })
+                        .done(function (response) {
+                            console.log(response);
+                            $("div.mostrar").html(response);
 
-                    });
-            }
-        </script>
-    </div>
-    <footer>
-        <div class="redes">
-            <div class="tituloFooter">
-                <h3>Nuestras Redes Sociales</h3>
-            </div>
-            <div class="contenido">
-                <img src="../imagenes/Footer/RRSS/facebook.svg" />
-                <img src="../imagenes/Footer/RRSS/twitter.svg" />
-                <img src="../imagenes/Footer/RRSS/youtube.svg" />
-                <img src="../imagenes/Footer/RRSS/instagram.svg" />
-                <img src="../imagenes/Footer/RRSS/linkedin.svg" />
-                <img src="../imagenes/Footer/RRSS/pinterest.svg" />
-            </div>
+                        });
+                }
+            </script>
         </div>
-        <div class="redes">
-            <div class="tituloFooter">
-                <h3>Proyecto Ecológico</h3>
+        <footer>
+            <div class="redes">
+                <div class="tituloFooter">
+                    <h3>Nuestras Redes Sociales</h3>
+                </div>
+                <div class="contenido">
+                    <img src="../imagenes/Footer/RRSS/facebook.svg" />
+                    <img src="../imagenes/Footer/RRSS/twitter.svg" />
+                    <img src="../imagenes/Footer/RRSS/youtube.svg" />
+                    <img src="../imagenes/Footer/RRSS/instagram.svg" />
+                    <img src="../imagenes/Footer/RRSS/linkedin.svg" />
+                    <img src="../imagenes/Footer/RRSS/pinterest.svg" />
+                </div>
             </div>
-            <div class="contenido">
-                <a href="eco.php">
-                    <img src="../imagenes/Footer/ECO/Agua.svg" />
-                    <img src="../imagenes/Footer/ECO/Reciclaje.svg" />
-                    <img src="../imagenes/Footer/ECO/Renovable.svg" />
-                </a>
+            <div class="redes">
+                <div class="tituloFooter">
+                    <h3>Proyecto Ecológico</h3>
+                </div>
+                <div class="contenido">
+                    <a href="eco.php">
+                        <img src="../imagenes/Footer/ECO/Agua.svg" />
+                        <img src="../imagenes/Footer/ECO/Reciclaje.svg" />
+                        <img src="../imagenes/Footer/ECO/Renovable.svg" />
+                    </a>
+                </div>
             </div>
-        </div>
-        <div class="redes">
-            <div class="tituloFooter">
-                <h3>Pago 100% Seguro</h3>
+            <div class="redes">
+                <div class="tituloFooter">
+                    <h3>Pago 100% Seguro</h3>
+                </div>
+                <div class="contenido">
+                    <img src="../imagenes/Footer/Pago/Amex.svg" />
+                    <img src="../imagenes/Footer/Pago/Klarna.svg" />
+                    <img src="../imagenes/Footer/Pago/Mastercard.svg" />
+                    <img src="../imagenes/Footer/Pago/Paypal.svg" />
+                    <img src="../imagenes/Footer/Pago/Visa.svg" />
+                </div>
             </div>
-            <div class="contenido">
-                <img src="../imagenes/Footer/Pago/Amex.svg" />
-                <img src="../imagenes/Footer/Pago/Klarna.svg" />
-                <img src="../imagenes/Footer/Pago/Mastercard.svg" />
-                <img src="../imagenes/Footer/Pago/Paypal.svg" />
-                <img src="../imagenes/Footer/Pago/Visa.svg" />
-            </div>
-        </div>
-        <div class="redes">
-            <div class="tituloFooter">
-                <h3>Manténte al día</h3>
-            </div>
-            <div class="contenido">
-                <a href="aboutUs.php">About Us</a>
-                <a id="newsletter-link">Newsletter </a>
+            <div class="redes">
+                <div class="tituloFooter">
+                    <h3>Manténte al día</h3>
+                </div>
+                <div class="contenido">
+                    <a href="aboutUs.php">About Us</a>
+                    <a id="newsletter-link">Newsletter </a>
                     <div id="newsletter-overlay">
                         <div id="newsletter-popup">
                             <button id="close-popup">X</button>
@@ -173,15 +173,17 @@ include('sesion.php');
                             </form>
                         </div>
                         <script src="../javascript/newsletter.js"></script>
-        </div>
-        <div class="legal">
-            <a href="infoLegal.php#privacidad">Política de privacidad</a>
-            <a href="infoLegal.php#datos">Recopilación y uso de datos</a>
-            <a href="infoLegal.php#cookies">Uso de cookies</a>
-            <a href="infoLegal.php#termsConds">Términos y condiciones</a>
-        </div>
-    </footer>
-</div>
+                    </div>
+                </div>
+            </div>
+            <div class="legal">
+                <a href="infoLegal.php#privacidad">Política de privacidad</a>
+                <a href="infoLegal.php#datos">Recopilación y uso de datos</a>
+                <a href="infoLegal.php#cookies">Uso de cookies</a>
+                <a href="infoLegal.php#termsConds">Términos y condiciones</a>
+            </div>
+        </footer>
+    </div>
 </body>
 
 </html>
