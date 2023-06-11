@@ -37,35 +37,40 @@ require_once('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'corre
             <form method="post">
                 <div id="nombre-field">
                     <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" required><br><br>
+                    <input type="text" id="nombre" name="nombre" required>
                 </div>
 
                 <div id="valoracion-field">
                     <label for="valoracion">Valoración:</label>
-                    <select id="valoracion" name="valoracion" required>
-                        <option value="">Seleccione una opción</option>
-                        <option value="Excelente">Excelente</option>
-                        <option value="Muy Bueno">Muy bueno</option>
-                        <option value="Bueno">Bueno</option>
-                        <option value="Regular">Regular</option>
-                        <option value="Malo">Malo</option>
-                    </select><br><br>
+                    <div class="rating">
+                        <input type="radio" id="star5" name="rating" value="Excelente">
+                        <label for="star5" title="Excelente"></label>
+                        <input type="radio" id="star4" name="rating" value="Muy Bueno">
+                        <label for="star4" title="Muy bueno"></label>
+                        <input type="radio" id="star3" name="rating" value="Bueno">
+                        <label for="star3" title="Bueno"></label>
+                        <input type="radio" id="star2" name="rating" value="Regular">
+                        <label for="star2" title="Regular"></label>
+                        <input type="radio" id="star1" name="rating" value="Malo">
+                        <label for="star1" title="Malo"></label>
+                    </div>
                 </div>
+                <script src="../javascript/valoracion.js"></script>
 
                 <div id="comentario-field">
-                    <label for="comentario">Comentario:</label><br>
-                    <textarea id="comentario" name="comentario" rows="4" cols="50" required></textarea><br><br>
+                    <label for="comentario">Comentario:</label>
+                    <textarea id="comentario" name="comentario" rows="4" cols="50" required></textarea>
                 </div>
 
                 <div id="submit-field">
                     <input type="submit" name="val" value="Enviar">
                 </div>
                 <?php if (isset($_POST['val'])) {
-                    Correo_modelo::enviar_correo('bricoteis@gmail.com', 'BricoTeis SL', "Valoración de " . $_POST['nombre'] . " recibida", "Valoración: " . $_POST['valoracion'] . "<br>Comentario: " . $_POST['comentario']);
+                    Correo_modelo::enviar_correo('bricoteis@gmail.com', 'BricoTeis SL', "Valoración de " . $_POST['nombre'] . " recibida", "Valoración: " . $_POST['rating'] . "<br>Comentario: " . $_POST['comentario']);
                     echo '<script>
                         Swal.fire({
-                            title: "Correo enviado",
-                            text: "El correo se ha enviado correctamente.",
+                            title: "Valoración enviada",
+                            text: "Tu valoración se ha enviado correctamente.",
                             icon: "success",
                             confirmButtonText: "Aceptar",
                             customClass: {
