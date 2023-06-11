@@ -6,6 +6,11 @@
   border-radius: 5px;
 }
 
+.colorful {
+  min-height: 100%;
+  position: relative;
+}
+
 #nombre-field,
 #valoracion-field,
 #comentario-field,
@@ -102,4 +107,11 @@ input[type="submit"]:hover,
   .rating label:before {
     font-size: 30px;
   }
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }

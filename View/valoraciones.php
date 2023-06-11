@@ -28,6 +28,7 @@ require_once('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'corre
         </div>
         <div id="scripts">
             <script src="../javascript/vision.js"></script>
+            <script src="../javascript/valoracion.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.all.min.js"></script>
         </div>
         <div id="formulario">
@@ -55,7 +56,6 @@ require_once('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'corre
                         <label for="star1" title="Malo"></label>
                     </div>
                 </div>
-                <script src="../javascript/valoracion.js"></script>
 
                 <div id="comentario-field">
                     <label for="comentario">Comentario:</label>
