@@ -7,9 +7,15 @@
 }
 
 .colorful {
-  min-height: 100%;
-  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
+
+body {
+  min-height: 40vh;
+}
+
 
 #nombre-field,
 #valoracion-field,
@@ -109,9 +115,3 @@ input[type="submit"]:hover,
   }
 }
 
-footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-}
