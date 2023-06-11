@@ -20,7 +20,17 @@
             </form>
         </div>
         <div class="menuPers">
-            <?php if (!isset($_SESSION['correo'])) {
+
+            <?php
+            // Obtener la URL de la foto de perfil del usuario
+            if (isset($_SESSION['usuario'])) {
+                $foto_perfil = "imagenes/Usuarios/" . $_SESSION['usuario'] . ".jpg";
+                if (!file_exists($foto_perfil)) {
+                    $foto_perfil = "imagenes/Header/01Menu/user.svg"; // Ruta de imagen predeterminada
+                }
+            }
+
+            if (!isset($_SESSION['correo'])) {
                 echo '
                      <div class="cuenta"><img src="../imagenes/Header/01Menu/user.svg" />Mi cuenta
                          <div class="submenu">
@@ -35,7 +45,7 @@
                 ;
                 '</div>';
             } else {
-                echo '<div class="cuenta"><img src="../imagenes/Header/01Menu/user.svg" />' . $_SESSION['correo'] . '
+                echo '<div class="cuenta" id="cuenta"><img src="../' . $foto_perfil . '"/>' . $_SESSION['correo'] . '
                     <div class="submenu">
                     <div class="subdiv"><button><a href="..' . DIRECTORY_SEPARATOR . 'Controller' . DIRECTORY_SEPARATOR . 'perfil_controlador.php"><img src="../imagenes/Header/01Menu/edit.svg" /><div class="subText">EDITAR PERFIL</div></button></a>
                     </div>
@@ -54,11 +64,11 @@
 </header>
 
 <script>
-var buscar = document.getElementById('buscador');
+    var buscar = document.getElementById('buscador');
 
-buscar.addEventListener('click', function(e) {
-    e.preventDefault();
-    //console.log('hola');
-    window.location.replace("http://localhost/Proyecto/php/buscador.php");
-})
+    buscar.addEventListener('click', function (e) {
+        e.preventDefault();
+        //console.log('hola');
+        window.location.replace("http://localhost/Proyecto/php/buscador.php");
+    })
 </script>

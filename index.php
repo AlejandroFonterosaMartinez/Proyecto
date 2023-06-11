@@ -208,7 +208,7 @@ include("View/sesion.php");
         </div>';
             echo '<script src="javascript/admin.js"></script>';
         }
-        ?>+
+        ?>
         <!-- Footer -->
         <footer>
             <!-- Contactanos -->

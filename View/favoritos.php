@@ -4,9 +4,30 @@ use Config\Conectar;
 include('sesion.php');
 require_once('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Conectar.php');
 
+if (isset($_POST['id_producto_fav'])) {
+    $con = Conectar::conexion('busuario');
+    $id_producto = $_POST['id_producto_fav'];
+    $usuario_id = $_SESSION['usuario'];
 
+    // Verificar si el producto ya está en la tabla de favoritos
+    $query = "SELECT COUNT(*) AS count FROM favoritos WHERE id_producto = :id_producto AND usuario_id = :usuario_id";
+    $stmt = $con->prepare($query);
+    $stmt->bindParam(':id_producto', $id_producto, PDO::PARAM_INT);
+    $stmt->bindParam(':usuario_id', $usuario_id, PDO::PARAM_INT);
+    $stmt->execute();
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
+    if ($result['count'] == 0) {
+        // Insertar el producto en la tabla de favoritos
+        $query = "INSERT INTO favoritos (id_producto, usuario_id) VALUES (:id_producto, :usuario_id)";
+        $stmt = $con->prepare($query);
+        $stmt->bindParam(':id_producto', $id_producto, PDO::PARAM_INT);
+        $stmt->bindParam(':usuario_id', $usuario_id, PDO::PARAM_INT);
+        $stmt->execute();
+    }
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -46,24 +67,23 @@ require_once('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Cone
 
         <?php
         include('header.php');
+        $con = Conectar::conexion('busuario');
 
+        if (isset($_SESSION['usuario'])) {
+            $usuario_id = $_SESSION['usuario'];
 
-        if (isset($_SESSION['favoritos'])) {
-            // Obtener detalles de los productos en favoritos
-            $favoritos = array();
-            foreach ($_SESSION['favoritos'] as $id_producto) {
-                // Obtener información del producto de la base de datos
-                $query = "SELECT Cod_producto, nombre,Categoria, precio,descripcion FROM productos WHERE Cod_producto = :id_producto";
-                $con = Conectar::conexion('busuario');
-                $stmt = $con->prepare($query);
-                $id_producto = intval($id_producto);
-                $stmt->bindParam(':id_producto', $id_producto, PDO::PARAM_INT);
-                $stmt->execute();
-                $producto = $stmt->fetch(PDO::FETCH_ASSOC);
-                // Agregar producto al array de favoritos
-                array_push($favoritos, $producto);
-            }
+            // Obtener detalles de los productos en favoritos desde la tabla "favoritos"
+            $query = "SELECT p.Cod_producto, p.nombre, p.Categoria, p.precio, p.descripcion
+              FROM favoritos AS f
+              JOIN productos AS p ON f.id_producto = p.Cod_producto
+              WHERE f.usuario_id = :usuario_id";
+            $stmt = $con->prepare($query);
+            $stmt->bindParam(':usuario_id', $usuario_id, PDO::PARAM_INT);
+            $stmt->execute();
+            $favoritos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
             echo "<h2>Productos Favoritos</h2>";
+
             // Mostrar productos en favoritos
             if (count($favoritos) > 0) {
                 foreach ($favoritos as $producto) {
@@ -74,50 +94,27 @@ require_once('..' . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'Cone
                     echo "<tbody>";
                     echo "<tr><td class='col-1'><img class='img-fluid' style='width:150px;' src='../imagenes/Productos/Categorias/{$producto['Categoria']}/$cod.png'></img> </td><td class='col-1'>{$producto['nombre']}</td><td class='col-1'>{$producto['descripcion']}</td><td class='col-1'>{$producto['precio']}€</td>";
                     echo "<td class='col-1'>";
-                    // Formulario para eliminar el producto
+                    // Formulario para eliminar el producto de favoritos
                     echo "<form method='post' action='eliminar_favorito.php'>";
                     echo "<input id='col-botones' type='hidden' name='eliminar_fav' value='{$producto['Cod_producto']}' />";
                     echo "<button type='submit' class='btn btn-danger'>🗑️</button>";
                     echo "</form>";
-                    echo " <form class='troll' method='post'>
-                    <input name = 'unidades' type='hidden' min = '1'  value = '1'>
-                    <input type = 'submit' class='btn-custom btn' name='anadir' value='🛒'><input name ='cod' type='hidden' value = '$cod'></input>
-                    
-                  </form>
-                    </form></form></form></td></tr>";
+                    echo "</td></tr>";
                     echo "</tbody>";
                     echo "</table>";
                 }
             } else {
                 echo "<div class='alert alert-danger' role='alert'>
-        No hay productos en favoritos.
-    </div>";
+                No hay productos en favoritos.
+              </div>";
             }
-
         } else {
             echo "<div class='alert alert-danger' role='alert'>
             No hay productos en favoritos.
-        </div>";
+          </div>";
         }
-        // Eliminar producto de favoritos
-        if (isset($_POST['eliminar_fav'])) {
-            $id_producto = $_POST['eliminar_fav'];
-            // Buscar el índice del producto en el array de favoritos
-            $indice = array_search($id_producto, $_SESSION['favoritos']);
-            $_POST['anadir_fav'] = [];
-            if ($indice !== false) {
-                // Eliminar el producto del array
-                unset($_SESSION['favoritos'][$indice]);
-                // Redirigir para actualizar la página
-        
-                if ($_POST['anadir_fav']) {
-
-                    header("Location: " . $_SERVER['HTTP_REFERER']);
-                }
-            }
-        }
-
         ?>
+
     </div>
 </body>
 
