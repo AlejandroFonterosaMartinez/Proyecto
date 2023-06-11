@@ -42,8 +42,10 @@ include(".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTO
 
 </head>
 
+
 <?php
 try {
+    $pdo = Conectar::conexion('BTadmin');
     $pdo = Conectar::conexion('BTadmin');
 } catch (PDOException $e) {
     echo 'Error al conectarse a la base de datos: ' . $e->getMessage();
@@ -87,9 +89,11 @@ echo '</tr>';
 $prev_month = ($month == 1) ? 12 : $month - 1;
 $prev_year = ($month == 1) ? $year - 1 : $year;
 echo '<button id="prevMonthBtn" class="butone" onclick="location.href=\'?month=' . $prev_month . '&year=' . $prev_year . '\'">Mes Anterior</button>';
+echo '<button id="prevMonthBtn" class="butone" onclick="location.href=\'?month=' . $prev_month . '&year=' . $prev_year . '\'">Mes Anterior</button>';
 // Botón para el mes siguiente
 $next_month = ($month == 12) ? 1 : $month + 1;
 $next_year = ($month == 12) ? $year + 1 : $year;
+echo '<button id="nextMonthBtn" class="butone" onclick="location.href=\'?month=' . $next_month . '&year=' . $next_year . '\'">Mes Siguiente</button><br><br><br>';
 echo '<button id="nextMonthBtn" class="butone" onclick="location.href=\'?month=' . $next_month . '&year=' . $next_year . '\'">Mes Siguiente</button><br><br><br>';
 $fecha_actual = strtotime("$year-$month-01");
 $ultimo_dia_del_mes = strtotime('last day of this month', $fecha_actual);
@@ -102,9 +106,16 @@ while ($fecha_actual <= $ultimo_dia_del_mes) {
         $clase = $tiene_pedido ? 'has-pedidos' : 'no-pedidos';
         echo '<td data-date="' . $fecha_actual_str . '" class="calendar-cell ' . $clase . '">';
 
+        echo '<td data-date="' . $fecha_actual_str . '" class="calendar-cell ' . $clase . '">';
+
         if ($tiene_pedido) {
             echo '<div class="pedido-info2">';
+            echo '<div class="pedido-info2">';
             foreach ($eventos[$fecha_actual_str] as $evento) {
+                echo '<div class="pedido-info-item2">';
+                echo '<form method="POST" action="detalles_pedido.php">';
+                echo '<input type="hidden" name="numero_pedido" value="' . $evento['numero_pedido'] . '">';
+                echo '<input type="hidden" name="nombre_cliente" value="' . $evento['nombre_cliente'] . '">';
                 echo '<div class="pedido-info-item2">';
                 echo '<form method="POST" action="detalles_pedido.php">';
                 echo '<input type="hidden" name="numero_pedido" value="' . $evento['numero_pedido'] . '">';
@@ -113,8 +124,12 @@ while ($fecha_actual <= $ultimo_dia_del_mes) {
                 echo '<span class="pedido">Pedido: ' . $evento['numero_pedido'] . '</span><br>';
                 echo '<button type="submit" value=""  style="height:15%;"class="butone">Ver detalles</button>';
                 echo '</form>';
+                echo '<span class="pedido">Pedido: ' . $evento['numero_pedido'] . '</span><br>';
+                echo '<button type="submit" value=""  style="height:15%;"class="butone">Ver detalles</button>';
+                echo '</form>';
                 echo '</div>';
             }
+            
             
             echo '</div>';
         }
@@ -132,13 +147,16 @@ echo '</div>';
 echo '</div>';
 echo '</div>';
 echo '<a href="../admin.php"><button class="btn btn-secondary">Volver</button></a>';
+echo '<a href="../admin.php"><button class="btn btn-secondary">Volver</button></a>';
 ?>
 <script>
     const cells = document.querySelectorAll(".calendar-cell");
     cells.forEach(cell => {
         cell.addEventListener("click", () => {
             const pedidos = cell.querySelector(".pedido-info2");
+            const pedidos = cell.querySelector(".pedido-info2");
             if (pedidos) {
+                pedidos.classList.toggle("visible");
                 pedidos.classList.toggle("visible");
                 const backdrop = document.createElement("div");
                 backdrop.classList.add("backdrop");

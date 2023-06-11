@@ -3,6 +3,11 @@ use Models\Correo_modelo;
 
 include("View/sesion.php");
 ?>
+<?php
+use Models\Correo_modelo;
+
+include("View/sesion.php");
+?>
 <!DOCTYPE html>
 <html>
 <!-- Head -->
@@ -26,6 +31,10 @@ include("View/sesion.php");
 <!-- Body -->
 
 <body>
+    <div class="colorful">
+        <!-- Header -->
+        <header>
+            <div class="containerH">
     <div class="colorful">
         <!-- Header -->
         <header>
@@ -286,7 +295,15 @@ include("View/sesion.php");
                 <a href="View/infoLegal.php#termsConds">Términos y condiciones</a>
             </div>
         </footer>
+            <div class="legal">
+                <a href="View/infoLegal.php#privacidad">Política de privacidad</a>
+                <a href="View/infoLegal.php#datos">Recopilación y uso de datos</a>
+                <a href="View/infoLegal.php#cookies">Uso de cookies</a>
+                <a href="View/infoLegal.php#termsConds">Términos y condiciones</a>
+            </div>
+        </footer>
 </body>
+</div>
 </div>
 
 </html>

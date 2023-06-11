@@ -63,6 +63,7 @@ if (isset($_POST['id_producto_fav'])) {
 </style>
 
 <body class="bg-light">
+<div class="colorful">
     <div class="container-fluid">
 
         <?php
@@ -92,6 +93,7 @@ if (isset($_POST['id_producto_fav'])) {
                     echo "<table class='table text-center'>";
                     echo "<thead><tr><th class='col-1'>Imagen</th><th class='col-1'>Nombre</th><th class='col-1'>Descripción</th><th class='col-1'>Precio</th><th class='col-1'></th></tr></thead>";
                     echo "<tbody>";
+                    echo "<tr><td class='col-1'><img class='img-fluid' style='width:150px;' src='../imagenes/Productos/Categorias/{$producto['Categoria']}/$cod.png'></img> </td><td class='col-1'>{$producto['nombre']}</td><td class='col-1'>{$producto['descripcion']}</td><td class='col-1'>{$producto['precio']}€</td>";
                     echo "<tr><td class='col-1'><img class='img-fluid' style='width:150px;' src='../imagenes/Productos/Categorias/{$producto['Categoria']}/$cod.png'></img> </td><td class='col-1'>{$producto['nombre']}</td><td class='col-1'>{$producto['descripcion']}</td><td class='col-1'>{$producto['precio']}€</td>";
                     echo "<td class='col-1'>";
                     // Formulario para eliminar el producto de favoritos

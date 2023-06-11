@@ -26,6 +26,8 @@ include('sesion.php');
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
 </head>
+<body>
+<div class="colorful">
 <?php
 include('header.php');
 $total = 0;
@@ -121,7 +123,9 @@ if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])) {
     </div>";
 }
 ?>
+    <script src="../javascript/vision.js"></script> 
 <script src="../javascript/cantidadProd.js"></script>
+</div>
 </body>
 
 </html>

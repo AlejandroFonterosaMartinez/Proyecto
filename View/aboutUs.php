@@ -1,4 +1,9 @@
-<?php include("sesion.php") ?>
+<?php
+use Models\Correo_modelo;
+
+include("sesion.php");
+require_once('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'correo_modelo.php');
+?>
 <!DOCTYPE html>
 <html>
 
@@ -17,7 +22,9 @@
 
 
 <body>
+<div class="colorful">
     <?php include("header.php") ?>
+    <script src="../javascript/vision.js"></script> 
     <div class="apartados">
         <div class="titulo">
             <h1>Quiénes somos</h1>
@@ -165,6 +172,7 @@
         <div class="redes">
             <div class="tituloFooter">
             <h3>Manténte al día</h3>
+            <h3>Manténte al día</h3>
             </div>
             <div class="contenido">
                 <a href="../php/aboutUs.php">About Us</a>
@@ -191,6 +199,7 @@
             <a href="infoLegal.php#termsConds">Términos y condiciones</a>
         </div>
     </footer>
+</div>
 </body>
 
 </html>

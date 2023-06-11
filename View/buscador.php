@@ -1,7 +1,9 @@
 <?php
 use Config\Conectar;
+use Models\Correo_modelo;
 
-include('sesion.php');
+include("sesion.php");
+require_once('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'correo_modelo.php');
 ?>
 
 
@@ -24,10 +26,16 @@ include('sesion.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link href="../css/index.css" rel="stylesheet" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link href="../css/index.css" rel="stylesheet" type="text/css">
 </head>
 
 
 <body>
+<div class="colorful">
     <?php
     include('header.php');
     // Conectar a la base de datos
@@ -39,6 +47,8 @@ include('sesion.php');
         $consulta = htmlspecialchars($_GET['query'], ENT_QUOTES, 'UTF-8');
 
         // Preparar la consulta con parámetros
+        $con = Conectar::conexion('busuario');
+        $stmt = $con->prepare("SELECT * FROM productos WHERE nombre LIKE :consulta");
         $con = Conectar::conexion('busuario');
         $stmt = $con->prepare("SELECT * FROM productos WHERE nombre LIKE :consulta");
 
@@ -80,6 +90,7 @@ include('sesion.php');
     }
 
     ?>
+    <script src="../javascript/vision.js"></script> 
     <footer>
         <div class="redes">
             <div class="tituloFooter">
@@ -121,21 +132,27 @@ include('sesion.php');
         <div class="redes">
             <div class="tituloFooter">
             <h3>Manténte al día</h3>
+            <h3>Manténte al día</h3>
             </div>
             <div class="contenido">
                 <a href="aboutUs.php">About Us</a>
-                <a id="newsletter-link">Newsletter</a>
-
-                <div id="newsletter-overlay">
-                    <div id="newsletter-popup">
-                        <button id="close-popup">X</button>
-                        <h2>Suscríbete a nuestra Newsletter</h2>
-                        <p>Ingresa tu correo electrónico para recibir nuestras últimas noticias y ofertas:</p>
-                        <form>
-                            <input type="email" name="email" placeholder="Tu correo electrónico" required>
-                            <button type="submit">Suscribirse</button>
-                        </form>
+                <a id="newsletter-link">Newsletter </a>
+                    <div id="newsletter-overlay">
+                        <div id="newsletter-popup">
+                            <button id="close-popup">X</button>
+                            <h2>Suscríbete a nuestra Newsletter</h2>
+                            <p>Ingresa tu correo electrónico para recibir nuestras últimas noticias y ofertas:</p>
+                            <form method="post">
+                                <input type="email" name="email" placeholder="Tu correo electrónico" required>
+                                <button type="submit" name="sub">Suscribirse</button>
+                                <?php if (isset($_POST['sub'])) {
+                                    Correo_modelo::enviar_correo($_POST['email'], $_SESSION['usuario'], "Gracias por subscribirte a nuestra newsletter" . $_POST['email']);
+                                } ?>
+                            </form>
+                        </div>
                     </div>
+                    <a href="valoraciones.php">Valoraciones</a>
+                    <script src="../javascript/newsletter.js"></script>
                 </div>
                 <script src="../javascript/newsletter.js"></script>
             </div>
@@ -147,6 +164,7 @@ include('sesion.php');
             <a href="infoLegal.php#termsConds">Términos y condiciones</a>
         </div>
     </footer>
+</div>
 </body>
 
 </html>
