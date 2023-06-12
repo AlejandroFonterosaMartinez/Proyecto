@@ -39,10 +39,3 @@ window.addEventListener('load', function () {
   renderizarImagen();
   intervalo = setInterval(pasarFoto, TIEMPO_INTERVALO_MILESIMAS_SEG);
 });
-
-const btn = document.querySelector('#btn');
-const colorfulElement = document.querySelector('.colorful');
-
-btn.addEventListener('click', () => {
-  colorfulElement.classList.toggle('grayscale');
-});

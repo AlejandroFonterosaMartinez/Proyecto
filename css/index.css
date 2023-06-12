@@ -364,20 +364,6 @@ input[type="number"]::-webkit-inner-spin-button {
     height: 0px;
   }
 }
-#btn{
-  background-color: #00b3aa;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
- 
-}
-#btn img{
-  width: 20px;
-  height: 20px;
-}
 
 #mainBtn {
   position: fixed;
