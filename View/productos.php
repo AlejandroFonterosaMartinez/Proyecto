@@ -24,6 +24,7 @@ include('sesion.php');
 <body>
     <?php include('header.php'); ?>
     <div class="contCats">
+    <div class="contCats">
         <button id="toggleMenuCat"> ≡ </button>
         <div class="menuCat">
             <!-- <input readonly type="button" class="categoria" value="Categoria" /> -->
@@ -81,12 +82,14 @@ include('sesion.php');
                           <form class='troll' method='post'>
                             <input type = 'submit' class='trollButton' name='anadir' value='Añadir al carrito'><input name ='cod' type='hidden' value = '$cod'></input>
                             <input name = 'unidades' type='number' min = '1' max='{$producto['Stock']}' value = '1' onkeydown='return false'>
+                            <input name = 'unidades' type='number' min = '1' max='{$producto['Stock']}' value = '1' onkeydown='return false'>
                           </form>
                         </div>
                     </div>";
             }
             echo "</div>";
             ?>
+            <script src="../javascript/cantidadProd.js"></script>
             <script src="../javascript/cantidadProd.js"></script>
         </div>
         <script>
@@ -130,6 +133,7 @@ include('sesion.php');
             </div>
             <div class="contenido">
                 <a href="eco.php">
+                <a href="eco.php">
                     <img src="../imagenes/Footer/ECO/Agua.svg" />
                     <img src="../imagenes/Footer/ECO/Reciclaje.svg" />
                     <img src="../imagenes/Footer/ECO/Renovable.svg" />
@@ -154,6 +158,7 @@ include('sesion.php');
             </div>
             <div class="contenido">
                 <a href="aboutUs.php">About Us</a>
+                <a href="aboutUs.php">About Us</a>
                 <a id="newsletter-link">Newsletter</a>
 
                 <div id="newsletter-overlay">
@@ -176,7 +181,12 @@ include('sesion.php');
             <a href="infoLegal.php#cookies">Uso de cookies</a>
             <a href="infoLegal.php#termsConds">Términos y condiciones</a>
         </div>
+        <div class="legal">
+            <a href="infoLegal.php#privacidad">Política de privacidad</a>
+            <a href="infoLegal.php#datos">Recopilación y uso de datos</a>
+            <a href="infoLegal.php#cookies">Uso de cookies</a>
+            <a href="infoLegal.php#termsConds">Términos y condiciones</a>
+        </div>
     </footer>
 </body>
-
 </html>

@@ -1,6 +1,5 @@
 <?php
 use Models\Correo_modelo;
-
 include("View/sesion.php");
 ?>
 <!DOCTYPE html>
