@@ -35,7 +35,6 @@ include("View/sesion.php");
                         <img src="imagenes/Header/Logo.svg" />
                         BricoTeis SL
                     </a>
-                    <button id="btn" title="Accesibilidad"><img src="imagenes/Header/ojo.png" /></button>
                 </div>
                 <!-- Buscador -->
                 <div class="buscador">
@@ -65,6 +64,7 @@ include("View/sesion.php");
                 <div class="submenu">
                     <div class="subdiv"><button><a href="View' . DIRECTORY_SEPARATOR . 'registro_view.php"><img src="imagenes/Header/01Menu/register.svg" /><div class="subText">REGISTRARSE</div></a></button></div>
                     <div class="subdiv"><button><a href="View' . DIRECTORY_SEPARATOR . 'login_view.php"><img src="imagenes/Header/01Menu/entrance.svg" /><div class="subText">INICIAR SESIÓN</div></a></button></div>
+                    <div class="subdiv"><button id="btn" title="Accesibilidad"><a><img src="imagenes/Header/01Menu/ojo.png" /><div class="subText">B&N</div></a></button></div>
                 </div>
             </div>
             <div><a href="View' . DIRECTORY_SEPARATOR . 'favoritos.php"><img src="imagenes/Header/01Menu/heart.svg"/>Favoritos</a></div>
@@ -72,10 +72,11 @@ include("View/sesion.php");
                         require('View' . DIRECTORY_SEPARATOR . 'contador_carrito.php');
                         echo '</div>';
                     } else {
-                        echo '<div class="cuenta" id="cuenta"><img src="' . $foto_perfil . '"/>' . $_SESSION['correo'] . '
+                        echo '<div class="cuenta" id="cuenta"><img src="' . $foto_perfil . '" style="width: 20px; height: 20px; border-radius: 50%;"/>' . $_SESSION['correo'] . '
             <div class="submenu">
                 <div class="subdiv"><button><a href="Controller' . DIRECTORY_SEPARATOR . 'perfil_controlador.php"><img src="imagenes/Header/01Menu/edit.svg" /><div class="subText">EDITAR PERFIL</div></button></a></div>
                 <div class="subdiv"><button><a href="View' . DIRECTORY_SEPARATOR . 'logout.php"><img src="imagenes/Header/01Menu/exit.svg" /><div class="subText">CERRAR SESIÓN</div></a></button></div>
+                <div class="subdiv"><button id="btn" title="Accesibilidad"><a><img src="imagenes/Header/01Menu/ojo.png" /><div class="subText">B&N</div></a></button></div>
             </div>
         </div>
         <div><a href="View' . DIRECTORY_SEPARATOR . 'favoritos.php"><img src="imagenes/Header/01Menu/heart.svg"/>Favoritos</a></div>
@@ -86,7 +87,7 @@ include("View/sesion.php");
                         echo '</div>';
                     }
                     ?>
-
+        <script src="javascript/vision.js"></script>
                 </div>
         </header>
         <!-- Carrousel de banners -->
@@ -260,7 +261,7 @@ include("View/sesion.php");
                 <!-- Info -->
                 <div class="contenido">
                     <a href="View/aboutUs.php">About Us</a>
-                    <a id="newsletter-link">Newsletter</a>
+                    <a id="newsletter-link">Newsletter </a>
                     <div id="newsletter-overlay">
                         <div id="newsletter-popup">
                             <button id="close-popup">X</button>
@@ -275,6 +276,7 @@ include("View/sesion.php");
                             </form>
                         </div>
                     </div>
+                    <a href="View/valoraciones.php">Valoraciones</a>
                     <script src="javascript/newsletter.js"></script>
                 </div>
             </div>

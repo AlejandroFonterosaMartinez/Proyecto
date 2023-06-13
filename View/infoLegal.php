@@ -1,4 +1,9 @@
-<?php include('sesion.php'); ?>
+<?php
+use Models\Correo_modelo;
+
+include("sesion.php");
+require_once('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'correo_modelo.php');
+?>
 <!DOCTYPE html>
 <html>
 
@@ -17,11 +22,14 @@
 
 
 <body>
+<div class="colorful">
     <?php include('header.php'); ?>
+    <script src="../javascript/vision.js"></script> 
     <div class="apartados">
         <div class="titulo">
             <h1>Información Legal</h1>
         </div>
+     
         <div class="apartado" id="privacidad">
             <h2>Política de privacidad de BricoTeis SL</h2>
             <p>Nos comprometemos a proteger su privacidad y a garantizar que sus datos personales sean tratados de
@@ -30,6 +38,7 @@
                 datos
                 personales.</p>
         </div>
+     
         <div class="apartado" id="datos">
             <h2>Recopilación de datos</h2>
             <p>Recopilamos información sobre usted en varias ocasiones, como cuando se registra en nuestro sitio web,
@@ -69,6 +78,7 @@
                 evaluar y mejorar nuestras medidas de seguridad para asegurarnos de que su información esté siempre
                 protegida. </p>
         </div>
+      
         <div class="apartado" id="cookies">
             <h2>Cookies</h2>
             <p>En nuestro sitio web, utilizamos cookies con el objetivo de mejorar su experiencia de navegación y
@@ -80,6 +90,7 @@
                 fluida y personalizada. Puede configurar su navegador para rechazar las cookies si lo desea, pero tenga
                 en cuenta que esto puede afectar la funcionalidad de nuestro sitio web. </p>
         </div>
+  
         <div class="apartado" id="termsConds">
             <h2>Términos y condiciones</h2>
             <p>Al usar nuestro sitio web, acepta nuestros términos y condiciones, que incluyen esta política de
@@ -140,21 +151,27 @@
         <div class="redes">
             <div class="tituloFooter">
             <h3>Manténte al día</h3>
+            <h3>Manténte al día</h3>
             </div>
             <div class="contenido">
-                <a href="../php/aboutUs.php">About Us</a>
-                <a id="newsletter-link">Newsletter</a>
-
-                <div id="newsletter-overlay">
-                    <div id="newsletter-popup">
-                        <button id="close-popup">X</button>
-                        <h2>Suscríbete a nuestra Newsletter</h2>
-                        <p>Ingresa tu correo electrónico para recibir nuestras últimas noticias y ofertas:</p>
-                        <form>
-                            <input type="email" name="email" placeholder="Tu correo electrónico" required>
-                            <button type="submit">Suscribirse</button>
-                        </form>
+                <a href="aboutUs.php">About Us</a>
+                <a id="newsletter-link">Newsletter </a>
+                    <div id="newsletter-overlay">
+                        <div id="newsletter-popup">
+                            <button id="close-popup">X</button>
+                            <h2>Suscríbete a nuestra Newsletter</h2>
+                            <p>Ingresa tu correo electrónico para recibir nuestras últimas noticias y ofertas:</p>
+                            <form method="post">
+                                <input type="email" name="email" placeholder="Tu correo electrónico" required>
+                                <button type="submit" name="sub">Suscribirse</button>
+                                <?php if (isset($_POST['sub'])) {
+                                    Correo_modelo::enviar_correo($_POST['email'], $_SESSION['usuario'], "Gracias por subscribirte a nuestra newsletter" . $_POST['email']);
+                                } ?>
+                            </form>
+                        </div>
                     </div>
+                    <a href="valoraciones.php">Valoraciones</a>
+                    <script src="../javascript/newsletter.js"></script>
                 </div>
                 <script src="../javascript/newsletter.js"></script>
             </div>
@@ -165,7 +182,9 @@
             <a href="#cookies">Uso de cookies</a>
             <a href="#termsConds">Términos y condiciones</a>
         </div>
+      
     </footer>
+</div>
 </body>
 
 </html>

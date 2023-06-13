@@ -1,4 +1,9 @@
-<?php include('sesion.php'); ?>
+<?php
+use Models\Correo_modelo;
+
+include("sesion.php");
+require_once('..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'correo_modelo.php');
+?>
 <!DOCTYPE html>
 <html>
 
@@ -17,7 +22,9 @@
 
 
 <body>
+<div class="colorful">
     <?php include('header.php'); ?>
+    <script src="../javascript/vision.js"></script> 
     <div class="apartados">
         <div class="titulo">
             <h1>Proyecto ECO</h1>
@@ -113,21 +120,24 @@
             </div>
             <div class="contenido">
                 <a href="aboutUs.php">About Us</a>
-                <a id="newsletter-link">Newsletter</a>
-
-                <div id="newsletter-overlay">
-                    <div id="newsletter-popup">
-                        <button id="close-popup">X</button>
-                        <h2>Suscríbete a nuestra Newsletter</h2>
-                        <p>Ingresa tu correo electrónico para recibir nuestras últimas noticias y ofertas:</p>
-                        <form>
-                            <input type="email" name="email" placeholder="Tu correo electrónico" required>
-                            <button type="submit">Suscribirse</button>
-                        </form>
+                <a id="newsletter-link">Newsletter </a>
+                    <div id="newsletter-overlay">
+                        <div id="newsletter-popup">
+                            <button id="close-popup">X</button>
+                            <h2>Suscríbete a nuestra Newsletter</h2>
+                            <p>Ingresa tu correo electrónico para recibir nuestras últimas noticias y ofertas:</p>
+                            <form method="post">
+                                <input type="email" name="email" placeholder="Tu correo electrónico" required>
+                                <button type="submit" name="sub">Suscribirse</button>
+                                <?php if (isset($_POST['sub'])) {
+                                    Correo_modelo::enviar_correo($_POST['email'], $_SESSION['usuario'], "Gracias por subscribirte a nuestra newsletter" . $_POST['email']);
+                                } ?>
+                            </form>
+                        </div>
                     </div>
+                    <a href="valoraciones.php">Valoraciones</a>
+                    <script src="../javascript/newsletter.js"></script>
                 </div>
-                <script src="../javascript/newsletter.js"></script>
-            </div>
         </div>
         <div class="legal">
             <a href="infoLegal.php#privacidad">Política de privacidad</a>
@@ -136,6 +146,7 @@
             <a href="infoLegal.php#termsConds">Términos y condiciones</a>
         </div>
     </footer>
+</div>
 </body>
 
 </html>
